@@ -1,0 +1,196 @@
+\documentclass[a4paper,11pt,twoside]{report}
+\setcounter{errorcontextlines}{999}
+
+%%%pre-amble%%%%%%%%
+\usepackage{graphicx}
+\usepackage{hyperref} %this makes everything hyper-refed
+\usepackage{fancyhdr}
+\usepackage{subfigure}
+\usepackage{textgreek}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{color}
+\usepackage{grffile}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{lscape}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{setspace}
+\usepackage{subfig}
+\usepackage{makecell}
+\renewcommand\theadalign{cb}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+\usepackage{multirow}
+\usepackage{longtable}
+
+\usepackage{anyfontsize}
+\usepackage{emptypage} % all cleardoublepage are without page numbers
+\lhead{} 
+\usepackage[round]{natbib}
+
+\usepackage{pdflscape} % for landscape pages
+\usepackage{sidecap} % for side captions
+
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{1pt}}
+\usepackage[a4paper,left=3.81cm,right=2cm,top=2cm,bottom=2.5cm,footskip=30pt]{geometry}
+\pagestyle{fancy} 
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\LARGE\bfseries}
+\titlespacing{\chapter}{0pt}{0pt}{1cm}
+\fancyfoot[C]{\thepage}
+\usepackage[T1]{fontenc}
+\usepackage[toc,page]{appendix}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\graphicspath{{/Users/Jack/google_drive/Work/PhD_Year_4/Thesis/Figures}} %this is the path to all your figures
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\begin{document}
+\setcounter{page}{7}
+
+\begin{titlepage}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\center 
+
+%logo
+\includegraphics[width=7cm]{Figures/misc/ucllogo.jpg}\\[1cm]
+%headings
+\textsc{\LARGE University College London}\\[2cm] % Name of your university/college
+%title
+\HRule \\[1cm]
+%CHANGE TITLE?
+{ \huge \bfseries RNA dysregulation in models of frontotemporal dementia and amyotrophic lateral sclerosis}\\[0.4cm] 
+\HRule \\[1.5cm]
+
+
+\textsc{\Large Doctoral Thesis}\\[1.5cm] % Minor heading such as course title
+
+
+%Author
+%\begin{minipage}[t]{0.8\textwidth}
+%\begin{flushleft} \large
+%\raggedright
+\emph{Author:}\\
+Jack \textsc{Humphrey}\\[1cm] % Author's Name
+%\end{flushleft}
+%\end{minipage}
+
+%\begin{minipage}[t]{0.8\textwidth}
+%\begin{flushright} \large
+%\raggedleft
+\emph{Supervisors:} \\
+Dr Adrian \textsc{Isaacs}\\ 
+Dr Vincent \textsc{Plagnol}\\ 
+Dr Pietro \textsc{Fratta}\\[1cm]
+
+
+\textsc{\Large UCL Institute of Neurology}\\[0.5cm] % Major heading such as course name
+\textsc{\Large UCL Genetics Institute}\\[2cm] % Major heading such as course name
+
+
+%\end{flushright}
+%\end{minipage}\\[3cm]
+
+%date
+{\large \today}\\[3cm] 
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
+%\clearpage
+
+\phantomsection
+\begin{abstract}
+%% update!
+
+Amyotrophic lateral sclerosis (ALS) and frontotemporal dementia (FTD) are two rare but devastating neurodegenerative diseases that share pathological features and genetic factors. A central problem in  both diseases is understanding the role of RNA-binding proteins, exemplified by transactive response DNA-binding protein 43kDa (TDP-43) and fused in sarcoma (FUS). These proteins play a vital role in RNA regulation in all cells but in diseased neurons they alter their function to form potentially pathogenic aggregates. These can be linked to genetic mutations in some rare cases, although most cases of ALS/FTD have no known genetic cause. My work uses the revolutionary technology of RNA sequencing to understand changes in RNA expression, splicing and transport in different cellular and animal models of sporadic and genetic disease.\\
+I present a meta-analysis of published RNA sequencing experiments which deplete TDP-43 or FUS as a crude model of sporadic disease. Using these datasets, I assess the evidence for cryptic splicing, an unusual RNA phenotype caused by a loss of mRNA splicing fidelity. I demonstrate that repression of cryptic splicing is a specific function of TDP-43 and not FUS. My analysis predicts that cryptic splicing leads to expression changes due to disrupted mRNA stability and may therefore be a cause of neurodegeneration in ALS and FTD.\\ 
+I then describe work on a new mouse model of FUS-mediated ALS. I observe that gene expression changes are seen only in the spinal cord and not in the cortex. These expression changes are progressive, occurring late into the lifespan of the mice and are accompanied by motor neuron loss. The altered mRNAs are enriched in mitochondrial and ribosomal genes, which warrant further investigation into the mutant protein's role in translation and transport of its target mRNAs. 
+Lastly, I map out the remaining projects for the rest of my PhD. My goal is to transfer the insight gained from the model work into establishing mechanisms of disease course and aetiology in the analysis of human patient data. 
+
+
+
+
+
+
+\end{abstract}
+%\clearpage
+
+\cleardoublepage
+
+\pagenumbering{roman}
+\tableofcontents %prints table of contents
+\listoffigures %prints list of figures	
+\listoftables %prints list of tables
+
+\section*{\LARGE{List of abbreviations}}
+\begin{table}[h!]
+	\begin{tabular}{ll}
+		ALS & Amyotrophic lateral sclerosis \\
+		eCLIP & Enhanced UV crosslinking and immunoprecipitation \\
+		ES cell & Embryonic stem cell \\
+		FTD	& Frontotemporal dementia \\
+		FUS & RNA-binding protein Fused in Sarcoma \\
+		GO & Gene ontology \\
+		hnRNP &	Heterogeneous nuclear ribonucleoprotein\\
+		iCLIP & Individual nucleotide resolution UV crosslinking and immunoprecipitation \\
+		LCD & Low complexity domain \\
+		LINE & Long interspersed nuclear element \\
+		PTC	& Premature termination codon \\
+		RBP & RNA-binding protein \\
+		RRM & RNA-recognition motif \\
+		RNA-seq & RNA sequencing \\
+		SINE & Short interspersed nuclear element \\
+		snRNA & Small nuclear RNA \\
+		TDP-43 & Transactive response DNA binding protein, 43 kDa - protein \\
+		\textit{TARDBP} & Transactive response DNA binding protein - gene name \\
+		TSS & transcription start site \\
+		UTR & untranslated region \\
+	\end{tabular}
+\end{table}
+\clearpage
+
+\pagenumbering{arabic} % Switch to normal numbers
+
+% CONTENT
+\input{Chapters/01_introduction.tex}
+\input{Chapters/02_methods.tex}
+\input{Chapters/03_cryptic_exons.tex}
+\input{Chapters/04_fus_mice.tex}
+\input{Chapters/05_tdp_mice.tex}
+\input{Chapters/discussion.tex}
+
+% ACKNOWLEGEMENTS
+\clearpage
+%\input{Chapters/99_acknowledgements.tex}
+
+
+
+%\bibliographystyle{nar}
+\bibliographystyle{Bibliography/plainnat_edit}
+\bibliography{Bibliography/thesis_references} %.bib files
+
+
+\begin{appendices}
+	\section*{Appendices}
+	\begin{enumerate}
+	\item Cryptic exon motifs found by \textit{HOMER}\\
+	\item All mouse cryptic exons discovered by \textit{CryptEx}\\ 
+	\item All human cryptic exons discovered by\textit{CryptEx}\\
+	\end{enumerate}
+
+% APPENDICES!!!
+
+%\input{Chapters/appendices.tex}
+\end{appendices}
+\cleardoublepage
+\end{document}
