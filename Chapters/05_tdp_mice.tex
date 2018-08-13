@@ -79,11 +79,9 @@ All  differential  splicing  results  presented  are  significant  at  a  false 
 
 % figure showing both mutations within the structure of TDP-43
 \begin{figure}[h!]
-	%\begin{center}
-		\centering
-		\includegraphics[scale=0.6]{Figures/05_tdp_mice/TDP_structure_mutations.png}
-	%\end{center}
-	\caption{Two TARDBP mutations and their location within the TDP-43 protein}
+	\centering
+	\includegraphics[scale=0.6]{Figures/05_tdp_mice/TDP_structure_mutations.png}
+	\caption{\textbf{Two TARDBP mutations and their location within the TDP-43 protein}}
 	RRM2mut affects the second RNA recognition motif whereas LCDmut affects the C-terminal low complexity domain.
 	\label{fig:tdp_structure}
 \end{figure}
@@ -98,11 +96,9 @@ Deriving mice from the mutant sperm and backcrossing for several generations ont
 
 
 \begin{figure}[h!]
-	%\begin{center}
 	\centering
 	\includegraphics[width=12cm]{Figures/05_tdp_mice/CFTR.png}
-	%\end{center}
-	\caption{Opposite effects on splicing CFTR exon 9 minigene, a known TDP-43 splicing target}
+	\caption{\textbf{Opposite effects on splicing CFTR exon 9 minigene, a known TDP-43 splicing target}}
 	RT-PCR traces from primers flanking CFTR exon 9, quantified as PSI ratios for each genotype. *** P < 0.0001 (ANOVA); ** P < 0.01; *** P < 0.001 (Tukey post-hoc test)	
 	\label{fig:CFTR}
 \end{figure}
@@ -113,9 +109,7 @@ Exon 9 of the \textit{CFTR} gene was the first splicing target of TDP-43 to be d
 %% INSERT TDP MEF SCATTERS
 \begin{figure}[h!]
 	\centering
-	%\begin{center}
 	\includegraphics[width=14cm]{Figures/05_tdp_mice/mef_scatters.png}
-	%\end{center}
 	\caption{\textbf{Comparing the two mutations with a TDP-43 shRNA knockdown}}
 	Signed Z-scores for all exons found by DEXSeq in the mouse embryonic fibroblasts, comparing a TDP-43 shRNA knockdown to RRM2mut (A) and LCDmut (B) and comparing the two mutations (C). Exons significant at FDR < 10\% plotted as red triangles, non-significant exons plotted as grey dots.
 	\label{fig:mef_scatters}
@@ -128,9 +122,7 @@ To look transcriptome-wide at the effects of the two mutations on simple cassett
 %%CASSETTE EXON SCATTERS
 \begin{figure}[h!]
 	\centering
-	%\begin{center}
 	\includegraphics[width=18cm]{Figures/05_tdp_mice/transcriptome_scatters.png}
-	%\end{center}
 	\caption{\textbf{Direction of cassette exon splicing in the two mutant lines}}
 	All splicing events found by SGSeq plotted by p-value and direction ($\Delta$PSI; see methods) for LCDmut (A) and RRM2mut (B).
 	\label{fig:cassette_scatters}
@@ -140,9 +132,8 @@ To deeply interrogate splicing changes at time points that were relevant to the 
 
 %% CRYPTIC EXONS IN RRM2mut
 \begin{figure}[h!]
-	\begin{center}
-		\includegraphics[width=14cm]{Figures/05_tdp_mice/cryptic_exon_multi.png}
-	\end{center}
+	\centering
+	\includegraphics[width=14cm]{Figures/05_tdp_mice/cryptic_exon_multi.png}
 	\caption{\textbf{RRM2mut leads to cryptic exon splicing}}
 	\label{cryptic_multi}
 	A: Representative RNA-seq traces show cryptic exon in \textit{Adnp2} included in RRM2mut specifically. B: RT-PCR of \textit{Adnp2} selectively amplifies a band corresponding to cryptic exon inclusion in RRM2mut samples. P < 0.001; t-test(two-sided). C: PhyloP conservation scores for 1000 randomly chosen mouse exons compared to the 33 cryptic exons found in RRM2mut.
@@ -152,50 +143,35 @@ A hallmark of TDP-43 depletion is the widespread inclusion of non-conserved cryp
 
 %% LONG GENES 
 \begin{figure}[h!]
-	\begin{center}
-		\includegraphics[width=14cm]{Figures/05_tdp_mice/long_genes.png}
-	\end{center}
+	\centering
+	\includegraphics[width=14cm]{Figures/05_tdp_mice/long_genes_multi.png}
 	\caption{\textbf{RRM2mut gene expression has bias for long gene downregulation, mirroring TDP-43 knockdown data}}
-	Mean intron length in kilobases for bins of genes ordered by signed Z-score. TDP-43 antisense olignucleotide (ASO) knockdown data taken from \cite{Polymenidou2011-hs}.
+	A,B) Mean intron length in kilobases for bins of genes ordered by signed Z-score. TDP-43 antisense olignucleotide (ASO) knockdown data taken from \cite{Polymenidou2011-hs}. C) The per-nucleotide overlap of iCLIP interaction peaks for each gene is significantly increased in long intron genes downregulated in RRM2mut mice compared to wildtype. P values are from Mann-Whitney-Wilcoxon test.
 	\label{fig:long_genes}
 \end{figure}
 
-%% LONG GENES iCLIP
-\begin{figure}[h!]
-	\begin{center}
-		\includegraphics[width=14cm]{Figures/05_tdp_mice/long_genes_iclip.png}
-	\end{center}
-	\caption{\textbf{RRM2mut downregulated long genes are enriched for TDP-43 iCLIP binding}}
-	The per-nucleotide overlap of iCLIP interaction peaks for each gene is significantly increased in long intron genes downregulated in RRM2mut mice compared to wildtype. P values are from Mann-Whitney-Wilcoxon test.
-	\label{fig:long_genes_iclip}
-\end{figure}
-
-
-
-Another feature of TDP-43 loss of function is a striking downregulation of genes with long introns (>100kb). This phenomenon was first observed in mice where an antisense oligonucleotide strategy was used to lower TDP-43 in the striatum (TDP-ASO); \citep{Polymenidou2011-hs}. Long intron genes are particularly prevalent in neuronal cells and it is thought that TDP-43 binds within these long introns to promote their processing and splicing. We re-analysed RNA-seq data from this study and compared it to the RRM2mut and LCDmut sequencing data. Differential gene expression analysis was run and genes were ranked by their direction of expression change between controls and ASO treatment/mutations. Genes were then binned into groups and the lengths of longest intron in each gene were extracted from GENCODE annotation. While in LCDmut, gene length is evenly distributed between downregulated, unchanged and upregulated genes, there is a clear bias for the most downregulated genes having long introns being downregulated in both RRM2mut and TDP-ASO (figure \ref{fig:long_genes}). 
-An orthogonal approach is to look at TDP-43 protein-RNA interaction data performed on wildtype cells with the iCLIP method \citep{Huppertz2014-ip}. I calculated the proportion of nucleotides in each gene that had an iCLIP peak overlapping, signifying direct TDP-43 binding. Genes that were downregulated in RRM2mut had no difference in the distribution of iCLIP peak overlaps except for those downregulated genes that also contained at least one intron longer than 100 kilobases (figure \ref{fig:long_genes_iclip}). 
+Another feature of TDP-43 loss of function is a striking downregulation of genes with long introns (>100kb). This phenomenon was first observed in mice where an antisense oligonucleotide strategy was used to lower TDP-43 in the striatum (TDP-ASO); \citep{Polymenidou2011-hs}. Long intron genes are particularly prevalent in neuronal cells and it is thought that TDP-43 binds within these long introns to promote their processing and splicing. We re-analysed RNA-seq data from this study and compared it to the RRM2mut and LCDmut sequencing data. Differential gene expression analysis was run and genes were ranked by their direction of expression change between controls and ASO treatment/mutations. Genes were then binned into groups and the lengths of longest intron in each gene were extracted from GENCODE annotation. While in LCDmut, gene length is evenly distributed between downregulated, unchanged and upregulated genes (Figure \ref{fig:long_genes}A), there is a clear bias for the most downregulated genes having long introns being downregulated in both RRM2mut and TDP-ASO (Figure \ref{fig:long_genes}B). 
+An orthogonal approach is to look at TDP-43 protein-RNA interaction data performed on wildtype cells with the iCLIP method \citep{Huppertz2014-ip}. I calculated the proportion of nucleotides in each gene that had an iCLIP peak overlapping, signifying direct TDP-43 binding. Genes that were downregulated in RRM2mut had no difference in the distribution of iCLIP peak overlaps except for those downregulated genes that also contained at least one intron longer than 100 kilobases (Figure \ref{fig:long_genes}C). 
 
 
 \subsection{LCDmut shows the inverse of cryptic splicing - skiptic splicing}
 
 \begin{figure}[h!]
-	\begin{center}
-		\includegraphics[width=14cm]{Figures/05_tdp_mice/skiptic_exon_multi.png}
-	\end{center}
+	\centering
+	\includegraphics[width=14cm]{Figures/05_tdp_mice/skiptic_exon_multi.png}
 	\caption{\textbf{LCDmut leads to skiptic exon splicing}}
 	A: Representative RNA-seq traces show a constitutive exon in \textit{Herc2} skipped in LCDmut specifically - a skiptic exon. B: RT-PCR of \textit{Herc2} selectively amplifies a band corresponding to exon skipping skipping in LCDmut samples. P < 0.001; t-test(two-sided). C: PhyloP conservation scores for 1000 randomly chosen mouse exons compared to the 48 skiptic exons found in LCDmut.
-	\label{skiptic_multi}
+	\label{fig:skiptic_multi}
 \end{figure}
 
-We applied the same cryptic exon filtering strategy to LCDmut and found a small number of potential cryptic exons. However, when applying the inverse critera to find exons that are 95-100\% included in wildtype and then skipped in LCDmut we uncovered 48 exons. These exons are constitutively spliced and yet are skipped in the presence of the LCDmut, making them the inverse of cryptic exons. We therefore christened them "skiptic" exons - a portmanteau of cryptic and skipping. A selection of skiptic exons were validated by RT-PCR (figure \ref{fig:skiptic_multi}). 
+We applied the same cryptic exon filtering strategy to LCDmut and found a small number of potential cryptic exons. However, when applying the inverse critera to find exons that are 95-100\% included in wildtype and then skipped in LCDmut we uncovered 48 exons. These exons are constitutively spliced and yet are skipped in the presence of the LCDmut, making them the inverse of cryptic exons. We therefore christened them "skiptic" exons - a portmanteau of cryptic and skipping. A selection of skiptic exons were validated by RT-PCR (Figure \ref{fig:skiptic_multi}). 
 
 
 \begin{figure}[h!]
-	\begin{center}
-		\includegraphics[width=9cm]{Figures/05_tdp_mice/permutation_ribbon.png}
-	\end{center}
+	\centering
+	\includegraphics[width=9cm]{Figures/05_tdp_mice/permutation_ribbon.png}
 	\caption{\textbf{Permuting sample order shows clear splicing difference between LCDmut mice from controls}}
-	Quantile-quantile plots show the difference between expected and observed distribution of p-values generated from multiple tests. True case-control sample labelling of LCDmut and littermate controls (purple) shows clear inflation of low p-values when compared to all permutations of sample ordering (grey; plotted as mean \pm standard deviation).
+	Quantile-quantile plots show the difference between expected and observed distribution of p-values generated from multiple tests. True case-control sample labelling of LCDmut and littermate controls (purple) shows clear inflation of low p-values when compared to all permutations of sample ordering (grey; plotted as mean $\pm$ standard deviation).
 	\label{fig:permutation}
 \end{figure}
 
@@ -205,9 +181,8 @@ To demonstrate that the 48 skiptic exons found in LCDmut were not statistical an
 \subsection{Both skiptic and cryptic splicing show evidence of direct TDP-43 binding}
 
 \begin{figure}[h!]
-	\begin{center}
-		\includegraphics[width=14cm]{Figures/05_tdp_mice/iclip_multipanel.png}
-	\end{center}
+	\centering
+	\includegraphics[width=14cm]{Figures/05_tdp_mice/iclip_multipanel.png}
 	\caption{\textbf{RNA maps of skiptic and cryptic exons show direct binding by TDP-43}}
 	A: The 33 cryptic exons found in the RRM2mut embryonic mice. Traces show normalised iCLIP peak coverage within and around each exon. Left y-axis: the proportion of exons with an iCLIP peak at that nucleotide. Right y axis: the proportion of central exons or flanking exons that overlap any iCLIP peaks. Below, individual positions of iCLIP peaks for the top 20 cryptic exons. Circles in the centre denote whether there are any iCLIP peaks overlapping the central exon. B: as before for the 48 skiptic exons found in the LCDmut adult mice.
 	\label{iclip_multi}
@@ -225,7 +200,7 @@ To demonstrate that the 48 skiptic exons found in LCDmut were not statistical an
 		Skiptic exons (control PSI > = 0.95; dPSI > = -0.05; FDR < 0.05) & 47 &	31 & 66\% \\
 	\end{tabular}
 	\end{footnotesize}
-	\caption{Proportions of exons with any TDP-43 binding from iCLIP}
+	\caption{\textbf{Proportions of exons with any TDP-43 binding from iCLIP}}
 	\label{tab:iclip_proportions}
 \end{table}
 
@@ -234,12 +209,11 @@ Cryptic exons associated with TDP-43 depletion have been demonstrated to origina
 \subsection{Skiptic splicing is predicted to be deleterious to gene expression}
 
 \begin{figure}[h!]
-	\begin{center}
-		\includegraphics[width=18cm]{Figures/05_tdp_mice/functional_plots.png}
-	\end{center}
-	\label{functional_plots}
+	\centering
+	\includegraphics[width=18cm]{Figures/05_tdp_mice/functional_plots_vertical.png}
 	\caption{\textbf{Functional analyses of the skiptic exons}}
 	A: PhyloP conservation scores presented as the mean for each exon. B: proportions of each gene that are either downregulated or upregulated at FDR < 10\%. C: Proportions of predicted downstream consequence of exon skipping for either non-regulated or downregulated skiptic exons. *: P < 0.05; **: P > ??? ***: P < ????
+	\label{fig:functional_plots}
 \end{figure}
 
 
@@ -247,12 +221,11 @@ Cryptic exons associated with TDP-43 depletion have been demonstrated to origina
 % work performed by Pras - show RT-PCRs
 % explain dodgy quantification
 \begin{figure}[h!]
-	\begin{center}
-		\includegraphics[width=10cm]{Figures/05_tdp_mice/skiptic_patients.png}
-	\end{center}
-	\label{skiptic_patients}
+	\centering
+	\includegraphics[width=10cm]{Figures/05_tdp_mice/skiptic_patients.png}
 	\caption{\textbf{Skiptic exon splicing in TARDBP ALS}}
 		RT-PCR traces for two skiptic exons in fibroblasts taken from 4 TARDBP ALS patients and 4 non-neurological control lines. For clarity, quantification was taken of the skiptic exon band only instead of the ratio.
+	\label{fig:skiptic_patients}
 \end{figure}
 
 
@@ -265,7 +238,6 @@ Cryptic exons associated with TDP-43 depletion have been demonstrated to origina
 % table of all sequencing data used
 \begin{table}[h!]
 	\caption{List of accessions}
-	%\begin{centerline}
 	\begin{footnotesize}
 		\begin{tabular}{lllll}
 		Tissue & Genotype & N &	Read length & Range uniquely mapped reads\\
@@ -283,5 +255,4 @@ Cryptic exons associated with TDP-43 depletion have been demonstrated to origina
 		\citep{Polymenidou2011-hs}
 		\end{tabular}
 	\end{footnotesize}
-%\end{centerline}
 \end{table}
