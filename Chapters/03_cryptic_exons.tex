@@ -1,109 +1,14 @@
 \chapter{Cryptic splicing occurs in published TDP-43 but not FUS depletion data}
-
+\label{chapter:cryptic_exons}
 %SORT OUT APPENDICES
 
-\section{Overview}
-A recent paper \citep{Ling2015} demonstrated a novel RNA phenotype following the knockdown of the RNA-binding protein TDP-43 from mouse and human cell lines that they termed "cryptic exons". The first project of my PhD was to build a tool that could replicate these results in other previously published RNA sequencing datasets. In doing so I have extended the scale and understanding of cryptic exons and their relation to TDP-43. In addition, I have demonstrated a key difference between TDP-43 and FUS, as the knockdown of FUS does not result in a similar RNA phenotype.
+This chapter has been published as \citep{Humphrey2017}. See appendices for full reproduction of the manuscript.
 
+\section{Overview}
+A recent paper \citep{Ling2015} demonstrated a novel RNA phenotype following the knockdown of the RNA-binding protein TDP-43 from mouse and human cell lines that they termed "cryptic exons". The first project of my PhD was to build a tool that could replicate these results in other previously published RNA sequencing datasets. In doing so I have extended the scale and understanding of cryptic exons and their relation to TDP-43. In addition, I have demonstrated a key difference between TDP-43 and FUS, as the knockdown of FUS does not result in a similar splicing phenotype.
 
 \section{Background}
-TDP-43 is a ubiquitously expressed RNA and DNA-binding protein encoded by the \emph{TARDBP} gene. Loss of TDP-43 from the nucleus accompanied by TDP-43 positive inclusions in the cytoplasm of cortical and spinal cord neurons is the hallmark pathology of amyotrophic lateral sclerosis (ALS) as well as the majority of  cases of frontotemporal dementia (FTD) \citep{Neumann2006-re} and some cases of Alzheimer's disease \citep{LaClair2016} . In addition, missense mutations in \emph{TARDBP} have been shown to cause familial ALS \citep{Sreedharan2008-xv}. These findings point to a central role of TDP-43 in the aetiology of ALS/FTD. 
 
-
-\subsection{TDP-43 and splicing}
-Previous work on TDP-43 has been focused on its role in mRNA splicing. TDP-43 was first shown to repress the inclusion of exon 9 in the \emph{CFTR} gene by binding to long UG-rich sequences \citep{Buratti2001-et}, a highly specific motif validated by X-ray crystallography \citep{Lukavsky2013}. TDP-43 was initially shown to act as both an enhancer and repressor of exon inclusion in a small number of genes \citep{Mercado2005-js,Bose2008-du,Shiga2012-it} but later work used RNA-seq and splicing-sensitive microarrays to expand the number of TDP-43 linked splicing events to hundreds  \citep{Polymenidou2011,Tollervey2011}. Both studies used RNA-protein interaction mapping (see methods) to demonstrate that TDP-43 binds on top of or close to exons which it represses and further away from the exons it enhances. However, attempts to correlate TDP-43's effect on the splicing of a gene with a change in the level of the subsequent protein has so far proved unsatisfactory with very few convincing candidates \citep{DeConti2015,Stalekar2015}.
-Other roles in RNA regulation have been proposed for TDP-43, such as RNA transport \citep{Alami2013}, translation \citep{Freibaum2010-hw} and microRNA creation \citep{Kawahara2012} with a still unexplained finding of TDP-43 binding sites enriched in very long intronic sequences. Long intron genes are mostly brain specific in their expression patterns \citep{Sibley2015} and are strongly downregulated under TDP-43 depletion \citep{Polymenidou2011}, suggesting an important role for TDP-43 in their stability.  
-
-
-%% what do I do about FUS here?
-%Rare ALS-causing mutations have been found in another RNA-binding protein, FUS \citep{Vance2009-ye}, further raising the possibility that the impairment of RNA processing is a central cause of ALS.  TDP-43 and FUS have both been shown to bind a set of overlapping RNA targets \citep{Lagier-Tourenne2012-wa}.
-
-%%TDP-43 and splicing
-%%FIRST thing to be found on TDP-43. How much agreement between studies?
-
-%"TDP-43 binds to (GU)16 repeats in apoA-II intron 2 and represses exon 3 splicing" \citep{Mercado2005}
-
-%965 altered splicing events seen in adult mouse brain with TDP-43 depletion \citep{Polymenidou2011}
-%%\citep{Tollervey2011} TDP-43 can bind within exons to repress them but can also bind up or downstream of them. Generally binding further away (up to 250nt from the exon) acts to enhance inclusion.
-%
-%Other splicing factors are perturbed in TDP-FTD \citep{Mohagheghi2015}: "the expression of hnRNPA1/A2 and PTB/nPTB is significantly altered in patients with frontotemporal dementiawith TDP-43-positive inclusions" A large number of splicing factors also alter the inclusion of SORT1 exon 17b.
-
-
-%tDP-43 and POLDIP3 splicing - annotated exon 3 in POLDIP is enhanced by TDP, loss of TDP reduces the inclusion. Laser capture of neurons from ALS brain show a reduction in exon 3 containing POLDIP3. POLDIP3 involved in maintaining cell size. Exon3 lacking POLDIP3 cannot rescue cell size as well from POLDIP3 or TDP-43 knockdown. \citep{Shiga2012}.
-
-%"Validation of the bona fide splicing events that are consistent data, both in neuronal and non-neuronal cell lines demonstrated that TDP-43 substantially alters the levels of isoform expression" in four genes but only in 2 these changes could also be confirmed at the protein level \citep{DeConti2015}. - Assessing splicing changes is hard and there is no guarantee that this leads to changes in protein level. 
-
-%Repeat elements - dpn't put in introuction
-%5TDP-43 binds a range of repeat elements \citep{Li2012,Zarnack2013,Kelley2014} and Alu elements in particular. Elevated levels of repeat element RNA 
-
-
-\subsection{TDP-43 models of ALS/FTD }
-
-TDP-43 continuously shuttles between the cytoplasm and the nucleus of cells \citep{Ayala2008}. However, in affected neurons and glial cells with ALS/FTD, TDP-43 leaves the nucleus and forms protein aggregates or inclusions in the cytoplasm \citep{Neumann2006-re}. Following this discovery, investigations of TDP-43 in ALS/FTD have attempted to model these changes by either depleting or overexpressing TDP-43 in the murine nervous system. There is still much debate on whether TDP-43 plays a role in neurodegeneration through a loss of nuclear function or a gain of cytoplasmic function.  A further question is the influence of rare mutations on TDP-43.
-Global loss of TDP-43 is lethal in the mouse embryo \citep{Kraemer2010} and postnatal deletion leads to rapid death \citep{Chiang2010}. Conditional knockout of TDP-43 in mouse postnatal motor neurons causes a gradual degeneration of affected neurons and atrophy of muscle \citep{Iguchi2013}. Wildtype human TDP-43 has been reported as lethal when overexpressed in mouse neurons \citep{Shan2010,Wegorzewska2009} with neurodegeneration occuring in specific neuronal populations, indicating a selective vulnerability to TDP-43. Conversely, wildtype human TDP-43 was not found to be toxic when expressed at a physiological level \citep{Arnold2013} and only the ALS-causing mutant forms were found to cause motor neuron degeneration. This occurred without observed TDP-43 loss in the nucleus nor cytoplasmic aggregation, which has since been replicated \citep{Igaz2011}. Clearly neurons are very sensitive to the expression level of TDP-43 protein, and as TDP-43 regulates its own expression \citep{Ayala2011,Koyama2016} this is very difficult to control for in an experimental context.
-
-%%HERE is a bunch of different findings from TDP-43 animal models
-%How does each support loss- or gain-of-function hypothesis?
-
-%"knockout of transactive response DNA-binding protein 43 in mouse postnatal motor neurons using Cre/loxp system, progressive weight loss and motor impairment around the age of 60 weeks, and exhibited degeneration of large motor axon, grouped atrophy of the skeletal muscle, and denervation in the neuromuscular junction. The spinal motor neurons lacking transactive response DNA-binding protein 43 were not affected for 1 year, but exhibited atrophy at the age of 100 weeks; whereas, extraocular motor neurons, that are essentially resistant in amyotrophic lateral sclerosis, remained preserved even at the age of 100 weeks" \citep{Iguchi2013}
-
-%"increased excitatory synaptic inputs and dendritic spine densities in early presymptomatic mice carrying a TDP-43Q331K mutation" \citep{Fogarty2016}
-
-%"postnatal deletion of Tardbp in mice caused dramatic loss of body fat followed by rapid death. Moreover, conditional Tardbp-KO ES cells failed to proliferate" \citep{Chiang2010}
-
-%"mice expressing a mutant frm of human TDP-43 develop a progressive and fatal neurode- generative disease reminiscent of both ALS and FTLD-U. Despite universal transgene expression throughout the nervous system, pathologic aggregates of ubiquitinated proteins accumulate only in specific neuronal populatioons, including layer 5 pyramidal neu- rons in frontal cortex, as well as spinal motor neurons, recapitu- lating the phenomenon of selective vulnerability seen in patients with FTLD-U and ALS. Surprisingly, cytoplasmic TDP-43 aggregates are not present, and hence are not required for TDP-43-induced neurodegeneration." \citep{Wegorzewska2009} Overexpression of mutant human TDP A315T in mice at levels "3-fold higher" 
-
-%"Mice expressing hu- man TDP-43 in neurons exhibited growth retardation and prema- ture death that are characterized by abnormal intranuclear inclusions composed of TDP-43 and fused in sarcoma/translocated in liposarcoma (FUS/TLS), and massive accumulation of mitochon- dria in TDP-43-negative cytoplasmic inclusions in motor neurons, lack of mitochondria in motor axon terminals, and immature neuromuscular junctions" \citep{Shan2010} 
-
-%\citep{Igaz2011} "Expression of either hTDP-43-ΔNLS or hTDP-43-WT led to neuron loss in selectively vulnerable forebrain regions, corticospinal tract degeneration, and motor spasticity recapit- ulating key aspects of FTLD and primary lateral sclerosis. Only rare cytoplasmic phosphorylated and ubiqui- tinated TDP-43 inclusions were seen in hTDP-43-ΔNLS mice"
-
-%"Two ALS-causing mutants (TDP-43Q331K and TDP-43M337V), but not wild-type human TDP-43, are shown here to provoke age-dependent, mutant-de- pendent, progressive motor axon degeneration and motor neu- ron death when expressed in mice at levels and in a cell type- selective pattern similar to endogenous TDP-43. Mutant TDP-43-dependent degeneration of lower motor neurons occurs without: (i) loss of TDP-43 from the corresponding nuclei, (ii) accumulation of TDP-43 aggregates, and (iii) accumulation of insoluble TDP-4" \citep{Arnold2013}
-
-
-
-
-%tTDP-43 regulates the levels of other neurodegenerative disease mRNAs like FUS and PGRN \citep{Polymenidou2011} and preferentially stabilises the expression of long intron genes, something shared with FUS. iCLIP of TDP-43 showed "unusually long clusters of TDP-43 binding at deep intronic positions downstream of silenced exons." \citep{Tollervey2011}.
-
-%tTDP-43 and UG motifs: "TDP-43 has a unique capacity to recognize dispersed clusters of UG-rich motifs, or to spread its RNA binding to positions proximal to the UG-rich motifs" \citep{Tollervey2011} Both RRMs come together to bind UG-rich RNA \citep{Lukavsky2013} - interactions between the two RRMs are crucial for RNA binding
-
-
-
-
-%%OTHER stuff TDP does
-
-
-%%RNA transport
-%\citep{Alami2013} finds "TDP-43 is a component of mRNP transport granules in neurons, including human stem cell-derived motor neurons, and identify a new role for TDP-43 in the cytoplasm supporting anterograde axonal transport of target mRNAs from the soma to distal axonal compartments"
-
-%%TDP-43 autoregulation 
-%first seen by Polymenidou \citep{Polymenidou2011} then assessed by \citep{Ayala2011} \citep{Er??ndiraAvenda??o-V??zquez2012} and \citep{Koyama2016}. TDP-43 binds the 3'UTR of the TARDBP mRNA to prevent the usage of the proximal polyA site. The longer TARDBP 3'UTR transcript undergoes multiple splicing rounds that ultimately reduce the levels of TDP-43 protein. With TDP-43 depletion the proximal polyA site is used and the levels of cytoplasmic TARDBP mRNA are increased.
-
-%%TDP-43 proteomics
-%proteomic study on loss of TDP-43 \citep{Stalekar2015} "TDP-43 is an important regulator of RNA metabolism and intracellular transport."
-%%TDP interactome \citep{Freibaum2010-hw} shows TDP-43 interacts with multiple splicing factors (MATR3/hnRNPAB/SFPQ) as well as ribosomal proteins. "Disease-causing mutations in TDP- 43 (A315T and M337V) do not alter its interaction profile. TDP-43 interacting proteins largely cluster into two distinct interaction networks, a nuclear/splicing cluster and a cytoplasmic/translation cluster, strongly suggesting that TDP-43 has multiple roles in RNA metabolism and functions in both the nucleus and the cytoplasm"
-
-%Impaired nuclear import of WT TDP-43 as general mechanism
-%Screen of 82 nuclear import proteins "knockdowns of karyopherin-b1 and cellular apoptosis susceptibility protein resulted in marked cyto- plasmic accumulation of TDP-43." \citep{Nishimura2010} "considerable reduction in expression of cellular apoptosis susceptibility protein in frontotemporal lobar degeneration."
-
-
-
-
-%Prion-like C terminal 
-%
-%"TDP-43 does have inter-domain in- teractions which is coordinated by the intrinsically-disordered prion-like domain" \citep{Wei2016}
-%
-%Mitochondria
-%%TDP-43 localises to the mitochondria of motor neurons and this increases with the increase in cytoplasmic TDP in ALS. TDP-43 mutations increase mitochondrial localisation. In mitochondria TDP binds complex I components TDP-43 protein sequence contains multiple mitochondrial import sequences. Competitive inhibition of TDP-43's mitochondrial localisation rescues neurotoxicity. \citep{Wang2016}
-%
-%
-%%TDP depletion in Alzheimers - "TDP-43 proteinopathy, initially associated with ALS and FTD, is also found in 30–60\% of Alzheimer’s disease (AD) cases and correlates with worsened cognition and neurodegeneration." Some forebrain AD sensitive neurons are selectively vulnerable to TDP-43 loss.
-%
-
-
-
-
-
-\subsection{Cryptic splicing}
 Splicing depends on the reliable recognition and subsequent removal of non-coding intronic sequence by the multi-protein spliceosome complex. Boundaries that demarcate exons from introns are first recognised by the binding of the U1 small nuclear RNA (snRNA) to the 5\'\ splice site at the beginning of the intron and the U2 snRNA binding to the polypyrimidine tract and 3\'\ splice site at the end of the intron. The two snRNAs then interact with each other and the intronic sequence is removed via a series of transesterification reactions  \citep{Matera2014-pu}.  During splicing, regulatory sequences in the nascent RNAs recruit RNA-binding proteins (RBPs) to shape mRNAs, selecting or omitting particular exons by acting to enhance or repress splicing.
 
 Due to the long length and reduced evolutionary conservation of intronic sequences, pairs of 3\'\ and 5\'\ splice sites can emerge randomly to create potentially new exons. These cryptic exons (also known as pseudoexons) arise due to mutations that create new splice sites or remove the existing binding sites for splicing repressors. These type of mutations have also been implicated in a number of genetic diseases \citep{Eng2004-lq, Buratti2007-iz, Vorechovsky2006-wb,Meili2009-hc}. Inclusion of a cryptic exon, untested by evolution, can destabilise the transcript or radically alter the eventual protein structure. The former can occur by the nonsense mediated decay (NMD) pathway, which occurs when a transcript has a premature termination codon introduced either directly by the cryptic exon or by a subsequent shift of reading frame \citep{McGlincy2008-wh}. 

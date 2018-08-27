@@ -1,8 +1,16 @@
 \chapter{A meta-analysis of FUS splicing comparing knockouts with patient-like $\Delta$NLS mutations}
-
+\label{chapter:fus_meta}
 
 \section{Background}
 
+
+\section{Contributions}
+RNA sequencing libraries prepared by Dr Nicol Birsa
+Mice handled by Dr Cristian Bodo
+RNA extracted for PCR by Dr Nicol Birsa and Matthew Bentham
+RT-PCRs performed by David Robaldo and Dr Carmelo Milioto
+
+All bioinformatic analysis and interpretation was performed by me, Jack Humphrey.
 
 \section{Methods}
 
@@ -35,7 +43,6 @@ Per nucleotide PhyloP conservation scores (Pollard) comparing mouse (mm10) with 
 
 
 \begin{longtable}[]{@{}llllll@{}}
-	\toprule
 	\begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 		{\textbf{Dataset}}\strut
 	\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
@@ -48,7 +55,7 @@ Per nucleotide PhyloP conservation scores (Pollard) comparing mouse (mm10) with 
 		{\textbf{Knockout (KO)}}\strut
 	\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 		{\textbf{Mutation (MUT)}}\strut
-	\end{minipage}\tabularnewline\hline
+	\end{minipage}\tabularnewline\hline \\ 
 	\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
 		{\textbf{Dupuis}}
 		{\footnotesize\citep{Scekic-zahirovic2016}}\strut
@@ -62,7 +69,7 @@ Per nucleotide PhyloP conservation scores (Pollard) comparing mouse (mm10) with 
 		{Gene trap in intron 1}\strut
 	\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
 		{Stop codon after exon 14 ($\Delta$NLS)}\strut
-	\end{minipage}\tabularnewline\hline
+	\end{minipage}\tabularnewline \\
 	\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
 		{\textbf{Bozzoni}}
 		{\footnotesize\citep{Capauto2018}}\strut
@@ -82,7 +89,7 @@ Per nucleotide PhyloP conservation scores (Pollard) comparing mouse (mm10) with 
 		{P517L knock-in,}
 		{corresponding to human P525L}
 		{\footnotesize\citep{Conte2012}}\strut
-	\end{minipage}\tabularnewline\hline
+	\end{minipage}\tabularnewline \\
 	\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
 		{\textbf{Fratta}}\strut
 	\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
@@ -118,7 +125,7 @@ Per nucleotide PhyloP conservation scores (Pollard) comparing mouse (mm10) with 
 		{\textbf{Read type}}\strut
 	\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 		{\textbf{SRA accession}}\strut
-	\end{minipage}\tabularnewline\hline
+	\end{minipage}\tabularnewline\hline 
 	\begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 		{\textbf{Dupuis}}\strut
 	\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
@@ -131,7 +138,7 @@ Per nucleotide PhyloP conservation scores (Pollard) comparing mouse (mm10) with 
 		{1 x 50bp}\strut
 	\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 		{SRP070906 }\strut
-	\end{minipage}\tabularnewline
+	\end{minipage}\tabularnewline \\
 	\begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 		{\textbf{Bozzoni} }\strut
 	\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
@@ -144,7 +151,7 @@ Per nucleotide PhyloP conservation scores (Pollard) comparing mouse (mm10) with 
 		{2 x 100bp}\strut
 	\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 		{SRP111475}\strut
-	\end{minipage}\tabularnewline
+	\end{minipage}\tabularnewline \\
 	\begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 		{\textbf{Fratta} }\strut
 	\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
@@ -224,8 +231,8 @@ Knockout- and mutation- specific genes were less clearly enriched in specific fu
 			\hline
 			\textbf{Joint model}       & \multicolumn{3}{c|}{93} & \multicolumn{3}{c|}{890} \\
 			\hline
-			Overlap (strict)              & \multicolumn{2}{c}{33} & \multicolumn{2}{|c|}{\textbf{60}} & \multicolumn{2}{c|}{830} \\
-			Overlap (relaxed)           & \multicolumn{2}{c}{16} & \multicolumn{2}{|c|}{\textbf{405} } & \multicolumn{2}{c|}{501} \\
+			Overlap (strict)              & \multicolumn{2}{c|}{33} & \multicolumn{2}{c|}{\textbf{60}} & \multicolumn{2}{c|}{830} \\
+			Overlap (relaxed)           & \multicolumn{2}{c|}{16} & \multicolumn{2}{c|}{\textbf{405} } & \multicolumn{2}{c|}{501} \\
 			\hline
 		\end{tabular}
 	%\end{centerline}
