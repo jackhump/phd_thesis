@@ -18,8 +18,6 @@ Work presented in this chapter has been published as part of \citep{Fratta2018}.
 
 
 
-
-
 \section{Background}
 
 We generated two mutant mouse lines to study different aspects of TDP-43's role in mRNA splicing.
@@ -60,34 +58,55 @@ Details on all RNA-sequencing datasets are presented in table \ref{table:tdp_mic
 
 \subsection{Differential splicing}
 Three different generations and qualities of sequencing data were generated over the course of the study.  Therefore the methods I  used  to  measure  splicing  changes  were  tailored to each dataset. 
-For the low depth and short read embryonic fibroblast and head samples, I used DEXSeq package \citep{Anders2012} to estimate changes in differential exon usage of annotated exons only.
+For the low depth and short read embryonic fibroblast and  embryonic head samples, I used DEXSeq package \citep{Anders2012} to estimate changes in differential exon usage of annotated exons only.
 Due the high depth and long read length of the RRM2mut embryonic brain and LCDmut adult spinal cord samples we used the SGSeq package \citep{Goldstein2016}.
 Although SGSeq will discover and classify more complex splicing events, we focussed solely on cassette exons for their ease of interpretation.
 
 \subsection{Annotation of splicing events}
-As transcript annotation progresses the number of novel splicing events will diminish over time, and for this reason we have chosen to define extreme splicing changes by the levels of inclusion rather than annotation. For cryptic exons we use percent spliced  in  (PSI)  in  our  control  samples  and  the   $\Delta$PSI  between  mutants  and  controls  to  select cassette exon splicing events that are barely included in controls ( $PSI_{control}$ < 5\%) and then more included in the mutants ($\Delta$PSI > 5\%). What we call ``skiptic'' exons are extreme cassette exon skipping events, where an exon that is apparently constitutive ($PSI_{control}$ > 95\%) is then skipped in the mutants ($\Delta$PSI > 5\%).
+As transcript annotation progresses the number of novel splicing events will diminish over time, and for this reason we have chosen to define extreme splicing changes by the levels of inclusion rather than annotation. To define extreme cassette exons we use percent spliced  in  (PSI)  in  our  control  samples  and  the  difference in PSI  ($\Delta$PSI) between  mutants  and  controls  as selection criteria. Cryptic exons are defined as barely included in controls ( $PSI_{control}$ < 5\%) and more included in mutants ($\Delta$PSI > 5\%). What we call ``skiptic'' exons are extreme cassette exon skipping events, where an exon that is apparently constitutive ($PSI_{control}$ > 95\%) is then skipped in the mutants ($\Delta$PSI > 5\%).
 
 \subsection{iCLIP analyses}
 Analysis  of  high-throughput  iCLIP  libraries  was  conducted  using  the  iCount  pipeline,  mapping  reads  to  the mm10 build of the mouse genome.
-Only  uniquely-mapped  sense  reads  from each dataset were used. All peak calling and false discovery rate correction was carried out as described in \citep{Huppertz2014-ip,Konig2010}. 
+Only  uniquely-mapped  sense  reads  from each dataset were used. All peak calling and false discovery rate correction was carried out as described in \citep{Huppertz2014-ip,Konig2010}.  
+Peaks were then clustered together and the resulting clusters were used in all further analysis.
 % are they peaks or clusters? Jernej will ask
-RNA maps are a visualisation tool for examining the enrichment of a set of features within a set of RNA sequences at a nucleotide level. They are very effective at aggregating multiple genomic loci together to demonstrate position specific enrichments of features like sequence motifs and RNA-protein interaction data (CLIP, iCLIP, eCLIP). 
-I developed software  that would overlap one set of genomic coordinates with another and transform the output of this intersection into a large matrix.  RNA maps were created  for groups of cassette exons by quantifying per-nucleotide iCLIP coverage across the entire length of each parent intron that contains the splice sites of each cassette exon. To maximise  potential  coverage,  I pooled together all  iCLIP  replicates created  by the Fratta lab with  TDP-43  iCLIP generated previously \citep{Rogelj2012}. Analysis was  then  restricted  to 300nt around  the parent intron splice sites and 300nt around the cassette exon splice sites. Per-nucleotide iCLIP coverage was defined as the number of overlaps with at least one iCLIP cluster at an individual nucleotide divided by the total number of exon sequences. The normalised iCLIP coverage distributions are presented with gaussian smoothing for aesthetic appeal. Due to variance in exon lengths, it was simply noted whether the exon overlapped with at least one iCLIP cluster and this is plotted as a proportion of all exons with a separate axis. For the cryptic and skiptic exons, The 20 exons with the greatest total coverage are plotted individually. 
+RNA maps are a visualisation tool for examining the enrichment of a set of features within a set of RNA sequences at a nucleotide level. They are very effective at aggregating multiple genomic loci together to demonstrate position specific enrichments of features such as sequence motifs within RNA-protein interaction data (CLIP, iCLIP, eCLIP). 
+I developed software that would overlap one set of genomic coordinates with another and transform the output of this intersection into a large matrix that could be normalised and then visualised.  
+RNA maps were created  for groups of cassette exons by quantifying per-nucleotide iCLIP coverage across the entire length of each parent intron that contained the splice sites of each cassette exon. 
+To maximise  potential  coverage,  I pooled together all  iCLIP  replicates created  by the Fratta lab with  TDP-43  iCLIP generated previously \citep{Rogelj2012}. 
+Analysis was  then  restricted  to 300nt around  the parent intron splice sites and 300nt around the cassette exon splice sites. 
+Per-nucleotide iCLIP coverage was defined as the number of overlaps with at least one iCLIP cluster at an individual nucleotide divided by the total number of exon sequences. 
+The normalised iCLIP coverage distributions are presented with gaussian smoothing for aesthetic appeal. 
+Due to variance in exon lengths, it was simply noted whether the exon overlapped with at least one iCLIP cluster and this is plotted as a proportion of all exons with a separate axis. 
+For the cryptic and skiptic exons, The 20 exons with the greatest total coverage are plotted individually. 
 
 \subsection{Long intron genes}
-To assess the relationship between intron length and differential expression, I found the longest intron in each gene using annotations from GENCODE mouse release 25 \citep{Harrow2012} by writing a custom Python script (2.7.1). I converted unadjusted P-values from DESeq2 into Z-scores and given the sign of the $log_2$ fold change. Genes were ordered by signed Z-score and binned into groups of  200. The plots present mean intron length and  standard error of the mean for each group.  
+To assess the relationship between intron length and differential expression, I found the longest intron in each gene using annotations from GENCODE mouse release 25 \citep{Harrow2012} by writing a Python script (2.7.1) that parses the GENCODE GTF file. 
+I converted unadjusted differential gene expression P-values from DESeq2 into Z-scores and give them the sign of the $log_2$ fold change. 
+Genes were ordered by signed Z-score and binned into groups of  200. 
+The plots present mean intron length and  standard error of the mean for each group.  
 
-To assess  the  dependence between  iCLIP  coverage and  intron  length,  total TDP-43  iCLIP  coverage 
-across  the entire length of genes was calculated and normalised  to give a per-nucleotide coverage proportion. Genes were divided into those contained introns >100kb (see above) and to whether they were  upregulated  or  downregulated in  the RRM2mut compared  to wildtype littermates.  Coverage distributions were compared using a Mann-Whitney-Wilcoxon non-parametric test in R.
+To assess  the  dependence between  iCLIP  coverage and  intron  length,  total TDP-43  iCLIP  coverage  across  the entire length of genes was calculated and normalised  to give a per-nucleotide coverage proportion. 
+Genes were divided into those contained introns >100kb (see above) and to whether they were  upregulated  or  downregulated in  the RRM2mut compared  to wildtype littermates.  
+Coverage distributions were compared using a Mann-Whitney-Wilcoxon non-parametric test in R.
 
 \subsection{Permutation of splicing results}
-I permuted the sample order of the 4 wildtype and 4 LCDmut homozygotes 50 times to get all possible permutations and reran the splicing analysis for each comparison. Distributions of P-values are presented as quantile-quantile plots to visualise the inflation from the expected distribution under the null hypothesis of there being no difference between the two groups. 
+I permuted the sample order of the 4 wildtype and 4 LCDmut homozygotes 50 times to get all possible permutations and reran the splicing analysis for each comparison. 
+Distributions of P-values are presented as quantile-quantile plots to visualise the inflation from the expected distribution under the null hypothesis of there being no difference between the two groups. 
 
 \subsection{Functional analysis of extreme cassette splice events}
 Cassette exons and their parent introns were extracted from the SGSeq results.
-A per-nucleotide list of  PhyloP  conservation  scores \citep{Pollard2010-fj} for  the mouse  aligned  to  59  other  vertebrates (mm10.60way.phyloP60way.bw) was downloaded from UCSC. Mean scores were calculated for each exon  using  bigWigSummary  (UCSC). The  extreme  cassette  exons  were  compared  to  all  exons annotated in the GENCODE mouse release 25. Cassette exon splicing can destabilise its host transcript with either its inclusion or exclusion leading to a downstream frameshift and the presence of premature termination codons (Lewis et al, 2003). 
-To predict the functional consequences of exon inclusion or skipping on the host transcript a script was written in R that predicted the upstream and downstream exons that  flank the extreme cassette exons using both GENCODE annotation and the spliced reads in from the aligned RNA-seq samples. If both flanking exons were predicted to be in the coding sequence then the exon sequences were concatenated with and without the central exon and translated in silico in the predicted codon frame of the upstream exon. If skipping or inclusion of the central exon caused a frameshift and/or a premature stop codon this was noted. 
-To  assess  the  correlation  between  the  presence  of  an  extreme  cassette  exon  and  changes  in expression of its host gene, the proportion of genes that are significantly up- or downregulated at FDR < 10\% was assessed in extreme cassette exons non-extreme cassette exons and as a control, genes with no cassette splicing expressed at a level at or greater than the most lowly expressed extreme exon gene. The proportions of up- and downregulated genes were compared between  the control genes and the two groups of cassette exon containing genes with a binomial test in R.   
+A per-nucleotide list of  PhyloP  conservation  scores \citep{Pollard2010-fj} for  the mouse  aligned  to  59  other  vertebrates (mm10.60way.phyloP60way.bw) was downloaded from UCSC. 
+Mean scores were calculated for each exon  using  bigWigSummary  (UCSC). 
+The  extreme  cassette  exons  were  compared  to  all  exons annotated in the GENCODE mouse release 25. 
+
+Cassette exon splicing can destabilise its host transcript with either its inclusion or exclusion leading to a downstream frameshift and the presence of premature termination codons (Lewis et al, 2003). 
+To predict the functional consequences of exon inclusion or skipping on the host transcript a script was written in R that predicted the upstream and downstream exons that  flank the extreme cassette exons using both GENCODE annotation and the spliced reads in from the aligned RNA-seq samples. 
+If both flanking exons were predicted to be in the coding sequence then the exon sequences were concatenated with and without the central exon and translated \textit{in silico} in the predicted codon frame of the upstream exon. 
+If skipping or inclusion of the central exon caused a frameshift and/or a premature stop codon this was noted. 
+To  assess  the  correlation  between  the  presence  of  an  extreme  cassette  exon  and  changes  in expression of its host gene, the proportion of genes that are significantly up- or downregulated at FDR < 10\% was assessed in three sets:
+extreme cassette exons, non-extreme cassette exons and as a control, genes with no cassette splicing expressed at a level at or greater than the most lowly expressed extreme exon gene. 
+The proportions of up- and downregulated genes were compared between  the control genes and the two groups of cassette exon containing genes with a binomial test in R.   
 
 \subsection{Statistical analyses}
 All differential expression results are significant at a Benjamini-Hochberg false discovery rate of 10\%. 
@@ -117,7 +136,8 @@ Due to their positions within the protein, the two mutations will be henceforth 
 
 % info on breeding - F210I is embryonic lethal
 We derived mice from mutant sperm and backcrossed for several generations onto a mixed C57BL/6J - DBA/2J background.
-This revealed that RRM2mut is embryonic lethal in the homozygous state but not in heterozygosity, whereas homozygous LCDmut mice are viable and live normal lifespans. Close observation of aged LCDmut revealed gradual muscle weakness and a reduction in motor neuron numbers in the spinal cord (data not shown), suggesting that the patient-like M323K mutation indeed causes symptoms of neurodegeneration reminiscent of ALS. 
+This revealed that RRM2mut is embryonic lethal in the homozygous state but not in heterozygosity, whereas homozygous LCDmut mice are viable and live normal lifespans. 
+Close observation of aged LCDmut revealed gradual muscle weakness and a reduction in motor neuron numbers in the spinal cord (data not shown), suggesting that the patient-like M323K mutation indeed causes symptoms of neurodegeneration reminiscent of ALS. 
 Due to the extreme differences in phenotype, particularly the neurodegeneration seen in LCDmut adults, we were curious to explore the effect of the mutations on RNA splicing.
 
 \subsection{The two mutations have opposing effects on splicing known TDP-43 targets}
@@ -149,7 +169,7 @@ This suggests that the pro-skipping action of TDP-43 is increased at the CFTR lo
 
 To look transcriptome-wide at the effects of the two mutations on simple cassette exon splicing we generated low-depth RNA-seq data from mouse embryonic fibroblasts. 
 To compare both mutations to a simple loss of TDP-43 we created a short hairpin RNA (shRNA) that targets \textit{Tardbp} mRNA for degradation, reducing TDP-43 protein levels. 
-I performed a cassette exon splicing analysis and converted the fold change and P-value from each exon into a signed z-score. 
+I performed a cassette exon splicing analysis and converted the fold change and P-value from each exon into a signed Z-score. 
 This allows for two way comparisons  between the shRNA knockdown of TDP-43 (TDP-KD), LCDmut and RRM2mut. 
 Separating each graph into quadrants makes it clear that all significantly changed exons found in each mutation are changed in the same direction between RRM2mut and TDP-KD (Figure \ref{fig:mef_scatters}). 
 However, the exon changes are opposing when comparing LCDmut and TDP-KD, as well as between LCDmut and RRM2mut . 
@@ -164,14 +184,16 @@ This provides evidence at transcriptome scale that RRM2mut is a loss of splicing
 	\label{fig:cassette_scatters}
 \end{figure}
 
-To deeply interrogate splicing changes at time points that were relevant to the phenotypes of interest (death in RRM2mut and neurodegeneration in LCDmut) we generated high depth RNA-seq from RRM2mut embryonic brains and LCDmut adult brains (30 days post-natal). High depth and longer read data allows for better discrimination of novel splicing events and so I ran a novel splicing analysis using SGSeq. Plotting the direction and P-value of all cassette exons found in the two mutations strongly suggests that the strongest splicing changes are in exon inclusion in RRM2mut and in exon skipping in LCDmut (Figure \ref{fig:cassette_scatters}).
+To deeply interrogate splicing changes at time points that were relevant to the phenotypes of interest (death in RRM2mut and neurodegeneration in LCDmut) we generated high depth RNA-seq from RRM2mut embryonic brains and LCDmut adult brains (30 days post-natal). 
+Higher depth and longer read data allows for better discrimination of novel splicing events and so I ran a novel splicing analysis using SGSeq \citep{Goldstein2016}. 
+Plotting the direction and P-value of all cassette exons found in the two mutations strongly suggests that the strongest splicing changes are in exon inclusion in RRM2mut and in exon skipping in LCDmut (Figure \ref{fig:cassette_scatters}).
 
 % RNAmaps of the cassettes - motif and iCLIP
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=14cm]{Figures/05_tdp_mice/RNAmap_cassettes.png}
 	\caption{\textbf{RNA maps visualise positional enrichment of iCLIP and sequence motifs within cassette exon splicing loci}}
-	RNAmaps constructed from differentially included (blue) and skipped (red) cassette exons.  A) TGTG motifs in RRM2mut; B) TDP-43 iCLIP in RRM2mut; C) TGTG motifs in LCDmut; D) TDP-43 iCLIP in RRM2mut.
+	RNA maps constructed from differentially included (blue) and skipped (red) cassette exons.  A) TGTG motifs in RRM2mut; B) TDP-43 iCLIP in RRM2mut; C) TGTG motifs in LCDmut; D) TDP-43 iCLIP in RRM2mut.
 	
 	\label{fig:RNAmap_cassettes}
 \end{figure}
