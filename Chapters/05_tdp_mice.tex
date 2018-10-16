@@ -70,7 +70,8 @@ Analysis  of  high-throughput  iCLIP  libraries  was  conducted  using  the  iCo
 Only  uniquely-mapped  sense  reads  from each dataset were used. All peak calling and false discovery rate correction was carried out as described in \citep{Huppertz2014-ip,Konig2010}.  
 Peaks were then clustered together and the resulting clusters were used in all further analysis.
 % are they peaks or clusters? Jernej will ask
-RNA maps are a visualisation tool for examining the enrichment of a set of features within a set of RNA sequences at a nucleotide level. They are very effective at aggregating multiple genomic loci together to demonstrate position specific enrichments of features such as sequence motifs within RNA-protein interaction data (CLIP, iCLIP, eCLIP). 
+RNA maps are a visualisation tool for examining the enrichment of a set of features within a set of RNA sequences at a nucleotide level \citep{Ule2006}. 
+They are very effective at aggregating multiple genomic loci together to demonstrate position specific enrichments of features such as sequence motifs within RNA-protein interaction data (CLIP, iCLIP, eCLIP). 
 I developed software that would overlap one set of genomic coordinates with another and transform the output of this intersection into a large matrix that could be normalised and then visualised.  
 RNA maps were created  for groups of cassette exons by quantifying per-nucleotide iCLIP coverage across the entire length of each parent intron that contained the splice sites of each cassette exon. 
 To maximise  potential  coverage,  I pooled together all  iCLIP  replicates created  by the Fratta lab with  TDP-43  iCLIP generated previously \citep{Rogelj2012}. 

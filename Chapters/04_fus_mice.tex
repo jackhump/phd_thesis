@@ -17,6 +17,19 @@ The FUS $\Delta$14 mutation was found in an early onset ALS patient who died at 
 My role within the project was to analyse RNA sequencing data comparing the FUS $\Delta$14 mice with their wildtype littermates across two tissues and timepoints. The project so far has only looked at gene expression but the eventual aim is to carefully look at splicing changes.
 
 
+\section{Contributions}
+\begin{itemize}
+	% Check with Pietro
+	\item Transgenic mice were created by Dr Anny Devoy
+	\item RNA sequencing libraries were prepared by Dr Anny Devoy
+	\item RT-PCR validation was performed by Dr Anny Devoy
+	\item Figure \ref{fig:delta14_structure} was created by Dr Anny Devoy
+\end{itemize}
+All bioinformatic analysis and interpretation was designed and performed by myself in consultation with Dr Anny Devoy and my supervisors. 
+
+
+
+
 %%FUS overexpression causes neurodegeneration and FUS-positive inclusions, cytoplasmic FUS expression in mice \citep{Mitchell2013} although only in homozygous state (dose sensitive) hemizygous FUS overexpression shows no evidence of motor phenotype
 
 %
@@ -32,7 +45,7 @@ My role within the project was to analyse RNA sequencing data comparing the FUS 
 %%Human FUS in overexpressed in adult rats, progressive motor impairment and respiratory dysfunction \citep{Jackson2016}
 
 \subsection{The FUS $\Delta$14 mouse is a humanised model of ALS}
-The FUS $\Delta$14 mouse was created by directed mutagenesis of the mouse Fus exon 14 splice site as well as humanisation of exon 15 with 4 separate mutations.The result of splicing exons 13 and 15 together is a frameshift which at the protein level removes the C-terminal nuclear localisation signal (Figure 4.1A) but leaves a novel peptide sequence which can used to create specific antibodies. Reverse-transcription PCR to detect FUS mRNA (performed by Anny Devoy) showed the $\Delta$14 FUS mRNA to be expressed at a similar level to wildtype FUS (Figure 4.1B). 
+The FUS $\Delta$14 mouse was created by directed mutagenesis of the mouse Fus exon 14 splice site as well as humanisation of exon 15 with 4 separate mutations.The result of splicing exons 13 and 15 together is a frameshift which at the protein level removes the C-terminal nuclear localisation signal (Figure 4.1A) but leaves a novel peptide sequence which can used to create specific antibodies. Reverse-transcription PCR to detect FUS mRNA showed the $\Delta$14 FUS mRNA to be expressed at a similar level to wildtype FUS (Fig. \ref{fig:delta14_structure}B). 
 
 
 \begin{table}[h!]
@@ -54,10 +67,11 @@ The FUS $\Delta$14 mouse was created by directed mutagenesis of the mouse Fus ex
 
 \begin{figure}[h!]
 	\begin{center}
-		\includegraphics[width=14cm]{Figures/04_fus_mice/anny_FUS_schematic.png}
+		\includegraphics[width=\textwidth]{Figures/04_fus_mice/anny_FUS_schematic.png}
 	\end{center}
-	\caption{The FUS $\Delta$14 model }
+	\caption{\textbf{The FUS $\Delta$14 model} }
 		A) The FUS locus with a closeup of the terminal three exons in the wildtype mouse (left) and the FUS $\Delta$14 mouse (right) B) RT-PCR of FUS mRNA from spinal cord of wildtype and mutant mice. \textit{Figure created by Anny Devoy}
+			\label{fig:delta14_structure}
 \end{figure}
 
 
@@ -80,17 +94,18 @@ To examine progressive changes in RNA regulation, total RNA was extracted from b
 
 \begin{figure}[h!]
 	\begin{center}
-		\includegraphics[width=10cm]{Figures/04_fus_mice/anny_volcanos.png}
+		\includegraphics[width=\textwidth]{Figures/04_fus_mice/anny_volcanos.png}
 	\end{center}
 	\caption{Differential gene expression analysis on the $\Delta$14 mouse across two tissues and time points}
 	Each gene is represented as a point. The x axis is the log2 of the ratio between the average expression in the $\Delta$14 mice against that of the wildtype mice. The y axis is the $log_10$ of the unadjusted P-value for the differential expression test. The numbers of upregulated genes (adjusted \textit{P} < 0.1 with a $log_2$(fold change) > 0) are in blue and the the downregulated ( adjusted \textit{P} < 0.1 with $log_2$(fold change) < 0) are in red.
+	\label{fig:delta14_volcanos}
 \end{figure}
 
 \begin{figure}[h!]
 	\begin{center}
-		\includegraphics[width=8cm]{Figures/04_fus_mice/anny_normalised_heatmap.png}
+		\includegraphics[width=\textwidth]{Figures/04_fus_mice/anny_normalised_heatmap.png}
 	\end{center}
-	\caption{Z-score heatmap of the 1289 differentially expressed genes in 12 month spinal cord dataset}
+	\caption{\textbf{Z-score heatmap of the 1289 differentially expressed genes in 12 month spinal cord dataset}}
 	WT: wildtype littermate; FUS: FUS $\Delta$14 heterozygote. 
 \end{figure}
 
@@ -101,8 +116,9 @@ Genes from the 12 month spinal cord dataset differentially expressed at a relaxe
 	\begin{center}
 		\includegraphics[width=12cm]{Figures/04_fus_mice/anny_GO_terms.png}
 	\end{center}
-	\caption{Gene ontology categories significantly enriched in the 12 month FUS $\Delta$14 spinal cord samples  }
+	\caption{\textbf{Gene ontology categories significantly enriched in the 12 month FUS $\Delta$14 spinal cord samples}}
 		Each significant gene ontology category ( adjusted P < 0.05) is expressed as a proportion of upregulated (red) or downregulated (blue) genes.
+		\label{fig:delta14_go}
 \end{figure}
 
 
