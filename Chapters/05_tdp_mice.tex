@@ -3,10 +3,6 @@
 
 Work presented in this chapter has been published as part of \citep{Fratta2018}. See appendices for full reproduction of the published manuscript.
 
-\section{Overview}
-% work performed by myself, Dr Kitty Lo and Prasanth Sivakumar. Kitty Lo began the analysis and I finished it. Prasanth contributed the iCLIP and the wet lab validations
-
-
 \section{Contributions}
 \begin{itemize}
 	\item All RT-PCRs and Western blots presented were performed, quantified and plotted by Prasanth Sivakumar
@@ -18,7 +14,16 @@ Work presented in this chapter has been published as part of \citep{Fratta2018}.
 
 
 
-\section{Background}
+\section{Abstract}
+
+TDP-43 is a ubiquitously expressed RNA-binding protein with multiple roles in RNA processing including mRNA splicing.
+TDP-43 mislocalisation and aggregation is a common ALS pathology observed in the majority of patient brains.
+Additionally, rare  TDP-43 mutations are causative for ALS. 
+How TDP-43 mutations lead to disease and how TDP mislocalisation occurs in the absence of mutations is unknown. 
+Whether loss of TDP-43 from the nucleus or a gain of TDP-43 in the cytoplasm is the pathological consequence is also under debate.
+TDP-43 Mutations cluster in the low-complexity domain of the protein which has been implicated in aggregation and interaction with other proteins.
+
+
 
 We generated two mutant mouse lines to study different aspects of TDP-43's role in mRNA splicing.
 By comparing the two we discovered that mutations in the low-complexity domain of the protein lead to a gain of splicing function. This is radically distinct from mutations that affect RNA-binding which act as a relatively simple loss of splicing function.
@@ -59,11 +64,17 @@ Details on all RNA-sequencing datasets are presented in table \ref{table:tdp_mic
 \subsection{Differential splicing}
 Three different generations and qualities of sequencing data were generated over the course of the study.  Therefore the methods I  used  to  measure  splicing  changes  were  tailored to each dataset. 
 For the low depth and short read embryonic fibroblast and  embryonic head samples, I used DEXSeq package \citep{Anders2012} to estimate changes in differential exon usage of annotated exons only.
-Due the high depth and long read length of the RRM2mut embryonic brain and LCDmut adult spinal cord samples we used the SGSeq package \citep{Goldstein2016}.
-Although SGSeq will discover and classify more complex splicing events, we focussed solely on cassette exons for their ease of interpretation.
+Due the high depth and long read length of the RRM2mut embryonic brain and LCDmut adult spinal cord samples I used the SGSeq package \citep{Goldstein2016}.
+Although SGSeq will discover and classify more complex splicing events, I focussed solely on cassette exons for their ease of interpretation.
 
 \subsection{Annotation of splicing events}
-As transcript annotation progresses the number of novel splicing events will diminish over time, and for this reason we have chosen to define extreme splicing changes by the levels of inclusion rather than annotation. To define extreme cassette exons we use percent spliced  in  (PSI)  in  our  control  samples  and  the  difference in PSI  ($\Delta$PSI) between  mutants  and  controls  as selection criteria. Cryptic exons are defined as barely included in controls ( $PSI_{control}$ < 5\%) and more included in mutants ($\Delta$PSI > 5\%). What we call ``skiptic'' exons are extreme cassette exon skipping events, where an exon that is apparently constitutive ($PSI_{control}$ > 95\%) is then skipped in the mutants ($\Delta$PSI > 5\%).
+
+As TDP-43 depletion is associated with the splicing of non-annotated cryptic exons \citep{Ling2015} I wanted to examine both mouse lines for  novel splicing events.
+However, as transcript annotation progresses the number of novel splicing events will diminish over time. 
+Instead  I decided td classify splicing events by the levels of inclusion rather than annotation. 
+For each exon, the percentage spliced in (PSI) was computed and the difference in mean PSI between mutants and controls ($\Delta$PSI) was calculated.
+Exons were classified as extreme inclusion or cryptic exons if they show negligible inclusion in wildtype ( $PSI_{control}$ < 5\%) and and an increased $\DeltaPSI$ (> 5\%).
+Extreme exon skipping events or "skiptic exons" occured where an exon that is apparently constitutive ($PSI_{control}$ > 95\%) is then skipped in the mutants ($\Delta$PSI < $-5$\%).
 
 \subsection{iCLIP analyses}
 Analysis  of  high-throughput  iCLIP  libraries  was  conducted  using  the  iCount  pipeline,  mapping  reads  to  the mm10 build of the mouse genome.
@@ -136,10 +147,12 @@ Developing these two mice allowed us to interrogate TDP-43 function and compare 
 Due to their positions within the protein, the two mutations will be henceforth referred to as RRM2mut and LCDmut.
 
 % info on breeding - F210I is embryonic lethal
-We derived mice from mutant sperm and backcrossed for several generations onto a mixed C57BL/6J - DBA/2J background.
-This revealed that RRM2mut is embryonic lethal in the homozygous state but not in heterozygosity, whereas homozygous LCDmut mice are viable and live normal lifespans. 
+We derived mice from mutant sperm and backcrossed for 10 generations onto a mixed C57BL/6J - DBA/2J background to remove unwanted background mutations.
+RRM2mut is embryonic lethal in the homozygous state but not in heterozygosity, whereas homozygous LCDmut mice are viable and live normal lifespans. 
+The two mutant lines were crossed together to create compound heterozygotes.
+The RRM2mut/LCDmut mice were viable, suggesting the two mutations complement each other.
 Close observation of aged LCDmut revealed gradual muscle weakness and a reduction in motor neuron numbers in the spinal cord (data not shown), suggesting that the patient-like M323K mutation indeed causes symptoms of neurodegeneration reminiscent of ALS. 
-Due to the extreme differences in phenotype, particularly the neurodegeneration seen in LCDmut adults, we were curious to explore the effect of the mutations on RNA splicing.
+Due to the extreme differences in phenotype, particularly the neurodegeneration seen in LCDmut adults, I was curious to explore the effect of the mutations on RNA splicing.
 
 \subsection{The two mutations have opposing effects on splicing known TDP-43 targets}
 
@@ -168,11 +181,12 @@ This suggests that the pro-skipping action of TDP-43 is increased at the CFTR lo
 	\label{fig:mef_scatters}
 \end{figure}
 
-To look transcriptome-wide at the effects of the two mutations on simple cassette exon splicing we generated low-depth RNA-seq data from mouse embryonic fibroblasts. 
-To compare both mutations to a simple loss of TDP-43 we created a short hairpin RNA (shRNA) that targets \textit{Tardbp} mRNA for degradation, reducing TDP-43 protein levels. 
+To look transcriptome-wide at the effects of the two mutations on simple cassette exon splicing the lab generated low-depth RNA-seq data from mouse embryonic fibroblasts. 
+To compare both mutations to a simple loss of TDP-43 a short hairpin RNA (shRNA) was designed to be complementary to \textit{Tardbp} mRNA.
+Binding of the shRNA should target \textit{Tardbp} mRNA for degradation, reducing TDP-43 protein levels. 
 I performed a cassette exon splicing analysis and converted the fold change and P-value from each exon into a signed Z-score. 
 This allows for two way comparisons  between the shRNA knockdown of TDP-43 (TDP-KD), LCDmut and RRM2mut. 
-Separating each graph into quadrants makes it clear that all significantly changed exons found in each mutation are changed in the same direction between RRM2mut and TDP-KD (Figure \ref{fig:mef_scatters}). 
+Separating each graph into quadrants makes it clear that all significantly changed exons found in each mutation are changed in the same direction between RRM2mut and TDP-KD (Fig. \ref{fig:mef_scatters}). 
 However, the exon changes are opposing when comparing LCDmut and TDP-KD, as well as between LCDmut and RRM2mut . 
 This provides evidence at transcriptome scale that RRM2mut is a loss of splicing function whereas LCDmut is behaving oppositely.
 
@@ -185,9 +199,9 @@ This provides evidence at transcriptome scale that RRM2mut is a loss of splicing
 	\label{fig:cassette_scatters}
 \end{figure}
 
-To deeply interrogate splicing changes at time points that were relevant to the phenotypes of interest (death in RRM2mut and neurodegeneration in LCDmut) we generated high depth RNA-seq from RRM2mut embryonic brains and LCDmut adult brains (30 days post-natal). 
+To deeply interrogate splicing changes at time points that were relevant to the phenotypes of interest (death in RRM2mut and neurodegeneration in LCDmut) high depth RNA-seq data was generated from RRM2mut embryonic brains and LCDmut adult brains (30 days post-natal). 
 Higher depth and longer read data allows for better discrimination of novel splicing events and so I ran a novel splicing analysis using SGSeq \citep{Goldstein2016}. 
-Plotting the direction and P-value of all cassette exons found in the two mutations strongly suggests that the strongest splicing changes are in exon inclusion in RRM2mut and in exon skipping in LCDmut (Figure \ref{fig:cassette_scatters}).
+Plotting the direction and P-value of all cassette exons found in the two mutations strongly suggests that the strongest splicing changes are in exon inclusion in RRM2mut and in exon skipping in LCDmut (Fig. \ref{fig:cassette_scatters}).
 
 % RNAmaps of the cassettes - motif and iCLIP
 \begin{figure}[h]
@@ -205,7 +219,7 @@ I created RNA maps to look for positional enrichment within and around the the c
 Motif-based maps were calibrated using the invariant AG and GT dinucleotides at the 3' and 5' splice sites respectively (see appendices).
 For RRM2mut, the 91 cassette exons with increased inclusion were enriched in UGUG sequence motifs (Fig \ref{fig:RNAmap_cassettes}A) and iCLIP peaks (Fig \ref{fig:RNAmap_cassettes}B).
 Both sequence features either directly overlap the exon or are within 100 bp either side. 
-The 78 Skipped exons  in RRM2mut were depleted in both feature types directly on top and close by. 
+The 78 skipped exons  in RRM2mut were depleted in both feature types directly on top and close by. 
 LCDmut cassette exons show the inverse distribution to RRM2mut as the 168 skipped exons are enriched for features that directly overlap and closely flank the exons (Fig \ref{fig:RNAmap_cassettes}C/D), whereas the 42 included exons were depleted of sequence features that were close or overlapping.
 All exons howed enrichment of TDP-43 features at the distal flanking 5' and 3' splice sites, suggesting long range cooperation around the distal splice sites.
 This data suggests that whereas the RRM2mut cassette exons are shifted due to a reduction in TDP-43, the LCDmut exons are shifting in a direction suggesting an increase of TDP-43 in the mutant cells.
@@ -227,7 +241,7 @@ This data suggests that whereas the RRM2mut cassette exons are shifted due to a 
 	A: Representative RNA-seq traces show cryptic exon in \textit{Adnp2} included in RRM2mut specifically. B: RT-PCR of \textit{Adnp2} selectively amplifies a band corresponding to cryptic exon inclusion in RRM2mut samples. P < 0.001; t-test(two-sided).
 \end{figure}
 
-A hallmark of TDP-43 depletion is the widespread inclusion of non-conserved cryptic exons \citep{Ling2015}. The bias towards cassette exon inclusion suggested that a number of RRM2mut repressed exons may be cryptic exons. Rather than relying on isoform annotation we filtered all cassette exons found in RRM2mut and selected those that were barely or not at all spliced in wildtypes but we included in RRM2mut samples, resulting in 33 candidate cryptic exons being discovered. A representative example of a cryptic exon in \textit{Adnp2} is shown in figure \ref{cryptic_multi}, changing from 0\% inclusion in wildtype mice to ~10\% inclusion in RRM2mut but not in LCDmut mice.  
+A hallmark of TDP-43 depletion is the widespread inclusion of non-conserved cryptic exons \citep{Ling2015}. The bias towards cassette exon inclusion suggested that a number of RRM2mut repressed exons may be cryptic exons. Rather than relying on isoform annotation I filtered all cassette exons found in RRM2mut and selected those that were barely or not at all spliced in wildtypes but were included in RRM2mut samples, resulting in 33 candidate cryptic exons being discovered. A representative example of a cryptic exon in \textit{Adnp2} is shown in figure \ref{cryptic_multi}, changing from 0\% inclusion in wildtype mice to ~10\% inclusion in RRM2mut but not in LCDmut mice.  
 
 %% LONG GENES 
 \begin{figure}[h!]
@@ -238,7 +252,7 @@ A hallmark of TDP-43 depletion is the widespread inclusion of non-conserved cryp
 	\label{fig:long_genes}
 \end{figure}
 
-Another feature of TDP-43 loss of function is a striking downregulation of genes with long introns (>100kb). This phenomenon was first observed in mice where an antisense oligonucleotide strategy was used to lower TDP-43 in the striatum (TDP-ASO); \citep{Polymenidou2011-hs}. Long intron genes are particularly prevalent in neuronal cells CITE!! and it is thought that TDP-43 binds within these long introns to promote their processing and splicing. We re-analysed RNA-seq data from this study and compared it to the RRM2mut and LCDmut sequencing data. I ran a differential gene expression analysis with DESeq2 and ranked all genes by their direction of expression change between controls and ASO treatment/mutations. I then binned genes into groups and extracted the lengths of longest intron in each gene from GENCODE annotation. While in LCDmut, gene length is evenly distributed between downregulated, unchanged and upregulated genes (Figure \ref{fig:long_genes}A), there is a clear bias for the most downregulated genes having long introns being downregulated in both RRM2mut and TDP-ASO (Figure \ref{fig:long_genes}B). An orthogonal approach is to look at TDP-43 protein-RNA interaction data performed on wildtype cells with the iCLIP method \citep{Huppertz2014-ip}. I calculated the proportion of nucleotides in each gene that had an iCLIP peak overlapping, signifying direct TDP-43 binding. Genes that were downregulated in RRM2mut had no difference in the distribution of iCLIP peak overlaps except for those downregulated genes that also contained at least one intron longer than 100 kilobases (Figure \ref{fig:long_genes}C). 
+Another feature of TDP-43 loss of function is a striking downregulation of genes with long introns (>100kb). This phenomenon was first observed in mice where an antisense oligonucleotide strategy was used to lower TDP-43 in the striatum (TDP-ASO); \citep{Polymenidou2011-hs}. Long intron genes are over-represented in neuronal cells \citep{Sibley2015} and it is thought that TDP-43 binds within these long introns to promote their processing and splicing. I re-analysed RNA-seq data from this study and compared it to the RRM2mut and LCDmut sequencing data. I ran a differential gene expression analysis with DESeq2 and ranked all genes by their direction of expression change between controls and ASO treatment/mutations. I then binned genes into groups of 200 and extracted the lengths of longest intron in each gene from GENCODE annotation. While in LCDmut, gene length is evenly distributed between downregulated, unchanged and upregulated genes (Fig. \ref{fig:long_genes}A), there is a clear bias for the most downregulated genes having long introns in both RRM2mut and TDP-ASO (Fig. \ref{fig:long_genes}B). An orthogonal approach is to look at TDP-43 protein-RNA interaction data performed on wildtype cells with the iCLIP method \citep{Huppertz2014-ip}. I calculated the proportion of nucleotides in each gene that had an iCLIP peak overlapping, suggesting direct TDP-43 binding. Genes that were downregulated in RRM2mut had no difference in the distribution of iCLIP peak overlaps except for those downregulated genes that also contained at least one intron longer than 100 kilobases (P = 2e-6; Fig. \ref{fig:long_genes}C). Long intron genes were modestly depleted in iCLIP peaks when the genes were upregulated (P = 0.029).
 
 
 \subsection{LCDmut shows the inverse of cryptic splicing - skiptic splicing}
@@ -251,7 +265,7 @@ Another feature of TDP-43 loss of function is a striking downregulation of genes
 	\label{fig:skiptic_multi}
 \end{figure}
 
-We applied the same cryptic exon filtering strategy to LCDmut and found a small number of potential cryptic exons. However, when applying the inverse critera to find exons that are 95-100\% included in wildtype and then skipped in LCDmut we uncovered 48 exons. These exons are constitutively spliced in wildtype samples and yet are skipped in LCDmut, making them the inverse of cryptic exons. We therefore christened them "skiptic" exons - a portmanteau of cryptic and skipping. A selection of skiptic exons were validated by RT-PCR (Figure \ref{fig:skiptic_multi}). 
+I applied the same cryptic exon filtering strategy to LCDmut and found a small number of potential cryptic exons. However, when applying the inverse critera to find exons that are 95-100\% included in wildtype and then skipped in LCDmut I uncovered 48 exons. These exons are constitutively spliced in wildtype samples and yet are skipped in LCDmut, making them the inverse of cryptic exons. I therefore christened them "skiptic" exons - a portmanteau of cryptic and skipping. A selection of skiptic exons were validated by RT-PCR (Fig. \ref{fig:skiptic_multi}). 
 
 
 \begin{figure}[h!]
@@ -313,14 +327,14 @@ Importantly, the iCLIP data used for these maps is mainly drawn from wildtype TD
 	\label{fig:functional_plots}
 \end{figure}
 
-Cryptic exons originate from very poorly conserved DNA sequence  (Figure \ref{fig:functional_plots}A), suggesting that there is no functional protein coding information encoded in them. 
-Inclusion of these essentially randomised sequences would more likely than not lead to degradation of the host mRNA transcript through the inclusion of premature stop codons or frameshifts and nonsense-mediated decay (see \autoref{chapter:cryptic_exons}). 
-Skiptic exons are highly conserved (Figure \ref{fig:functional_plots}A), with a much higher average conservation level than a randomly chosen set of annotated exons from GENCODE.  
+Cryptic exons originate from very poorly conserved DNA sequence  (Fig. \ref{fig:functional_plots}A), suggesting that there is no functional protein coding information encoded in them. 
+Inclusion of these essentially randomised sequences would more likely than not lead to degradation of the host mRNA transcript through the inclusion of premature stop codons or frameshifts and nonsense-mediated decay.
+Skiptic exons are highly conserved (Fig. \ref{fig:functional_plots}A), with a much higher average conservation level than a randomly chosen set of annotated exons from GENCODE.  
 This is to be expected from their close to 100\% inclusion rates within transcripts. 
 Their constitutive splicing status means that their inclusion is near guaranteed and so unlike cassette exons, which are swapped in and out dynamically between tissues and developmental time points, I hypothesis that there is no evolutionary pressure to maintain a length divisible by 3. 
 In the event of these exons being skipped they would likely lead to a shift of reading frame, potentially leading to degradation of the host transcript through nonsense-mediated decay.
  To test whether skiptic exon splicing correlated with host transcript degradation I combined the differential splicing and differential expression analyses together. I separated genes into sets based on i) whether they were significantly upregulated or downregulated in LCDmut compared to wildtype (FDR < 10\%) and ii) whether they contained either a cassette exon or a skiptic exon that changed in inclusion levels between LCDmut and wildtype (FDR < 1\%). 
- Genes that contained skiptic exons were more likely to be downregulated than those without any cassette exon splicing  (P = 1.19e-6; binomial test; Figure \ref{fig:functional_plots}B). The same trend cannot be seen in the other direction as there as no increased likelihood for skiptic containing genes to be upregulated. 
+ Genes that contained skiptic exons were more likely to be downregulated than those without any cassette exon splicing  (P = 1.19e-6; binomial test; Fig. \ref{fig:functional_plots}B). The same trend cannot be seen in the other direction as there as no increased likelihood for skiptic containing genes to be upregulated. 
  Finally I attempted to predict \textit{in silico} whether the skipping of a skiptic exon would lead to nonsense mediated decay. 
  By combinining the central cassette exon with the flanking upstream exons and translating the concatenated sequence it is possible to assess whether skipping the central exon would frameshift the downstream exon, generating premature stop codons. 
  Using this method I discovered that 15 out of 47 of the skiptic exons would lead to the inclusion of a premature stop codon.  
@@ -340,14 +354,23 @@ I compared the distribution of predictions between skiptic exons in downregulate
 \end{figure}
 
 Many RNA-binding proteins have been shown to regulate their own translation, this is termed autoregulation \citep{Lareau2007,Wollerton2004}]. 
-When levels of the protein are high they will bind to their mRNA and shift production to an untranslated isoform, predominantly through nonsense-mediated decay \citep{McGlincy2008-wh}.
-The 3' untranslated region (3'UTR) of \textit{Tardbp} is remarkably complex regulatory hub (Figure \ref{fig:autoregulation}A). There are at least 3 experimentally validated polyadenylation and cleavage sites, pA1, 2, and 4. This is compounded with the possibility of splicing out sections of the 3'UTR in two introns (6 and 7; \citep{Koyama2016}). 3'UTR splicing is a mechanism for regulating TDP-43 translation as an intron that follows a stop codon should trigger nonsense-mediated decay. TDP-43 binds the 3'UTR of its own mRNA overlapping the pA$_2$ site  \citep{Polymenidou2011,Tollervey2011} and can regulate its own expression by encouraging the splicing of non-productive isoforms pA$_2$* and pA$_4$* \citep{Koyama2016}. 
-These isoforms are predicted to undergo nonsense-mediated decay due to the stop codon  being further than 50bp from the intron in both isoforms.
+When levels of the protein are high they will bind to their mRNA and shift production to an untranslated isoform, through nonsense-mediated decay or through nuclear retention \citep{McGlincy2008-wh,Boutz2015}.
+The 3' untranslated region (3'UTR) of \textit{Tardbp} is remarkably complex regulatory hub (Fig. \ref{fig:autoregulation}A). 
+There are 3 experimentally validated polyadenylation and cleavage sites, pA1, 2, and 4. 
+There also 2 introns within the 3'UTR (6 and 7; \citep{Ayala2011,Koyama2016}). 
+3'UTR splicing is a mechanism for regulating TDP-43 translation as an intron that follows a stop codon should trigger nonsense-mediated decay. 
+Both spliced isoforms pA$_2$* and pA$_4$* are predicted to undergo nonsense-mediated decay due to the stop codon is further than 50bp from the intron in each.
+Additionally, the long pA4 site is preferentially retained in the nucleus where it is degraded by the exosomal complex \citep{Ayala2011}.
+Only the pA1 isoform is translated into TARDBP protein \citep{Koyama2016}.
+TDP-43 binds the 3'UTR of its own mRNA overlapping the pA$_1$ site  \citep{Polymenidou2011,Tollervey2011}.
+This prevents polyadenylation at the pA1 site and encourages the creation of the retained pA4 transcript and the splicing of NMD-sensitive pA$_2$* and pA$_4$* isoforms \citep{Koyama2016}. 
+This system allows TDP-43 protein levels to regulate the stabilty of \textit{Tardbp} mRNA.
 
-RRM2mut shifts the balance of UTR isoforms from near equal amounts of pA$_1$ and pA$_4$ to predominantly pA$_1$, presumably due to its reduced RNA binding ability.  
-In LCDmut, a clear upregulation of Tardbp mRNA expression is seen in both embryonic and adult RNA-seq samples (Figure \ref{fig:autoregulation}B). 
-When we quantified the level of intron 7 inclusion, a proxy for the proportion of NMD-sensitive pA$_2$* and pA$_4$* isoforms, LCDmut increased intron 7 retention in a dose dependent manner, suggesting a loss of NMD-sensitive UTR isoforms (Figure \ref{fig:autoregulation}C). 
-However, when assessing the total TDP-43 protein levels by Western blotting, no difference was observed between LCDmut and wildtype cells (Figure \ref{fig:autoregulation}D).
+I assessed the the \textit{Tardbp} 3'UTR locus in the RNA-seq data to observe whether the two mutations had effects on autoregulation. 
+RRM2mut shifts the balance of UTR isoforms from near equal amounts of pA$_1$ and pA$_4$ to predominantly pA$_1$, presumably due to its reduced RNA binding ability  (Fig. \ref{fig:autoregulation}A).  
+In LCDmut, a clear upregulation of Tardbp mRNA expression is seen in both embryonic and adult RNA-seq samples (Fig. \ref{fig:autoregulation}B). 
+When I quantified the level of intron 7 inclusion,  a proxy for the proportion of NMD-sensitive pA$_2$* and pA$_4$* isoforms, LCDmut increased intron 7 retention in a dose dependent manner, suggesting a loss of NMD-sensitive UTR isoforms (Fig. \ref{fig:autoregulation}C). 
+However, when assessing the total TDP-43 protein levels by Western blotting, no difference was observed between LCDmut and wildtype cells (Fig. \ref{fig:autoregulation}D).
 Together this suggests a subtle impairment in the autoregulation feedback loop in LCDmut cells.
 
 \subsection{Skiptic splicing can be observed in human ALS patients}
@@ -361,7 +384,7 @@ Together this suggests a subtle impairment in the autoregulation feedback loop i
 	\label{fig:skiptic_patients}
 \end{figure}
 
-Due to the high species conservation of the skiptic exons, we reasoned that it might be possible to see evidence of their skipping in human ALS patients with heterozygous mutations in the low complexity region of \textit{TARDBP}. Seven skiptic exons were tested using RT-PCR in four patients with the A382T and G298S mutations and four control fibroblast lines. 
+Due to the high species conservation of the skiptic exons, I reasoned that it might be possible to see evidence of their skipping in human ALS patients with heterozygous mutations in the low complexity region of \textit{TARDBP}. Seven skiptic exons were tested using RT-PCR in four patients with the A382T and G298S mutations and four control fibroblast lines. 
 Two skiptic exons were found to have a mild but statistically signficant increase in the intensity of the band matching the skipping transcript.	
 This provides the first evidence of a gain of TDP-43 splicing function in patients with ALS-associated \textit{TARDBP} mutations.
 
@@ -369,57 +392,59 @@ This provides the first evidence of a gain of TDP-43 splicing function in patien
 
 \section{Discussion}
 
-In this study we developed two complementary mouse models to study the splicing function of TDP-43. 
+In this study  two complementary mouse models were developed to study the splicing function of TDP-43. 
 %Benefits of knock-in mutations
 %RRM2mut is softer LOF - allows mice to live longer and us to study embryonic tissues - role in development? Cite Modic paper
-By using point mutations we have been able to modulate TDP-43 regulated splicing without dramatically altering TDP-43 expression. 
+By using point mutations I have been able to observe the modulation of TDP-43-regulated splicing without dramatically altering TDP-43 expression. 
 This has been particularly useful when studying RRM2mut. 
 TDP-43 is very highly expressed during embryonic development and knockout mice die at E6.5 \citep{Ricketts2014}) whereas RRM2mut mice survive until E18.5, allowing greater scope for studying TDP-43 loss in development.
 We have conclusively proven RRM2mut to be a loss-of-function mutation through our experiments on known TDP-43 splicing targets and also by looking transcriptome-wide. 
 This is also shown by the observation of widespread cryptic exon inclusion and the downregulation of long intron genes, two clear molecular phenotypes of TDP-43 loss.
 
-LCDmut is an intriguing mutation as we discovered a completely novel and unexpected gain of splicing function. 
+LCDmut is an intriguing mutation as I have discovered a completely novel and unexpected gain of splicing function. 
 RNA maps demonstrated that the splicing targets altered in LCDmut are enriched in TDP-43 binding through iCLIP data, even when using iCLIP from wildtype TDP-43. 
 This suggests a shift from TDP-43 binding from passive to active regulation at these loci.
 
 Although in the fibroblast data there are a small number of overlapping exons that are spliced in opposing directions, the majority of exons altered in LCDmut are not changed in RRM2mut. 
 This suggests that regulation of these exons is not simply bi-directional, with LCDmut increasing TDP-43 to cause skipping of an exon at sites where its loss causes inclusion.
 
-Our most convincing hypothesis for LCDmut's gain of splicing function is through an impairment of TDP-43 autoregulation. 
-The splicing of intron 7 clearly decreases in a dose-dependent manner with LCDmut, suggesting a reduction in the creation of NMD-sensitive 3'UTR isoforms.
+One hypothetical mechanism for the gain of splicing function seen in LCDmut is through an impairment of TDP-43 autoregulation which would increase TDP-43 protein levels.
+The splicing of intron 7 decreases in a dose-dependent manner with LCDmut, suggesting a reduction in the creation of NMD-sensitive 3'UTR isoforms.
 It is curious that this is reflected with a clear increase of \textit{Tardbp} mRNA but not at the protein level.
-It is tempting to blame the negative protein result  on the reduced sensitivity of western blotting when compared to RNA-seq. 
-Mice that are heterozygous for a TDP-43 null allelle show altered autoregulation without changes in TDP-43 protein levels either \citep{Ricketts2014} so they may well be a more subtle effect on translation than we can currently see.
+This may be due reduced sensitivity of western blotting when compared to RNA-seq, or that the Western blotting was carried out on total cellular protein rather than fractionated by cellular compartment.
+Mice that are heterozygous for a TDP-43 null allele show altered autoregulation without changes in TDP-43 protein levels either \citep{Ricketts2014} so they may well be a more subtle effect on translation than it is currently possible to detect. 
 
-The most unexpected finding in LCDmut is the discovery of skipped constitutitive exons: skiptic exons. 
+The most unexpected finding in LCDmut is the discovery of skipped constitutive exons: skiptic exons. 
 Previously TDP-43 had only been studied in the context of alternate cassette exons.
 Whereas cryptic exons emerge from normally repressed sections of introns that contain strong splice sites, skiptic exons appear to be an over-correction by TDP-43.
 Focusing our RNA maps on these skiptic exons shows that both cryptic and skiptic exons are similarly enriched by TDP-43 binding in wildtype cells.
-Therefore TDP-43 may some role in supporting the inclusion of these exons but with the LCDmut mutation this role shifts to promoting their excision from the host transcript.
-That we see only 44 genes affected by skiptic transcripts may be down to the sheer redundancy and collaboration between multiple RNA-binding proteins. 
-The skiptic exons may represent transcripts that are most dependent on TDP-43 expression for their correct splicing. 
+Therefore TDP-43 may have a minor role in supporting the inclusion of these exons but with the LCDmut mutation this shifts to promoting their excision from the host transcript.
+That I see only 44 genes affected by skiptic transcripts may be down to the sheer redundancy and collaboration between multiple RNA-binding proteins. 
+The skiptic exons may represent transcripts that are most sensitive to TDP-43 expression for their correct splicing, but why they do not also show changes in TDP-43 loss is mysterious.
 
 Cryptic exons show a higher enrichment for TDP-43 iCLIP peaks than the skiptic exons. 
 This is potentially an artefact of comparing iCLIP from predominantly embryonic tissue with splicing changes from adult mice but it could point to an alternate mechanism to explain the gain of splicing function.
 Low-complexity domains are crucial for assembling RNA-binding proteins into structures  \cite{Gueroussov2017} and its possible that the LCDmut mutation shifts TDP-43 into assembling more strongly with certain groups of proteins to play a stronger role in splicing regulation at certain loci. 
 Experiments to determine the protein-protein "interactome" of TDP-43 have been published \citep{Freibaum2010-hw} and it would be intriguing to compare LCDmut to wildtype TDP-43. 
 
-Recently a paper came out investigating a knock-in model of TDP-43 ALS where the ALS patient mutation Q331K was knocked in to mice \citep{White2018}. 
-They reported a similar gain of splicing function although they looked at a small number of individual splicing events and not transcriptome-wide.
+Recently a study investigated a similar model of TDP-43 ALS where the ALS patient mutation Q331K was knocked in to mice \citep{White2018}. 
+They reported a similar gain of splicing function in the homozygous mice, although they looked at a small number of individual splicing events and not transcriptome-wide.
 They also observed an increase in \textit{Tardbp} mRNA levels which was accompanied by an increase in \textit{nuclear but not cytoplasmic} TDP-43 protein levels.
-Our assay (Figure \ref{fig:autoregulation}D) looked at total TDP-43 protein levels so this may explain why we didn't see a difference. 
-Together our two studies convincingly show that mutating the low-complexity domain of TDP-43 leads to changes in autoregulation and gain in splicing function.
-It would be interesting to see whether the skiptic exons we observed in adult LCDmut spinal cord can be detected in the now published Q331K frontal cortex.
+The assay (Fig. \ref{fig:autoregulation}D) looked at total TDP-43 protein levels so this may explain why no difference was seen. 
+Together the two studies convincingly show that mutating the low-complexity domain of TDP-43 leads to changes in autoregulation and gain in splicing function.
+It would be interesting to see whether the skiptic exons observed in adult LCDmut spinal cord can be detected in the now published Q331K frontal cortex.
+Another recent study used a BAC transgenic mouse of either wildtype human TDP-43 or ALS patient mutation M337V \citep{Gordon2018}.
  
  My work on the long intron genes and the RNA maps raises interesting questions about the role of TDP-43 in splicing beyond merely binding on top of or closely flanking splice sites. 
  The cassette exons altered in either RRM2mut or LCDmut show enrichment in TDP-43 iCLIP peaks in the distal introns, albeit at a lower intensity. 
- The long-intron genes that are downregulated selectively in RRM2mut also show a general enrichment in iCLIP peaks throughout the intron. 
+ The long-intron genes that are downregulated selectively in RRM2mut also show a general enrichment in iCLIP peaks throughout the intron.
+ Conversely, the upregulated long genes are depleted in iCLIP peaks compared to other upregulated genes.
  Together this suggests perhaps an additive role in splicing, where the introns that can be bound by as many molecules of TDP-43 will be processed differently, overriding the need for targeted TDP-43 binding to splice sites.
- This will be interesting to explore with future datasets, with iCLIP at higher depths and specificities. 
+ This will be interesting to explore with future datasets, with iCLIP at greater sequencing depth. 
 
  
  % skiptic validation woes
- The two skiptic exons validated in human ALS patients are intriguing but we will need to generate high quality transcriptome-wide data to see whether TDP-43 gain of splicing function is really occuring in patient cells.
+ The two skiptic exons validated in human ALS patients are intriguing high quality transcriptome-wide data is needed to determine whether TDP-43 gain of splicing function is occurring in patient cells.
  Although the skiptic exons should be conserved between mouse and human, the flanking regulatory sequences that flank the exons may not, so it is not surprising that only two of the seven skiptic exon candidates could be seen to change. It has been previously reported that TDP-43 depletion has a different effect size on the same exon in human than in mouse \cite{Mohagheghi2016}. 
  This is supposedly due not to TDP-43 binding, which is invariant, but the role of other RNA-binding proteins.
 This combinatorial model of splicing is currently intractable to investigate transcriptome-wide. % reference in discussion
@@ -432,7 +457,7 @@ This combinatorial model of splicing is currently intractable to investigate tra
  This idea would be interesting to test in a longitudinal human cell model, for example ALS patient stem cell-derived motor neurons.
  
  LCDmut mice exhibit symptoms of motor neuron degeneration (decreased motor neuron numbers, reduction in grip strength - data not shown), but do so without TDP-43 aggregation in motor neurons. 
- This uncoupling of TDP-43 aggregation and disease symptoms has been observed earlier TDP-43 mutant mouse models \citep{Arnold2013}.
+ This uncoupling of TDP-43 aggregation and disease symptoms has been observed in other TDP-43 mutant mouse models \citep{Arnold2013, Gordon2018}.
  
  % mechanistic work - repeating myself
  Further work is needed to untangle the mechanism by which a low-complexity domain mutation leads to a gain of splicing function.

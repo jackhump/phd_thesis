@@ -8,7 +8,7 @@ FUS is a ubiquitously expressed multi-domain RNA-binding protein with roles in t
 
 The Fratta lab generated RNA sequencing data from embryonic mouse neuronal tissue where FUS was either knocked out or the NLS removed through mutation. I combined the data with two previously published datasets with similar NLS mutations and FUS knockout mice. To assess differential expression and splicing I employed a joint modelling strategy which boosted the power of detection and increased the confidence in my findings. I found that in both expression and splicing, FUS NLS mutations act as a diminished knockout, with little evidence to support a gain of toxic function in the cytoplasm. When examining FUS itself, I observed that loss of nuclear FUS correlated with the reduction in the splicing of a retained intron transcript, which was validated by RT-PCR. The FUS intron retention transcript is insensitive to nonsense-mediated decay.
 
-My data suggest that disease-associated FUS mutations impair FUS autoregulation which is normally maintained through a detained intron transcript. This work has important implications for both the RNA biology and neurodegenerative disease fields.
+My data suggest that disease-associated FUS mutations impair FUS autoregulation which is normally maintained through a retained intron transcript. This work has important implications for both the RNA biology and neurodegenerative disease fields.
 
 \section{Contributions}
 \begin{itemize}
@@ -148,7 +148,7 @@ This joint modelling approach boosts statistical power and allows me to demonstr
 	\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
 		{$\Delta$ exon 14 } \strut
 	\end{minipage}\tabularnewline
-	\caption{The three FUS mouse datasets}
+	\caption{\textbf{The three FUS mouse datasets}}
 	\label{tab:fus_datasets}
 \end{longtable}
 
@@ -207,7 +207,7 @@ This joint modelling approach boosts statistical power and allows me to demonstr
 	\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 		{-}\strut
 	\end{minipage}\tabularnewline
-	\caption{RNA-seq statistics of the three datasets}
+	\caption{\textbf{RNA-seq statistics of the three datasets}}
 	\label{tab:fus_sequencing}
 \end{longtable}
 
@@ -248,7 +248,7 @@ The second, more relaxed threshold, calls a gene as significant if it falls belo
 SGSeq was run on all the samples together to discover and classify all potential splicing events using the default parameters for finding novel splicing \citep{Goldstein2016}. 
 Differential splicing for individual comparisons and joint models with a dataset-specific covariate were performed using DEXSeq \citep{Anders2012}.
 The same overlap threshold strategies were employed as for differential gene expression.
-SGSeq looks for all potential splicing events in each sample and then counts the reads supporting each the inclusion or exclusion of that splicing variant. 
+SGSeq looks for all potential splicing events in each sample and then counts the reads supporting either the inclusion or exclusion of that splicing variant. 
 Percentage Spliced In (PSI) values  \citep{Katz2010-ir} for each splicing variant were calculated by taking the read counts supporting the inclusion event and dividing by the total reads in that event. 
 % will I bother doing this?
 %For individual splicing events, PSI values were compared between each condition using a one-way ANOVA with post-hoc Tukey test.
@@ -324,7 +324,7 @@ Intron retention events are plotted  as the percentage of integrated area of ban
 		mSRSF7& R & TCTGGCCTCTTATGCTGATCAC\\
 	\end{tabular}
 	%\end{centerline}
-	\caption{List of primers used in RT-PCR. mFUS: mouse \textit{FUS}; hFUS: human \textit{FUS}}
+	\caption{\textbf{List of primers used in RT-PCR. mFUS: mouse \textit{FUS}; hFUS: human \textit{FUS}}}
 	\label{tab:fus_primers}
 \end{table}
 
@@ -344,7 +344,7 @@ Differential expression compares the abundances of transcripts from each gene be
 As most RNA-sequencing datasets comprise small numbers of samples, the number of genes found to be significantly changed between conditions depends on the degree of difference between conditions, the number of samples per condition, and the read depth covering each gene. 
 %The more sequencing reads that cover a gene, the more precise the measure of the true variance can be.
 %Most software packages borrow information across all genes to shrink the variance between samples of the same condition. 
-When I analyse each dataset individually, comparing knockout and NLS mutation to their respective controls in each dataset, the Dupuis dataset had the largest number of differentially expressed genes in both conditions (FDR < 0.05), an order of magnitude more than Bozzoni or Fratta. 
+When I analyse each dataset individually, comparing knockout and NLS mutation to their respective controls in each dataset, the Dupuis dataset had the largest number of differentially expressed genes in both conditions (FDR < 0.05), an order of magnitude more than Bozzoni or Fratta (Table \ref{tab:expression_results}). 
 Despite the differences in numbers, in all three datasets the knockout condition produces more differentially expressed genes than NLS mutation, suggesting a larger effect on FUS function.
 
 % TABLE OF GENE EXPRESSION NUMBERS
@@ -368,7 +368,7 @@ Despite the differences in numbers, in all three datasets the knockout condition
 		\hline
 	\end{tabular}
 	%\end{centerline}
-	\caption{Results from separate and joint differential expression analysis}
+	\caption{\textbf{Results from separate and joint differential expression analysis}}
 	\label{tab:expression_results}
 \end{table}
 \endgroup
@@ -429,7 +429,7 @@ Comparing the log$_2$ fold changes found for the 1318 overlapping genes between 
 Fitting a linear model between the fold changes of the two datasets shows that the effect of FUS MUT on gene expression is 76\% that of FUS KO.  ($\beta$ = 0.76; P < 1e-16 F-test; $R^2$ = 0.90).
 This suggests that while FUS KO and FUS MUT affect the same genes in the same directions, the magnitude of change is greater in FUS KO than FUS MUT. 
 This relationship is not an artefact of the relaxed overlap criteria as fitting the model on just the 425 strictly overlapping genes resulted in $\beta = 0.8; P < 1e-16$. % R^2?
-The relative weakness of NLS mutations compared to knockouts can be explained as NLS mutant FUS can still detected in the nucleus at low levels \citep{Devoy2017, Scekic-zahirovic2016}.
+The relative weakness of NLS mutations compared to knockouts can be explained as NLS mutant FUS can still be detected in the nucleus at low levels \citep{Devoy2017, Scekic-zahirovic2016}.
 %Therefore the overlapping genes are the result of nuclear loss of FUS.
 
 % individual hits
@@ -439,17 +439,17 @@ Visualising individual genes in all the datasets demonstrates the power of the j
 The Bozzoni knockout  is weaker than the one used by Dupuis and Fratta, with a reduction of \textit{Fus} RNA to only 40\% of wildtype, compared to near 100\% knockout in the other two datasets.
 
 The other members of the FET family of RNA-binding proteins,  \textit{Taf15} and \textit{Ewsr1} have been shown to reciprocally interact with FUS at the protein and RNA level \citep{Kapeli2016,Lagier-Tourenne2012}.
-\textit{Taf15} is strongly upregulated in both MUT and KO (Fig. \ref{fig:fus_expression_multipanel}D), as is \textit{Ewsr1}.  textit{Taf15} upregulation has been repeatedly observed and validated \citep{Kino2015, Scekic-zahirovic2016}. % other citations too.
+\textit{Taf15} is strongly upregulated in both MUT and KO (Fig. \ref{fig:fus_expression_multipanel}D), as is \textit{Ewsr1}.  \textit{Taf15} upregulation has been repeatedly observed and validated \citep{Kino2015, Scekic-zahirovic2016}. % other citations too.
 The \textit{Trove2} gene encoding the 60 kDa SS-A/Ro ribonucleoprotein,  is downregulated in MUT only and unchanged in KO (Fig. \ref{fig:fus_expression_multipanel}E) and has also been validated \citep{Scekic-zahirovic2016}.
 
 The X-linked lymphocyte receptor genes, \textit{Xlr3a, Xlr3b, Xlr4a} and \textit{Xlr4b} are all strongly upregulated in both conditions but more so in KO than MUT. 
 These genes form a cluster of paralogous genes on the X chromosome and are paternally imprinted in mice \citep{Raefski2005}.
-Xlr4b overexpression has been shown to alter dendritic spine growth in mice\citep{Cubelos2010}. 
+They appear to be specific to mice.
+\textit{Xlr4b} overexpression has been shown to alter dendritic spine growth in mouse neurons \citep{Cubelos2010}. 
 Although these changes have been observed in another FUS knockout mouse model \citep{Kino2015},they are potentially artefacts from an imbalance of sexes between conditions. 
 Embryonic mice are not typically sexed but I was able to sex the samples \textit{in silico} using the read counts aligning to Y chromosome genes (see Appendices). 
-Although there is an imbalance between sexes it is clearly not driving the large upregulation of \textit{Xlr} genes . 
+Although there is an imbalance between sexes it is clearly not driving the large upregulation of \textit{Xlr} genes. 
 The upregulation of \textit{Xlr3a} is strongest within the all-male Bozzoni dataset (Fig. \ref{fig:fus_xlr_expression}A) and can also be seen in the mixed-sex Dupuis and Fratta datasets. 
-These genes appear to be mouse specific.
 
 \begin{figure}[ht!]
 	\centering
@@ -545,15 +545,15 @@ The single event that did appear to be real was an intron retention event in \te
 		\hline
 	\end{tabular}
 	%\end{centerline}
-	\caption{Results from separate and joint splicing analysis}
+	\caption{\textbf{Results from separate and joint splicing analysis}}
 	\label{tab:splicing_results}
 \end{table}
 \endgroup
 
 % types of splicing event - how many are annotated?
-Comparing the different types of splicing event shows a similar distribution between knockout-specific and overlapping splicing events, both of which dominated by complex splicing events.
+Comparing the different types of splicing event shows a similar distribution between knockout-specific and overlapping splicing events, both of which are dominated by complex splicing events.
 These events are combinations of multiple types, such as a cassette exon accompanied by a retained intron and multiple alternative 3' and 5' splice sites, all within the same locus. 
-When using tools like SGSeq that can pick up novel splicing events it can be expected that the majority of events are indeed complex,  which has been other splicing tools \citep{Vaquero-Garcia2016}.
+When using tools like SGSeq that can pick up novel splicing events it can be expected that the majority of events are indeed complex. This has been seen with other splicing tools \citep{Vaquero-Garcia2016}.
 An example of a complex event is in \textit{Ybx1}, which comprises a cassette exon within a retained intron  (Fig. \ref{fig:fus_splicing_multi}D).
 The second largest category of event are retained introns.
 An example of this class is seen in \textit{Ewsr1}, where a normally retained intron is less retained in both FUS knockout and NLS mutation (Fig. \ref{fig:fus_splicing_multi}E).
@@ -577,7 +577,7 @@ Knockdown or NLS mutation of FUS could lead to impaired U1 snRNP binding and hen
 	\label{fig:fus_splicing_multi}
 \end{figure}
 
-Comparing the strict to the relaxed overlap criteria between the KO and MUT joint models \ref{fig:fus_splicing_multi} with the relaxed overlap criteria reduces the number of events found to be specific to FUS mutation to 16, with 405 overlapping events and 501 found to be specific to FUS knockout. 
+Comparing the strict to the relaxed overlap criteria between the KO and MUT joint models reduces the number of events found to be specific to FUS mutation to 16, with 405 overlapping events and 501 found to be specific to FUS knockout (Table \ref{fig:fus_splicing_multi}). 
 Plotting the $log_2$ fold changes of the overlapping splicing events, there is a similar trend towards larger fold changes in the KO than the MUT joint models ($\beta$ = 0.7, P < 1e-16; F-test; $R^2$ = 0.89). 
 There are no overlapping splicing events that change in opposing directions between the two joint models.
 
@@ -603,7 +603,7 @@ FUS has been observed to modulate polyadenylation \citep{Masuda2015}.
 To investigate this I compared each set of splicing events with a set of annotated polyadenylation sites \citep{Gruber2016}.
 Only overlapping retained introns were enriched for polyadenylation sites (P = 0.004), suggesting some intron retention events are mislabelled 3'UTRs (Fig \ref{fig:fus_splicing_functions}B).
 
-Direct regulation of splicing events by FUS binding to introns has been proposed using RNA-protein interaction experiments \cite{Lagier-Tourenne2012,Rogelj2012, Ishigaki2012}.
+Direct regulation of splicing events by FUS binding to introns has been proposed using RNA-protein interaction experiments \citep{Lagier-Tourenne2012,Rogelj2012, Ishigaki2012}.
 To look for evidence of FUS regulating these splicing and polyadenylation events I used the same set of FUS iCLIP clusters from \citep{Rogelj2012}.
 Complex events and retained introns were enriched in having iCLIP clusters within the affected introns in both overlapping and knockout-specific contexts.
 The strongest enrichment was seen in overlapping retained introns (P = 5e-32; Fig \ref{fig:fus_splicing_functions}A). 
@@ -623,7 +623,7 @@ As the splicing events are enriched for similar gene ontology terms as the diffe
 However, only 59 differentially expressed genes are found to contain a splicing event. 
 Of those 59, only 12 have FUS iCLIP binding peaks (17\%).
 Those 12 genes all have either complex or retained intron events and includes the U1 splicing factor \textit{Snrnp70}, the FET protein family members \textit{Ewsr1} and \textit{Taf15}, and \textit{Fus} itself. 
-This analysis shows that the role of FUS on gene expression and splicing affects mutually exclusive sets of genes.
+This analysis shows that the role of FUS on gene expression and splicing mostly affects mutually exclusive sets of genes.
 
 
 \subsection{FUS autoregulation is dependent on intron retention}
@@ -649,19 +649,19 @@ This analysis shows that the role of FUS on gene expression and splicing affects
 
 
 % explain FUS autoregulation
-The joint splicing analyses found 5 splicing events in FUS itself, all of which are classed as retained introns. 3 of the 5 are knockout-specific, hence assumed to be artefacts of partial FUS knockout in the Bozzoni dataset. 
-However, The 2 remaining introns (introns 6 and 7) were found to be present in the FUS NLS mutants.
-These introns overlap with large number of FUS iCLIP binding peaks.
-Hence these introns may be the site of a regulation of the \textit{Fus} transcript by the binding of the FUS protein.
-Many RNA-binding proteins have the ability to bind their own RNA, which creates  a negative feedback loop to tightly control the level of their own translation, a phenomenon known as autoregulation \citep{Rosenfeld2002,Jangi2014a}.
-When protein levels are high, protein-RNA binding splicing towards the production of an non-coding isoform.
+The joint splicing analyses found 5 intron retention events in FUS itself.
+3 of these are knockout-specific and probably result from increased intronic reads in the partial Bozzoni knockout samples. 
+However, The 2 remaining introns (introns 6 and 7) were also found in the FUS NLS mutants.
+These introns overlap with a large number of FUS iCLIP binding peaks and could be the site of regulation of the \textit{Fus} transcript by the FUS protein.
+Many RNA-binding proteins have the ability to bind their own RNA to control the level of their own translation, a phenomenon known as autoregulation \citep{Rosenfeld2002,Jangi2014a}.
+When protein levels are high, protein-RNA binding shifts splicing towards the production of an non-coding isoform.
 This is commonly through exposing transcripts to nonsense-mediated decay (NMD) \citep{McGlincy2008-wh}, by including an exon containing a premature stop codon as in HNRNP L and NOVA \citep{Rossbach2009,Dredge2005}, skipping a frame-preserving exon as in PTBP1 \citep{Wollerton2004}, or splicing within the 3'UTR as in TDP-43 \citep{Ayala2011}. 
 
 RNA-protein interaction experiments have revealed a large cluster of FUS binding across introns 6 and 7 of the FUS gene \citep{Lagier-Tourenne2012}, both of which show very high sequence conservation between species.
 This region was previously suggested to be the locus of autoregulation due to both an annotated cassette exon event in exon 7 and an a early polyadenylation transcript being present in transcript annotation databases (Ensembl, Refseq).
 Skipping of exon 7 is predicted to cause a frameshift which should trigger NMD. 
 Zhou and colleagues first investigated the mechanism of FUS autoregulation by inhibiting NMD and looking at changes in splicing of exon 7 \citep{Zhou2013}.
-The exon-skipping transcript decreased when FUS was overexpressed, suggesting this splicing event to be the autoregulatory mechanism.
+The exon-skipping transcript increased when FUS was overexpressed and decreased when FUS was knocked down, suggesting this splicing event to be the autoregulatory mechanism.
 However this mechanism does not explain the high sequence conservation of the diffuse FUS binding pattern across introns 6 and 7 (Fig. \ref{fig:fus_autoregulation}A).
 When examining RNA-sequencing coverage of the FUS gene in the Fratta, Bozzoni and Dupuis datasets, I could not observe any changes in the inclusion of exon 7 in any sample.
 However I could observe a strong retention of both introns 6 and 7 that decreased in the presence of FUS NLS mutations. 
@@ -669,7 +669,7 @@ This phenomenon can be seen in all three datasets (Fig. \ref{fig:fus_autoregulat
 We generated RNA sequencing data from mice heterozygous for the $\Delta$14 NLS mutation. 
 Comparing wildtypes, heterozygous and homozgous FUS $\Delta$14 samples showed that retention of introns 6 and 7 decreased with dose of the mutation (Fig. \ref{fig:fus_autoregulation}A/B) .
 
-We designed an RT-PCR assay to validate the intron retention changes with a three primer method that could amplify spliced a FUS exon 6-7-8-9 transcript with a second band for either exon 6-intron 6 or intron 7-exon8. 
+We designed an RT-PCR assay to validate the intron retention changes with a three primer method that could amplify a spliced transcript spanning \textit{Fus} exons 6-7-8-9 with a second band for either exon 6-intron 6 or intron 7-exon8. 
 Intron retention decreased in a mutation dose-dependent manner (intron 6 P = 5.7e-4; intron 7 P = 8.7e-4; ANOVA; Fig. \ref{fig:fus_autoregulation}C).
 We failed to detect a band corresponding to the skipping of exon 7 in any sample. 
 
@@ -677,7 +677,7 @@ Retaining two introns would be expected to cause NMD through premature stop codo
 This has been proposed as the main degradation pathway for intron retention transcripts \citep{Wong2013}, although the  nuclear retention and elimination (NRE) has also been implicated \citep{Yap2013}. 
 To test whether the intron retention FUS transcript undergoes NMD we reran the RT-PCR experiments after inhibiting translation in mouse fibroblasts with cycloheximide for 6 hours.
 This should cause NMD to be inhibited as NMD requires transcripts to be bound to the ribosomes.
-No effect on intron retention by cycloheximide treatment was seen in either wildtype of FUS $\Delta$14 homozygous fibroblasts (Fig. \ref{fig:fus_autoregulation}D).
+No effect on intron retention by cycloheximide treatment was seen in either wildtype or FUS $\Delta$14 homozygous fibroblasts (Fig. \ref{fig:fus_autoregulation}D).
 As a positive control I used the inclusion of a known NMD-sensitive exon in \textit{Srsf7} \citep{Edwards2016}, which increased in both genotypes. 
 
 These experiments suggest that depleting nuclear FUS protein downregulates the production of an intron retention transcript insensitive to nonsense-mediated decay. 
@@ -717,7 +717,7 @@ While joint modelling increases detection power, it rewards conformity between e
 It is arguable that these dataset-specific changes are more likely than not to be biologically irrelevant such as transgene insertion artefacts. 
 In addition, with increased power I can now detect changes in expression and splicing at very small effect sizes. 
 While this provides more information, the biological relevance of these small changes is harder to investigate.
-These changes are less likely to be direct result of FUS RNA or protein interaction and may emerge through multiple downstream effectors or pathways.
+These changes are less likely to be a direct result of FUS RNA or protein interaction and may emerge through multiple downstream effectors or pathways.
 %As a disease-associated protein, FUS has been intensely studied and the number of putative roles it has within the cell is large.  
 
 Employing a relaxed significance threshold demonstrated that the majority of changes are shared between  FUS knockout and NLS mutation.
@@ -734,8 +734,9 @@ Therefore FUS is part of a complex network of RNA and protein interactions with 
 However, why FUS loss acts to upregulate these factors is yet to be discovered.
 % Xlr genes
 I managed to replicate the finding of upregulation of the X-linked lymphocyte receptor (\textit{Xlr}) cluster of genes, first seen in adult FUS knockout mice \citep{Kino2015}, suggesting that FUS loss causes chronic dysregulation of these genes. 
-As Xlr gene over-expression can alter dendritic spine growth and are regulated by the Cux1/2 transcription factors \citep{Cubelos2010}, the mechanism of how FUS loss leads to their upregulation is intriguing. 
+As Xlr gene overexpression can alter dendritic spine growth and are regulated by the Cux1/2 transcription factors \citep{Cubelos2010}, the mechanism of how FUS loss leads to their upregulation is intriguing. 
 No FUS iCLIP clusters were observed overlapping any Xlr gene, discounting direct post-transcriptional regulation.
+As these genes appear to be mouse-specific they are not directly relevant to disease but could provide a useful model for the effect of FUS on transcription.
 
 % Splicing
 Overlapping the joint splicing models demonstrated that almost all splicing changes attributed to NLS mutations could also be observed in FUS knockouts.
@@ -745,7 +746,7 @@ Due to the multiplicity of FUS interactions between multiple splicing factors, d
 For example, the splicing profiles of FUS NLS mutations overlap those from knockdowns of known interactor SMN \citep{Mirra2017}.
 I observed approximately double the number of 5' splice site changes than 3' splice site changes. 
 This could be due to the shorter length of the consensus 5' splice site sequence compared to the 3' making cryptic splice sites more likely by chance, but it may hint at a consequence of the interaction between FUS and the U1 snRNP.
-Although the interaction between FUS and the U1 snRNP has been well studied \citep{Nakaya2013,Yu2015a,Yu2015b}, my analysis has uncovered a large array of splicing events which which to study the role of FUS in splicing.
+Although the interaction between FUS and the U1 snRNP has been well studied \citep{Nakaya2013,Yu2015a,Yu2015b}, my analysis has uncovered a large array of splicing events to study the role of FUS in splicing.
 
 The dominance of retained introns and complex events (where multiple splice sites are altered simultaneously) points to a more nuanced picture of splicing changes than has previously been investigated in RNA-binding protein biology.
 I concede however that the large number of complex events seen in the joint splicing models is probably a result of the juction-centric method I used, as well as analysing all the data jointly. 
@@ -776,11 +777,13 @@ Although, cycloheximide inhibits translation in order to inhibit NMD and off-tar
 To elucidate this as the mechanism of FUS regulation, further experiments are needed to validate this in human cells.
 One possible mechanism is that the transcript is instead detained in the nucleus.
 This is a regulatory pathway proposed for intron retention transcripts to prevent translation \citep{Boutz2015}.
-Overall, intron retention as the true mechanism of autoregulation would make sense, due to very high evolutionary conservation of both introns and the length of FUS binding throughout.
+A analogous mechanism for autoregulation has been proposed for TDP-43, where the binding of TDP-43 protein to \textit{Tardbp} mRNA shifts polyadenylation to create a long 3'UTR transcript which is detained in the nucleus and degraded by the exosome. The long transcript can also be spliced to form NMD-sensitive isoforms which can be exported to the cytoplasm and then degraded \citep{Ayala2011,Koyama2016}. It is unclear why the system would require two separate degradation pathways. 
+In the light of this, the discovery of the FUS intron retention transcript could be a complementary mechanism to the one set out by Zhou and colleagues.
+This would then answer the outstanding question of the high evolutionary conservation of both introns and the length of FUS binding throughout.
 
 % ALS biology implications
 This study combines multiple RNA sequencing experiments to better understand and catalogue changes in gene expression and RNA splicing in response to FUS nuclear depletion.
-My work suggests that these changes are shared due to the extreme overlap and concordance of direction of gene expression and splicing.
+My analysis suggests that these changes are shared due to the extreme overlap and concordance of direction of gene expression and splicing.
 It does not conclusively link any of these alterations to motor neuron toxicity and degeneration, which is only seen in NLS mutant embryos and not in FUS knockouts \citep{Scekic-zahirovic2016}.
 It is unclear whether toxicity can be attributed to the 186 mutation-specific genes due to the sharing of gene ontology categories with the overlapping set (RNA processing and synaptic genes). 
 
