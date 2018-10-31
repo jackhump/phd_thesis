@@ -33,13 +33,14 @@ In this study I combined RNA-seq data from three different mouse mutants homozyg
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/06_fus_meta/FUS_structure_mutations.png}
-	\caption{\textbf{The structure of the FUS protein and known ALS mutations}}
-	A: The FUS protein is comprised of a low complexity domain (LCD), an RNA recognition motif (RRM) domain, two Arginine-Glycine-Glycine (RGG) domains, a zinc finger domain (Znf), a nuclear export signal (NES) and a nuclear localisation signal (NLS). 
-	B: The three FUS NLS mutations used in this study. The Bozzoni group knocked in a point mutation to create the FUS P525L line, a missense mutation equivalent to the human ALS P517L mutation.  
+	\caption[The structure of the FUS protein and known ALS mutations]{
+		\textbf{The structure of the FUS protein and known ALS mutations}
+		\textbf{(A)} The FUS protein is comprised of a low complexity domain (LCD), an RNA recognition motif (RRM) domain, two Arginine-Glycine-Glycine (RGG) domains, a zinc finger domain (Znf), a nuclear export signal (NES) and a nuclear localisation signal (NLS). 
+		\textbf{(B)} The three FUS NLS mutations used in this study. The Bozzoni group knocked in a point mutation to create the FUS P525L line, a missense mutation equivalent to the human ALS P517L mutation.  
 	The Dupuis group created a FUS $\Delta$NLS line where the entire NLS is removed.  
 	We have used the FUS $\Delta$14 mouse, where a frameshift mutation leads to the skipping of exon 14 and a frameshifting of the remaining NLS sequence.
-	C: In wildtype  cells FUS protein is predominantly nuclear but can shuttle to the cytoplasm. When FUS is knocked out it will be reduced in both compartments but if the NLS is mutated or deleted then FUS will accumulate in the cytoplasm.
-	
+	\textbf{(C)} In wildtype  cells FUS protein is predominantly nuclear but can shuttle to the cytoplasm. When FUS is knocked out it will be reduced in both compartments but if the NLS is mutated or deleted then FUS will accumulate in the cytoplasm.
+}
 	\label{fig:fus_structure}
 \end{figure}
 
@@ -148,7 +149,7 @@ This joint modelling approach boosts statistical power and allows me to demonstr
 	\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
 		{$\Delta$ exon 14 } \strut
 	\end{minipage}\tabularnewline
-	\caption{\textbf{The three FUS mouse datasets}}
+	\caption[The three FUS mouse datasets]{\textbf{The three FUS mouse datasets}}
 	\label{tab:fus_datasets}
 \end{longtable}
 
@@ -207,7 +208,7 @@ This joint modelling approach boosts statistical power and allows me to demonstr
 	\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
 		{-}\strut
 	\end{minipage}\tabularnewline
-	\caption{\textbf{RNA-seq statistics of the three datasets}}
+	\caption[RNA-seq statistics of the three datasets]{\textbf{RNA-seq statistics of the three datasets}}
 	\label{tab:fus_sequencing}
 \end{longtable}
 
@@ -242,7 +243,7 @@ These normalised counts are then normalised to the wildtype samples for each dat
 
 To assess the level of overlap between the KO and MUT joint models, two different overlap thresholds were employed.
 The first, a more conservative threshold, depends on a gene being significant at FDR < 0.05 in both datasets.
-The second, more relaxed threshold, calls a gene as significant if it falls below FDR < 0.05 in one dataset and has an uncorrected P-value < 0.05 in the other.
+The second, more relaxed threshold, calls a gene as significant if it falls below FDR < 0.05 in one dataset and has an uncorrected \textit{P}-value < 0.05 in the other.
 
 \subsection{Differential Splicing}
 SGSeq was run on all the samples together to discover and classify all potential splicing events using the default parameters for finding novel splicing \citep{Goldstein2016}. 
@@ -256,7 +257,7 @@ Percentage Spliced In (PSI) values  \citep{Katz2010-ir} for each splicing varian
 \subsection{Gene Ontology}
 Gene Ontology enrichment testing was performed with the GProfileR package \citep{Reimand2016}. 
 GO and KEGG categories were hand-curated to remove redundant terms and restricted to a minimum overlap of 5 genes per set. 
-All P-values  are reported after Bonferroni correction. 
+All \textit{P}-values  are reported after Bonferroni correction. 
 
 \subsection{iCLIP and functional analyses}
 
@@ -294,13 +295,13 @@ An additional third primer was designed to amplify a section of either intron 6 
 Cells were obtained from mouse spinal cord and/or cultured mouse embryonic fibroblasts resuspended in Trizol (Thermo Fisher). 
 RNA was extracted using miRNeasy Mini Kit (Qiagen) following the manufacturer's instructions % what kit did Nicol use?
 cDNA was obtained from extracted RNA using SuperScript IV Reverse Transcriptase kit (Thermo Fisher). 
-Briefly, a mix was made of RNA template (500ng for mouse brain; 100ng for cultured cells (cycloheximide treatment), 10 mM dNTP, 50 mM oligo d(T)20, 50 mM random hexamer followed by 5 min of incubation at 65$\degree$C and 1 min in ice. Mix was then complemented with 5X SuperScript IV Reverse Transcriptase buffer, 100 nM DTT, RNase OUT and SuperScript IV Reverse Transcriptase buffer followed by incubation at 23$\degree$C, 55$\degree$C and 80$\degree$C, 10 min each. 
+Briefly, a mix was made of RNA template (500ng for mouse brain; 100ng for cultured cells (cycloheximide treatment), 10 mM dNTP, 50 mM oligo d(T)20, 50 mM random hexamer followed by 5 min of incubation at 65\si{\degree}C and 1 min in ice. Mix was then complemented with 5X SuperScript IV Reverse Transcriptase buffer, 100 nM DTT, RNase OUT and SuperScript IV Reverse Transcriptase buffer followed by incubation at 23\si{\degree}C, 55\si{\degree}C and 80\si{\degree}C, 10 min each. 
 
 RT-PCR was carried out using 10X AccuPrime Taq DNA polymerase mastermix system (Invitrogen). 
 Each PCR reaction mix contained 5 ng of gDNA, 10 mM of forward and reverse primers. cDNA was amplified with the following conditions:
-Intron 6 retention: One cycle of 5 min at 95$\degree$C, followed by 30 cycles of 30 sec at 95$\degree$C, 30 sec at 56$\degree$C, and 30 sec at 68$\degree$C, and finishing with 5 min incubation at 68$\degree$C.
-Intron 7 retention: One cycle of 5 min at 95$\degree$C, followed by 30 cycles of 30 sec at 95$\degree$C, 30 sec at 61$\degree$C, and 30 sec at 68$\degree$C, and finishing with 5 min incubation at 68$\degree$C.
-Srsf7 NMD positive control: One cycle of 5 min at 95 $\degree$C, followed by 35 cycles of 30 sec at 95 $\degree$C, 30 sec at 58 $\degree$C, and 15 sec at 68 $\degree$C, and finishing with 5 min incubation at 68 $\degree$C.
+Intron 6 retention: One cycle of 5 min at 95\si{\degree}C, followed by 30 cycles of 30 sec at 95\si{\degree}C, 30 sec at 56\si{\degree}C, and 30 sec at 68\si{\degree}C, and finishing with 5 min incubation at 68\si{\degree}C.
+Intron 7 retention: One cycle of 5 min at 95\si{\degree}C, followed by 30 cycles of 30 sec at 95\si{\degree}C, 30 sec at 61\si{\degree}C, and 30 sec at 68\si{\degree}C, and finishing with 5 min incubation at 68\si{\degree}C.
+Srsf7 NMD positive control: One cycle of 5 min at 95 \si{\degree}C, followed by 35 cycles of 30 sec at 95 \si{\degree}C, 30 sec at 58 \si{\degree}C, and 15 sec at 68 \si{\degree}C, and finishing with 5 min incubation at 68 \si{\degree}C.
 Amplified products were finally obtained using Agilent 4200 TapeStation System following the manufacturer's instructions. Results were analysed on TapeStation analysis software (Agilent).
 Intron retention events are plotted  as the percentage of integrated area of band corresponding to intron retention.
 
@@ -324,7 +325,10 @@ Intron retention events are plotted  as the percentage of integrated area of ban
 		mSRSF7& R & TCTGGCCTCTTATGCTGATCAC\\
 	\end{tabular}
 	%\end{centerline}
-	\caption{\textbf{List of primers used in RT-PCR. mFUS: mouse \textit{FUS}; hFUS: human \textit{FUS}}}
+	\caption[List of primers used in RT-PCR]{
+		\textbf{List of primers used in RT-PCR}. 
+		mFUS: mouse \textit{FUS}; hFUS: human \textit{FUS}
+	}
 	\label{tab:fus_primers}
 \end{table}
 
@@ -368,7 +372,7 @@ Despite the differences in numbers, in all three datasets the knockout condition
 		\hline
 	\end{tabular}
 	%\end{centerline}
-	\caption{\textbf{Results from separate and joint differential expression analysis}}
+	\caption[Results from separate and joint differential expression analysis]{\textbf{Results from separate and joint differential expression analysis}}
 	\label{tab:expression_results}
 \end{table}
 \endgroup
@@ -390,17 +394,19 @@ This suggests that a large number of genes called as significant in each dataset
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/06_fus_meta/fitted_vs_individual_p_lfc.png}
-	\caption{\textbf{Joint differential expression increases power and adjusts effect sizes}}
-	A: Plotting the $log_2$ fold changes (left) and P-values (right) for the 2136 KO genes and 754 MUT genes found at FDR < 0.05 in the two joint analyses. Values found in the individual analyses, Bozzoni (red), Dupuis(blue) and Fratta (green) are compared to the value produced by the joint analysis (black).
-	B: As before but for the MUT analyses.
+	\caption[Joint differential expression increases power and adjusts effect sizes]{
+		\textbf{Joint differential expression increases power and adjusts effect sizes}
+		\textbf{(A)} Plotting the $log_2$ fold changes (left) and \textit{P}-values (right) for the 2136 KO genes and 754 MUT genes found at FDR < 0.05 in the two joint analyses. Values found in the individual analyses, Bozzoni (red), Dupuis(blue) and Fratta (green) are compared to the value produced by the joint analysis (black).
+		\textbf{(B)} As before but for the MUT analyses.
+	}
 	\label{fig:value_comparison}
 \end{figure}
 
-For each gene the resulting joint $log_2$ fold change and P-value is an estimated combination of the three datasets.
+For each gene the resulting joint $log_2$ fold change and \textit{P}-value is an estimated combination of the three datasets.
 I compared the values found by the individual analyses with the joint models(Fig. \ref{fig:value_comparison}).
 For the KO models, the Fratta knockout comparison has larger $log_2$ fold change values for the same genes when compared to Bozzoni and Dupuis knockouts. 
 The fitted $log_2$ fold change is a compromise between the estimated fold changes of all three datasets. 
-When inspecting the distribution of P-values, the Dupuis KO dataset has a excess of low P-values compared to the other two.
+When inspecting the distribution of \textit{P}-values, the Dupuis KO dataset has a excess of low \textit{P}-values compared to the other two.
 Therefore the joint modelling strategy increases the number of genes and harmonises three different datasets together into a set of high confidence differentially expressed genes.
 
 % Explain strict and relaxed overlap
@@ -408,10 +414,12 @@ Therefore the joint modelling strategy increases the number of genes and harmoni
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/06_fus_meta/expression_multi.png}
-	\caption{\textbf{Overlapping the joint differential expression models shows that FUS mutations affect gene expression in generally the same direction}}
-	A: Venn diagrams show the overlap between the FUS KO and FUS MUT joint differential expression models with a strict FDR cut-off (upper) and a more relaxed P-value cut-off. 
-	B: Plotting the fitted $log_2$ fold-change values for each of the 1318 overlapping genes in KO and MUT shows a bias towards weaker changes in MUT compared to KO.
-	C, D,E: Normalised read counts in each dataset for \textit{Fus}, \textit{Taf15} and \textit{Trove2}. Samples are plotted relative to the mean expression in controls (CTL).
+		\caption[Overlapping the joint differential expression models shows that FUS mutations affect gene expression in generally the same direction]{
+		\textbf{Overlapping the joint differential expression models shows that FUS mutations affect gene expression in generally the same direction}
+		\textbf{(A)} Venn diagrams show the overlap between the FUS KO and FUS MUT joint differential expression models with a strict FDR cut-off (upper) and a more relaxed \textit{P}-value cut-off. 
+		\textbf{(B)} Plotting the fitted $log_2$ fold-change values for each of the 1318 overlapping genes in KO and MUT shows a bias towards weaker changes in MUT compared to KO.
+		\textbf{(C, D,E)}: Normalised read counts in each dataset for \textit{Fus}, \textit{Taf15} and \textit{Trove2}. Samples are plotted relative to the mean expression in controls (CTL).
+	}
 	\label{fig:fus_expression_multipanel}
 \end{figure}
 
@@ -454,8 +462,10 @@ The upregulation of \textit{Xlr3a} is strongest within the all-male Bozzoni data
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=10cm]{Figures/06_fus_meta/xlr_sex_expression.png}
-	\caption{\textbf{Xlr genes are upregulated in both FUS KO and FUS MUT in mice of both sexes} }	
-    Normalised read counts in each dataset, plotted relative to the mean of each dataset and condition-specific control group for Xlr3a (A) and Xlr3b (B). 
+	\caption[Xlr genes are upregulated in both FUS KO and FUS MUT in mice of both sexes]{
+		\textbf{Xlr genes are upregulated in both FUS KO and FUS MUT in mice of both sexes}.
+    	Normalised read counts in each dataset, plotted relative to the mean of each dataset and condition-specific control group for Xlr3a \textbf{(A)} and Xlr3b \textbf{(B)}. 
+	}
 	\label{fig:fus_xlr_expression}
 \end{figure}
 
@@ -474,10 +484,12 @@ The upregulation of \textit{Xlr3a} is strongest within the all-male Bozzoni data
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/06_fus_meta/expression_curated_go_terms.png}
-	\caption{\textbf{Overlapping genes are enriched in neuronal and RNA terms} }	
-	A: Enriched Gene Ontology terms in the three groups of genes, split by direction.
-	B: Proportions of each set of genes that have any iCLIP clusters within the entire gene or in any particular gene feature, split by direction. 
-	P-values are from $\chi^2$ test of equal proportions. P-values presented are those below the Bonferroni corrected threshold of 0.05 / 18 = 0.0028. 
+	\caption[Overlapping genes are enriched in neuronal and RNA terms]{
+		\textbf{Overlapping genes are enriched in neuronal and RNA terms}.
+		\textbf{(A)} Enriched Gene Ontology terms in the three groups of genes, split by direction.
+		\textbf{(B)} Proportions of each set of genes that have any iCLIP clusters within the entire gene or in any particular gene feature, split by direction. 
+		\textit{P}-values are from $\chi^2$ test of equal proportions. \textit{P}-values presented are those below the Bonferroni threshold.
+	}
 	\label{fig:fus_expression_go}
 \end{figure}
 
@@ -496,7 +508,7 @@ A small number of genes have been reported to have FUS binding  sites upstream a
 I used the coordinates of FUS binding sites enriched relative to a background control in a published FUS iCLIP dataset from embryonic day 18 mouse brain \citep{Rogelj2012} to investigate a relationship between specific FUS binding and the direction of gene expression in the different gene sets.
 
 The iCLIP binding profiles of the three sets of genes are similar with introns and 3`UTR sequences most commonly bound (Fig. \ref{fig:fus_expression_go}B).  
-Comparing the proportion of upregulated and downregulated genes that change only in FUS knockout, there is an enrichment in iCLIP clusters in downregulated genes (P = 5.3e-4, $\chi^2$ test of equal proportions), an enrichment driven primarily by 3'UTR binding (P = 7.8e-4). 
+Comparing the proportion of upregulated and downregulated genes that change only in FUS knockout, there is an enrichment in iCLIP clusters in downregulated genes (\textit{P}=5.3e-4, $\chi^2$ test of equal proportions), an enrichment driven primarily by 3'UTR binding (\textit{P}=7.8e-4). 
 This direction preference is not seen in the mutation-specific or overlapping gene sets.
 Promoter-antisense binding is found in a small number of genes and at a similar proportion between gene set and direction of change.
 As the iCLIP used is from predominantly nuclear wildtype FUS, any potential cytoplasmic interactions between NLS mutant FUS and spliced mRNAs cannot be observed.
@@ -545,7 +557,7 @@ The single event that did appear to be real was an intron retention event in \te
 		\hline
 	\end{tabular}
 	%\end{centerline}
-	\caption{\textbf{Results from separate and joint splicing analysis}}
+	\caption[Results from separate and joint splicing analysis]{\textbf{Results from separate and joint splicing analysis}}
 	\label{tab:splicing_results}
 \end{table}
 \endgroup
@@ -569,11 +581,13 @@ Knockdown or NLS mutation of FUS could lead to impaired U1 snRNP binding and hen
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/06_fus_meta/splicing_multi.png}
-	\caption{\textbf{Splicing changes  strongly overlap between KO and MUT joint models}}
-	A: Overlapping KO and MUT splicing events results in a significant overlap. The number of mutation specific events drops to just 16 when a more relaxed overlap threshold is used.
-	B: Splicing events plotted by their $log_2$ fold change values in the KO and MUT joint models. There is a bias towards larger changes in the KO than MUT ($\beta = 0.7$; .P < 1e-16). Dotted line $y=x$; bold line fitted regression
-	C: Categories of splicing variant found in each set of events. Complex events are defined as splicing events which are made up of multiple categories.
-	D-F: Examples of a cassette exon, retained intron and a complex event in all three datasets. 
+	\caption[Splicing changes  strongly overlap between KO and MUT joint models]{
+			\textbf{Splicing changes  strongly overlap between KO and MUT joint models}
+			\textbf{(A)}: Overlapping KO and MUT splicing events results in a significant overlap. The number of mutation specific events drops to just 16 when a more relaxed overlap threshold is used.
+			\textbf{(B)} Splicing events plotted by their $log_2$ fold change values in the KO and MUT joint models. There is a bias towards larger changes in the KO than MUT ($\beta = 0.7$; .P < 1e-16). Dotted line $y=x$; bold line fitted regression
+			\textbf{(C)} Categories of splicing variant found in each set of events. Complex events are defined as splicing events which are made up of multiple categories.
+			\textbf{(D-F)} Examples of a cassette exon, retained intron and a complex event in all three datasets. 
+	}
 	\label{fig:fus_splicing_multi}
 \end{figure}
 
@@ -584,11 +598,13 @@ There are no overlapping splicing events that change in opposing directions betw
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/06_fus_meta/splicing_go_functions.png}
-	\caption{\textbf{Intron retention events are highly conserved and occur in RNA binding proteins} }	
-	A: Significantly enriched Gene Ontology terms found in genes split by category and splicing variant type.
-	B: The proportion of each type of splicing variant in each category that overlaps a polyadenylation cleavage site.
-	C: The proportion of each type of splicing variant in each cateoory that overlaps a FUS iCLIP peak.
-	D: The proportion of each type of splicing variant in each category that have a median PhyloP conservation score greater than 0.5.
+	\caption[Intron retention events are highly conserved and occur in RNA binding proteins]{
+		\textbf{Intron retention events are highly conserved and occur in RNA binding proteins} 
+		\textbf{(A)}: Significantly enriched Gene Ontology terms found in genes split by category and splicing variant type.
+		\textbf{(B)} The proportion of each type of splicing variant in each category that overlaps a polyadenylation cleavage site.
+		\textbf{(C)} The proportion of each type of splicing variant in each cateoory that overlaps a FUS iCLIP peak.
+		\textbf{(D)} The proportion of each type of splicing variant in each category that have a median PhyloP conservation score greater than 0.5.
+	}
 	\label{fig:fus_splicing_functions}
 \end{figure}
 
@@ -601,18 +617,18 @@ Knockout-specific splicing events were enriched for different sets of genes, inc
 The complex and intron retention events may arise from differences in polyadenylation site usage.
 FUS has been observed to modulate polyadenylation \citep{Masuda2015}.
 To investigate this I compared each set of splicing events with a set of annotated polyadenylation sites \citep{Gruber2016}.
-Only overlapping retained introns were enriched for polyadenylation sites (P = 0.004), suggesting some intron retention events are mislabelled 3'UTRs (Fig \ref{fig:fus_splicing_functions}B).
+Only overlapping retained introns were enriched for polyadenylation sites (\textit{P}=0.004), suggesting some intron retention events are mislabelled 3'UTRs (Fig \ref{fig:fus_splicing_functions}B).
 
 Direct regulation of splicing events by FUS binding to introns has been proposed using RNA-protein interaction experiments \citep{Lagier-Tourenne2012,Rogelj2012, Ishigaki2012}.
 To look for evidence of FUS regulating these splicing and polyadenylation events I used the same set of FUS iCLIP clusters from \citep{Rogelj2012}.
 Complex events and retained introns were enriched in having iCLIP clusters within the affected introns in both overlapping and knockout-specific contexts.
-The strongest enrichment was seen in overlapping retained introns (P = 5e-32; Fig \ref{fig:fus_splicing_functions}A). 
+The strongest enrichment was seen in overlapping retained introns (\textit{P}=5e-32; Fig \ref{fig:fus_splicing_functions}A). 
 No enrichment was seen in cassette exons, suggesting that cassette exon splicing changes are not the direct result of a change in FUS binding.
 
 RNA-binding proteins often contain intronic sequences that are very highly conserved \citep{Lareau2007} and these sequences are often used in the regulation of their translation \citep{Ni2007}.
 To test whether the splicing events show high sequence conservation, I calculated the median PhyloP score using the 60-way comparison between mouse and other species for each encompassing intron \citep{Pollard2010-fj}.
 Sets of events were then tested on the proportion of the set with a median phyloP score > 0.5, where a score of 0 is neutral and 1 is highly conserved.
-Only retained introns were shown to be enriched in sequence conservation, and  at a greater externt for overlapping (P = 3e-18) than in knockout-specific events (P = 0.0002; Fig \ref{fig:fus_splicing_functions}D). 
+Only retained introns were shown to be enriched in sequence conservation, and  at a greater externt for overlapping (\textit{P}=3e-18) than in knockout-specific events (\textit{P}=0.0002; Fig \ref{fig:fus_splicing_functions}D). 
 For cassette exons the two flanking introns are included and so the median conservation score will reflect the conservation of those introns, even when the central cassette exon itself is highly conserved.
 
 Taken together, these results show that nuclear loss of FUS through either knockout or NLS mutation leads to a set of splicing changes concentrated in conserved intron retention events affecting other RNA-binding proteins.
@@ -631,19 +647,21 @@ This analysis shows that the role of FUS on gene expression and splicing mostly 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/06_fus_meta/Fus_autoregulation.png}
-	\caption{\textbf{Fus intron retention is an NMD-insensitive autoregulation mechanism } }
-		A: FUS introns 6 and 7 are highly conserved and have multiple FUS iCLIP binding peaks. 
-		Retention of introns 6 and 7 is decreased with increasing dose of the FUS $\Delta$14 mutation. 
-		RNA-seq coverages for example wildtype, FUS $\Delta$14 heterozygous and FUS $\Delta$14 homozygous samples are accompanied by FUS iCLIP and PhyloP conservation (60 way) tracks.
-		B: Percentage spliced in (PSI) values of intron 6, intron 7 and exon 7 in the three datasets, including the FUS $\Delta$14 heterozygotes.
-		C: RT-PCR validation of the reduction in intron 6 and 7 inclusion with increasing dose of FUS $\Delta$14 mutation. 
-		Left panel - FUS intron 6 (ANOVA genotype P = 5.1e-4; t-test CTL vs HET P = 4.5e-3; CTL vs HOM P = 5.7e-4)
-		Right panel - FUS intron 7 (ANOVA genotype P = 8.5e-3; t-test CTL vs HET P = 0.091, CTL vs HOM P = 8.7e-3 )
-		D:	Translation blocked with cycloheximide (CHX) to observe whether the intron retention transcript is sensitive to nonsense-mediated decay. 
-		Left panel: FUS intron 6 retention is not altered with CHX treatment. ANOVA treatment P=0.96; genotype P=1.9e-5; t-test CTL untreated vs CTL treated P=1; HOM untreated vs HOM treated P=1.
-		Middle panel: FUS intron 7 retention is unchanged by CHX treatment. ANOVA treatment P=0.10; genotype P=3.7e-6; t-test CTL untreated vs CTL treated P=0.14; HOM untreated vs HOM treated P=0.62.
-		Right panel - \textit{Srsf7} exon 4, a known NMD target, is increased by CHX treatment. ANOVA treatment P=5.3e-4; genotype P=0.011; t-test CTL untreated vs CTL treated P=3.8e-5; HOM untreated vs HOM treated P=0.025.
-		All reported P-values are corrected for multiple testing.
+	\caption[FUS intron retention is an NMD-insensitive autoregulation mechanism]{
+		\textbf{Fus intron retention is an NMD-insensitive autoregulation mechanism.}
+	\textbf{(A)} FUS introns 6 and 7 are highly conserved and have multiple FUS iCLIP binding peaks. 
+	Retention of introns 6 and 7 decreases with increasing dose of FUS $\Delta$14. 
+	RNA-seq coverage for wildtype, FUS $\Delta$14 heterozygous and FUS $\Delta$14 homozygous samples are accompanied by FUS iCLIP \citep{Rogelj2012} and PhyloP conservation (60 way) tracks.
+	\textbf{(B)} Percentage spliced in (PSI) values of intron 6, intron 7 and exon 7 in the three datasets, including the FUS $\Delta$14 heterozygotes.
+	\textbf{(C)} RT-PCR validation of the reduction in intron 6 and 7 inclusion with increasing dose of FUS $\Delta$14 mutation. 
+	Left panel - FUS intron 6 (ANOVA genotype \textit{P}=5.1e-4; t-test CTL vs HET \textit{P}=4.5e-3; CTL vs HOM \textit{P}=5.7e-4)
+	Right panel - FUS intron 7 (ANOVA genotype \textit{P}=8.5e-3; t-test CTL vs HET \textit{P}=0.091, CTL vs HOM \textit{P}=8.7e-3 )
+	\textbf{(D)}	Translation blocked with cycloheximide (CHX) to observe whether the intron retention transcript is sensitive to nonsense-mediated decay. 
+	Left panel: FUS intron 6 retention is not altered with CHX treatment. ANOVA treatment \textit{P}=0.96; genotype \textit{P}=1.9e-5; t-test CTL untreated vs CTL treated \textit{P}=1; HOM untreated vs HOM treated \textit{P}=1.
+	Middle panel: FUS intron 7 retention is unchanged by CHX treatment. ANOVA treatment \textit{P}=0.10; genotype \textit{P}=3.7e-6; t-test CTL untreated vs CTL treated \textit{P}=0.14; HOM untreated vs HOM treated \textit{P}=0.62.
+	Right panel - \textit{Srsf7} exon 4, a known NMD target, is increased by CHX treatment. ANOVA treatment \textit{P}=5.3e-4; genotype \textit{P}=0.011; t-test CTL untreated vs CTL treated \textit{P}=3.8e-5; HOM untreated vs HOM treated \textit{P}=0.025.
+	All reported \textit{P}-values are corrected for multiple testing.
+	}	
 	\label{fig:fus_autoregulation}
 \end{figure}
 
@@ -670,7 +688,7 @@ We generated RNA sequencing data from mice heterozygous for the $\Delta$14 NLS m
 Comparing wildtypes, heterozygous and homozgous FUS $\Delta$14 samples showed that retention of introns 6 and 7 decreased with dose of the mutation (Fig. \ref{fig:fus_autoregulation}A/B) .
 
 We designed an RT-PCR assay to validate the intron retention changes with a three primer method that could amplify a spliced transcript spanning \textit{Fus} exons 6-7-8-9 with a second band for either exon 6-intron 6 or intron 7-exon8. 
-Intron retention decreased in a mutation dose-dependent manner (intron 6 P = 5.7e-4; intron 7 P = 8.7e-4; ANOVA; Fig. \ref{fig:fus_autoregulation}C).
+Intron retention decreased in a mutation dose-dependent manner (intron 6 \textit{P}=5.7e-4; intron 7 \textit{P}=8.7e-4; ANOVA; Fig. \ref{fig:fus_autoregulation}C).
 We failed to detect a band corresponding to the skipping of exon 7 in any sample. 
 
 Retaining two introns would be expected to cause NMD through premature stop codons, which are abundant in both intron 6 and 7. 
