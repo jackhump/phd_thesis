@@ -3,18 +3,7 @@
 
 Work presented in this chapter has been published as part of \citep{Fratta2018}. See appendices for full reproduction of the published manuscript.
 
-\section{Contributions}
-\begin{itemize}
-	\item All RT-PCRs and Western blots presented were performed, quantified and plotted by Prasanth Sivakumar
-	\item All RNA-seq and iCLIP sequencing libraries were created by Prasanth Sivakumar, DrAgnieszka Ule and Dr Pietro Fratta (???)
-	\item Mice were handled by Dr Thomas Ricketts and Dr Cristian Bodo
-	\item Preliminary analysis of splicing was performed by Dr Warren Emmett and Kitty Lo
-	\item I processed all RNA-seq data and performed all the splicing analyses bar figure \ref{fig:mef_scatters}, performed by Dr Kitty Lo, and figures \ref{fig:cassette_scatters} and \ref{fig:autoregulation}, which were created by Prasanth Sivakumar.
-\end{itemize}
-
-
-
-\section{Abstract}
+\section{Overview}
 
 TDP-43 is a ubiquitously expressed RNA-binding protein with multiple roles in RNA processing including mRNA splicing.
 TDP-43 mislocalisation and aggregation is a common ALS pathology observed in the majority of patient brains.
@@ -23,10 +12,21 @@ How TDP-43 mutations lead to disease and how TDP mislocalisation occurs in the a
 Whether loss of TDP-43 from the nucleus or a gain of TDP-43 in the cytoplasm is the pathological consequence is also under debate.
 TDP-43 Mutations cluster in the low-complexity domain of the protein which has been implicated in aggregation and interaction with other proteins.
 
-
-
 We generated two mutant mouse lines to study different aspects of TDP-43's role in mRNA splicing.
-By comparing the two we discovered that mutations in the low-complexity domain of the protein lead to a gain of splicing function. This is radically distinct from mutations that affect RNA-binding which act as a relatively simple loss of splicing function.
+By comparing the two we discovered that mutations in the low-complexity domain of the protein lead to a gain of splicing function. 
+This is radically distinct from mutations that affect RNA-binding which act as a relatively simple loss of splicing function.
+
+
+\section{Contributions}
+\begin{itemize}
+	\item All RT-PCRs and Western blots presented were performed, quantified and plotted by Prasanth Sivakumar
+	\item All RNA-seq and iCLIP sequencing libraries were created by Prasanth Sivakumar, DrAgnieszka Ule and Dr Pietro Fratta
+	\item Mice were handled by Dr Thomas Ricketts and Dr Cristian Bodo
+	\item Preliminary analysis of splicing was performed by Dr Warren Emmett and Kitty Lo
+	\item I processed all RNA-seq data and performed all the splicing analyses bar Fig. \ref{fig:mef_scatters}, performed by Dr Kitty Lo, and figures \ref{fig:cassette_scatters} and \ref{fig:autoregulation}, which were created by Prasanth Sivakumar.
+\end{itemize}
+
+
 
 
 \section{Methods}
@@ -39,7 +39,7 @@ Details on all RNA-sequencing datasets are presented in table \ref{table:tdp_mic
 
 % table of all sequencing data used
 \begin{table}[h!]
-	\caption{List of accessions}
+	\caption[List of accessions]{\textbf{List of accessions}}
 	\begin{footnotesize}
 		\begin{tabular}{lllll}
 			Tissue & Genotype & N &	Read length & Range uniquely mapped reads\\
@@ -94,7 +94,7 @@ For the cryptic and skiptic exons, The 20 exons with the greatest total coverage
 
 \subsection{Long intron genes}
 To assess the relationship between intron length and differential expression, I found the longest intron in each gene using annotations from GENCODE mouse release 25 \citep{Harrow2012} by writing a Python script (2.7.1) that parses the GENCODE GTF file. 
-I converted unadjusted differential gene expression P-values from DESeq2 into Z-scores and give them the sign of the $log_2$ fold change. 
+I converted unadjusted differential gene expression \textit{P}-values from DESeq2 into Z-scores and give them the sign of the $log_2$ fold change. 
 Genes were ordered by signed Z-score and binned into groups of  200. 
 The plots present mean intron length and  standard error of the mean for each group.  
 
@@ -104,7 +104,7 @@ Coverage distributions were compared using a Mann-Whitney-Wilcoxon non-parametri
 
 \subsection{Permutation of splicing results}
 I permuted the sample order of the 4 wildtype and 4 LCDmut homozygotes 50 times to get all possible permutations and reran the splicing analysis for each comparison. 
-Distributions of P-values are presented as quantile-quantile plots to visualise the inflation from the expected distribution under the null hypothesis of there being no difference between the two groups. 
+Distributions of \textit{P}-values are presented as quantile-quantile plots to visualise the inflation from the expected distribution under the null hypothesis of there being no difference between the two groups. 
 
 \subsection{Functional analysis of extreme cassette splice events}
 Cassette exons and their parent introns were extracted from the SGSeq results.
@@ -128,12 +128,14 @@ All  differential  splicing  results  presented  are  significant  at  a  false 
 
 \subsection{A random mutagenesis screen produces two mutant mouse lines with point mutations in \textit{Tardbp}}
 
-% figure showing both mutations within the structure of TDP-43
+% Fig. showing both mutations within the structure of TDP-43
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/05_tdp_mice/TDP_structure_mutations.png}
-	\caption{\textbf{The two TARDBP mutations and their location within the TDP-43 protein}}
-	RRM2mut affects the second RNA recognition motif whereas LCDmut affects the C-terminal low complexity domain.
+	\caption[The two TARDBP mutations and their location within the TDP-43 protein]{
+		\textbf{The two TARDBP mutations and their location within the TDP-43 protein.}
+		RRM2mut affects the second RNA recognition motif whereas LCDmut affects the C-terminal low complexity domain.
+	}
 	\label{fig:tdp_structure}
 \end{figure}
 
@@ -141,7 +143,7 @@ N-ethyl-N-nitrosourea (ENU) is a very potent mutagenic compound. Dosing male mic
 Large banks of mutant mouse sperm are maintained at MRC Harwell \citep{Acevedo2008} and the RIKEN in Japan \citep{Gondo2010}. 
 From these resources two mouse lines with mutations in \textit{Tardbp} were chosen, F210I and M323K. 
 The F210I mutation lies within the second RNA recognition motif (RRM2) of the TDP-43 protein whereas M323K lies within the C-terminal low complexity domain (LCD). 
-This region is a hotspot for ALS mutations (figure \ref{fig:tdp_structure}). 
+This region is a hotspot for ALS mutations (Fig. \ref{fig:tdp_structure}). 
 The M323K mutation lies within a 20 amino acid alpha-helical region previously found to be important for liquid phase separation and protein aggregation \citep{Conicella2016}. 
 Developing these two mice allowed us to interrogate TDP-43 function and compare a mutation that would be predicted to impair the RNA binding ability of TDP-43 (F210I) with a mutation that potential resembles ALS (M323K). 
 Due to their positions within the protein, the two mutations will be henceforth referred to as RRM2mut and LCDmut.
@@ -159,8 +161,10 @@ Due to the extreme differences in phenotype, particularly the neurodegeneration 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=10cm]{Figures/05_tdp_mice/CFTR.png}
-	\caption{\textbf{Opposite effects on splicing CFTR exon 9 minigene, a known TDP-43 splicing target}}
-	RT-PCR traces from primers flanking CFTR exon 9, quantified as PSI ratios for each genotype. *** P < 0.0001 (ANOVA); ** P < 0.01; *** P < 0.001 (Tukey post-hoc test)	
+	\caption[Opposite effects on splicing CFTR exon 9 minigene, a known TDP-43 splicing target]{
+		\textbf{Opposite effects on splicing CFTR exon 9 minigene, a known TDP-43 splicing target.}
+	RT-PCR traces from primers flanking CFTR exon 9, quantified as PSI ratios for each genotype. *** P < 0.0001 (ANOVA); ** P < 0.01; *** P < 0.001 (Tukey post-hoc test).
+	}	
 	\label{fig:CFTR}
 \end{figure}
 
@@ -168,7 +172,7 @@ Exon 9 of the \textit{CFTR} gene was the first mRNA splicing target of TDP-43 to
 We made use of a minigene construct created from \textit{CFTR} exon 9 and its two flanking introns and exons \citep{Buratti2007minigene}.
 Reverse-Transcriptase Polymerase Chain Reaction (RT-PCR) was performed to amplify between primers that flank exon 9. 
 Analysis of the gel electrophoresis traces shows two primary bands: a larger band corresponding to exon 9 inclusion and a smaller band corresponding to exon 9 skipping. 
-RRM2mut has a clear dose-dependent increase in exon 9 inclusion compared to skipping and thus resembles a loss of TDP-43 splicing function (Figure  \ref{fig:CFTR}). 
+RRM2mut has a clear dose-dependent increase in exon 9 inclusion compared to skipping and thus resembles a loss of TDP-43 splicing function (Fig.  \ref{fig:CFTR}). 
 Conversely, LCDmut has a dose-dependent increase in exon 9 skipping.
 This suggests that the pro-skipping action of TDP-43 is increased at the CFTR locus and the LCDmut mutation causes a gain of splicing function.
 
@@ -176,15 +180,17 @@ This suggests that the pro-skipping action of TDP-43 is increased at the CFTR lo
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/05_tdp_mice/mef_scatters.png}
-	\caption{\textbf{Comparing exon usage between the two mutations and a TDP-43 knockdown}}
-	Signed Z-scores for all exons found by DEXSeq in the mouse embryonic fibroblasts, comparing a TDP-43 shRNA knockdown to RRM2mut (A) and LCDmut (B) and comparing the two mutations (C). Exons significant at FDR < 10\% plotted as red triangles, non-significant exons plotted as grey dots.
+	\caption[Comparing exon usage between the two mutations and a TDP-43 knockdown]{
+		\textbf{Comparing exon usage between the two mutations and a TDP-43 knockdown.}
+	Signed Z-scores for all exons found by DEXSeq in the mouse embryonic fibroblasts, comparing a TDP-43 shRNA knockdown to RRM2mut \textbf{(A)} and LCDmut \textbf{(B)} and comparing the two mutations \textbf{(C)}. Exons significant at FDR < 10\% plotted as red triangles, non-significant exons plotted as grey dots.
+}
 	\label{fig:mef_scatters}
 \end{figure}
 
 To look transcriptome-wide at the effects of the two mutations on simple cassette exon splicing the lab generated low-depth RNA-seq data from mouse embryonic fibroblasts. 
 To compare both mutations to a simple loss of TDP-43 a short hairpin RNA (shRNA) was designed to be complementary to \textit{Tardbp} mRNA.
 Binding of the shRNA should target \textit{Tardbp} mRNA for degradation, reducing TDP-43 protein levels. 
-I performed a cassette exon splicing analysis and converted the fold change and P-value from each exon into a signed Z-score. 
+I performed a cassette exon splicing analysis and converted the fold change and \textit{P}-value from each exon into a signed Z-score. 
 This allows for two way comparisons  between the shRNA knockdown of TDP-43 (TDP-KD), LCDmut and RRM2mut. 
 Separating each graph into quadrants makes it clear that all significantly changed exons found in each mutation are changed in the same direction between RRM2mut and TDP-KD (Fig. \ref{fig:mef_scatters}). 
 However, the exon changes are opposing when comparing LCDmut and TDP-KD, as well as between LCDmut and RRM2mut . 
@@ -194,22 +200,29 @@ This provides evidence at transcriptome scale that RRM2mut is a loss of splicing
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/05_tdp_mice/transcriptome_scatters.png}
-	\caption{\textbf{Direction of cassette exon splicing in the two mutant lines}}
-	All splicing events found by SGSeq plotted by p-value and direction ($\Delta$PSI; see methods) for LCDmut (A) and RRM2mut (B).
+	\caption[Direction of cassette exon splicing in the two mutant lines]{
+		\textbf{Direction of cassette exon splicing in the two mutant lines.}
+	All splicing events found by SGSeq plotted by \textit{P}-value and direction ($\Delta$PSI; see methods) for LCDmut \textbf{(A)} and RRM2mut \textbf{(B)}.
+}
 	\label{fig:cassette_scatters}
 \end{figure}
 
 To deeply interrogate splicing changes at time points that were relevant to the phenotypes of interest (death in RRM2mut and neurodegeneration in LCDmut) high depth RNA-seq data was generated from RRM2mut embryonic brains and LCDmut adult brains (30 days post-natal). 
 Higher depth and longer read data allows for better discrimination of novel splicing events and so I ran a novel splicing analysis using SGSeq \citep{Goldstein2016}. 
-Plotting the direction and P-value of all cassette exons found in the two mutations strongly suggests that the strongest splicing changes are in exon inclusion in RRM2mut and in exon skipping in LCDmut (Fig. \ref{fig:cassette_scatters}).
+Plotting the direction and \textit{P}-value of all cassette exons found in the two mutations strongly suggests that the strongest splicing changes are in exon inclusion in RRM2mut and in exon skipping in LCDmut (Fig. \ref{fig:cassette_scatters}).
 
 % RNAmaps of the cassettes - motif and iCLIP
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=14cm]{Figures/05_tdp_mice/RNAmap_cassettes.png}
-	\caption{\textbf{RNA maps visualise positional enrichment of iCLIP and sequence motifs within cassette exon splicing loci}}
-	RNA maps constructed from differentially included (blue) and skipped (red) cassette exons.  A) TGTG motifs in RRM2mut; B) TDP-43 iCLIP in RRM2mut; C) TGTG motifs in LCDmut; D) TDP-43 iCLIP in RRM2mut.
-	
+	\caption[RNA maps visualise positional enrichment of iCLIP and sequence motifs]{
+		\textbf{RNA maps visualise positional enrichment of iCLIP and sequence motifs within cassette exon splicing loci.}
+	RNA maps constructed from differentially included (blue) and skipped (red) cassette exons.  
+	\textbf{(A)} TGTG motifs in RRM2mut.
+	\textbf{(B)} TDP-43 iCLIP in RRM2mut.
+	\textbf{(C)} TGTG motifs in LCDmut; 
+	\textbf{(D)} TDP-43 iCLIP in RRM2mut.
+	}
 	\label{fig:RNAmap_cassettes}
 \end{figure}
 
@@ -236,23 +249,28 @@ This data suggests that whereas the RRM2mut cassette exons are shifted due to a 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=14cm]{Figures/05_tdp_mice/cryptic_exon_multi.png}
-	\caption{\textbf{RRM2mut leads to cryptic exon splicing}}
+	\caption[RRM2mut leads to cryptic exon splicing]{
+		\textbf{RRM2mut leads to cryptic exon splicing.}
 	\label{cryptic_multi}
-	A: Representative RNA-seq traces show cryptic exon in \textit{Adnp2} included in RRM2mut specifically. B: RT-PCR of \textit{Adnp2} selectively amplifies a band corresponding to cryptic exon inclusion in RRM2mut samples. P < 0.001; t-test(two-sided).
+	\textbf{(A)} Representative RNA-seq traces show cryptic exon in \textit{Adnp2} included in RRM2mut specifically. 
+	\textbf{(B)} RT-PCR of \textit{Adnp2} selectively amplifies a band corresponding to cryptic exon inclusion in RRM2mut samples. P < 0.001; t-test(two-sided).
+}
 \end{figure}
 
-A hallmark of TDP-43 depletion is the widespread inclusion of non-conserved cryptic exons \citep{Ling2015}. The bias towards cassette exon inclusion suggested that a number of RRM2mut repressed exons may be cryptic exons. Rather than relying on isoform annotation I filtered all cassette exons found in RRM2mut and selected those that were barely or not at all spliced in wildtypes but were included in RRM2mut samples, resulting in 33 candidate cryptic exons being discovered. A representative example of a cryptic exon in \textit{Adnp2} is shown in figure \ref{cryptic_multi}, changing from 0\% inclusion in wildtype mice to ~10\% inclusion in RRM2mut but not in LCDmut mice.  
+A hallmark of TDP-43 depletion is the widespread inclusion of non-conserved cryptic exons \citep{Ling2015}. The bias towards cassette exon inclusion suggested that a number of RRM2mut repressed exons may be cryptic exons. Rather than relying on isoform annotation I filtered all cassette exons found in RRM2mut and selected those that were barely or not at all spliced in wildtypes but were included in RRM2mut samples, resulting in 33 candidate cryptic exons being discovered. A representative example of a cryptic exon in \textit{Adnp2} is shown in Fig. \ref{cryptic_multi}, changing from 0\% inclusion in wildtype mice to ~10\% inclusion in RRM2mut but not in LCDmut mice.  
 
 %% LONG GENES 
-\begin{figure}[h!]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=12cm]{Figures/05_tdp_mice/long_genes_multi.png}
-	\caption{\textbf{RRM2mut gene expression has bias for long gene downregulation, mirroring TDP-43 knockdown data}}
-	A,B) Mean intron length in kilobases for bins of genes ordered by signed Z-score. TDP-43 antisense olignucleotide (ASO) knockdown data taken from \cite{Polymenidou2011-hs}. C) The per-nucleotide overlap of iCLIP interaction peaks for each gene is significantly increased in long intron genes downregulated in RRM2mut mice compared to wildtype. P-values are from Mann-Whitney-Wilcoxon test.
+	\caption[RRM2mut gene expression has bias for long gene downregulation]{
+		\textbf{RRM2mut gene expression has bias for long gene downregulation, mirroring TDP-43 knockdown data.}
+	\textbf{(A,B)} Mean intron length in kilobases for bins of genes ordered by signed Z-score. TDP-43 antisense olignucleotide (ASO) knockdown data taken from \cite{Polymenidou2011-hs}. \textbf{(C)} The per-nucleotide overlap of iCLIP interaction peaks for each gene is significantly increased in long intron genes downregulated in RRM2mut mice compared to wildtype. \textit{P}-values are from Mann-Whitney-Wilcoxon test.
+}
 	\label{fig:long_genes}
 \end{figure}
 
-Another feature of TDP-43 loss of function is a striking downregulation of genes with long introns (>100kb). This phenomenon was first observed in mice where an antisense oligonucleotide strategy was used to lower TDP-43 in the striatum (TDP-ASO); \citep{Polymenidou2011-hs}. Long intron genes are over-represented in neuronal cells \citep{Sibley2015} and it is thought that TDP-43 binds within these long introns to promote their processing and splicing. I re-analysed RNA-seq data from this study and compared it to the RRM2mut and LCDmut sequencing data. I ran a differential gene expression analysis with DESeq2 and ranked all genes by their direction of expression change between controls and ASO treatment/mutations. I then binned genes into groups of 200 and extracted the lengths of longest intron in each gene from GENCODE annotation. While in LCDmut, gene length is evenly distributed between downregulated, unchanged and upregulated genes (Fig. \ref{fig:long_genes}A), there is a clear bias for the most downregulated genes having long introns in both RRM2mut and TDP-ASO (Fig. \ref{fig:long_genes}B). An orthogonal approach is to look at TDP-43 protein-RNA interaction data performed on wildtype cells with the iCLIP method \citep{Huppertz2014-ip}. I calculated the proportion of nucleotides in each gene that had an iCLIP peak overlapping, suggesting direct TDP-43 binding. Genes that were downregulated in RRM2mut had no difference in the distribution of iCLIP peak overlaps except for those downregulated genes that also contained at least one intron longer than 100 kilobases (P = 2e-6; Fig. \ref{fig:long_genes}C). Long intron genes were modestly depleted in iCLIP peaks when the genes were upregulated (P = 0.029).
+Another feature of TDP-43 loss of function is a striking downregulation of genes with long introns (>100kb). This phenomenon was first observed in mice where an antisense oligonucleotide strategy was used to lower TDP-43 in the striatum (TDP-ASO); \citep{Polymenidou2011-hs}. Long intron genes are over-represented in neuronal cells \citep{Sibley2015} and it is thought that TDP-43 binds within these long introns to promote their processing and splicing. I re-analysed RNA-seq data from this study and compared it to the RRM2mut and LCDmut sequencing data. I ran a differential gene expression analysis with DESeq2 and ranked all genes by their direction of expression change between controls and ASO treatment/mutations. I then binned genes into groups of 200 and extracted the lengths of longest intron in each gene from GENCODE annotation. While in LCDmut, gene length is evenly distributed between downregulated, unchanged and upregulated genes (Fig. \ref{fig:long_genes}A), there is a clear bias for the most downregulated genes having long introns in both RRM2mut and TDP-ASO (Fig. \ref{fig:long_genes}B). An orthogonal approach is to look at TDP-43 protein-RNA interaction data performed on wildtype cells with the iCLIP method \citep{Huppertz2014-ip}. I calculated the proportion of nucleotides in each gene that had an iCLIP peak overlapping, suggesting direct TDP-43 binding. Genes that were downregulated in RRM2mut had no difference in the distribution of iCLIP peak overlaps except for those downregulated genes that also contained at least one intron longer than 100 kilobases (\textit{P}=2e-6; Fig. \ref{fig:long_genes}C). Long intron genes were modestly depleted in iCLIP peaks when the genes were upregulated (\textit{P}=0.029).
 
 
 \subsection{LCDmut shows the inverse of cryptic splicing - skiptic splicing}
@@ -260,8 +278,12 @@ Another feature of TDP-43 loss of function is a striking downregulation of genes
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=12cm]{Figures/05_tdp_mice/skiptic_exon_multi.png}
-	\caption{\textbf{LCDmut leads to skiptic exon splicing}}
-	A: Representative RNA-seq traces show a constitutive exon in \textit{Herc2} skipped in LCDmut specifically - a skiptic exon. B: RT-PCR of \textit{Herc2} selectively amplifies a band corresponding to exon skipping skipping in LCDmut samples. P < 0.001; t-test(two-sided). C: PhyloP conservation scores for 1000 randomly chosen mouse exons compared to the 48 skiptic exons found in LCDmut.
+	\caption[LCDmut leads to skiptic exon splicing]{
+		\textbf{LCDmut leads to skiptic exon splicing.}
+	\textbf{(A)} Representative RNA-seq traces show a constitutive exon in \textit{Herc2} skipped in LCDmut specifically - a skiptic exon. 
+	\textbf{(B)} RT-PCR of \textit{Herc2} selectively amplifies a band corresponding to exon skipping skipping in LCDmut samples. P < 0.001; t-test(two-sided). 
+	\textbf{(C)} PhyloP conservation scores for 1000 randomly chosen mouse exons compared to the 48 skiptic exons found in LCDmut.
+}
 	\label{fig:skiptic_multi}
 \end{figure}
 
@@ -271,16 +293,18 @@ I applied the same cryptic exon filtering strategy to LCDmut and found a small n
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=7cm]{Figures/05_tdp_mice/permutation_ribbon.png}
-	\caption{\textbf{Permuting sample order shows clear splicing difference between LCDmut mice from controls}}
-	Quantile-quantile plots show the difference between expected and observed distribution of P-values generated from multiple tests. True case-control sample labelling of LCDmut and littermate controls (purple) shows clear inflation of low P-values when compared to all permutations of sample ordering (grey; plotted as mean $\pm$ standard deviation).
+	\caption[Permuting sample order shows clear splicing difference between LCDmut mice and controls]{
+		\textbf{Permuting sample order shows clear splicing difference between LCDmut mice and controls.}
+		Quantile-quantile plots show the difference between expected and observed distribution of \textit{P}-values generated from multiple tests. True case-control sample labelling of LCDmut and littermate controls (purple) shows clear inflation of low \textit{P}-values when compared to all permutations of sample ordering (grey; plotted as mean $\pm$ standard deviation).
+	}
 	\label{fig:permutation}
 \end{figure}
 
 To demonstrate that the 48 skiptic exons found in LCDmut were not statistical anomalies due to the small sample size I employed a permutation strategy.
  The wildtype and LCDmut labels were shuffled 50 times to cover all possible sample orders and the splicing analysis repeated with the permuted labels. 
-A quantile-quantile plot contrasts the observed distribution of P-values generated by a large number of statistical tests with the theoretical expected distribution. 
-If there is no difference between genotypes then some low p-values are expected by chance due to the small sample size and the large number of tests. 
-However, there is a clear difference in splicing between LCDmut and wildtype mice that drives a large inflation in the number of low P-value splicing events far away from the expected distribution (figure \ref{fig:permutation}).
+A quantile-quantile plot contrasts the observed distribution of \textit{P}-values generated by a large number of statistical tests with the theoretical expected distribution. 
+If there is no difference between genotypes then some low \textit{P}-values are expected by chance due to the small sample size and the large number of tests. 
+However, there is a clear difference in splicing between LCDmut and wildtype mice that drives a large inflation in the number of low \textit{P}-value splicing events far away from the expected distribution (Fig. \ref{fig:permutation}).
 A table of counts of all exons found at each permutation is presented in the appendices.   
 
 
@@ -289,8 +313,11 @@ A table of counts of all exons found at each permutation is presented in the app
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/05_tdp_mice/iclip_multipanel.png}
-	\caption{\textbf{RNA maps of skiptic and cryptic exons show direct binding by TDP-43}}
-	A: The 33 cryptic exons found in the RRM2mut embryonic mice. Traces show normalised iCLIP peak coverage within and around each exon. Left y-axis: the proportion of exons with an iCLIP peak at that nucleotide. Right y axis: the proportion of central exons or flanking exons that overlap any iCLIP peaks. Below, individual positions of iCLIP peaks for the top 20 cryptic exons. Circles in the centre denote whether there are any iCLIP peaks overlapping the central exon. B: as before for the 48 skiptic exons found in the LCDmut adult mice.
+	\caption[RNA maps of skiptic and cryptic exons show direct binding by TDP-43]{
+		\textbf{RNA maps of skiptic and cryptic exons show direct binding by TDP-43.}
+	\textbf{(A)} The 33 cryptic exons found in the RRM2mut embryonic mice. Traces show normalised iCLIP peak coverage within and around each exon. Left y-axis: the proportion of exons with an iCLIP peak at that nucleotide. Right y axis: the proportion of central exons or flanking exons that overlap any iCLIP peaks. Below, individual positions of iCLIP peaks for the top 20 cryptic exons. Circles in the centre denote whether there are any iCLIP peaks overlapping the central exon. 
+	\textbf{(B)} as before for the 48 skiptic exons found in the LCDmut adult mice.
+}
 	\label{iclip_multi}
 \end{figure}
 
@@ -303,7 +330,7 @@ Importantly, the iCLIP data used for these maps is mainly drawn from wildtype TD
 \begin{table}
 	\begin{footnotesize}
 	\begin{tabular}{llll}
-		& total &	overlap	& \% \\
+		& total & overlap	& \% \\
 		\hline
 		All exons in GENCODE vM12 &	744,786	& 37,276 & 5\% \\
 		All constitutive exons found in all samples	& 239,897	& 17,828	& 7.4\% \\
@@ -312,7 +339,7 @@ Importantly, the iCLIP data used for these maps is mainly drawn from wildtype TD
 		Skiptic exons (control PSI > = 0.95; dPSI > = -0.05; FDR < 0.05) & 47 &	31 & 66\% \\
 	\end{tabular}
 	\end{footnotesize}
-	\caption{\textbf{Proportions of exons with any TDP-43 binding from iCLIP}}
+	\caption[Proportions of exons with any TDP-43 binding from iCLIP]{\textbf{Proportions of exons with any TDP-43 binding from iCLIP}}
 	\label{tab:iclip_proportions}
 \end{table}
 
@@ -322,8 +349,12 @@ Importantly, the iCLIP data used for these maps is mainly drawn from wildtype TD
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=9cm]{Figures/05_tdp_mice/functional_plots_vertical.png}
-	\caption{\textbf{Functional analyses of the skiptic exons}}
-	A: Per-exon mean PhyloP conservation scores presented as box plots for each set of exon, showing the median and interquartile range. Notches are the 95\% confidence interval of the median. B: The relationship between splicing status and differential expression in LCDmut. Significantly downregulated genes (FDR < 0.1) are enriched in skiptic exons compared to genes expressed at a similar level (P = 1.19e-6), as well as non-skiptic cassette exons (P = 6.16e-5). Upregulated genes are mildly enriched in non-skiptic cassette exons (P = 0.029) but not in skiptic exons (P = 0.88). All P-values generated from a binomial test. C: Proportions of predicted downstream consequence of exon skipping for either non-regulated or downregulated skiptic exons. P = 0.034; chi-squared test.
+	\caption[Functional analyses of the skiptic exons]{
+		\textbf{Functional analyses of the skiptic exons.}
+	\textbf{(A)} Per-exon mean PhyloP conservation scores presented as box plots for each set of exon, showing the median and interquartile range. Notches are the 95\% confidence interval of the median. 
+	\textbf{(B)} The relationship between splicing status and differential expression in LCDmut. Significantly downregulated genes (FDR < 0.1) are enriched in skiptic exons compared to genes expressed at a similar level (\textit{P}=1.19e-6), as well as non-skiptic cassette exons (\textit{P}=6.16e-5). Upregulated genes are mildly enriched in non-skiptic cassette exons (\textbf{P}=0.029) but not in skiptic exons (\textbf{P}=0.88). All \textit{P}-values generated from a binomial test. 
+	\textbf{(C)} Proportions of predicted downstream consequence of exon skipping for either non-regulated or downregulated skiptic exons. \textit{P}=0.034; chi-squared test.
+}
 	\label{fig:functional_plots}
 \end{figure}
 
@@ -334,22 +365,24 @@ This is to be expected from their close to 100\% inclusion rates within transcri
 Their constitutive splicing status means that their inclusion is near guaranteed and so unlike cassette exons, which are swapped in and out dynamically between tissues and developmental time points, I hypothesis that there is no evolutionary pressure to maintain a length divisible by 3. 
 In the event of these exons being skipped they would likely lead to a shift of reading frame, potentially leading to degradation of the host transcript through nonsense-mediated decay.
  To test whether skiptic exon splicing correlated with host transcript degradation I combined the differential splicing and differential expression analyses together. I separated genes into sets based on i) whether they were significantly upregulated or downregulated in LCDmut compared to wildtype (FDR < 10\%) and ii) whether they contained either a cassette exon or a skiptic exon that changed in inclusion levels between LCDmut and wildtype (FDR < 1\%). 
- Genes that contained skiptic exons were more likely to be downregulated than those without any cassette exon splicing  (P = 1.19e-6; binomial test; Fig. \ref{fig:functional_plots}B). The same trend cannot be seen in the other direction as there as no increased likelihood for skiptic containing genes to be upregulated. 
+ Genes that contained skiptic exons were more likely to be downregulated than those without any cassette exon splicing  (\textit{P}=1.19e-6; binomial test; Fig. \ref{fig:functional_plots}B). The same trend cannot be seen in the other direction as there as no increased likelihood for skiptic containing genes to be upregulated. 
  Finally I attempted to predict \textit{in silico} whether the skipping of a skiptic exon would lead to nonsense mediated decay. 
  By combinining the central cassette exon with the flanking upstream exons and translating the concatenated sequence it is possible to assess whether skipping the central exon would frameshift the downstream exon, generating premature stop codons. 
  Using this method I discovered that 15 out of 47 of the skiptic exons would lead to the inclusion of a premature stop codon.  
-I compared the distribution of predictions between skiptic exons in downregulated and unchanged genes and found an increased representation of predictions of toxic skipping from 18\% to 54\% (P = 0.034; chi-squared test). 
+I compared the distribution of predictions between skiptic exons in downregulated and unchanged genes and found an increased representation of predictions of toxic skipping from 18\% to 54\% (\textit{P}=0.034; chi-squared test). 
 
 \subsection{LCDmut impairs TDP-43 autoregulation}
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/05_tdp_mice/autoregulation.png}
-	\caption{\textbf{LCDmut and TDP-43 autoregulation}}
-	A: The 3'UTR of \textit{Tardbp}. At least six potential 3'UTR isoforms have been proposed by \citep{Koyama2016}, consisting of 3 different polyadenylation (pA) sites. * indicates that this isoform is predicted to be degraded by nonsense-mediated decay. Stop codons indicated by red bars. 
-	B: Expression of all \textit{Tardbp} isoforms (RPKM) increases in LCDmut at two time points.  Embryonic dataset ANOVA, P = 0.0032, N = 3; adult dataset ANOVA, P = 0.0009, N = 4$-$5; error bars: SD; Bonferroni multiple comparison tests are plotted as P-value: *P < 0.05; **P < 0.01; ***P < 0.001
-	C: Retention of 3'UTR intron 7 increases in LCDmut. Embryonic dataset ANOVA, P = 0.0113, N = 3; adult dataset ANOVA, P < 0.0001, N = 4$-$5; error bars: SEM; Bonferroni multiple comparison tests are plotted as P-value: **P < 0.01; ***P < 0.001.
-	D: Quantification of TDP-43 protein levels in relation to $\beta$-actin in Western blots. Results are normalised to the mean of wildtype (100\%). Embryonic dataset: ANOVA P = 0.480, N = 4; adult dataset: ANOVA P = 0.491, N = 3; error bars: SD.
+	\caption[LCDmut and TDP-43 autoregulation]{
+		\textbf{LCDmut and TDP-43 autoregulation.}
+	\textbf{(A)} The 3'UTR of \textit{Tardbp}. At least six potential 3'UTR isoforms have been proposed by \citep{Koyama2016}, consisting of 3 different polyadenylation (pA) sites. * indicates that this isoform is predicted to be degraded by nonsense-mediated decay. Stop codons indicated by red bars. 
+	\textbf{(B)} Expression of all \textit{Tardbp} isoforms (RPKM) increases in LCDmut at two time points.  Embryonic dataset ANOVA, \textit{P}=0.0032, \textit{n}=3; adult dataset ANOVA, \textit{P}=0.0009, \textit{n}=4$-$5; error bars: SD; Bonferroni multiple comparison tests are plotted as \textit{P}-value: *\textit{P} < 0.05; **\textit{P} < 0.01; ***\textit{P} < 0.001
+	\textbf{(C)} Retention of 3'UTR intron 7 increases in LCDmut. Embryonic dataset ANOVA, \textit{P}=0.0113, \textit{n}=3; adult dataset ANOVA, \textit{P} < 0.0001, \textit{n} = 4$-$5; error bars: SEM; Bonferroni multiple comparison tests are plotted as \textit{P}-value: **\textit{P} < 0.01; ***\textit{P} < 0.001.
+	\textbf{(D)} Quantification of TDP-43 protein levels in relation to $\beta$-actin in Western blots. Results are normalised to the mean of wildtype (100\%). Embryonic dataset: ANOVA \textit{P}=0.480, \textit{n}=4; adult dataset: ANOVA \textit{P}=0.491, \textit{n}=3; error bars: SD.
+}
 	\label{fig:autoregulation}
 \end{figure}
 
@@ -379,8 +412,10 @@ Together this suggests a subtle impairment in the autoregulation feedback loop i
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=10cm]{Figures/05_tdp_mice/skiptic_patients.png}
-	\caption{\textbf{Skiptic exon splicing in TARDBP ALS}}
-		RT-PCR traces for two skiptic exons in fibroblasts taken from 4 TARDBP ALS patients and 4 non-neurological control lines. For clarity, quantification was taken of the skiptic exon band only instead of the ratio. *P < 0.05, N = 4, error bars: SEM
+	\caption[Skiptic exon splicing in TARDBP ALS]{
+		\textbf{Skiptic exon splicing in TARDBP ALS.}
+		RT-PCR traces for two skiptic exons in fibroblasts taken from 4 \textit{TARDBP} ALS patients and 4 non-neurological control lines. For clarity, quantification was taken of the skiptic exon band only instead of the ratio. *\textit{P} < 0.05, \textit{n} = 4, error bars: SEM
+	}
 	\label{fig:skiptic_patients}
 \end{figure}
 

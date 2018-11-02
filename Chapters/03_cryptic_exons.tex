@@ -2,12 +2,7 @@
 \label{chapter:cryptic_exons}
 %SORT OUT APPENDICES
 
-% FIX FIGURE NUMBERING
-
 This chapter has been published as \citep{Humphrey2017}. See appendices for full reproduction of the manuscript.
-
-\section{Overview}
-A recent paper \citep{Ling2015} demonstrated a novel RNA phenotype following the knockdown of the RNA-binding protein TDP-43 from mouse and human cell lines that they termed "cryptic exons". The first project of my PhD was to build a tool that could replicate these results in other previously published RNA sequencing datasets. In doing so I have extended the scale and understanding of cryptic exons and their relation to TDP-43. In addition, I have demonstrated a key difference between TDP-43 and FUS, as the knockdown of FUS does not result in a similar splicing phenotype.
 
 \section{Background}
 
@@ -28,7 +23,9 @@ Processed iCLIP peak data was downloaded from the iCOUNT server. Both the human 
 Processed eCLIP data (previously described by \citep{Van_Nostrand2016-su}) was downloaded from the ENCODE project. The narrowPeaks bed format was used with the first nucleotide of the cluster defined as the peak. Peak coordinates from iCLIP and eCLIP were converted to the hg38 and mm10 builds using the \emph{LiftOver} tool from UCSC. 
 
 \begin{table}[h!]
-	\caption{\textbf{List of accessions}}
+	\caption[List of accessions]{
+		\textbf{List of accessions}
+	}
 	\label{table:cryptic_data}
 	%\begin{centerline}
 	\begin{footnotesize}
@@ -66,9 +63,11 @@ Processed eCLIP data (previously described by \citep{Van_Nostrand2016-su}) was d
 \footnotetext[3]{iCOUNT iCLIP web server: \url{www.icount.biolab.si} }
 
 \begin{table}[h!]
-	\caption{\textbf{All RNA-sequencing data used in this study}}
+	\caption[All RNA-sequencing data used in this study]{
+		\textbf{All RNA-sequencing data used in this study}
 	ES: embryonic stem cell. K562: human leukaemia cell line. siRNA: small interfering RNA. shRNA: short hairpin RNA. ASO: antisense oligonucleotide. PE: paired end sequencing. SE: single end sequencing. 
 	For single end sequencing, depth is measured in millions of mapped reads whereas paired end sequencing depth is measured in millions of mapped fragments.
+}
 	\label{table:cryptic_sequence_stats}
 	\centering
 	\begin{small}
@@ -103,7 +102,9 @@ I wrote the code for \textit{CryptEx} in the Bash shell scripting language, maki
 \begin{figure}
 	\centering
 	\includegraphics[width=14cm]{Figures/03_cryptic_exons/cryptex_pipeline.png}
-	\caption{\textbf{Schematic of the \textit{Cryptex} workflow}}
+	\caption[Schematic of the \textit{Cryptex} pipeline]{
+		\textbf{Schematic of the \textit{Cryptex} pipeline}
+	}
 	\label{fig:cryptic_workflow}
 \end{figure}
 
@@ -143,8 +144,12 @@ While these datasets differ in library preparation method, read depth and length
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/03_cryptic_exons/Figure_1_venn_inkscape.png}
-	\caption{\textbf{Cryptic splicing discovered by the \emph{CryptEx} pipeline}}
-	A) Schematic of the three classes of cryptic exon. Black boxes represent annotated exons and red boxes represent a cryptic exon. Grey lines represent the spliced intron. B) Tally of the three classes of cryptic exon discovered by the Cryptex pipeline across the nine datasets. ``Unfiltered output'' refers to the number of differentially used cryptic splicing events at a false discovery rate (FDR) $<$ 5\% before undergoing cryptic exon classification. Counts from Ling et al's data are taken from the paper itself. C) Venn diagrams showing the overlap between the six TDP-43 depletion datasets.
+	\caption[Cryptic splicing discovered by the \emph{CryptEx} pipeline]{
+		\textbf{Cryptic splicing discovered by the \emph{CryptEx} pipeline}
+	\textbf{(A)} Schematic of the three classes of cryptic exon. Black boxes represent annotated exons and red boxes represent a cryptic exon. Grey lines represent the spliced intron. 
+	\textbf{(B)} Tally of the three classes of cryptic exon discovered by the Cryptex pipeline across the nine datasets. ``Unfiltered output'' refers to the number of differentially used cryptic splicing events at a false discovery rate (FDR) $<$ 5\% before undergoing cryptic exon classification. Counts from Ling et al's data are taken from the paper itself. 
+	\textbf{(C)} Venn diagrams showing the overlap between the six TDP-43 depletion datasets.
+}
 	\label{fig:cryptic_venn}
 \end{figure}
 
@@ -164,8 +169,12 @@ In contrast, while a large number of novel splicing events were observed in the 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/03_cryptic_exons/Figure_2_motif_iCLIP.png} 
-	\caption{\textbf{Evidence of TDP-43 binding cryptic exons}}
-	A) Results of \emph{MEME} motif search. Only the motif with the greatest enrichment compared to background sequence is presented. B) Schematic of iCLIP peak enrichment test. For illustration a cassette-like cryptic exon (green box) is shown between two annotated exons (black boxes) separated by intronic sequence (black lines). The proportion of the group of cryptic exons flanked either side by 100 nucleotides (orange) that overlap at least one iCLIP peak is compared to the proportion of overlaps in a group of length matched sequences from either the surrounding intron (yellow) or an adjacent intron (blue) each randomly sampled 100 times per gene. C) iCLIP peak overlap enrichment for the 95 human cryptic exons found in either K562 cell TDP-43 depletion dataset and the 52 cryptic exons found in either mouse TDP-43 depletion dataset. D) Dinucleotide enrichment in the flanked cryptic exons compared to adjacent introns. Error bars denote 95\% confidence intervals of the binomial distribution. $^* P < 0.05 $, $^{**} P < 0.001$, $^{***} P < 10^{-16}$ . All P-values adjusted for multiple testing by Bonferroni method.
+	\caption[Evidence of TDP-43 binding cryptic exons]{
+		\textbf{Evidence of TDP-43 binding cryptic exons.}
+	\textbf{(A)} Results of \emph{MEME} motif search. Only the motif with the greatest enrichment compared to background sequence is presented. 
+	\textbf{(B)} Schematic of iCLIP peak enrichment test. For illustration a cassette-like cryptic exon (green box) is shown between two annotated exons (black boxes) separated by intronic sequence (black lines). The proportion of the group of cryptic exons flanked either side by 100 nucleotides (orange) that overlap at least one iCLIP peak is compared to the proportion of overlaps in a group of length matched sequences from either the surrounding intron (yellow) or an adjacent intron (blue) each randomly sampled 100 times per gene. 
+	\textbf{(C)} iCLIP peak overlap enrichment for the 95 human cryptic exons found in either K562 cell TDP-43 depletion dataset and the 52 cryptic exons found in either mouse TDP-43 depletion dataset. D) Dinucleotide enrichment in the flanked cryptic exons compared to adjacent introns. Error bars denote 95\% confidence intervals of the binomial distribution. $^* P < 0.05 $, $^{**} P < 0.001$, $^{***} P < 10^{-16}$ . All \textit{P}-values adjusted for multiple testing by Bonferroni method.
+}
 	\label{fig:cryptic_motifs}
 \end{figure}
 
@@ -182,21 +191,30 @@ If TDP-43 binding was uniform throughout an intron or gene then one would expect
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/03_cryptic_exons/Figure_3_repeat_elements.png}
-	\caption{\textbf{Cryptic exons in transposable elements}}
-	Overlap between different families of repetitive element with lists of exons, separated by orientation. A) Mouse TDP-43 depletion. B) Human TDP-43 depletion. C) Human hnRNP C depletion. The proportion of the cryptic exons that contain a particular element are shown in orange. Length matched random samples from the surrounding intron (yellow) and adjacent introns (blue) are used as controls. LINE: Long Interspersed Nuclear Element; SINE: Short Interspersed Nuclear Element.  $^*: P < 0.05$, $^{**}: P < 0.001$, $^{***}: P < 10^{-16}$ . All P-values corrected for multiple testing with Bonferroni method.
+	\caption[Cryptic exons in transposable elements]{
+		\textbf{Cryptic exons in transposable elements.}
+		Overlap between different families of repetitive element with lists of exons, separated by orientation. 
+		\textbf{(A)} Mouse TDP-43 depletion. 
+		\textbf{(B)} Human TDP-43 depletion. 
+		\textbf{(C)} Human hnRNP C depletion. 
+		The proportion of the cryptic exons that contain a particular element are shown in orange. Length matched random samples from the surrounding intron (yellow) and adjacent introns (blue) are used as controls. LINE: Long Interspersed Nuclear Element; SINE: Short Interspersed Nuclear Element.  $^*: P < 0.05$, $^{**}: P < 0.001$, $^{***}: P < 10^{-16}$ . All \textit{P}-values corrected for multiple testing with Bonferroni method.
+	}
 	\label{fig:cryptic_repeats}
 \end{figure}
 
-TDP-43 has been demonstrated to bind antisense Alu elements, which are the source of cryptic exons repressed by hnRNP C \citep{Zarnack2013-nv,Kelley2014-sr}. I therefore investigated whether TDP-43 induced cryptic exons preferentially overlap specific families of transposable elements and/or class of repetitive sequences. Transposable and repeat elements annotations were obtained using the \emph{RepeatMasker} software, and these features were split by family and orientation. Although Alu elements are a subfamily within the primate SINE element family, I included them separately given the prior hnRNP C result.
-Control regions were obtained as before. Cryptic exons show only a modest enrichment patterns in the simple repeat" family, owing to the aforementioned UG motifs (Fig. \ref{fig:cryptic_repeats}A/B). This contrasts with hnRNP C depletion, which shows a striking enrichment of antisense SINE elements of which all are of the Alu type ($P < 10^{-16}$, proportion test; Fig. \ref{fig:cryptic_repeats}C), a result consistent with previous analyses of dataset 9 \citep{Zarnack2013-nv}.
+TDP-43 has been demonstrated to bind antisense Alu elements, which are the source of cryptic exons repressed by hnRNP C \citep{Zarnack2013,Kelley2014-sr}. I therefore investigated whether TDP-43 induced cryptic exons preferentially overlap specific families of transposable elements and/or class of repetitive sequences. Transposable and repeat elements annotations were obtained using the \emph{RepeatMasker} software, and these features were split by family and orientation. Although Alu elements are a subfamily within the primate SINE element family, I included them separately given the prior hnRNP C result.
+Control regions were obtained as before. Cryptic exons show only a modest enrichment patterns in the simple repeat" family, owing to the aforementioned UG motifs (Fig. \ref{fig:cryptic_repeats}A/B). This contrasts with hnRNP C depletion, which shows a striking enrichment of antisense SINE elements of which all are of the Alu type ($P < 10^{-16}$, proportion test; Fig. \ref{fig:cryptic_repeats}C), a result consistent with previous analyses of dataset 9 \citep{Zarnack2013}.
 
 \subsection{Cryptic exons are poorly conserved and generate premature stop codons}
 
-\begin{figure}[h!]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/03_cryptic_exons/Figure_4_conservation_poison.png}
-	\caption{\textbf{Conservation and premature termination codon analysis}} 
-	A) Per exon average PhyloP conservation scores in cryptic exons, adjacent exons within the same set of genes (when available) and randomly sampled sequences from the cryptic containing intron. Box plots show first quartile, median and third quartile with the notches representing the 95\% confidence interval of the median. Whiskers represent the minimum and maximum values that fall within 1.5 times the interquartile range. B) The functional impact of cryptic exon inclusion on the host transcripts in human and mouse. Colours indicate the category of prediction and box size indicates the proportion of the total group of exons in each category. Categories from top to bottom: at least one premature termination codon (PTC) introduced and frame shifted (red); no PTCs introduced but frame shifted (orange); PTCs introduced but frame conserved (yellow); no PTCs introduced and frame conserved (green). For each species there is a corresponding set of null exons where the central exon has been permuted 1000 times.
+	\caption[Conservation and premature termination codon analysis]{
+		\textbf{Conservation and premature termination codon analysis.}
+		\textbf{(A)} Per exon average PhyloP conservation scores in cryptic exons, adjacent exons within the same set of genes (when available) and randomly sampled sequences from the cryptic containing intron. Box plots show first quartile, median and third quartile with the notches representing the 95\% confidence interval of the median. Whiskers represent the minimum and maximum values that fall within 1.5 times the interquartile range. 
+		\textbf{(B)} The functional impact of cryptic exon inclusion on the host transcripts in human and mouse. Colours indicate the category of prediction and box size indicates the proportion of the total group of exons in each category. Categories from top to bottom: at least one premature termination codon (PTC) introduced and frame shifted (red); no PTCs introduced but frame shifted (orange); PTCs introduced but frame conserved (yellow); no PTCs introduced and frame conserved (green). For each species there is a corresponding set of null exons where the central exon has been permuted 1000 times.
+}
 	\label{fig:cryptic_conservation}
 \end{figure}
 
@@ -210,8 +228,11 @@ I also investigated the consequences of inclusion of cryptic exons on translatio
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/03_cryptic_exons/Figure_5_Gene_Expression.png}
-	\caption{\textbf{Differential expression of cryptic exon genes}}
-	A) Significantly differentially expressed genes between TDP-43 depletion and control samples (false discovery rate = 10\%) in datasets 3-6. Comparisons were made between all genes tested with an expression level at or greater than the lowest expressed cryptic exon (``all genes'') and the genes where cryptic exons were discovered (``cryptic exon genes'') with each group divided by direction of change. B) As above but for cryptic exon genes from the other dataset of the same species. Error bars show 95\% confidence intervals for each proportion. $^* : P < 0.05$, $^{**} : P < 0.001$. All P-values adjusted by Bonferroni correction.
+	\caption[Differential expression of cryptic exon genes]{
+		\textbf{Differential expression of cryptic exon genes.}
+	\textbf{(A)} Significantly differentially expressed genes between TDP-43 depletion and control samples (false discovery rate = 10\%) in datasets 3-6. Comparisons were made between all genes tested with an expression level at or greater than the lowest expressed cryptic exon (``all genes'') and the genes where cryptic exons were discovered (``cryptic exon genes'') with each group divided by direction of change. 
+	\textbf{(B)} As above but for cryptic exon genes from the other dataset of the same species. Error bars show 95\% confidence intervals for each proportion. $^* : P < 0.05$, $^{**} : P < 0.001$. All \textit{P}-values adjusted by Bonferroni correction.
+}	
 	\label{fig:cryptic_expression}
 \end{figure}
 
@@ -225,8 +246,10 @@ Furthermore, I performed the same analysis for each dataset with the cryptic exo
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/03_cryptic_exons/Figure_6_splice_site_scoring.png}
-	\caption{\textbf{Scoring cryptic splice sites against canonical splice sites}}
-	Cassette-like cryptic exons have 5\'\ and 3\'\ splice sites that are recognised by the spliceosome under TDP-43 depletion. 5\'\ and 3\'\ splice site scores are plotted separately. Cryptic splice sites are shown in red, canonical splice sites are shown in blue. Random sequences with AG or GT consensus are plotted in grey. Cryptic extensions are the result of a cryptic splice site competing with the canonical splice site. 5\'\ extensions result from cryptic 3\'\ splice sites whereas 3\'\ extensions result from cryptic 5\'\ splice sites. Box plots show first quartile, median and third quartile with the notches representing the 95\% confidence interval of the median. Whiskers represent the minimum and maximum values that fall within 1.5 times the interquartile range. Outliers are plotted as black dots. Cryptic splice sites are compared to canonical splice sites with paired t-tests. $^{*}: P < 0.05$, $^{**}: P < 0.001$.
+	\caption[Scoring cryptic splice sites against canonical splice sites]{
+		\textbf{Scoring cryptic splice sites against canonical splice sites.}
+		Cassette-like cryptic exons have 5\'\ and 3\'\ splice sites that are recognised by the spliceosome under TDP-43 depletion. 5\'\ and 3\'\ splice site scores are plotted separately. Cryptic splice sites are shown in red, canonical splice sites are shown in blue. Random sequences with AG or GT consensus are plotted in grey. Cryptic extensions are the result of a cryptic splice site competing with the canonical splice site. 5\'\ extensions result from cryptic 3\'\ splice sites whereas 3\'\ extensions result from cryptic 5\'\ splice sites. Box plots show first quartile, median and third quartile with the notches representing the 95\% confidence interval of the median. Whiskers represent the minimum and maximum values that fall within 1.5 times the interquartile range. Outliers are plotted as black dots. Cryptic splice sites are compared to canonical splice sites with paired t-tests. $^{*}: P < 0.05$, $^{**}: P < 0.001$.
+}
 	\label{fig:cryptic_scoring}
 \end{figure}
 
@@ -239,8 +262,11 @@ Whereas cassette-like cryptic exons appear as separate exons distinct from their
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/03_cryptic_exons/Figure_7_ENCODE_mining.png}
-	\caption{\textbf{Mining of ENCODE eCLIP data in K562 and HepG2 cells}}
-	A) RNA-binding proteins (RBPs) with significant ($P < 0.05$) proportion of overlapping cryptic exons (red) compared to sampled intronic sequence from the same (green) and adjacent introns (blue). B) Comparison of eCLIP datasets from different RNA binding proteins (columns) showing the overlap with the cryptic exons (rows). RBPs in bold typeface are from K562 cells whereas those in regular typeface are from HepG2 cells.
+	\caption[Mining of ENCODE eCLIP data in K562 and HepG2 cells]{
+		\textbf{Mining of ENCODE eCLIP data in K562 and HepG2 cells.}
+	\textbf{(A)} RNA-binding proteins (RBPs) with significant ($P < 0.05$) proportion of overlapping cryptic exons (red) compared to sampled intronic sequence from the same (green) and adjacent introns (blue). 
+	\textbf{(B)} Comparison of eCLIP datasets from different RNA binding proteins (columns) showing the overlap with the cryptic exons (rows). RBPs in bold typeface are from K562 cells whereas those in regular typeface are from HepG2 cells.
+}
 	\label{fig:cryptic_mining}
 \end{figure}
 
@@ -251,11 +277,11 @@ Proteomic studies have demonstrated that TDP-43 interacts with a number of RNA-b
 \section{Discussion}
 I designed an analytical strategy to identify cryptic splicing that takes advantage of biological replicates in RNA sequencing data. I have applied this tool to a set of human and murine TDP-43 depletion datasets, as well as datasets that deplete hnRNP C or FUS. The results are consistent with the previous findings that depletion of TDP-43 or hnRNP C leads to the inclusion of novel cryptic exons in both human and mouse. Although FUS undoubtedly plays an important role in splicing and mRNA stability and shares a number of targets with TDP-43 \citep{Lagier-Tourenne2012}, the low number of cryptic exons observed due to FUS depletion suggests that it does not play a major role in cryptic splicing and is a key point of differentiation with TDP-43.
 
-Further examination of TDP-43 linked exons suggests they tend to possess the necessary UG-rich sequence elements to be bound by TDP-43 and using iCLIP data I observed that a subset of the cryptic exons are shown to be bound by TDP-43 \emph{in vivo}. I went on to investigate the origins of these TDP-43 bound cryptic exons, as has been done for the targets of hnRNP C. I observed that unlike hnRNP C linked cryptic exons, which invariably originate from antisense Alu elements, TDP-43 linked cryptic exons do not originate from any single family of transposable element. Furthermore their sequences show very low species conservation, akin to random intronic sequence, but remarkably they contain splice sites very close in strength to those of their adjacent annotated exons. Differential expression analysis suggests that the bulk of cryptic exon containing genes are significantly downregulated upon TDP-43 depletion. I hypothesize that this is due to nonsense mediated decay of the inclusion transcript, which I predict would occur in over 90\% of cryptic exon containing transcripts. Comparing my human cryptic exons with a recent proteomic study of TDP-43 depletion in human SH-SY5Y cells \citep{Stalekar2015-qd} showed that protein levels were changed for 3 of the 95 human cryptic exon containing genes. Two, \emph{HUWE1} and \emph{GOLGB1} had protein levels that were 8\% and 31\% of the control cells respectively whereas the third, \emph{HNRNPH3} was found to be 7-fold increased under TDP-43 depletion. Interestingly, the cryptic exon discovered in hnRNP H3 falls upstream of the start codon whereas those found in \emph{HUWE1} and \emph{GOLGB1} are predicted to trigger NMD by inclusion of intronic RNA into the coding sequence (see Supplementary Table 1).  Another gene with cryptic splicing seen in both K562 datasets and in the initial Ling HeLa data, \emph{AGRN}, has been shown to be decreased at the protein level in the cerebrospinal fluid of ALS patients compared to healthy controls and other neurological diseases \citep{Collins2015-xd}. Correct splicing of \emph{AGRN} has shown to be crucial for the formation of the neuromuscular junction \citep{Ruggiu2009-qx}.
+Further examination of TDP-43 linked exons suggests they tend to possess the necessary UG-rich sequence elements to be bound by TDP-43 and using iCLIP data I observed that a subset of the cryptic exons are shown to be bound by TDP-43 \emph{in vivo}. I went on to investigate the origins of these TDP-43 bound cryptic exons, as has been done for the targets of hnRNP C. I observed that unlike hnRNP C linked cryptic exons, which invariably originate from antisense Alu elements, TDP-43 linked cryptic exons do not originate from any single family of transposable element. Furthermore their sequences show very low species conservation, akin to random intronic sequence, but remarkably they contain splice sites very close in strength to those of their adjacent annotated exons. Differential expression analysis suggests that the bulk of cryptic exon containing genes are significantly downregulated upon TDP-43 depletion. I hypothesize that this is due to nonsense mediated decay of the inclusion transcript, which I predict would occur in over 90\% of cryptic exon containing transcripts. Comparing my human cryptic exons with a proteomic study of TDP-43 depletion in human SH-SY5Y cells \citep{Stalekar2015-qd} showed that protein levels were changed for 3 of the 95 human cryptic exon containing genes. Two, \emph{HUWE1} and \emph{GOLGB1} had protein levels that were 8\% and 31\% of the control cells respectively whereas the third, \emph{HNRNPH3} was found to be 7-fold increased under TDP-43 depletion. Interestingly, the cryptic exon discovered in hnRNP H3 falls upstream of the start codon whereas those found in \emph{HUWE1} and \emph{GOLGB1} are predicted to trigger NMD by inclusion of intronic RNA into the coding sequence (see Supplementary Table 1).  Another gene with cryptic splicing seen in both K562 datasets and in the initial Ling HeLa data, \emph{AGRN}, has been shown to be decreased at the protein level in the cerebrospinal fluid of ALS patients compared to healthy controls and other neurological diseases \citep{Collins2015-xd}. Correct splicing of \emph{AGRN} has shown to be crucial for the formation of the neuromuscular junction \citep{Ruggiu2009-qx}.
 
 My understanding of TDP-43's role in cryptic splicing is that of a safeguard against the inclusion of potentially damaging intronic sequence into transcripts. However, the relationship between the UG-rich sequences and the strong 5\'\ and 3\'\ splice sites and their changes over evolutionary time are unknown as we observed no conserved cryptic exons between human and mouse. 
 
-Using publicly available ENCODE eCLIP data, I identified a number of RNA binding proteins that also bind subsets of human cryptic exons under normal conditions, that is, in the presence of TDP-43.  It is unsurprising that the splicing factors U2AF35 and U2AF65 are enriched as they preferably bind pyrimidine-rich 3\'\ splice site sequences which all cryptic exons appear to possess. That only 10-15\% of cryptic exons show U2AF35/65 binding may be due to competition from TDP-43 in a manner similar to that seen between hnRNP C and U2AF65 \citep{Zarnack2013-nv}. TIA-1 is an exciting finding due to its role in the formation of stress granules, which are key regulators of RNA stability \citep{gilks2004stress}. In addition, IGF2BP1 has been reported to be bound to TDP-43 in HEK293T and HeLa cell extracts \citep{Ling2010-sr,Freibaum2010-hw}, whereas SRSF7 was reported as binding to TDP-43 in mouse N2A cells \citep{Blokhuis2016-hw}. None of the observed proteins have been reported to change their protein level in response to TDP-43 depletion \citep{Stalekar2015-qd}.
+Using publicly available ENCODE eCLIP data, I identified a number of RNA binding proteins that also bind subsets of human cryptic exons under normal conditions, that is, in the presence of TDP-43.  It is unsurprising that the splicing factors U2AF35 and U2AF65 are enriched as they preferably bind pyrimidine-rich 3\'\ splice site sequences which all cryptic exons appear to possess. That only 10-15\% of cryptic exons show U2AF35/65 binding may be due to competition from TDP-43 in a manner similar to that seen between hnRNP C and U2AF65 \citep{Zarnack2013}. TIA-1 is an exciting finding due to its role in the formation of stress granules, which are key regulators of RNA stability \citep{gilks2004stress}. In addition, IGF2BP1 has been reported to be bound to TDP-43 in HEK293T and HeLa cell extracts \citep{Ling2010-sr,Freibaum2010-hw}, whereas SRSF7 was reported as binding to TDP-43 in mouse N2A cells \citep{Blokhuis2016-hw}. None of the observed proteins have been reported to change their protein level in response to TDP-43 depletion \citep{Stalekar2015-qd}.
 
 As the majority of cryptic exons are predicted to lead to nonsense-mediated decay of the inclusion transcript it seems peculiar that we can observe these transcripts at all. I hypothesise that cryptic splicing may be much more widespread than can be observed by RNA sequencing due to the highly efficient nature of nonsense mediated decay. Over half of all cryptic exon genes are significantly downregulated in each dataset (Fig \ref{fig:cryptic_expression}B), suggesting that cryptic exon inclusion may be a key mechanism in the widespread changes in RNA expression that occur upon TDP-43 depletion. This has been explored in hnRNP C, where a large increase in the number and observed inclusion of Alu-derived cryptic exons was seen when both hnRNP C and the nonsense mediated decay-associated protein UPF1 were co-depleted compared to just hnRNP C or UPF1 alone \citep{Attig2016}.
 
@@ -270,8 +296,8 @@ Defining cryptic exons by their absence in existing annotation is not a suitable
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=\textwidth]{Figures/03_cryptic_exons/all_ENCODE_cryptex_counts.png}
-	\caption{\textbf{Cryptic exons found in different ENCODE shRNA knockdowns}}
+	\includegraphics[width=12cm]{Figures/03_cryptic_exons/all_ENCODE_cryptex_counts.png}
+	\caption[Cryptic exons found in different ENCODE shRNA knockdowns]{\textbf{Cryptic exons found in different ENCODE shRNA knockdowns}}
 	\label{fig:cryptic_counts}
 \end{figure}
 
@@ -284,7 +310,7 @@ hnRNP K knockdown in HepG2 and K562 cells lead to the inclusion of 373 and 91 cr
 MATR3 knockdown led to 219 and 54 cryptic exons. MATR3 has now been linked to cryptic splicing through binding within LINE elements \citep{Attig2018}.
 Perhaps most surprising is the finding of 138 and 15 cryptic exons being included in the knockdown of TAF15 in HepG2 cells and K562 cells respectively. 
 TAF15 is closely related to FUS, in which I only observe 8 and 1 cryptic exons.
-This suggests diverging splicing functions between TAF15 and FUS, whereas an overlap in RNA targets has previously been shown \citep{Kapeli2016}.
+This suggests diverging splicing functions between TAF15 and FUS, despite the two proteins binding similar motifs and overlapping RNA targets \citep{Kapeli2016}.
 As a comparison I downloaded data from proteins linked to cryptic splicing in other papers such as PTBP1 and RBM17 \citep{Ling2016, Tan2016}, as well as the previously discussed HNRNPC. 
 Knockdown of either hnRNP C or PTBP1 leads to a robust number of cryptic exons in both cell types.
 Comparatively few events are seen in RBM17, despite 1475 genes being previously observed to harbour cryptic splicing changes in an \textit{Rbm17} knockout mouse \citep{Tan2016}.
@@ -293,8 +319,8 @@ Surprisingly nearly all proteins assessed show evidence of cryptic splicing upon
 Together this shows that repression of cryptic splice sites is probably a more general function of RNA-binding proteins than previously realised.
 % caveats
 
+
 \section{Summary}
-In this project I replicate and confirm the presence of cryptic exons after TDP-43 depletion and show they have a negative impact on the genes they reside in, leading to decreased expression levels. 
-Further work is warranted to determine the relevance of cryptic exons to ALS and FTD pathogenesis.
+In this project I replicate and confirm the presence of cryptic exons after TDP-43 depletion and show they have a negative impact on the genes they reside in, leading to decreased expression levels.  I have extended the scale and understanding of cryptic exons and their relation to TDP-43. In addition, I have demonstrated a key difference between FUS and other ALS-associated RNA-binding proteins. Further work is warranted to determine the relevance of cryptic exons to ALS and FTD pathogenesis.
 
 

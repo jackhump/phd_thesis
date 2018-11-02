@@ -3,9 +3,12 @@
 
 %%%pre-amble%%%%%%%%
 \usepackage{graphicx}
+\usepackage{siunitx} % for degree symbols 90\si{\degree}C
 \usepackage{hyperref} %this makes everything hyper-refed
 \usepackage{fancyhdr}
-\usepackage{subfigure}
+\usepackage{parskip} % spaces between paragraphs instead of indents
+\usepackage[font={small},labelfont={bf},margin=10pt]{caption} % make figure captions small and italic
+%\usepackage{subfigure}
 \usepackage{textgreek}
 \usepackage{enumitem}
 \usepackage{booktabs}
@@ -26,7 +29,7 @@
 \renewcommand\cellgape{\Gape[4pt]}
 \usepackage{multirow}
 \usepackage{longtable}
-
+\usepackage{flexisym} % for prime symbols \textprime
 \usepackage{anyfontsize}
 \usepackage{emptypage} % all cleardoublepage are without page numbers
 \lhead{} 
@@ -34,7 +37,7 @@
 \usepackage{pdfpages} % for adding pdfs in to the appendices
 \usepackage{pdflscape} % for landscape pages
 \usepackage{sidecap} % for side captions
-
+\usepackage{gensymb} % for the degree symbol
 \usepackage{titlesec, blindtext, color}
 \definecolor{gray75}{gray}{0.75}
 \newcommand{\hsp}{\hspace{1pt}}
@@ -47,7 +50,8 @@
 \usepackage[toc,page]{appendix}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-
+\usepackage{amsmath} % for equations
+\setlength{\headheight}{12pt}
 \graphicspath{{/Users/Jack/google_drive/Work/PhD_Year_4/Thesis/Figures}} %this is the path to all your figures
 
 
@@ -57,12 +61,11 @@
 
 \input{Chapters/00_frontmatter.tex}
 
+\pagenumbering{arabic} % Switch to normal numbers
+
 % ACKNOWLEGEMENTS
 \clearpage
 \input{Chapters/99_acknowledgements.tex}
-
-
-\pagenumbering{arabic} % Switch to normal numbers
 
 % CONTENT
 \input{Chapters/01_introduction.tex}
@@ -72,6 +75,7 @@
 \input{Chapters/05_tdp_mice.tex}
 \input{Chapters/06_fus_meta.tex}
 \input{Chapters/discussion.tex}
+
 
 
 % BIBLIOGRAPHY

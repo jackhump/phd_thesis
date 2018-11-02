@@ -61,9 +61,11 @@ A study comparing RNA-seq samples at different simulated read lengths recommende
 	\begin{center}
 		\includegraphics[width=14cm]{Figures/02_methods/RNAseq_pipeline_schematic.png}
 	\end{center}
-	\caption{Pipeline for stranded RNA-seq preparation and analysis}
+	\caption[Pipeline for stranded RNA-seq preparation and analysis]{
+		\textbf{Pipeline for stranded RNA-seq preparation and analysis}\\
 	i) Library preparation from total RNA extraction and strand-specific amplification\\
 	ii) Bioinformatic analysis workflow to align reads and test for differential gene expression and exon usage
+	}
 \end{figure}
 
 \subsection{Sequencing library preparation}
@@ -215,7 +217,7 @@ Transcript assembly algorithms like \textit{RSEM} \citep{Li2011}, \textit{Cuffli
 Pseudoaligners like \textit{Kallisto} \citep{Bray2016} and \textit{Salmon} \citep{Patro2017} can work straight from the FASTQ files without prior alignment.  
 All these algorithms require long reads for enough splicing information and very dependent on the list of transcripts they are given. 
 Some genes can generate hundreds of very similar transcript isoforms or overlap with other genes and so these methods will struggle to accurately assign reads correctly.
-citep{Zhang2017} compared isoform estimation between pseudoalignment tools to alignment-dependent tools (\textit{RSEM}, \textit{Cufflinks}) and found the alignment free methods outpeformed in both speed and accuracy.
+\citep{Zhang2017} compared isoform estimation between pseudoalignment tools to alignment-dependent tools (\textit{RSEM}, \textit{Cufflinks}) and found the alignment free methods outpeformed in both speed and accuracy.
 
 
 \subsection{Local splicing event quantifiers}
@@ -233,7 +235,7 @@ The topology of the graph then determines the type of splicing event.
 These events may be cassette exons, alternate splice sites, intron retention, mutually exclusive exons or alternate starts and ends. 
 This classification greatly aids downstream interpretation as different categories of event may be regulated by different mechanisms.
  Each event is then tested for differences in inclusion/exclusion across conditions. 
- This approach has been implemented in the \textit{SGSeq}, \textit{SUPPA}, \textit{rMATs}, \textit{JUM},\textit{MAJIQ} and \textit{Whippet} packages \citep{Goldstein2016,Alamancos2015,Vaquero-Garcia2016,Wang2018a,Shen2014, Sterne-Weiler2018a}. 
+ This approach has been implemented in the \textit{SGSeq}, \textit{SUPPA}, \textit{rMATs}, \textit{JUM}, \textit{MAJIQ} and \textit{Whippet} packages \citep{Goldstein2016,Alamancos2015,Vaquero-Garcia2016,Wang2018a,Shen2014, Sterne-Weiler2018a}. 
 SGSeq has the unique ability to find novel events not present in annotation. 
 It discovers and classifies events and then provides counts reads supporting inclusion and exclusion of each event.
 These counts are then fed into the \textit{DEXSeq} framework and a general linear model fitted to test the effect of condition. % do the others? don't think so. 

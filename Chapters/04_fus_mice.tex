@@ -5,7 +5,10 @@
 Work presented in this chapter has been published as part of \citep{Devoy2017}. See appendices for full reproduction of the published manuscript.
 
 \section{Overview}
-This chapter describes work carried out in collaboration with Dr Anny Devoy of the UCL Institute of Neurology. Dr Devoy created a "humanised" mouse model of ALS resulting from a mutation in the FUS RNA-binding protein. 
+This chapter describes work carried out in collaboration with Dr Anny Devoy of the UCL Institute of Neurology. 
+Dr Devoy created a "humanised" mouse model of ALS resulting from a mutation in the FUS RNA-binding protein. 
+I analysed RNA-seq taken from two tissues and time points and demonstrated a specific transcriptomic signature that correlates with a progressive neurodegenerative phenotype seen in aged mutant mice.
+This involves the downregulation of mitochondrial and ribosomal transcripts.
 
 \section{Contributions}
 \begin{itemize}
@@ -31,9 +34,11 @@ The FUS $\Delta$14 mouse was created by directed mutagenesis of the mouse Fus ex
 	\begin{center}
 		\includegraphics[width=\textwidth]{Figures/04_fus_mice/anny_FUS_schematic.png}
 	\end{center}
-	\caption{\textbf{The FUS $\Delta$14 model} }
-		A) The FUS locus with a closeup of the terminal three exons in the wildtype mouse (left) and the FUS $\Delta$14 mouse (right). 
-		B) RT-PCR of FUS mRNA from spinal cord of wildtype and mutant mice. \textit{Figure created by Anny Devoy}
+	\caption[The FUS $\Delta$14 model]{
+		\textbf{The FUS $\Delta$14 model.}
+		\textbf{(A)} The FUS locus with a closeup of the terminal three exons in the wildtype mouse (left) and the FUS $\Delta$14 mouse (right). 
+		\textbf{(B)} RT-PCR of FUS mRNA from spinal cord of wildtype and mutant mice.
+	}
 		\label{fig:delta14_structure}
 \end{figure}
 
@@ -45,8 +50,10 @@ All RNA-seq data used is listed in table \ref{table:fus_mice_rnaseq}. All sample
 
 
 \begin{table}[h!]
-	\caption{\textbf{All RNA-sequencing data used in this study}}
+	\caption[All RNA-sequencing data used in this study]{
+		\textbf{All RNA-sequencing data used in this study}
 	Library info describes the type of library prepared, the length of each read and whether the sequencing was single or paired end. PE: paired end sequencing. Depth is defined the number of uniquely mapped read pairs, in millions.
+}
 	\label{table:fus_mice_rnaseq}
 	\begin{center}
 		\begin{small}
@@ -75,21 +82,26 @@ Differential splicing was analysed for the 12 month spinal cord samples using SG
 
 \subsection{Gene expression changes are tissue- and time point-specific}
 
-To examine progressive changes in RNA regulation, total RNA was extracted from both spinal cord and forebrain from mice across two time-points: 3 months and 12 months. Four male mice of each genotype ($\Delta$14 and wildtype littermate) were used at each timepoint. At 3 months of age, the forebrain and spinal cord samples had 1 and 3 genes differentially expressed respectively. At 12 months of age there were no differentially expressed genes found in the forebrain but 1,289 found in the spinal cord, with genes predominantly decreased in expression (Fig. \ref{fig:delta14_volcanos}). To examine the variance between each sample in the 12 month spinal cord dataset, the read counts for each gene were normalised and converted to Z-score values. Plotted as a heatmap it is clear that the 4 samples of each category are highly variable (Fig. \ref{fig:delta14_heatmap}).
-
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/04_fus_mice/anny_volcanos.png}
-	\caption{\textbf{Differential gene expression analysis on the $\Delta$14 mouse across two tissues and time points}}
-	Each gene is represented as a point. The x axis is the $log_2$ of the ratio between the average expression in the $\Delta$14 mice against that of the wildtype mice. The y axis is the $log_10$ of the unadjusted P-value for the differential expression test. The numbers of upregulated genes (adjusted \textit{P} < 0.1 with a $log_2$(fold change) > 0) are in blue and the the downregulated ( adjusted \textit{P} < 0.1 with $log_2$(fold change) < 0) are in red.
+	\caption[Differential gene expression analysis on the $\Delta$14 mouse]{
+		\textbf{Differential gene expression analysis on the $\Delta$14 mouse across two tissues and time points.}
+		Each gene is represented as a point. The x axis is the $log_2$ of the ratio between the average expression in the $\Delta$14 mice against that of the wildtype mice. The y axis is the $log_10$ of the unadjusted P-value for the differential expression test. The numbers of upregulated genes (adjusted \textit{P} < 0.1 with a $log_2$(fold change) > 0) are in blue and the the downregulated ( adjusted \textit{P} < 0.1 with $log_2$(fold change) < 0) are in red.
+	}
 	\label{fig:delta14_volcanos}
 \end{figure}
+
+To examine progressive changes in RNA regulation, total RNA was extracted from both spinal cord and forebrain from mice across two time-points: 3 months and 12 months. Four male mice of each genotype ($\Delta$14 and wildtype littermate) were used at each timepoint. At 3 months of age, the forebrain and spinal cord samples had 1 and 3 genes differentially expressed respectively. At 12 months of age there were no differentially expressed genes found in the forebrain but 1,289 found in the spinal cord, with genes predominantly decreased in expression (Fig. \ref{fig:delta14_volcanos}). To examine the variance between each sample in the 12 month spinal cord dataset, the read counts for each gene were normalised and converted to Z-score values. Plotted as a heatmap it is clear that the size of each change is small and there is considerable inter-condition variability (Fig. \ref{fig:delta14_heatmap}).
+
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth]{Figures/04_fus_mice/anny_normalised_heatmap.png}
-	\caption{\textbf{Z-score heatmap of the 1289 differentially expressed genes in 12 month spinal cord dataset}}
+	\caption[Z-score heatmap of the 12 month spinal cord dataset]{
+		\textbf{Z-score heatmap of the 1289 differentially expressed genes in 12 month spinal cord dataset}
 	WT: wildtype littermate; FUS: FUS $\Delta$14 heterozygote. 
+}
 	\label{fig:delta14_heatmap}
 \end{figure}
 
@@ -99,14 +111,16 @@ Genes from the 12 month spinal cord dataset differentially expressed at a relaxe
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=12cm]{Figures/04_fus_mice/anny_GO_terms.png}
-	\caption{\textbf{Gene ontology categories significantly enriched in the 12 month FUS $\Delta$14 spinal cord samples}}
+	\includegraphics[width=\textwidth]{Figures/04_fus_mice/anny_GO_terms.png}
+	\caption[Gene ontology categories in the 12 month spinal cord samples]{
+		\textbf{Gene ontology categories significantly enriched in the 12 month FUS $\Delta$14 spinal cord samples}
 		Each significant gene ontology category ( adjusted P < 0.05) is expressed as a proportion of upregulated (red) or downregulated (blue) genes.
+	}
 		\label{fig:delta14_go}
 \end{figure}
 
 
-\subsection{Splicing events are limited to \textit{FUS} itself and few other genes}
+\subsection{Splicing events are limited to FUS itself and few other genes}
 Due to the lack of gene expression changes seen in other comparisons, differential splicing was assessed on 12 month spinal cord samples only.  
 11 splicing events were found at FDR < 0.05, 4 of which were found in \textit{Fus} itself.
 The top 2 splicing events in \textit{Fus} overlap exon 14, the skipping of which in the $\Delta$14 mice is classified as both an alternative last exon and an alternative start site.
@@ -119,10 +133,11 @@ The other splicing events found affect 4 other genes of unknown significance.
 
 \begin{table}[!htbp] 
 	\centering 
-	\caption{\textbf{Splicing events found in 12 month spinal cord samples}} 
+	\caption[Splicing events found in 12 month spinal cord samples]{
+		\textbf{Splicing events found in 12 month spinal cord samples}
 	All splicing events found comparing FUS $\Delta$14 mice to wildtype at FDR < 0.05. 
-	
 	$log_2$FC: $log_2$ fold change.
+	}
 	\label{tab:fus_mouse_splicing} 
 	\begin{tabular}{@{\extracolsep{5pt}} llccl} 
 		\\[-1.8ex]\hline 

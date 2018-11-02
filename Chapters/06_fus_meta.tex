@@ -2,9 +2,9 @@
 
 \label{chapter:fus_meta}
 
-\section{Abstract}
+\section{Overview}
 
-FUS is a ubiquitously expressed multi-domain RNA-binding protein with roles in transcription, splicing and RNA transport. Genetic mutations that cause the fatal neurodegenerative disease Amyotrophic Lateral Sclerosis (Motor Neurone Disease) cluster in the FUS C-terminal nuclear localisation signal (NLS).  These mutations impair the nuclear import of FUS,  shifting localisation to the cytoplasm and the formation of FUS-containing stress granules. However the role of FUS nuclear depletion in disease is still not well understood.  In addition, as FUS protein can bind its own transcript, nuclear loss is expected to alter the level of FUS translation due to impairment of an autoregulatory feedback loop and the exact mechanism of this process has not been fully delineated.
+%FUS is a ubiquitously expressed multi-domain RNA-binding protein with roles in transcription, splicing and RNA transport. Genetic mutations that cause the fatal neurodegenerative disease Amyotrophic Lateral Sclerosis (Motor Neurone Disease) cluster in the FUS C-terminal nuclear localisation signal (NLS).  These mutations impair the nuclear import of FUS,  shifting localisation to the cytoplasm and the formation of FUS-containing stress granules. However the role of FUS nuclear depletion in disease is still not well understood.  In addition, as FUS protein can bind its own transcript, nuclear loss is expected to alter the level of FUS translation due to impairment of an autoregulatory feedback loop and the exact mechanism of this process has not been fully delineated.
 
 The Fratta lab generated RNA sequencing data from embryonic mouse neuronal tissue where FUS was either knocked out or the NLS removed through mutation. I combined the data with two previously published datasets with similar NLS mutations and FUS knockout mice. To assess differential expression and splicing I employed a joint modelling strategy which boosted the power of detection and increased the confidence in my findings. I found that in both expression and splicing, FUS NLS mutations act as a diminished knockout, with little evidence to support a gain of toxic function in the cytoplasm. When examining FUS itself, I observed that loss of nuclear FUS correlated with the reduction in the splicing of a retained intron transcript, which was validated by RT-PCR. The FUS intron retention transcript is insensitive to nonsense-mediated decay.
 
@@ -16,11 +16,11 @@ My data suggest that disease-associated FUS mutations impair FUS autoregulation 
 	\item Mice were handled by Dr Cristian Bodo
 	\item RNA sequencing libraries were prepared by Dr Nicol Birsa.
 	\item RNA was extracted for PCR by Dr Nicol Birsa and Matthew Bentham
-	\item RT-PCRs were performed by David Robaldo and Dr Carmelo Milioto
+	\item Primers designed and RT-PCRs were performed by David Robaldo and Dr Carmelo Milioto
+	\item Methods for RT-PCR were written by David Robaldo
 \end{itemize}
-All bioinformatic analysis and interpretation was designed and performed by myself in consultation with my supervisors. 
-The methods section for RT-PCR was partly written by David Robaldo.
-
+All bioinformatic analysis and interpretation was designed and performed by myself.  
+The validation experiments were designed by myself and Dr Pietro Fratta.
 
 \clearpage
 \section{Background}
@@ -34,7 +34,7 @@ In this study I combined RNA-seq data from three different mouse mutants homozyg
 	\centering
 	\includegraphics[width=\textwidth]{Figures/06_fus_meta/FUS_structure_mutations.png}
 	\caption[The structure of the FUS protein and known ALS mutations]{
-		\textbf{The structure of the FUS protein and known ALS mutations}
+		\textbf{The structure of the FUS protein and known ALS mutations}.
 		\textbf{(A)} The FUS protein is comprised of a low complexity domain (LCD), an RNA recognition motif (RRM) domain, two Arginine-Glycine-Glycine (RGG) domains, a zinc finger domain (Znf), a nuclear export signal (NES) and a nuclear localisation signal (NLS). 
 		\textbf{(B)} The three FUS NLS mutations used in this study. The Bozzoni group knocked in a point mutation to create the FUS P525L line, a missense mutation equivalent to the human ALS P517L mutation.  
 	The Dupuis group created a FUS $\Delta$NLS line where the entire NLS is removed.  
@@ -90,6 +90,16 @@ Furthermore I have performed a comprehensive analysis on splicing, looking for b
 This joint modelling approach boosts statistical power and allows me to demonstrate that the majority of differentially expressed genes and differential splicing events are shared between FUS knockout and NLS mutation.
 
 \clearpage
+
+
+
+
+
+
+\section{Methods}
+
+\subsection{RNA sequencing}
+
 
 \begin{longtable}[t]{@{}llllll@{}}
 	\begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
@@ -153,6 +163,12 @@ This joint modelling approach boosts statistical power and allows me to demonstr
 	\label{tab:fus_datasets}
 \end{longtable}
 
+All mice used were sacrificed at embryonic day 18.5.
+Mice carrying one or two copies of each the FUS knockout transgene from \citep{Scekic-zahirovic2016} or the FUS $\Delta14$ genotype from \citep{Devoy2017} were compared to their wildtype littermates.
+Total RNA was extracted from mouse spinal cord. cDNA libraries were created using a TruSeq stranded total RNA RiboZero protocol (Illumina). 
+Libraries were sequenced on an Illumina HiSeq to generate paired end 150bp reads. 
+
+
 % SEQUENCING STATS
 
 \begin{longtable}[]{@{}llllll@{}}
@@ -212,20 +228,8 @@ This joint modelling approach boosts statistical power and allows me to demonstr
 	\label{tab:fus_sequencing}
 \end{longtable}
 
-\clearpage
-
-\section{Methods}
-
-\subsection{RNA sequencing}
-
-All mice used were sacrificed at embryonic day 18.5.
-Mice carrying one or two copies of each the FUS knockout transgene from \citep{Scekic-zahirovic2016} or the FUS $\Delta14$ genotype from \citep{Devoy2017} were compared to their wildtype littermates.
-Total RNA was extracted from mouse spinal cord. cDNA libraries were created using a TruSeq stranded total RNA RiboZero protocol (Illumina). 
-Libraries were sequenced on an Illumina HiSeq to generate paired end 150bp reads. 
-
-
 \subsection{Data processing}
-All RNA sequencing data was processed with our in-house pipeline (outlined in Methods chapter).
+All RNA sequencing data was processed with our in-house pipeline (outlined in Methods chapter). RNA-seq data was aligned to the mm10 mouse genome build.
 
 \subsection{Differential Expression}
  Each dataset consists of FUS knockout samples, FUS NLS mutation samples and wildtype controls.
@@ -288,7 +292,7 @@ Per nucleotide PhyloP conservation scores \citep{Pollard2010-fj} comparing mouse
 The median PhyloP score was calculated for each splicing variant and compared.
 
 \subsection{RT-PCR}
-Primers were designed using Primer3 \citep{Koressaar2007} and in silico PCR (UCSC). 
+Primers were designed using Primer3 \citep{Koressaar2007} and \textit{in silico} PCR (UCSC). 
 For both human and mouse FUS, the forward primer was designed for exon 6 and the reverse primer designed to span the spliced exon 8/9 junction to preferentially amplify spliced FUS mRNA. 
 An additional third primer was designed to amplify a section of either intron 6 or intron 7.
 
@@ -301,7 +305,7 @@ RT-PCR was carried out using 10X AccuPrime Taq DNA polymerase mastermix system (
 Each PCR reaction mix contained 5 ng of gDNA, 10 mM of forward and reverse primers. cDNA was amplified with the following conditions:
 Intron 6 retention: One cycle of 5 min at 95\si{\degree}C, followed by 30 cycles of 30 sec at 95\si{\degree}C, 30 sec at 56\si{\degree}C, and 30 sec at 68\si{\degree}C, and finishing with 5 min incubation at 68\si{\degree}C.
 Intron 7 retention: One cycle of 5 min at 95\si{\degree}C, followed by 30 cycles of 30 sec at 95\si{\degree}C, 30 sec at 61\si{\degree}C, and 30 sec at 68\si{\degree}C, and finishing with 5 min incubation at 68\si{\degree}C.
-Srsf7 NMD positive control: One cycle of 5 min at 95 \si{\degree}C, followed by 35 cycles of 30 sec at 95 \si{\degree}C, 30 sec at 58 \si{\degree}C, and 15 sec at 68 \si{\degree}C, and finishing with 5 min incubation at 68 \si{\degree}C.
+Srsf7 NMD positive control: One cycle of 5 min at 95\si{\degree}C, followed by 35 cycles of 30 sec at 95\si{\degree}C, 30 sec at 58\si{\degree}C, and 15 sec at 68\si{\degree}C, and finishing with 5 min incubation at 68\si{\degree}C.
 Amplified products were finally obtained using Agilent 4200 TapeStation System following the manufacturer's instructions. Results were analysed on TapeStation analysis software (Agilent).
 Intron retention events are plotted  as the percentage of integrated area of band corresponding to intron retention.
 
@@ -395,7 +399,7 @@ This suggests that a large number of genes called as significant in each dataset
 	\centering
 	\includegraphics[width=\textwidth]{Figures/06_fus_meta/fitted_vs_individual_p_lfc.png}
 	\caption[Joint differential expression increases power and adjusts effect sizes]{
-		\textbf{Joint differential expression increases power and adjusts effect sizes}
+		\textbf{Joint differential expression increases power and adjusts effect sizes.}
 		\textbf{(A)} Plotting the $log_2$ fold changes (left) and \textit{P}-values (right) for the 2136 KO genes and 754 MUT genes found at FDR < 0.05 in the two joint analyses. Values found in the individual analyses, Bozzoni (red), Dupuis(blue) and Fratta (green) are compared to the value produced by the joint analysis (black).
 		\textbf{(B)} As before but for the MUT analyses.
 	}
@@ -415,7 +419,7 @@ Therefore the joint modelling strategy increases the number of genes and harmoni
 	\centering
 	\includegraphics[width=\textwidth]{Figures/06_fus_meta/expression_multi.png}
 		\caption[Overlapping the joint differential expression models shows that FUS mutations affect gene expression in generally the same direction]{
-		\textbf{Overlapping the joint differential expression models shows that FUS mutations affect gene expression in generally the same direction}
+		\textbf{Overlapping the joint differential expression models shows that FUS mutations affect gene expression in generally the same direction.}
 		\textbf{(A)} Venn diagrams show the overlap between the FUS KO and FUS MUT joint differential expression models with a strict FDR cut-off (upper) and a more relaxed \textit{P}-value cut-off. 
 		\textbf{(B)} Plotting the fitted $log_2$ fold-change values for each of the 1318 overlapping genes in KO and MUT shows a bias towards weaker changes in MUT compared to KO.
 		\textbf{(C, D,E)}: Normalised read counts in each dataset for \textit{Fus}, \textit{Taf15} and \textit{Trove2}. Samples are plotted relative to the mean expression in controls (CTL).
@@ -464,13 +468,12 @@ The upregulation of \textit{Xlr3a} is strongest within the all-male Bozzoni data
 	\includegraphics[width=10cm]{Figures/06_fus_meta/xlr_sex_expression.png}
 	\caption[Xlr genes are upregulated in both FUS KO and FUS MUT in mice of both sexes]{
 		\textbf{Xlr genes are upregulated in both FUS KO and FUS MUT in mice of both sexes}.
-    	Normalised read counts in each dataset, plotted relative to the mean of each dataset and condition-specific control group for Xlr3a \textbf{(A)} and Xlr3b \textbf{(B)}. 
+    	Normalised read counts in each dataset, plotted relative to the mean of each dataset and condition-specific control group for \textit{Xlr3a} \textbf{(A)} and \textit{Xlr3b} \textbf{(B)}. 
 	}
 	\label{fig:fus_xlr_expression}
 \end{figure}
 
 
-%Comparing the log2 fold changes (LFC) between KO and MUT with linear regression demonstrates that the overlapping genes are changed on average 76\% in MUT of the strength in KO. ( lfc_MUT = 0.76 . lfc_KO - 0.0017; P < 1e-16; F-test).
 
 % opposing 7 genes
 %Only 7 genes are changed in the opposite direction (0.5%). 3/7 have FUS iCLIP peaks overlapping
@@ -582,8 +585,8 @@ Knockdown or NLS mutation of FUS could lead to impaired U1 snRNP binding and hen
 	\centering
 	\includegraphics[width=\textwidth]{Figures/06_fus_meta/splicing_multi.png}
 	\caption[Splicing changes  strongly overlap between KO and MUT joint models]{
-			\textbf{Splicing changes  strongly overlap between KO and MUT joint models}
-			\textbf{(A)}: Overlapping KO and MUT splicing events results in a significant overlap. The number of mutation specific events drops to just 16 when a more relaxed overlap threshold is used.
+			\textbf{Splicing changes  strongly overlap between KO and MUT joint models.}
+			\textbf{(A)} Overlapping KO and MUT splicing events results in a significant overlap. The number of mutation specific events drops to just 16 when a more relaxed overlap threshold is used.
 			\textbf{(B)} Splicing events plotted by their $log_2$ fold change values in the KO and MUT joint models. There is a bias towards larger changes in the KO than MUT ($\beta = 0.7$; .P < 1e-16). Dotted line $y=x$; bold line fitted regression
 			\textbf{(C)} Categories of splicing variant found in each set of events. Complex events are defined as splicing events which are made up of multiple categories.
 			\textbf{(D-F)} Examples of a cassette exon, retained intron and a complex event in all three datasets. 
@@ -599,8 +602,8 @@ There are no overlapping splicing events that change in opposing directions betw
 	\centering
 	\includegraphics[width=\textwidth]{Figures/06_fus_meta/splicing_go_functions.png}
 	\caption[Intron retention events are highly conserved and occur in RNA binding proteins]{
-		\textbf{Intron retention events are highly conserved and occur in RNA binding proteins} 
-		\textbf{(A)}: Significantly enriched Gene Ontology terms found in genes split by category and splicing variant type.
+		\textbf{Intron retention events are highly conserved and occur in RNA binding proteins.} 
+		\textbf{(A)} Significantly enriched Gene Ontology terms found in genes split by category and splicing variant type.
 		\textbf{(B)} The proportion of each type of splicing variant in each category that overlaps a polyadenylation cleavage site.
 		\textbf{(C)} The proportion of each type of splicing variant in each cateoory that overlaps a FUS iCLIP peak.
 		\textbf{(D)} The proportion of each type of splicing variant in each category that have a median PhyloP conservation score greater than 0.5.
@@ -655,7 +658,7 @@ This analysis shows that the role of FUS on gene expression and splicing mostly 
 	\textbf{(B)} Percentage spliced in (PSI) values of intron 6, intron 7 and exon 7 in the three datasets, including the FUS $\Delta$14 heterozygotes.
 	\textbf{(C)} RT-PCR validation of the reduction in intron 6 and 7 inclusion with increasing dose of FUS $\Delta$14 mutation. 
 	Left panel - FUS intron 6 (ANOVA genotype \textit{P}=5.1e-4; t-test CTL vs HET \textit{P}=4.5e-3; CTL vs HOM \textit{P}=5.7e-4)
-	Right panel - FUS intron 7 (ANOVA genotype \textit{P}=8.5e-3; t-test CTL vs HET \textit{P}=0.091, CTL vs HOM \textit{P}=8.7e-3 )
+	Right panel - FUS intron 7 (ANOVA genotype \textit{P}=8.5e-3; t-test CTL vs HET \textit{P}=0.091, CTL vs HOM \textit{P}=8.7e-3)
 	\textbf{(D)}	Translation blocked with cycloheximide (CHX) to observe whether the intron retention transcript is sensitive to nonsense-mediated decay. 
 	Left panel: FUS intron 6 retention is not altered with CHX treatment. ANOVA treatment \textit{P}=0.96; genotype \textit{P}=1.9e-5; t-test CTL untreated vs CTL treated \textit{P}=1; HOM untreated vs HOM treated \textit{P}=1.
 	Middle panel: FUS intron 7 retention is unchanged by CHX treatment. ANOVA treatment \textit{P}=0.10; genotype \textit{P}=3.7e-6; t-test CTL untreated vs CTL treated \textit{P}=0.14; HOM untreated vs HOM treated \textit{P}=0.62.
@@ -815,7 +818,7 @@ The discovery of a novel mechanism for FUS autoregulation is valuable for unders
 Autoregulation acts to maintain protein homeostasis but FUS NLS mutations interfere with this.
 When FUS nuclear import is abolished by mutations, there is no way for FUS protein to regulate  its own translation, leading to ever-more cytoplasmic FUS.
 High concentrations of cytoplasmic FUS increase the likelihood for aggregation which NLS mutant FUS is more prone to do \citep{Bosco2010}. 
-This is increased propensity maye be due to the recent finding that NLS acts to solubilise FUS aggregates through binding to Transportin \citep{Guo2018,Yoshizawa2018,Hofweber2018}.
+This increased propensity may be due to the recent finding that NLS acts to solubilise FUS aggregates through binding to Transportin \citep{Guo2018,Yoshizawa2018,Hofweber2018}.
 In FUS ALS, patients only have a single copy of NLS mutant FUS. 
 Selectively removing the mutant copy, at either a DNA or RNA level, should all but prevent cytoplasmic mislocalisation while maintaining nuclear FUS levels due to the compensatory nature of autoregulation. 
 Indeed, mice heterozygous for a FUS knockout allele have FUS mRNA and protein levels at 75\% of wildtypes and exhibit no motor neuron degeneration \citep{Scekic-Zahirovic2017}. 
