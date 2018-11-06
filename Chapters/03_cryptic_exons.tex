@@ -4,7 +4,7 @@
 
 This chapter has been published as \citep{Humphrey2017}. See appendices for full reproduction of the manuscript.
 
-\section{Background}
+\section{Overview}
 
 Ling and colleagues observed the inclusion of cryptic exons when TDP-43 was depleted in HeLa or mouse embryonic stem cells \citep{Ling2015}. These cryptic exons were shown to originate from poorly evolutionarily conserved sequence and shared no positions between the two species. These findings raise the possibility that impaired exon recognition contributes to TDP-43's role in ALS aetiology.
 
@@ -227,7 +227,7 @@ I also investigated the consequences of inclusion of cryptic exons on translatio
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=\textwidth]{Figures/03_cryptic_exons/Figure_5_Gene_Expression.png}
+	\includegraphics[width=\textwidth, trim = {0.2cm 0 3cm 0}, clip]{Figures/03_cryptic_exons/Figure_5_Gene_Expression.png}
 	\caption[Differential expression of cryptic exon genes]{
 		\textbf{Differential expression of cryptic exon genes.}
 	\textbf{(A)} Significantly differentially expressed genes between TDP-43 depletion and control samples (false discovery rate = 10\%) in datasets 3-6. Comparisons were made between all genes tested with an expression level at or greater than the lowest expressed cryptic exon (``all genes'') and the genes where cryptic exons were discovered (``cryptic exon genes'') with each group divided by direction of change. 
@@ -257,7 +257,7 @@ Whereas cassette-like cryptic exons appear as separate exons distinct from their
 
 
 
-\subsection{TDP-43 Cryptic exons are bound by other RNA binding proteins}
+\subsection{TDP-43 cryptic exons are bound by other RNA binding proteins}
 
 \begin{figure}[h!]
 	\centering
@@ -281,15 +281,15 @@ Further examination of TDP-43 linked exons suggests they tend to possess the nec
 
 My understanding of TDP-43's role in cryptic splicing is that of a safeguard against the inclusion of potentially damaging intronic sequence into transcripts. However, the relationship between the UG-rich sequences and the strong 5\'\ and 3\'\ splice sites and their changes over evolutionary time are unknown as we observed no conserved cryptic exons between human and mouse. 
 
-Using publicly available ENCODE eCLIP data, I identified a number of RNA binding proteins that also bind subsets of human cryptic exons under normal conditions, that is, in the presence of TDP-43.  It is unsurprising that the splicing factors U2AF35 and U2AF65 are enriched as they preferably bind pyrimidine-rich 3\'\ splice site sequences which all cryptic exons appear to possess. That only 10-15\% of cryptic exons show U2AF35/65 binding may be due to competition from TDP-43 in a manner similar to that seen between hnRNP C and U2AF65 \citep{Zarnack2013}. TIA-1 is an exciting finding due to its role in the formation of stress granules, which are key regulators of RNA stability \citep{gilks2004stress}. In addition, IGF2BP1 has been reported to be bound to TDP-43 in HEK293T and HeLa cell extracts \citep{Ling2010-sr,Freibaum2010-hw}, whereas SRSF7 was reported as binding to TDP-43 in mouse N2A cells \citep{Blokhuis2016-hw}. None of the observed proteins have been reported to change their protein level in response to TDP-43 depletion \citep{Stalekar2015-qd}.
+Using publicly available ENCODE eCLIP data, I identified a number of RNA binding proteins that also bind subsets of human cryptic exons under normal conditions, that is, in the presence of TDP-43.  It is unsurprising that the splicing factors U2AF35 and U2AF65 are enriched as they preferably bind pyrimidine-rich 3\'\ splice site sequences which all cryptic exons appear to possess. That only 10-15\% of cryptic exons show U2AF35/65 binding may be due to competition from TDP-43 in a manner similar to that seen between hnRNP C and U2AF65 \citep{Zarnack2013}. TIA1 is an exciting finding due to its role in the formation of stress granules, which are key regulators of RNA stability \citep{gilks2004stress}. In addition, IGF2BP1 has been reported to be bound to TDP-43 in HEK293T and HeLa cell extracts \citep{Ling2010-sr,Freibaum2010-hw}, whereas SRSF7 was reported as binding to TDP-43 in mouse N2A cells \citep{Blokhuis2016-hw}. None of the observed proteins have been reported to change their protein level in response to TDP-43 depletion \citep{Stalekar2015-qd}.
 
 As the majority of cryptic exons are predicted to lead to nonsense-mediated decay of the inclusion transcript it seems peculiar that we can observe these transcripts at all. I hypothesise that cryptic splicing may be much more widespread than can be observed by RNA sequencing due to the highly efficient nature of nonsense mediated decay. Over half of all cryptic exon genes are significantly downregulated in each dataset (Fig \ref{fig:cryptic_expression}B), suggesting that cryptic exon inclusion may be a key mechanism in the widespread changes in RNA expression that occur upon TDP-43 depletion. This has been explored in hnRNP C, where a large increase in the number and observed inclusion of Alu-derived cryptic exons was seen when both hnRNP C and the nonsense mediated decay-associated protein UPF1 were co-depleted compared to just hnRNP C or UPF1 alone \citep{Attig2016}.
 
 Two genes, \emph{ATG4B} and \emph{GPSM2}, have previously been demonstrated to have cryptic exon inclusion RNA transcripts in ALS patient brain samples, suggesting a role for cryptic splicing in disease \citep{Ling2015}. My analysis also identified a cryptic exon in \emph{ATG4B} in human cells, but not \emph{GPSM2}; however I did not analyse human brain data. By expanding the list of cryptic exons, it will be interesting to explore whether these are also dysregulated in ALS patient brains. However, such analysis may prove challenging owing to the likely small concentrations of RNA originating from diseased cells in brain homogenate and the likelihood of degradation by NMD. Alternate strategies may involve mass spectrometry screens for the subset of cryptic exon containing genes that escape the NMD process, for example because the cryptic exon is in frame. Such proteins may represent useful biomarkers for ALS. 
 
-A complementary bioinformatic method was used increase the number of cryptic exons seen in the original Ling data \citep{Tan07102016}. This study extends the cryptic splicing phenomenon to RBM17, another RNA-binding protein, making the very low number of cryptic exons observed in the FUS depletion datasets even more surprising.
+A complementary bioinformatic method was used increase the number of cryptic exons seen in the original Ling data \citep{Tan2016}. This study extends the cryptic splicing phenomenon to RBM17, another RNA-binding protein, making the very low number of cryptic exons observed in the FUS depletion datasets even more surprising.
 
-Defining cryptic exons by their absence in existing annotation is not a suitable long term strategy. For example, the \textit{SORT1} gene contains an exon normally repressed by TDP-43 and not constitutively included in any tissue \citep{Prudencio2012}. But due to the studies that have documented its existence the "cryptic" exon in SORT1 is annotated in all transcript databases. There are certainly many examples of annotated exons that are extremely rarely included and may be repressed by splicing factors like TDP-43. Future studies may have to take a more measured approach based on the frequency of inclusion in multiple tissues and conditions to assess whether an exon is truly cryptic or not.
+Defining cryptic exons by their absence in existing annotation is not a suitable long term strategy. For example, the \textit{SORT1} gene contains an exon normally repressed by TDP-43 and not constitutively included in any tissue \citep{Prudencio2012}. But due to the studies that have documented its existence the "cryptic" exon in \textit{SORT1} is annotated in all transcript databases. There are certainly many examples of annotated exons that are extremely rarely included and may be repressed by splicing factors like TDP-43. Future studies may have to take a more measured approach based on the frequency of inclusion in multiple tissues and conditions to assess whether an exon is truly cryptic or not.
 
 
 \subsection{Epilogue: Cryptic exons are a widespread phenomenon seen in many RNA-binding proteins}
@@ -316,7 +316,8 @@ Knockdown of either hnRNP C or PTBP1 leads to a robust number of cryptic exons i
 Comparatively few events are seen in RBM17, despite 1475 genes being previously observed to harbour cryptic splicing changes in an \textit{Rbm17} knockout mouse \citep{Tan2016}.
 In addition I included the proteins seen to be enriched in eCLIP binding to TDP-43 cryptic exons.
 Surprisingly nearly all proteins assessed show evidence of cryptic splicing upon their knockdown, with SRSF1 knockdown having the most.
-Together this shows that repression of cryptic splice sites is probably a more general function of RNA-binding proteins than previously realised.
+Together this shows that repression of cryptic splice sites is probably a more general function of RNA-binding proteins than previously realised. 
+This makes the seeming lack of cryptic splicing seen in FUS knockdown all the more intriguing.
 % caveats
 
 

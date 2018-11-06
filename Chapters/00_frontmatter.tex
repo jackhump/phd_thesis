@@ -90,43 +90,47 @@ Lastly, I map out the remaining projects for the rest of my PhD. My goal is to t
 % intro
 % aims of thesis
 % how these insights are useful to the field
-This thesis comprises four studies on TDP-43 and FUS, two RNA-binding proteins linked to the devastating neurodegenerative diseases Amyotrophic Lateral Sclerosis and Frontotemporal Dementia.
-I analysed RNA sequencing data to develop insights in to the regulation of RNA by these two proteins in both normal physiology role and in models of disease.
+This thesis comprises four studies on TDP-43 and FUS, two proteins linked to the devastating neurodegenerative diseases Amyotrophic Lateral Sclerosis and Frontotemporal Dementia.
+I analysed RNA sequencing data to develop insights in to the functions of these two proteins in different models of disease.
 This work has uncovered new roles for TDP-43 and FUS in specific types of RNA regulation.
 Additionally, I have discovered new mechanisms to explain how disease-associated mutations in the two proteins affect these roles.
-Conclusions from my work are broadly applicable to the RNA biology field as a whole as well as efforts to understand and treat these diseases.
-%Following the Ice Bucket Challenge of 2014, there has been increasing public awareness of ALS and a large amount of money has been raised to research basic science. 
-Insights into RNA-binding proteins and RNA regulation from this work can be transferred to many non-neurological diseases where RNA regulation plays a role, including muscular diseases, certain subtypes of cancer and retinal diseases \citep{Scotti2015}. 
+Conclusions from my work are applicable to the RNA biology field as a whole as well as efforts to understand and treat these diseases.
+Insights into RNA-binding proteins and RNA regulation from this work can be transferred to many non-neurological diseases including muscular diseases, certain subtypes of cancer and retinal diseases \citep{Scotti2015}. 
 Several of my chapters focus on developing new methods or adapting existing methods to analyse RNA splicing, a key mechanism of RNA regulation.
 RNA-sequencing is becoming a standard experiment across all fields of biology and the use of sequencing data in analysis of RNA splicing is an area of extreme interest and method development. 
 
 % impacts arising from this thesis:
 Three peer-reviewed papers have been published from this thesis.
 As of November 2018, "Quantitative analysis of cryptic splicing associated with TDP-43 depletion" \citep{Humphrey2017} has been cited 11 times, "Humanized mutant FUS drives progressive motor neuron degeneration without aggregation in FUS Delta14 knockin mice" \citep{Devoy2017} has been cited 11 times and "Mice with endogenous TDP-43 mutations exhibit gain of splicing function and characteristics of amyotrophic lateral sclerosis" \citep{Fratta2018} has been cited 7 times and was the subject of a "News and Views" article in The EMBO Journal \citep{Rouaux2018}.
-These outcomes illustrate the importance of this work to the ALS/FTD and RNA biology fields.
+These outcomes illustrate the importance of this work to the neurodegenerative disease and RNA biology fields.
 
 Three new mouse models of ALS/FTD have been generated for projects carried out in this thesis: the FUS $\Delta$14 mouse, the TDP-43 RRM2mut mouse, and the TDP-43 LCDmut mouse. 
 All three mice are available for labs around the world to use in further experiments.
-RNA-seq data created from these mice have been made publicly available and can be downloaded from the Sequence Read Archive (\url{https://www.ncbi.nlm.nih.gov/sra}).
+RNA-seq data created from these mice have been made publicly available and can be downloaded from the Sequence Read Archive\footnotemark.
 Several of my chapters rely on the re-analysis of published RNA sequencing data. 
-I am pleased to see that sequencing data analysed in this thesis (chapter 5) has been re-used in a follow-up paper \citep{Sivakumar2018}.
+I am pleased to see that sequencing data analysed in this thesis (chapter 5) has been reused in a further paper on TDP-43 \citep{Sivakumar2018}.
 
 I have tried to make all software written during this thesis publicly available where possible.
-This is all available to download on the GitHub platform. 
+This can be downloaded from the GitHub platform. 
  This includes the RNA-seq analysis pipeline used in all chapters\footnotemark , software developed to find and classify cryptic splicing (chapter 3)\footnotemark, and software written to classify splicing events found in the TDP-43 LCDmut and RRM2mut mice (chapter 5)\footnotemark.
 
-
-\footnotetext[1]{\url{https://github.com/plagnollab/RNASeq_pipeline}}
-\footnotetext[2]{\url{https://github.com/jackhump/CryptEx} }
-\footnotetext[3]{\url{https://github.com/jackhump/Two_TDP-43_Mutant_Mice}}
+\footnotetext[1]{\url{https://www.ncbi.nlm.nih.gov/sra}}
+\footnotetext[2]{\url{https://github.com/plagnollab/RNASeq_pipeline}}
+\footnotetext[3]{\url{https://github.com/jackhump/CryptEx} }
+\footnotetext[4]{\url{https://github.com/jackhump/Two_TDP-43_Mutant_Mice}}
 
 \cleardoublepage
 
 %\pagenumbering{roman}
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{1}
 \tableofcontents %prints table of contents
 \listoffigures %prints list of figures	
 \listoftables %prints list of tables
+\clearpage
 
+\hspace{0pt}
+\vfill
 \section*{\LARGE{List of abbreviations}}
 \begin{table}[h!]
 	\begin{tabular}{ll}
@@ -167,4 +171,8 @@ This is all available to download on the GitHub platform.
 		WT & Wildtype \\
 	\end{tabular}
 \end{table}
+
+\vfill
+\hspace{0pt}
+\pagebreak
 \clearpage
