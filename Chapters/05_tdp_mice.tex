@@ -32,10 +32,9 @@ This is radically distinct from mutations that affect RNA-binding which act as a
 \section{Methods}
 % drop in from paper as I wrote them
 
-\subsection{Data processing}
-
-All data pre-processing, quality control and alignment were done with the standard RNA-seq pipeline (see \autoref{chapter:methods})
-Details on all RNA-sequencing datasets are presented in table \ref{table:tdp_mice_sequencing}, including a published dataset of TDP-43 knockdown in mouse adult striatum \citep{Polymenidou2011}.
+\subsection{RNA sequencing}
+Details on all RNA-seq datasets are presented in table \ref{table:tdp_mice_sequencing}, including a published dataset of TDP-43 knockdown in mouse adult striatum \citep{Polymenidou2011}. 
+All RNA-seq libraries were polyA+ enriched. 
 
 % table of all sequencing data used
 \begin{table}[h!]
@@ -47,7 +46,7 @@ Details on all RNA-sequencing datasets are presented in table \ref{table:tdp_mic
 			Embyonic fibroblasts & RRM2mut &3 &50nt	x 2 & 4-13M\\
 			& LCDmut & 3 & 50nt	x	2 & 10-13M\\
 			& TDP-43 shRNA & 3 & 50nt x 2 & 7-12M\\
-			Embryonic head & RRM2mut & 3 & 40nt	x	2 & 26-48M\\
+			Embryonic head & RRM2mut & 3 & 40nt	x 2 & 26-48M\\
 			& LCDmut & 3 & 40nt	x 2 & 27-34M \\
 			%& Double & 3 & 40nt	x 2 & 15-50M \\
 			Adult	spinal	cord & RRM2mut & 4 & 75nt x	2 & 41-53M\\
@@ -59,6 +58,13 @@ Details on all RNA-sequencing datasets are presented in table \ref{table:tdp_mic
 	\end{footnotesize}
 	\label{table:tdp_mice_sequencing}
 \end{table}
+
+
+\subsection{Data processing}
+
+All data pre-processing, quality control and alignment were done with the standard RNA-seq pipeline (see \autoref{chapter:methods})
+
+
 
 
 \subsection{Differential splicing}
