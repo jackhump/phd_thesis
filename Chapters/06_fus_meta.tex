@@ -272,10 +272,10 @@ FUS iCLIP data from mouse brain \citep{Rogelj2012} was reprocessed by the iCOUNT
 I downloaded the set of FUS iCLIP clusters that passed enrichment against background at FDR < 0.05. 
 Only iCLIP clusters with a minimum of two supporting reads were used. 
 Untranslated region (UTR) and coding exon (CDS) annotation were taken from GENCODE mouse (comprehensive; mouse v12). Any intron-retention, nonsense mediated decay or "cds end nf" transcripts were removed. 
-UTR coordinates were split into 5' and 3' UTR based on whether they overlapped an annotated polyadenylation site or signal (GENCODE mouse v18 poladenylation annotation). 
-3'UTRs were extended by 5kb downstream to capture any unannotated sequence.
+UTR coordinates were split into 5\' and 3\' UTR based on whether they overlapped an annotated polyadenylation site or signal (GENCODE mouse v18 poladenylation annotation). 
+3\'\ UTRs were extended by 5kb downstream to capture any unannotated sequence.
 Introns were defined as any gaps in the transcript model between CDS and UTR coordinates.
-Promoter-antisense coordinates were taken by flanking the 5'UTR sequence by 5kb upstream and inverting the strand.
+Promoter-antisense coordinates were taken by flanking the 5\'UTR sequence by 5kb upstream and inverting the strand.
 Overlaps between iCLIP clusters and genomic features were created for each set of differentially expressed genes, split into upregulated ($log_2$ fold change > 0) or downregulated ($log_2$ fold change < 0). 
 Overlaps were done in a strand-specific manner, with only iCLIP clusters in the same direction being used.
 The difference in proportions of upregulated and downregulated genes for each feature were tested with the $\chi^2$ test of equal proportions.
@@ -482,7 +482,7 @@ The upregulation of \textit{Xlr3a} is strongest within the all-male Bozzoni data
 %Only 7 genes are changed in the opposite direction (0.5%). 3/7 have FUS iCLIP peaks overlapping
 %Prickle2 is a synaptic gene, large number of iCLIP peaks in first 250kb intron - long gene!
 %Dcaf7 has a 7 read iCLIP peak in the first intron (short intron)
-%Cds2 has 2 peaks (7 and 1) in the 3'UTR
+%Cds2 has 2 peaks (7 and 1) in the 3\'\ UTR
 
 
 \subsection{Synaptic and RNA-binding genes are a common gene expression response to FUS nuclear depletion}
@@ -505,16 +505,16 @@ Knockout-specific and mutation-specific genes were less clearly enriched in spec
 Knockout specific genes were involved in extracellular membrane functions, ion channels and amino acid transport whereas the mutant specific genes showed an enrichment in dopaminergic synapses and RNA metabolism.
 
 
-\subsection{ Overlapping genes are bound by FUS in introns and 3'UTRs}
+\subsection{ Overlapping genes are bound by FUS in introns and 3\'\ UTRs}
 
 Individual nucleotide resolution crosslinking and immunopreciation (iCLIP) is an experimental technique for identifying the RNA targets of RNA-binding proteins. 
-Using iCLIP and other RNA-protein interaction techniques, FUS has been shown to preferentially bind within introns and 3' untranslated regions (3'UTRs) rather than exons. \citep{Lagier-Tourenne2012-wa, Rogelj2012, Ishigaki2012, Masuda2015, Kapeli2016}. 
-FUS binding at the 3'UTR has been shown to influence polyadenylation of certain genes \citep{Masuda2015} but may also have a role in directing mRNA localisation or competing with microRNAs, which in animals predominantly bind 3'UTR sequences to trigger degradation \citep{Lee1993,Carthew2009}.
+Using iCLIP and other RNA-protein interaction techniques, FUS has been shown to preferentially bind within introns and 3\' untranslated regions (3\'\ UTRs) rather than exons. \citep{Lagier-Tourenne2012-wa, Rogelj2012, Ishigaki2012, Masuda2015, Kapeli2016}. 
+FUS binding at the 3\'\ UTR has been shown to influence polyadenylation of certain genes \citep{Masuda2015} but may also have a role in directing mRNA localisation or competing with microRNAs, which in animals predominantly bind 3\'\ UTR sequences to trigger degradation \citep{Lee1993,Carthew2009}.
 A small number of genes have been reported to have FUS binding  sites upstream and antisense of the promoter, which correlated with upregulation of the gene upon FUS knockdown \citep{Ishigaki2012}.
 I used the coordinates of FUS binding sites enriched relative to a background control in a published FUS iCLIP dataset from embryonic day 18 mouse brain \citep{Rogelj2012} to investigate a relationship between specific FUS binding and the direction of gene expression in the different gene sets.
 
 The iCLIP binding profiles of the three sets of genes are similar with introns and 3`UTR sequences most commonly bound (Fig. \ref{fig:fus_expression_go}B).  
-Comparing the proportion of upregulated and downregulated genes that change only in FUS knockout, there is an enrichment in iCLIP clusters in downregulated genes (\textit{P}=5.3e-4, $\chi^2$ test of equal proportions), an enrichment driven primarily by 3'UTR binding (\textit{P}=7.8e-4). 
+Comparing the proportion of upregulated and downregulated genes that change only in FUS knockout, there is an enrichment in iCLIP clusters in downregulated genes (\textit{P}=5.3e-4, $\chi^2$ test of equal proportions), an enrichment driven primarily by 3\'\ UTR binding (\textit{P}=7.8e-4). 
 This direction preference is not seen in the mutation-specific or overlapping gene sets.
 Promoter-antisense binding is found in a small number of genes and at a similar proportion between gene set and direction of change.
 As the iCLIP used is from predominantly nuclear wildtype FUS, any potential cytoplasmic interactions between NLS mutant FUS and spliced mRNAs cannot be observed.
@@ -570,7 +570,7 @@ The single event that did appear to be real was an intron retention event in \te
 
 % types of splicing event - how many are annotated?
 Comparing the different types of splicing event shows a similar distribution between knockout-specific and overlapping splicing events, both of which are dominated by complex splicing events.
-These events are combinations of multiple types, such as a cassette exon accompanied by a retained intron and multiple alternative 3' and 5' splice sites, all within the same locus. 
+These events are combinations of multiple types, such as a cassette exon accompanied by a retained intron and multiple alternative 3\' and 5\' splice sites, all within the same locus. 
 When using tools like SGSeq that can pick up novel splicing events it can be expected that the majority of events are indeed complex. This has been seen with other splicing tools \citep{Vaquero-Garcia2016}.
 An example of a complex event is in \textit{Ybx1}, which comprises a cassette exon within a retained intron  (Fig. \ref{fig:fus_splicing_multi}D).
 The second largest category of event are retained introns.
@@ -579,9 +579,9 @@ The third largest category are the cassette exons, which can either be skipped o
 An example is an annotated cassette exon in the neuronal gene \textit{Nrxn3}, which is included more in FUS knockout and NLS mutation when compared to wildtype (Fig. \ref{fig:fus_splicing_multi}F).
 RNA-seq traces of all events mentioned above are in the appendices.
 % expand on this or not?
-Alternate 5' and 3' splice sites can be found in all three sets of genes, with alternate 5' sites appearing at twice the rate of alternate 3' splice sites. 
+Alternate 5\' and 3\' splice sites can be found in all three sets of genes, with alternate 5\' sites appearing at twice the rate of alternate 3\' splice sites. 
 This discrepancy could be explained by the interaction of FUS with the U1 snRNP \citep{Yu2015a,Yu2015b}.
-Knockdown or NLS mutation of FUS could lead to impaired U1 snRNP binding and hence disrupted 5' splice site recognition.
+Knockdown or NLS mutation of FUS could lead to impaired U1 snRNP binding and hence disrupted 5\' splice site recognition.
 
 
 \begin{figure}[t]
@@ -623,7 +623,7 @@ Knockout-specific splicing events were enriched for different sets of genes, inc
 The complex and intron retention events may arise from differences in polyadenylation site usage.
 FUS has been observed to modulate polyadenylation \citep{Masuda2015}.
 To investigate this I compared each set of splicing events with a set of annotated polyadenylation sites \citep{Gruber2016}.
-Only overlapping retained introns were enriched for polyadenylation sites (\textit{P}=0.004), suggesting some intron retention events are mislabelled 3'UTRs (Fig \ref{fig:fus_splicing_functions}B).
+Only overlapping retained introns were enriched for polyadenylation sites (\textit{P}=0.004), suggesting some intron retention events are mislabelled 3\'\ UTRs (Fig \ref{fig:fus_splicing_functions}B).
 
 Direct regulation of splicing events by FUS binding to introns has been proposed using RNA-protein interaction experiments \citep{Lagier-Tourenne2012,Rogelj2012, Ishigaki2012}.
 To look for evidence of FUS regulating these splicing and polyadenylation events I used the same set of FUS iCLIP clusters from \citep{Rogelj2012}.
@@ -679,7 +679,7 @@ However, The 2 remaining introns (introns 6 and 7) were also found in the FUS NL
 These introns overlap with a large number of FUS iCLIP binding peaks and could be the site of regulation of the \textit{Fus} transcript by the FUS protein.
 Many RNA-binding proteins have the ability to bind their own RNA to control the level of their own translation, a phenomenon known as autoregulation \citep{Rosenfeld2002,Jangi2014a}.
 When protein levels are high, protein-RNA binding shifts splicing towards the production of an non-coding isoform.
-This is commonly through exposing transcripts to nonsense-mediated decay (NMD) \citep{McGlincy2008-wh}, by including an exon containing a premature stop codon as in HNRNP L and NOVA \citep{Rossbach2009,Dredge2005}, skipping a frame-preserving exon as in PTBP1 \citep{Wollerton2004}, or splicing within the 3'UTR as in TDP-43 \citep{Ayala2011}. 
+This is commonly through exposing transcripts to nonsense-mediated decay (NMD) \citep{McGlincy2008-wh}, by including an exon containing a premature stop codon as in HNRNP L and NOVA \citep{Rossbach2009,Dredge2005}, skipping a frame-preserving exon as in PTBP1 \citep{Wollerton2004}, or splicing within the 3\'\ UTR as in TDP-43 \citep{Ayala2011}. 
 
 RNA-protein interaction experiments have revealed a large cluster of FUS binding across introns 6 and 7 of the FUS gene \citep{Lagier-Tourenne2012}, both of which show very high sequence conservation between species.
 This region was previously suggested to be the locus of autoregulation due to both an annotated cassette exon event in exon 7 and an a early polyadenylation transcript being present in transcript annotation databases (Ensembl, Refseq).
@@ -709,7 +709,7 @@ These experiments suggest that depleting nuclear FUS protein downregulates the p
 
 
 
-%Yap2013 - intron retention in neurons of terminal 3' introns detains neuronal-specific transcripts in the nucleus which are eventually degraded not by NMD but by RNA surveillance proteins. and then switch to splicing out and cytoplasmic transport when Ptbp1 levels change
+%Yap2013 - intron retention in neurons of terminal 3\' introns detains neuronal-specific transcripts in the nucleus which are eventually degraded not by NMD but by RNA surveillance proteins. and then switch to splicing out and cytoplasmic transport when Ptbp1 levels change
 
 % negative feedback mechanism
 % protein homeostasis
@@ -768,8 +768,8 @@ I did not observe a convincing set of mutation-specific splicing changes which i
 The overlap between knockdown and expression has been seen in cells where overexpression of NLS mutant FUS cannot rescue splicing changes in FUS knockdown cells \citep{Sun2015a}.
 Due to the multiplicity of FUS interactions between multiple splicing factors, disturbance of any or all of these factors could be confounding the splicing changes. 
 For example, the splicing profiles of FUS NLS mutations overlap those from knockdowns of known interactor SMN \citep{Mirra2017}.
-I observed approximately double the number of 5' splice site changes than 3' splice site changes. 
-This could be due to the shorter length of the consensus 5' splice site sequence compared to the 3' making cryptic splice sites more likely by chance, but it may hint at a consequence of the interaction between FUS and the U1 snRNP.
+I observed approximately double the number of 5\' splice site changes than 3\' splice site changes. 
+This could be due to the shorter length of the consensus 5\' splice site sequence compared to the 3\' making cryptic splice sites more likely by chance, but it may hint at a consequence of the interaction between FUS and the U1 snRNP.
 Although the interaction between FUS and the U1 snRNP has been well studied \citep{Nakaya2013,Yu2015a,Yu2015b}, my analysis has uncovered a large array of splicing events to study the role of FUS in splicing.
 
 The dominance of retained introns and complex events (where multiple splice sites are altered simultaneously) points to a more nuanced picture of splicing changes than has previously been investigated in RNA-binding protein biology.
@@ -807,7 +807,7 @@ Although, cycloheximide inhibits translation in order to inhibit NMD and off-tar
 To elucidate this as the mechanism of FUS regulation, further experiments are needed to validate this in human cells.
 One possible mechanism is that the transcript is instead detained in the nucleus.
 This is a regulatory pathway proposed for intron retention transcripts to prevent translation \citep{Boutz2015}.
-A analogous mechanism for autoregulation has been proposed for TDP-43, where the binding of TDP-43 protein to \textit{Tardbp} mRNA shifts polyadenylation to create a long 3'UTR transcript which is detained in the nucleus and degraded by the exosome. The long transcript can also be spliced to form NMD-sensitive isoforms which can be exported to the cytoplasm and then degraded \citep{Ayala2011,Koyama2016}. It is unclear why the system would require two separate degradation pathways. 
+A analogous mechanism for autoregulation has been proposed for TDP-43, where the binding of TDP-43 protein to \textit{Tardbp} mRNA shifts polyadenylation to create a long 3\'\ UTR transcript which is detained in the nucleus and degraded by the exosome. The long transcript can also be spliced to form NMD-sensitive isoforms which can be exported to the cytoplasm and then degraded \citep{Ayala2011,Koyama2016}. It is unclear why the system would require two separate degradation pathways. 
 In the light of this, the discovery of the FUS intron retention transcript could be a complementary mechanism to the one set out by Zhou and colleagues.
 This would then answer the outstanding question of the high evolutionary conservation of both introns and the length of FUS binding throughout.
 
@@ -860,7 +860,7 @@ I hope this will be useful to the disease field in designing targeted therapies 
 %  single copy FUS NLS mutations are still highly toxic
 
 
-% We see more 5' changes than 3', implicating U1 impairment
+% We see more 5\' changes than 3\', implicating U1 impairment
 % How many of the intron retention changes are due to U1-sensitivity? Are retained introns more sensitive to spliceosomal changes?
 
 % No convincing splicing changes found to be mutation specific
