@@ -437,7 +437,8 @@ I first used a conservative threshold for overlap, where a gene must be signific
 This produced an overlap of 425 shared genes between KO and MUT (Fig. \ref{fig:fus_expression_multipanel}A), with 329 mutation-specific genes and 1711 knockout specific genes.
 I next used  a relaxed overlap criteria where a gene overlaps if it reaches FDR < 0.05 in one model and an uncorrected P < 0.05 in the other.
 This increased the overlap to 1318 genes, reducing the specific genes to 186 in the MUT model, and 961 in KO.
-The majority of genes are now shared between the two models.
+The majority of genes are now shared between the two models. 
+
 
 % comparing directions in the overlapping genes
 Comparing the log$_2$ fold changes found for the 1318 overlapping genes between FUS KO and FUS MUT showed that only 7 genes are altered in opposing directions (Fig. \ref{fig:fus_expression_multipanel}B) .
@@ -452,6 +453,9 @@ Visualising individual genes in all the datasets demonstrates the power of the j
 %It also clearly shows the higher within-condition variance in the Fratta dataset compared to the Dupuis dataset.
 \textit{Fus} itself is unchanged in the FUS MUT joint model  but strongly downregulated in FUS KO (Fig. \ref{fig:fus_expression_multipanel}C).
 The Bozzoni knockout  is weaker than the one used by Dupuis and Fratta, with a reduction of \textit{Fus} RNA to only 40\% of wildtype, compared to near 100\% knockout in the other two datasets.
+The three NLS mutations are inconsistent for \textit{Fus} expression.
+In Bozzoni it is unchanged, in Dupuis it is slightly downregulated (presumably due to a loss of reads covering the final exon and in Fratta it is slightly upregulated.
+
 
 The other members of the FET family of RNA-binding proteins,  \textit{Taf15} and \textit{Ewsr1} have been shown to reciprocally interact with FUS at the protein and RNA level \citep{Kapeli2016,Lagier-Tourenne2012}.
 \textit{Taf15} is strongly upregulated in both MUT and KO (Fig. \ref{fig:fus_expression_multipanel}D), as is \textit{Ewsr1}.  \textit{Taf15} upregulation has been repeatedly observed and validated \citep{Kino2015, Scekic-zahirovic2016}. % other citations too.

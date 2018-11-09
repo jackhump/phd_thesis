@@ -1,4 +1,4 @@
-\chapter{Discussion}
+\chapter{Conclusions}
 
 %appreciate the limitations of the methods employed and the results obtained by yourself and others
 %understand how the broad conclusions of your thesis support, add to or conflict with previous work
@@ -59,10 +59,19 @@ My own assessment of ENCODE knockdown data on a large number of RBPs showed that
 % multiple mouse models have shown that neurodegeneration can occur both without loss of TDP or FUS splicing function nor cytoplasmic aggregates.
 % Mice are not humans
 
+% Intron retention and complex splicing have been under-studied. 
+% In chapter 5 I focussed on cassette exons due to the tractability of working with these splicing events. 
+% But lots of information is lost.
+% Complex events are subtle and hard to classify and may therefore be more prone to false positives.
+% Intron retention is also highly dependent on library preparation. 
+% In chapter 6 the polyA+ enriched FUS data (Dupuis) had very few detectable intron retention events compared to the other two total RNA datasets but this is also confounded by read length and depth.
+% There may however be interesting biology in comparing intron retention via polyA+ and total RNA as the latter measures pre-mRNA as well as mature mRNA.
+% Changes in total RNA intron retention may represent co-transcriptional changes whereas intron retention detected in polyA+ could be post-transcriptional splicing dynamics. 
+% The FUS intron retention events are observed in both total and polyA+ libraries so is suggestive of the latter.
 
+% RNA-binding proteins do not act alone.
 
-
-\subsection{RNA-seq allows replication }
+\subsection{RNA-seq allows replication}
 
 % Replication crisis - why most published results are probably false
 
@@ -76,8 +85,36 @@ My own assessment of ENCODE knockdown data on a large number of RBPs showed that
 
 % Caveats - particular phenomena may only be seen under certain experimental conditions or in particular cell types
 % Example - circular RNA only seen with confidence when linear RNA are digested
+% RNA is very dynamic. Very easy for batch effects to occur. Sequencing libraries prepared on different days and sequenced separately of the exact same cells or mice can show big differences.
+% What is the fundamental observation? Correlating the expression or splicing of a gene with the expression of a protein, as in a knockdown study. 
+
+\subsection{The value of annotation-free analysis}
+
+Annotation initiatives have been successful in cataloguing genes and transcripts in many species.
+They are very useful for any scientist interested in RNA biology by giving access to the genomic coordinates of a range of experimentally validated splicing isoforms.
+There is however a danger in keeping too close to what annotation tells you.
+There is great value in looking for things outside the framework given to you by annotation.
+
+% use of annotation-free methods.
+This is true for under-studied cell types such as specific neurons which potentially harbour thousands of novel isoforms. %ref to that paper
+In RNA biology, perturbing splicing by depleting particular factors could be expected to lead to unusual or aberrant splicing.
+There is a need for tools that can robustly identify novel splicing events from sequencing data. 
+In chapter 3 I developed such a tool, designed for use with low-quality RNA-seq data as it leveraged both read coverage and splice junctions.
+Newer tools, as reviewed in chapter 2, depend on splice junctions alone, which are far more accurate but require high quality data.
+
+Both cryptic exons and skiptic exons are examples of things that are not detected when not specifically looked for.
+Yet both these phenomena could be widespread. 
+Skiptic exons in particular could prove very rich to study due to their conservation between species. 
+Unlike cryptic exons, constitutive exons are well-studied and defects in constitutive exon recogntion of the same exons by mutliple factors may be more apparent.
+
+Further work on this may break down the current hard divisions between "constitutive" and "alternative" exons. This will require more work looking at "constititutive" splicing across mutiple tissues, such as the GTEX consortium. 
 
 
+
+% protein level - big technical challenge and frontier
+Going forward there is a pressing need to verify novel isoforms at the protein level. This will require new computational tools for shotgun mass spectrometry.
+	
+	
 \section{Future directions for the work}
 
 \subsection{Translating work into human patients}
