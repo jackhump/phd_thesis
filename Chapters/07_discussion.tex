@@ -8,26 +8,23 @@
 In my thesis I have analysed multiple RNA-seq datasets to uncover new insights into TDP-43 and FUS.
 This work has explored the physiological roles of the two proteins in RNA regulation through loss-of-function experiments.
 Furthermore, by using mutant mice as models of disease, I have uncovered mechanisms by which disease-associated mutations can impart a gain-of-function. 
-This comparison between loss- and gain- is crucial for understanding the onset and course of ALS/FTD.
+This comparison between loss and gain of functionality will be crucial for understanding the onset and course of ALS/FTD.
 
 In chapter 3 I developed software to discover and classify the full extent of cryptic splicing repression by TDP-43 and applied it to multiple mouse and human datasets.
-I demonstrated that this repression is due to a combination of UG motifs and strong splice sites found within poorly conserved introns.
-In normal conditions TDP-43 will compete with the spliceosome to prevent aberrant recognition of these sequences as exons.
-Upon TDP-43 depletion these exons are included which leads to transcript instability, probably through nonsense-mediated decay (NMD).
-These changes can be seen at the level of gene expression.
+I demonstrated that this repression is due to a combination of TDP-43 binding motifs and strong splice sites co-occurring within poorly conserved introns.
 This mechanism was not seen in FUS knockdown, suggesting a divergence in function for the two proteins.
 Later work has shown that cryptic exon repression is seen in a range of RNA-binding proteins, including the ALS associated MATRIN3, SFPQ and TIA1.
 
 In chapter 4 I analysed data from a novel FUS mutant mouse which modelled aggressively early onset FUS ALS. 
-By looking at two tissues and two timepoints I identified a specific transcriptomic signature seen only in late-stage mouse spinal cord.
+By looking at two tissues and two time-points I identified a specific transcriptomic signature seen only in late-stage mouse spinal cord.
 This was dominated by changes in mitochondrial and ribosomal genes.
 Splicing changes at this tissue and time point were restricted to FUS itself and a small number of other genes including the myelin protein \textit{Mbp} and the FUS-interacting RNA-binding protein \textit{Ewsr1}.
 
 In chapter 5 I compared two TDP-43 mutant mice, where one mutation caused a loss of splicing function due to the mutation affecting an RNA-recognition motif. 
-The second mouse line had a mutation within a hotspot for ALS mutations, the low complexity domain.
+The second mouse line had a mutation within the TDP-43 low complexity domain, the hotspot for ALS mutations.
 I demonstrated that this mutation imparts a gain of splicing function, where instead of aberrant exon inclusion as seen in TDP-43 loss, there were a set of aberrant exon skipping events.
-I christened these events "skiptic exons" and showed that these affect constitutive exons and their skipping would more often than not lead to frame shifting and transcript degradation through nonsense-mediated decay. 
-Some of these skiptic exons could be identified in TDP-43 mutant human patients.
+%I christened these events "skiptic exons" and showed that these affect constitutive exons and their skipping would more often than not lead to frame shifting and transcript degradation through nonsense-mediated decay. 
+Some of these "skiptic" exons could be identified in TDP-43 mutant human patients.
 I posit that the gain of splicing function could arise from a change in TDP-43 autoregulation.
 
 In chapter 6 I compared three independent experiments where FUS was either knocked out or mutated to remove its nuclear localisation signal (NLS) in mouse neuronal tissues.
@@ -40,6 +37,8 @@ All together, my results suggest specific consequences for loss of TDP-43 or FUS
 \section{Issues arising from my work}
 
 \subsection{Loss and gain of splicing function in TDP-43 and FUS}
+
+
 
 % TDP loss leads to de-repression of cryptic exons
 % these exons are not conserved between human and mouse - presumably due to lack of conservation of introns
@@ -96,7 +95,7 @@ There is however a danger in keeping too close to what annotation tells you.
 There is great value in looking for things outside the framework given to you by annotation.
 
 % use of annotation-free methods.
-This is true for under-studied cell types such as specific neurons which potentially harbour thousands of novel isoforms. %ref to that paper
+This is true for under-studied cell types such as  neurons which potentially harbour thousands of novel isoforms. %ref to that paper
 In RNA biology, perturbing splicing by depleting particular factors could be expected to lead to unusual or aberrant splicing.
 There is a need for tools that can robustly identify novel splicing events from sequencing data. 
 In chapter 3 I developed such a tool, designed for use with low-quality RNA-seq data as it leveraged both read coverage and splice junctions.
@@ -119,7 +118,7 @@ Going forward there is a pressing need to verify novel isoforms at the protein l
 
 \subsection{Translating work into human patients}
 
-It is regretful that throughout my PhD I have not had the opportunity to explore more human RNA-seq samples and particularly those from human patients.
+It is regrettable that throughout my PhD I have not had the opportunity to explore more human RNA-seq samples and particularly those from human ALS/FTD patients.
 The reason for this is partly due to scarcity of tissue but also the technical hurdles in analysis.
 Unlike laboratory strains of mice, humans and highly heterogenous in both their genetics and the environmental exposures.
 Even patients with identical mutations in a disease-associated gene could  expected to have many distinct modifying mutations as well as completely different life experiences.

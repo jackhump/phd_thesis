@@ -1,11 +1,11 @@
 \documentclass[a4paper,11pt,twoside]{report}
+%\documentclass[a4paper,11pt,twoside]{book}
 \setcounter{errorcontextlines}{999}
 
 %%%pre-amble%%%%%%%%
 \usepackage{graphicx}
 \usepackage{siunitx} % for degree symbols 90\si{\degree}C
 \usepackage{hyperref} %this makes everything hyper-refed
-\usepackage{fancyhdr}
 \usepackage{parskip} % spaces between paragraphs instead of indents
 \usepackage[font={small},labelfont={bf},margin=10pt]{caption} % make figure captions small and italic
 %\usepackage{subfigure}
@@ -32,7 +32,7 @@
 \usepackage{flexisym} % for prime symbols \textprime
 \usepackage{anyfontsize}
 \usepackage{emptypage} % all cleardoublepage are without page numbers
-\lhead{} 
+
 \usepackage[round]{natbib}
 \usepackage{pdfpages} % for adding pdfs in to the appendices
 \usepackage{pdflscape} % for landscape pages
@@ -42,14 +42,37 @@
 \definecolor{gray75}{gray}{0.75}
 \newcommand{\hsp}{\hspace{1pt}}
 \usepackage[a4paper,left=3.81cm,right=2cm,top=2cm,bottom=2.5cm,footskip=30pt]{geometry}
-\pagestyle{fancy} 
+
 \titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\LARGE\bfseries}
 \titlespacing{\chapter}{0pt}{0pt}{1cm}
-\fancyfoot[C]{\thepage}
+
 \usepackage[T1]{fontenc}
 \usepackage[toc,page]{appendix}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
+
+\usepackage{fancyhdr} % for headings
+\pagestyle{plain}
+
+%\fancyhead[LO,RE]{}
+%\fancyhead[RO,LE]{}
+%\fancyhead[LE]{\textsl{\leftmark}}
+%\fancyhead[RO]{\textsl{\rightmark}}
+
+%\fancyhead[LE]{\textsl{\rightmark}}
+%\fancyhead[RE]{\textsl{\leftmark}}
+%\fancyfoot[C]{\thepage}
+%\lhead{} 
+%\fancyfoot[C]{\thepage}
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+%\fancyhf{}
+%\fancyhead[LE,RO]{\textbf{\thepage}}
+%\fancyhead[LO]{\textbf{\rightmark}}
+%\fancyhead[RE]{\textbf{\leftmark}}
+
+
+
 \usepackage{amsmath} % for equations
 \setlength{\headheight}{12pt}
 \graphicspath{{/Users/Jack/google_drive/Work/PhD_Year_4/Thesis/Figures}} %this is the path to all your figures
@@ -64,15 +87,21 @@
 
 % ACKNOWLEGEMENTS
 \clearpage
-%\input{Chapters/99_acknowledgements.tex}
+\input{Chapters/99_acknowledgements.tex}
+
+\pagestyle{fancy}
+% set header here
+\fancyhead[LO,RE]{}
+\fancyhead[LE]{\textsl{\leftmark}}
+\fancyhead[RO]{\textsl{\rightmark}}
 
 % CONTENT
-%\input{Chapters/01_introduction.tex}
+\input{Chapters/01_introduction.tex}
 %\input{Chapters/02_methods.tex}
 %\input{Chapters/03_cryptic_exons.tex}
 %\input{Chapters/04_fus_mice.tex}
 %\input{Chapters/05_tdp_mice.tex}
-\input{Chapters/06_fus_meta.tex}
+%\input{Chapters/06_fus_meta.tex}
 %\input{Chapters/07_discussion.tex}
 
 
@@ -85,6 +114,8 @@
 % APPENDICES!!!
 
 %\input{Chapters/appendices.tex}
+% leave out for github
+%\input{Chapters/publications.tex}
 
 \cleardoublepage
 \end{document}
