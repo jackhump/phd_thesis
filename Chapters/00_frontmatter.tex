@@ -124,9 +124,20 @@ This can be downloaded from the GitHub platform.
 %\pagenumbering{roman}
 \setcounter{secnumdepth}{1}
 \setcounter{tocdepth}{1}
-\tableofcontents %prints table of contents
-\listoffigures %prints list of figures	
-\listoftables{} %prints list of tables
+%\tableofcontents %prints table of contents
+%\listoffigures %prints list of figures	
+%\listoftables %prints list of tables
+
+% print lists of figures and tables without clearpage between them
+\begingroup
+	\let\cleardoublepage\relax  % book
+	\let\clearpage\relax        % report
+	\tableofcontents
+	\listoffigures
+	\listoftables
+\endgroup
+
+
 \clearpage
 
 
