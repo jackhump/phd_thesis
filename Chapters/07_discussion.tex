@@ -13,22 +13,24 @@ This comparison between loss and gain of functionality will be crucial for under
 In chapter 3 I developed software to discover and classify the full extent of cryptic splicing repression by TDP-43 and applied it to multiple mouse and human datasets.
 I demonstrated that this repression is due to a combination of TDP-43 binding motifs and strong splice sites co-occurring within poorly conserved introns.
 This mechanism was not seen in FUS knockdown, suggesting a divergence in function for the two proteins.
-Later work has shown that cryptic exon repression is seen in a range of RNA-binding proteins, including the ALS associated MATRIN3, SFPQ and TIA1.
+Later work has shown that cryptic exon repression is seen in a range of RNA-binding proteins, including the ALS-associated MATRIN3, SFPQ and TIA1.
 
 In chapter 4 I analysed data from a novel FUS mutant mouse which modelled aggressively early onset FUS ALS. 
-By looking at two tissues and two time-points I identified a specific transcriptomic signature seen only in late-stage mouse spinal cord.
+By looking across two tissues and time-points I identified a specific transcriptomic signature seen only in late-adult mouse spinal cord.
 This was dominated by changes in mitochondrial and ribosomal genes.
 Splicing changes at this tissue and time point were restricted to FUS itself and a small number of other genes including the myelin protein \textit{Mbp} and the FUS-interacting RNA-binding protein \textit{Ewsr1}.
 
-In chapter 5 I compared two TDP-43 mutant mice, where one mutation caused a loss of splicing function due to the mutation affecting an RNA-recognition motif. 
-The second mouse line had a mutation within the TDP-43 low complexity domain, the hotspot for ALS mutations.
-I demonstrated that this mutation imparts a gain of splicing function, where instead of aberrant exon inclusion as seen in TDP-43 loss, there were a set of aberrant exon skipping events.
+In chapter 5 I compared two TDP-43 mutant mice lines. 
+One exhibited a loss of splicing function due to the mutation affecting an RNA-recognition motif. 
+The other had a mutation within the TDP-43 low complexity domain, the hotspot for ALS mutations.
+I demonstrated that this mutation imparts a gain of splicing function, where instead of aberrant exon inclusion as seen in TDP-43 loss, there was a set of aberrant exon skipping events.
 %I christened these events "skiptic exons" and showed that these affect constitutive exons and their skipping would more often than not lead to frame shifting and transcript degradation through nonsense-mediated decay. 
 Some of these "skiptic" exons could be identified in TDP-43 mutant human patients.
-I posit that the gain of splicing function could arise from a change in TDP-43 autoregulation.
+The gain of splicing function could arise from a change in TDP-43 autoregulation or from a shift in how TDP-43 interacts with other splicing factors. 
 
-In chapter 6 I compared three independent experiments where FUS was either knocked out or mutated to remove its nuclear localisation signal (NLS) in mouse neuronal tissues.
-My joint analyses demonstrated significant overlap between the two FUS conditions in both gene expression and splicing, suggesting that FUS NLS mutations primarily deplete FUS from the nucleus.
+In chapter 6 I compared three independent studies where FUS was either knocked out or mutated to remove its nuclear localisation signal (NLS) in mouse neuronal tissues.
+My joint analyses combining either the knockout or mutant FUS samples together increased the amount of RNA regulation changes I could detect.
+Overlapping the two join models demonstrated significant similarity between the two FUS conditions in both gene expression and splicing, suggesting that FUS NLS mutations primarily deplete FUS from the nucleus.
 Looking in detail at the FUS locus itself, I identified a novel mechanism by which FUS could regulate its own translation through intron retention. 
 This autoregulation mechanism may be complementary to one previously reported exon skipping \citep{Zhou2013}.
 
@@ -37,6 +39,100 @@ All together, my results suggest specific consequences for loss of TDP-43 or FUS
 \section{Issues arising from my work}
 
 \subsection{Loss and gain of splicing function in TDP-43 and FUS}
+% review the results
+% what have we learned?
+% what questions are outstanding?
+
+My work has combined multiple RNA-seq datasets to look at RNA regulation by TDP-43 and FUS in two contexts: 
+1) the normal role of the protein in cells, by comparing to a knockdown or knockout; 
+2) The effect of rare disease-causing mutations in mouse models of disease.
+Both are relevant to ALS/FTD because of the nuclear depletion of TDP-43 and FUS in the end-stage of the disease accompanied by cytoplasmic aggregates.
+The formation of aggregates may be encouraged by rare mutations.
+My work has attempted to understand the impact on splicing that could occur in human ALS/FTD patients.
+I have uncovered both losses and gains of function. 
+
+For TDP-43, knocking down or knocking out the protein in human or mouse cells uncovered a physiological role for TDP-43 in repressing non-conserved cryptic exons. 
+This was also seen in the RRM2mut mouse line where one of the RNA-recognition motifs was mutated.
+However, a mutation in the low-complexity domain, where most ALS mutations are found, led to the inverse phenomenon, the skipping of constitutive exons.
+These two phenomena appear to be mutually exclusive, suggesting that the LCDmut does not cause a loss of splicing function but instead an aberrant gain of function.
+Although the mechanism for this has not been identified, it points to a role for TDP-43 in maintaining constitutive exon splicing.
+This was backed up by wild-type TDP-43 iCLIP binding peaks observed on and around the "skiptic" exons.
+
+Both cryptic and skiptic splicing phenomena could be widespread across many RNA-binding proteins. 
+Since I began studying TDP-43 and cryptic exons, many more RNA-binding proteins have been found to have a role in cryptic exon repression including PTBP1/2, RBM17, hNRNP L and MATR3 \citep{Ling2016,Tan2016,McClory2018,Attig2018}. 
+My own assessment of ENCODE knockdown data on a large number of RNA-binding proteins suggests that cryptic exon repression is a near-universal phenomenon. 
+This included the majority of ALS/FTD associated proteins tested, with the exception of FUS.
+Skiptic splicing represents the inverse of cryptic splicing.
+The two phenomena could represent a balance between surveillance and maintenance.
+Repression of aberrant cryptic exons is a surveillance function to prevent unwanted splicing.
+Conversely the support of constitutive exons, seen in the normal state through iCLIP binding, is an maintenance function.
+In this way "wanted" splicing is conserved.
+The maintenance role of TDP-43 is then exacerbated by the LCDmut mutation, which causes exon skipping. 
+It would be interesting to look for more examples of constitutive exon skipping in other RNA-binding proteins.
+% balance between surveillance and maintenance?
+
+The discovery of cryptic and skiptic splicing leads to multiple questions on the nature of cooperation between splicing factors.
+% in cryptic exons - how do they emerge?
+Most introns are bound by multiple splicing factors and yet a number of them are specifically mis-spliced as cryptic exons when TDP-43 is depleted.
+This suggests that in certain introns TDP-43 cannot be substituted for when it is depleted. 
+This is a lack of biological redundancy. 
+Where these non-redundant sequences appear would depend on which splicing factors are expressed at the time.
+This is shown by a cell-type specificity for particular TDP-43 cryptic exons, as seen by myself and others \citep{Jeong2017}. 
+It would also suggest that each set of cryptic exons in a particular cell type are unique to each RNA-binding protein.
+This could be tested with the ENCODE corsortium data.
+
+% autoregulation
+Another key mechanism to be understood in RNA biology is that of autoregulation.
+Both TDP-43 and FUS proteins bind their own transcripts and modulate their own translation.
+%This has made knockdown studies of these proteins difficult due to the compensation afforded by autoregulation.
+However both proteins appear to do this by a complex set of mechanisms involving both NMD and nuclear detention.
+The TDP-43 autoregulatory locus is the 3\'\ UTR, the site of TDP-43 binding \citep{Polymenidou2011}. 
+This binding alters 3\'\ UTR length to create a nuclear detained isoform, accompanied by NMD-sensitive spliced UTR isoforms \citep{Ayala2011,Koyama2016}.
+Both the RRM2mut and LCDmut mutations appear to alter TDP-43 autoregulation and this may account for the gain in splicing function seen in LCDmut.
+FUS binds introns 6 and 7 \citep{Lagier-Tourenne2012}, which was previously identified to cause skipping of the central exon to create an NMD-sensitive transcript \citep{Zhou2013}
+My study of the FUS introns 6 and 7 has suggested that retention of both introns creates an NMD-insensitive transcript that is potentially detained in the nucleus.
+I would predict that these mechanisms play a role in ALS/FTD where either TDP-43 or FUS are mislocalised from the nucleus to the cytoplasm in affected neurons and glia.
+Reduction in autoregulation would lead to a positive feedback mechanism where enhanced translation would then increase cytoplasmic TDP-43 or FUS.
+
+% cross-regulation
+Beyond autoregulation there is the intriguing phenomena of splicing factor \textit{cross-regulation}, where depleting one protein impacts the expression of splicing of many other splicing factors.
+This has been previously seen in a study of multiple hNRNP proteins \citep{Huelga2012}. 
+This study demonstrated asymmetric relationships between pairs of proteins, where depletion of one protein would upregulate another but not vice versa.
+With FUS nuclear depletion I observed upregulation of the FET family members \textit{Taf15} and \textit{Ewsr1} accompanied by changes in intron retention seen in both transcripts. 
+This suggests a feedback mechanism where reduction in nuclear FUS leads to a direct increase in FET family levels, potentially to compensate for reduced nuclear FUS due to the overlapping motifs and targets of the three proteins \citep{Kapeli2016}.
+Many other splicing factor genes were upregulated and alternatively spliced in FUS nuclear depletion, suggesting a large generalised response of the splicing machinery and associated factors to loss of one particular protein. 
+This phenomena must depend on nuclear FUS levels, as this was only seen in the homozygous NLS mutant mice and not in the FUS $\Delta$14 adult mice studied in chapter 4.
+There I found no large changes in splicing factor gene expression and splicing except for FUS and EWSR1.
+It has been previously observed that TDP-43 binds the same region of the \textit{FUS} transcript that FUS binds itself, linking the two proteins.
+It would be interesting to look at changes in the putative FUS autoregulatory transcript in my collection of TDP-43 depletion and mutation mice.
+% this is called cross-regulation. Extend this. 
+
+% low-complexity domains
+The TDP-43 LCDmut mouse was created to study the effect of mutation on the low-complexity domain. 
+It is striking that low-complexity domains are found in almost all RNA-binding proteins associated with ALS/FTD.
+In TDP-43 most disease-associated mutations are found there.
+In disease, the low complexity domains have been implicated in protein aggregation and stress granule formation but it still unclear what the physiological role of these domains are.
+One hypothesis is that these domains allow the assembly of multiple RNA-binding proteins on a transcript. 
+This would allow splicing factors to be brought in contact with a transcript that lacks known sequence motifs and would answer why many altered splicing events seen in my work have no iCLIP binding peaks.
+
+
+% RNA biology questions:
+
+% How do splicing factors cooperate? 
+% Cryptic exons probably represent parts of the genome where there is less redundancy, only one factor can fully repress them.
+
+% How changing the level of one factor effects the levels of others.
+% FUS nuclear depletion causes upregulation in fellow FET family members TAF15 and EWSR1. 
+% It also leads to changes in expression and splicing of many other splicing factors.
+
+% What are the role of low-complexity domains in splicing factor interactions
+
+
+%Unlike cryptic exons, constitutive exons are well-studied and defects in constitutive exon recogntion of the same exons by multiple factors may be more apparent.
+%Further work on this may break down the current hard divisions between "constitutive" and "alternative" exons. 
+%This will require more work looking at "constititutive" splicing across mutiple tissues, such as the GTEX consortium. 
+
+
 
 
 
@@ -51,8 +147,7 @@ All together, my results suggest specific consequences for loss of TDP-43 or FUS
 % some of this is probably technical due to polyA+ vs Total RNA
 % but even the smaller list of total RNA cryptic exons are not merely a subset of the larger polyA + exons
 
-Since I began studying TDP-43 and cryptic exons, many more RNA-binding proteins have been found to have a role in cryptic exon repression including PTBP1/2, RBM17, hNRNP L and MATR3 \citep{	Ling2016,Tan2016,McClory2018,Attig2018}. 
-My own assessment of ENCODE knockdown data on a large number of RBPs showed that cryptic exon repression is a common feature seen in nearly all knockdowns with the exception of FUS (see chapter 3). 
+
 % how important is loss of function to disease?
 
 % multiple mouse models have shown that neurodegeneration can occur both without loss of TDP or FUS splicing function nor cytoplasmic aggregates.
@@ -70,84 +165,67 @@ My own assessment of ENCODE knockdown data on a large number of RBPs showed that
 
 % RNA-binding proteins do not act alone.
 
-\subsection{RNA-seq allows replication}
 
-% Replication crisis - why most published results are probably false
 
-% replication of the same phenonmenon in the same protein or model
+\subsection{RNA-seq: the joys of replication and annotation-free analysis}
 
-% also, is a particular phenomenon common or specific to a particular protein?
+RNA-seq allows phenomena previously seen in individual genes to be demonstrated genome-wide.
+In the example of TDP-43 and splicing, initial studies on individual cassette exons have given way to hundreds of splicing events being found across different tissues and developmental time points.
+The creation of RNA maps allow general principles of a protein's effect on splicing to be demonstrated and clearly visualised.
+We can build up complete pictures of what an RNA-binding protein can do.
 
-% Both TDP-43 and FUS are linked to an every expanding list of roles within the cell, how many of these have been replicated?
-
-% Open platform of RNA-seq, combined with data sharing and code sharing allows rapid replication to be done as standard.
-
-% Caveats - particular phenomena may only be seen under certain experimental conditions or in particular cell types
-% Example - circular RNA only seen with confidence when linear RNA are digested
-% RNA is very dynamic. Very easy for batch effects to occur. Sequencing libraries prepared on different days and sequenced separately of the exact same cells or mice can show big differences.
-% What is the fundamental observation? Correlating the expression or splicing of a gene with the expression of a protein, as in a knockdown study. 
-
-\subsection{The value of annotation-free analysis}
+With each RNA-seq study, new phenomena and mechanisms can be identified.
+Crucially, as each published dataset is available for re-analysis, these phenomena can be replicated in multiple species and tissues.
+By combining multiple published datasets in chapter 3 I have strengthened the case for TDP-43 and cryptic exons.
+The novel mechanism of FUS autoregulation found in chapter 6 is much stronger for having been observed in 3 independent studies.
+Replication of RNA phenomena is crucial as there is so much variability between caused by RNA extraction, library preparation, and analysis software.
+With so many findings arising from individual RNA-seq experiments in a particular species or cell type there is a real need for these to be replicated.
+I will concede that with certain phenomena that require particular niche library preparations, such as RNAse H treatment to find circular RNAs, this is not always practical.
 
 Annotation initiatives have been successful in cataloguing genes and transcripts in many species.
 They are very useful for any scientist interested in RNA biology by giving access to the genomic coordinates of a range of experimentally validated splicing isoforms.
-There is however a danger in keeping too close to what annotation tells you.
-There is great value in looking for things outside the framework given to you by annotation.
+Howver, there is great value in looking for things outside the framework given to you by annotation.
+In under-studied cell types like neurons there is a wealth of unannotated splicing in normal cells.
+This is even more important when perturbing splicing as this could be expected to lead to unusual or aberrant splicing.
 
-% use of annotation-free methods.
-This is true for under-studied cell types such as  neurons which potentially harbour thousands of novel isoforms. %ref to that paper
-In RNA biology, perturbing splicing by depleting particular factors could be expected to lead to unusual or aberrant splicing.
-There is a need for tools that can robustly identify novel splicing events from sequencing data. 
-In chapter 3 I developed such a tool, designed for use with low-quality RNA-seq data as it leveraged both read coverage and splice junctions.
-Newer tools, as reviewed in chapter 2, depend on splice junctions alone, which are far more accurate but require high quality data.
+Both cryptic exons and skiptic exons are examples of novel splicing events that are not detected when relying on annotated transcripts alone.
+The development of new tools for novel splicing (reviewed in chapter 2) will lead to the advancement of our understanding of this field.
+Going forward there is a pressing need to verify novel isoforms at the protein level. 
+This will require new computational tools for shotgun mass spectrometry.
 
-Both cryptic exons and skiptic exons are examples of things that are not detected when not specifically looked for.
-Yet both these phenomena could be widespread. 
-Skiptic exons in particular could prove very rich to study due to their conservation between species. 
-Unlike cryptic exons, constitutive exons are well-studied and defects in constitutive exon recogntion of the same exons by mutliple factors may be more apparent.
-
-Further work on this may break down the current hard divisions between "constitutive" and "alternative" exons. This will require more work looking at "constititutive" splicing across mutiple tissues, such as the GTEX consortium. 
-
-
-
-% protein level - big technical challenge and frontier
-Going forward there is a pressing need to verify novel isoforms at the protein level. This will require new computational tools for shotgun mass spectrometry.
-	
 	
 \section{Future directions for the work}
 
 \subsection{Translating work into human patients}
 
 It is regrettable that throughout my PhD I have not had the opportunity to explore more human RNA-seq samples and particularly those from human ALS/FTD patients.
-The reason for this is partly due to scarcity of tissue but also the technical hurdles in analysis.
-Unlike laboratory strains of mice, humans and highly heterogenous in both their genetics and the environmental exposures.
+The reason for this is partly due to the inherent variablity between human subjects but also the technical hurdles in analysis.
+Unlike laboratory strains of mice, humans are highly heterogenous in both their genetics and the environmental exposures.
 Even patients with identical mutations in a disease-associated gene could  expected to have many distinct modifying mutations as well as completely different life experiences.
-Therefore any study on transcriptomics in humans would require much larger sample sizes to account for the increased variability in measurements of gene expression and splicing.
+Therefore any study on transcriptomics in humans requires a much larger sample sizes to account for the increased variability in measurements of gene expression and splicing.
 ALS/FTD patients would be expected to be particularly heterogenous due to the above genetic differences as well as variability in disease course and extent of pathology at death.
 
 There are also technical considerations in sequencing post-mortem brains.
-Both ALS/FTD patients and non-neurological control donor brains will often come from human patients who were kept on artificial respiration before death. 
+Both diseased and control donor brains will often come from human patients who were kept on artificial respiration before death. 
 This is known to affect RNA quality in post-mortem tissue due to changes in tissue pH.
-This is the reason for most post-mortem tissue RNA-seq samples are prepared using total RNA libraries which may then dilute the amount of reads that will align to protein-coding genes of interest.
-
+Most post-mortem tissue RNA-seq samples are prepared using total RNA libraries to avoid bias towards the 3\'\ end that comes with polyA+ purification of degraded RNA.
+Total RNA libraries then dilute the amount of reads that will align to protein-coding genes of interest, requiring higher coverage and greater cost per sample.
 There are now large consortia established to collect and sequence large numbers of patient brains. 
 As part of my post-doctoral studies I am looking forward to working with these consortia.
 
 An alternative route for studying ALS/FTD in human brains is to grow patient neurons from induced pluripotent stem cells (iPSCs).
-%These can be created from skin samples from patients and through a lengthy process, mature neurons can be created.
-
- neuronal organoids can be created. 
-These can contain a variety of neuronal and glial cell types and replicate some basic topology of a human brain, with cells distributing to layers.
-
+These can be created from skin samples from patients and through a lengthy process, mature neurons can be created.
+Studies comparing iPSC-derived neurons between ALS/FTD patients and controls are in their infancy \citep{Luisier2018} but will prove powerful techniques for studying RNA regulation in these cells. %rewrite
 
 \subsection{Diving deeper into RNA regulation}
 
 % bulk cell sequencing - need single cells
-This work was all done with bulk cell short read RNA-seq. 
+All the work in my PhD was done with bulk-cell short-read RNA-seq. 
 There are limitations to this approach that are both biological and technical.
 Bulk RNA sequencing samples RNA from all cells in a population. 
-This limits the observations that can be made to changes in expression and splicing that can be seen across a wide range of cells with low variability between cell types.
-A rapidly developing solution to this is single-cell RNA sequencing, where individual cells are first separated from a tissue and sequencing libraries prepared using microfluidic technology.
+This limits the observations that can be made to changes in expression and splicing that can be seen across a wide range of cells.
+It also demands low variability between cell type mixtures between conditions to avoid this confounding results.
+A rapidly developing solution to this hurdle is single-cell RNA sequencing, where individual cells are first separated from a tissue and sequencing libraries prepared using microfluidic technology.
 Studies are now emerging of 10s of 1000s of individual cells being profiled. 
 This has allowed for example an entire mouse brain to be classified into different cell types. %ref
 The technology for this is still in its infancy and there is a problem with sequencing throughput to get enough reads per sample.
@@ -155,17 +233,27 @@ This will be important to overcome for analysing splicing changes due to the nee
 It would be very exciting if this technology could be applied to ALS/FTD patient brains. 
 
 % need specific populations of RNA
-Bulk sequencing also removes the distinction of RNA localisation within different cellular compartments. %distinction wrong word
+Bulk sequencing of cells also removes the distinction of RNA localisation within different cellular compartments. %distinction wrong word
 For example, both FUS and TDP-43 bind transcripts in the cytoplasm and have some role in axonal transport. %ref
-Fractionating RNA into nuclear or cytoplasmic would give information about nuclear retention of particular transcript, as I hypothesise for the FUS intron retention transcript identified in chapter 6.
-Growing neurons in compartments as in \citep{Taliaferro2016} would allow specific populations of transcripts to be sequenced.
+Separating RNA into nuclear or cytoplasmic fractions would give information about nuclear retention of particular transcript, as I hypothesise for the FUS intron retention transcript identified in chapter 6.
+This can be done biochemically of physically, by the use of growing neuronal cells in compartments to physically isolate RNA \citep{Taliaferro2016}.
 Alternatively, sequencing the nascently transcribed RNA would allow observation of unstable transcripts.
 The nagging question from chapter 3 is that if I predict most cryptic exons to be degraded by NMD, why do I see any at all?
 Silent splicing events were proposed in RBFOX proteins \citep{Jangi2014} to explain gene expression changes in RBFOX2-bound transripts without splicing changes.
-If we were to sequence nascently transcribed RNA, perhaps with 4 thio-uridine, I could identify unstable transcripts that rapidly degrade upon export to the cytoplasm.
+If we were to sequence nascently transcribed RNA I could identify unstable transcripts that rapidly degrade upon export to the cytoplasm.
 This may demonstrate cryptic splicing repression by TDP-43 to be much more widespread and why certain cryptic exon transcripts appear to evade NMD.
 
+% long reads
+The other hurdle with the current state of RNA research that is rapidly breaking down is the length of sequencing reads.
+The current gold standard for Illumina sequencing is paired end 250bp reads.
+This limitation means that splicing analysis requires the reconstruction of complex isoforms from individual short fragments.
+Long-read sequencing techniques such as Pacific Biosciences and Oxford Nanopore promise to sequence entire transcripts in a single read.
+This would greatly simplify analysis but are still developing. 
+Both techniques suffer from a high error rate which will complicate read alignment.
+Oxford Nanopore technology can be used to sequence native RNA rather than cDNA, which allows the observation of RNA modifications.
 
+A compromise between long and short reads synthetic long reads, where short Illumina reads are generated from an individual transcript suspended in an oil drop. 
+This has allowed the reconstruction of individual transcripts and the curious finding that some splicing events are co-regulated within a transcript \citep{Tilgner2015}.
 
 % problem with bulk sequencing
 % lose cell-type specific information
@@ -182,7 +270,7 @@ This may demonstrate cryptic splicing repression by TDP-43 to be much more wides
 % evidence that some splicing events are co-regulated from Tilgner et al, need long reads to see this
 % intron retention would be much simpler to detect
 % still issues with throughput and error rate
-Short reads
+
 
 
 
@@ -191,6 +279,8 @@ Short reads
 
 \section{Final thoughts}
 
+New technology promises to expand our understanding of RNA regulation.
+The future is bright for the fields of RNA biology and neurodegenerative disease. 
 
 % TDP but not FUS represses cryptic exons
 % However cryptic exon repression can be seen in many RNA-binding proteins
