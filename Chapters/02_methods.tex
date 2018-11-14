@@ -53,7 +53,7 @@ For detecting lowly expressed transcripts, sequencing depth is crucial.
 For performing the current state-of-the-art splicing analysis, the most important metric is the number of read that span splice junctions. 
 This is less important for the previous generation of software which use exon coverage instead.
 With longer reads, the chances of any given read overlapping an intron increase. 
-Therefore long (>=100bp) reads are highly recommended.
+Therefore long ($\geq$ 100bp) reads are highly recommended.
 A study comparing RNA-seq samples at different simulated read lengths recommended 50bp single-end acceptable for differential gene expression and at least 100bp paired-end for splicing \citep{Chhangawala2015}. % depth? recommendations for depth?
 
 
@@ -78,7 +78,7 @@ As paired-end sequencing extracts information from each end of the fragment it i
 Pseudo-random barcodes are ligated to each fragment to allow for reverse transcription. 
 This pseudo-randomness does cause bias towards particular sequences \citep{VanGurp2013}.
 The first round of reverse-transcription is carried out forming double stranded DNA-RNA hybrids. 
-These complexes are melted and a second reverse-transcription reaction is carried out in the presence of Uracil instead of Thymine, creating double stranded DNA. The Uracilated DNA strand is now in the same orientation as the original mRNA fragment. 
+These complexes are melted and a second reverse-transcription reaction is carried out in the presence of uracil instead of thymine, creating double stranded DNA. The uracilated DNA strand is now in the same orientation as the original mRNA fragment. 
 Polymerase chain reaction amplification is then carried out where the uracil containing DNA and the RNA are ignored by the polymerase. 
 The resulting library is strand-specific as all the DNA fragments are antisense to the original RNA fragments. Further adapters are added for sequencing in the flowcell and to give the fragments from each sample an identifier as multiple samples are usually pooled together. 
 The standard Illumina paired-end sequencing reaction ligates the amplified fragments to wells in the flowcell which then form clusters of identical amplified fragments. 
@@ -207,7 +207,7 @@ Therefore, hits from \textit{DEXSeq} need to be closely analysed in the context 
 This approach is also dependent on transcript annotation so cannot pick up novel events.
 \textit{DEXSeq} has been adapted to look at differential intron usage \citep{Li2015a}.
 This work directly inspired my work on \textit{Cryptex}, a software pipeline for using splice junction reads to find novel exons which I discuss in \autoref{chapter:cryptic_exons}.
-The intepretability problem has been reduced by a software package called \textit{JunctionSeq} \citep{Hartley2015}, which also quantifies splice junctions and can pick up novel junctions, but uses a DEXSeq framework for differential usage.
+The intepretability problem has been reduced by a software package called \textit{JunctionSeq} \citep{Hartley2015}, which also quantifies splice junctions and can pick up novel junctions, but uses a \textit{DEXSeq} framework for differential usage.
 
 \subsubsection{Transcript quantifiers}
 
@@ -258,10 +258,10 @@ Once those exons are then determined, the total read coverage over that position
 Since that project was published there has been a movement in the field towards tools that can accurately quantify novel splicing but the requirement for read length is still present.
 This is now less of a problem as read lengths of 100bp and greater are now routine.
 
-For the work on TDP-43 mutant mice described in \autoref{chapter:tdp_mice}, I used different splicing methods to match the quality of the data, which was generated over 5 years with different generations of library preparation and sequencing technology. For the oldest data, generated from mouse embryonic fibroblasts and head samples with low read depth and short length, I used the DEXSeq package to estimate differential exon usage and \textit{CryptEx} to find novel exons (not included in chapter).
+For the work on TDP-43 mutant mice described in \autoref{chapter:tdp_mice}, I used different splicing methods to match the quality of the data, which was generated over 5 years with different generations of library preparation and sequencing technology. For the oldest data, generated from mouse embryonic fibroblasts and head samples with low read depth and short length, I used the \textit{DEXSeq} package to estimate differential exon usage and \textit{CryptEx} to find novel exons (not included in chapter).
 With the newer data from mouse embryonic spinal cord, sequenced with longer paired-end reads and at higher depth, I wanted to local splicing event quantified to take advantage of the high proportion of splice junction spanning reads. 
 I chose the \textit{SGSeq} package as it could quantify splicing events from BAM files and used a graph database approach to find novel splicing events as well as classify annotated splicing events. This provided a much richer dataset to work with than the previous \textit{DEXSeq} method.
-For my work on combining FUS datasets from multiple groups I again used \textit{SGSeq} for splicing analysis as it uses DEXSeq for statistical testing of splicing event usage between conditions. The general linear model framework provided by DEXSeq allowed me to add dataset-specific covariates and analyse all samples jointly.
+For my work on combining FUS datasets from multiple groups I again used \textit{SGSeq} for splicing analysis as it uses \textit{DEXSeq} for statistical testing of splicing event usage between conditions. The general linear model framework provided by \textit{DEXSeq} allowed me to add dataset-specific covariates and analyse all samples jointly.
 
 
 %% rewrite - originally from TDP mice chapter
@@ -338,13 +338,13 @@ Annotations may be from direct experimental evidence or inferred through computa
 Whether a list of genes from an analysis is enriched for a particular GO or KEGG set is tested with a hypergeometric test, comparing the observed proportion of genes in the list that overlap the set with the expected number under the null.
 It is important that multiple testing correction is employed due to the vast number of sets tested in a single analysis.
 %This was previously performed using DAVID \citep{Huang2009} but this database is no longer maintained.
-This can be performed using web-based interfaces such as PantherDB \citep{Thomas2003} and gProfileR \citep{Reimand2016}.
-gProfileR is particularly useful as it simultaneously tests all three categories of GO term along with the KEGG sets.
-GOseq is a method for gene ontology enrichment testing from differential expression results \citep{Young2010}. As longer genes will have more read coverage there is more statistical power to detect a change in expression of those genes. GOseq weights gene sets by the length of genes within them when computing enrichment tests. I used GOseq in \autoref{chapter:fus_mice} but due to the enhanced ease of use and speed I chose to use gProfiler in \autoref{chapter:fus_meta}.
+This can be performed using web-based interfaces such as \textit{PantherDB} \citep{Thomas2003} and gProfileR \citep{Reimand2016}.
+\textit{gProfileR} is particularly useful as it simultaneously tests all three categories of GO term along with the KEGG sets.
+\textit{GOseq} is a method for gene ontology enrichment testing from differential expression results \citep{Young2010}. As longer genes will have more read coverage there is more statistical power to detect a change in expression of those genes. \textit{GOseq} weights gene sets by the length of genes within them when computing enrichment tests. I used \textit{GOseq} in chapter 4 but due to the enhanced ease of use and speed I chose to use \textit{gProfiler} in chapter 6.
 
 % criticisms of ontologies
 These methods do not incorporate cell or tissue information into the statistics. When neuronal GO or KEGG terms are enriched when studying neuronal samples it is not surprising.
-Ontology databases are highly biased towards already well-studied genes and diseases like Cancer \citep{Haynes2018}, which reflects trends in biomedical research and funding. 
+Ontology databases are highly biased towards already well-studied genes and diseases like cancer \citep{Haynes2018}, which reflects trends in biomedical research and funding. 
 Results from GO enrichment tests are unstable throughout time due to constantly increasing databases \citep{Tomczak2018}.
 There are dangers with using gene annotation data for biological interpretation as it is relatively simple to construct a story that makes "biological sense" from a random set of genes and annotations \citep{Pavlidis2012}.
 For these reasons, ontology results should be interpreted with a degree of caution.
