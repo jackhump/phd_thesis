@@ -3,9 +3,8 @@
 \label{chapter:methods}
 
 In this chapter I discuss computational methods that used throughout my PhD. 
-Chief among them is the RNA-seq analysis pipeline. 
 My project has consisted of processing large amounts of RNA-seq data and has required a stable workflow that can be run in parallel across multiple computers.
-I describe the creation of an RNA-seq library and then each step of the pipeline in detail. 
+I describe the creation of an RNA-seq library and then each step of the RNA-seq analysis pipeline in detail. 
 I then discuss tools for analysing differential gene expression and splicing between conditions.
 These provide lists of genes and splicing events but do not by themselves provide biological insight.
 It is therefore important to integrate these results with other sources of data.
@@ -44,16 +43,17 @@ Single- and paired-end sequencing refers to whether one end of the cDNA fragment
 Stranded libraries retain the direction of transcription for each RNA fragment.
 This allows for the discovery of antisense transcripts, such as promoter antisense and 3\'\ antisense transcripts, which are ubiquitious in eukaryotes but poorly understood \citep{Lavorgna2004} and improves quantification of transcripts from genes that overlap from opposing ends. 
 
-These 4 parameters affect the types of analyses that can be performed on the sequencing data.
+These four parameters affect the types of analyses that can be performed on the sequencing data.
 They also substantially influence the cost of the experiment.
 The original 25 base pair unstranded single-end sequencing libraries produced when the technology was in its infancy \citep{Mortazavi2008} are far cheaper than 300bp stranded paired-end, the current maximum with Illumina technology. 
 
-The most obvious measurable outcome is alignment rate - the proportion of sequencing reads that uniquely align to the genome of interest. 
+The most obvious measurable outcome is alignment rate: the proportion of sequencing reads that uniquely align to the genome of interest. 
 Longer reads increase the unique alignment rate, as do paired-end libraries due to the added constraint on alignment given by both reads in the pair aligning close together. 
 For detecting lowly expressed transcripts, sequencing depth is crucial. 
 For performing the current state-of-the-art splicing analysis, the most important metric is the number of read that span splice junctions. 
 This is less important for the previous generation of software which use exon coverage instead.
-With longer reads, the chances of any given read overlapping an intron increase so long (>=100bp) reads are highly recommended.
+With longer reads, the chances of any given read overlapping an intron increase. 
+Therefore long (>=100bp) reads are highly recommended.
 A study comparing RNA-seq samples at different simulated read lengths recommended 50bp single-end acceptable for differential gene expression and at least 100bp paired-end for splicing \citep{Chhangawala2015}. % depth? recommendations for depth?
 
 

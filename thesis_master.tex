@@ -2,6 +2,10 @@
 %\documentclass[a4paper,11pt,twoside]{book}
 \setcounter{errorcontextlines}{999}
 
+% line spacing
+\usepackage{setspace}
+\onehalfspacing
+
 %%%pre-amble%%%%%%%%
 \usepackage{graphicx}
 \usepackage{siunitx} % for degree symbols 90\si{\degree}C
@@ -84,19 +88,16 @@
 % FRONT MATTER
 \input{Chapters/00_frontmatter.tex}
 
-% ACKNOWLEGEMENTS
-\clearpage
-\input{Chapters/99_acknowledgements.tex}
 
 \pagestyle{fancy}
-% set header here
+% set header styles here - chapter title on the even (left) page, section title on the right (odd) page
 \fancyhead[LO,RE]{}
 \fancyhead[LE]{\textsl{\leftmark}}
 \fancyhead[RO]{\textsl{\rightmark}}
 
 % CONTENT
 
-%\input{Chapters/01_introduction.tex}
+\input{Chapters/01_introduction.tex}
 %\input{Chapters/02_methods.tex}
 %\input{Chapters/03_cryptic_exons.tex}
 %\input{Chapters/04_fus_mice.tex}

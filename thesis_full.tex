@@ -33,6 +33,10 @@
 \usepackage{anyfontsize}
 \usepackage{emptypage} % all cleardoublepage are without page numbers
 
+% set line spacing to 1.5
+\usepackage{setspace}
+\onehalfspacing
+
 \usepackage[round]{natbib}
 \usepackage{pdfpages} % for adding pdfs in to the appendices
 \usepackage{pdflscape} % for landscape pages
@@ -81,21 +85,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 \begin{document}
 
-
+% FRONT MATTER
 \input{Chapters/00_frontmatter.tex}
 
 
-% ACKNOWLEGEMENTS
-\clearpage
-\input{Chapters/99_acknowledgements.tex}
-
 \pagestyle{fancy}
-% set header here
+% set header styles here - chapter title on the even (left) page, section title on the right (odd) page
 \fancyhead[LO,RE]{}
 \fancyhead[LE]{\textsl{\leftmark}}
 \fancyhead[RO]{\textsl{\rightmark}}
 
 % CONTENT
+
 \input{Chapters/01_introduction.tex}
 \input{Chapters/02_methods.tex}
 \input{Chapters/03_cryptic_exons.tex}
@@ -114,8 +115,9 @@
 % APPENDICES!!!
 
 \input{Chapters/appendices.tex}
-% leave out for github
-%\input{Chapters/publications.tex}
+
+% PUBLICATIONS - leave out for github
+\input{Chapters/publications.tex}
 
 \cleardoublepage
 \end{document}

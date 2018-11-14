@@ -36,7 +36,7 @@ The emergence of next-generation sequencing technologies has moved the gene hunt
 These studies have found extremely rare mutations that individually account for a very small number of cases but provide vital information on which cellular pathways are involved in disease  \citep{Taylor2016,Pottier2016}.
 Broadly, the proteins these genes code for can be grouped by their functions into three categories. 
 \textit{OPTN} \citep{Maruyama2010} , \textit{UBQLN2} \citep{Deng2011}, \textit{SQSTM1} \citep{Fecto2011}, \textit{CHMP2B} \citep{Skibinski2005} and \textit{TBK1} \citep{Cirulli2015,Freischmidt2015} have all been linked to protein degradation. 
-\textit{MAPT}, \textit{DCTN1} \citep{Puls2003} , \textit{CHCHD10} \citep{Bannwarth2014} and \textit{TUBA4A} \citep{Smith2014} have been linked to microtubule transport and stability. 
+\textit{MAPT}, \textit{DCTN1} \citep{Puls2003} , \textit{CHCHD10} \citep{Bannwarth2014}, \textit{TUBA4A} \citep{Smith2014} and \textit{KIF5A} \citep{Nicolas2018} have been linked to microtubule transport and stability. 
 The third group of genes encode RNA-binding proteins, and this is the function of \textit{TARDBP} and \textit{FUS}. 
 Other RNA-binding proteins associated with ALS/FTD through genetics are \textit{ATXN2} \citep{Elden2010}, \textit{TAF15} \citep{Ticozzi2011}, \textit{hnRNPA1} and \textit{hnRNPA2B1} \citep{Kim2013}, \textit{MATR3} \citep{Johnson2014}, \textit{SFPQ} \citep{Thomas-Jinu2017}, and \textit{TIA1} \citep{Mackenzie2017}. 
 The proteins these genes code for have been linked to splicing, transcription, translation and transport of mRNA. 
@@ -96,11 +96,12 @@ Therefore different tissues or development time points can promote the splicing 
 % functional consequences of alternate splicing
 The inclusion of a particular exon can have a wide range of consequences for an RNA molecule and its eventual protein, if it is to be translated. 
 The inclusion of an alternative or cassette exon may alter stability, add a new functional domain, change localisation or change protein-protein interactions.
-One way the splicing can alter RNA stability is through the PTC-NMD pathway.
+One way that splicing can alter RNA stability is through the nonsense-mediated decay (NMD) pathway.
 Exons can destabilise their host transcript by introducing premature termination codons (PTCs), stop codons that appear upstream of the final stop codon. 
-These can make a transcript sensitive to degradation by the nonsense-mediated decay (NMD) pathway \citep{McGlincy2008-wh}. 
-This occurs during the pioneer round of translation, where the ribosome detects a stop codon appearing before the final exon junction, which is demarcated by the exon-junction complex.
-This triggers degradation.  % ref?
+These can make a transcript sensitive to degradation by NMD \citep{McGlincy2008-wh}. 
+This occurs during the pioneer round of translation, where the ribosome detects a PTC appearing before the final exon-exon junction, which is demarcated by the exon-junction complex.
+This triggers degradation of the transcript.
+If the PTC is within 50 nucleotides of the final exon-exon junction, the transcript can escape NMD.
 Intriguingly, splicing factors themselves often have NMD-sensitive isoforms \citep{Ni2007}. 
 The splicing of NMD-sensitive isoforms in a splicing factor transcript is often triggered by the binding of that same splicing factor protein \citep{Jangi2014a}. 
 This is a mechanism by which splicing factors regulate their own translation: a phenomenon known as autoregulation \citep{Rosenfeld2002}.
@@ -183,7 +184,7 @@ Transactive response DNA-binding protein 43 kDa (TDP-43) is a ubiquitously expre
 It contains two RNA-recognition motifs, a nuclear localisation signal and a long glycine-rich low-complexity domain (Fig \ref{fig:intro_domains}).
 Loss of TDP-43 from the nucleus accompanied by TDP-43 positive inclusions in the cytoplasm of cortical and spinal cord neurons is the hallmark pathology found in nearly all sporadic cases of ALS as well as the majority of non-Tau cases of FTD \citep{Neumann2006,Arai2006} as well as cases of Alzheimer's disease \citep{LaClair2016} and Huntington's Disease \citep{Doi2008}. 
 Cytosolic TDP-43 has also been found in mouse models of traumatic brain injury, suggesting mislocalisation is a general neuronal stress response \citep{Moisse2009}. 
-In addition, missense mutations in \emph{TARDBP} have been shown to cause familial ALS \citep{Sreedharan2008-xv}.  Mutations cluster in the low-complexity domain \citep{Kapeli2017};(Fig. \ref{fig:intro_domains}).
+In addition, missense mutations in \emph{TARDBP} have been shown to cause familial ALS \citep{Sreedharan2008-xv}.  Mutations cluster in the low-complexity domain (\citealt{Kapeli2017}; Fig. \ref{fig:intro_domains}).
 These findings point to a key role of TDP-43 in the development of ALS/FTD. 
 There is still much debate on whether the mislocalisation of TDP-43 plays a role in neurodegeneration through a loss of normal nuclear function or a gain of cytoplasmic function.  
 A further question is the influence of rare mutations in the TDP-43 low-complexity domain and how they contribute to pathology.
@@ -358,7 +359,7 @@ FUS knockdown has also been shown to alter levels of intron retention, particula
 
 In transcription, FUS interacts with RNA polymerase II, which could modulate transcription elongation speed \citep{Schwartz2012}.
 FUS interacts with both the major spliceosome via the U1 snRNP \citep{Sun2015a, Yu2015a} and the minor spliceosome through binding to  the U11 snRNP \citep{Reber2016}, both of which define the 5\'\ splice site at major or minor introns.
-Within splicing factor networks FUS also interacts with TDP-43, MATRIN3, hnRNP A1, PTBP1 and other SR splicing factors \citep{Lagier-Tourenne2012,Yamaguchi2016,Yang1998,Meissner2003, Kamelgarn2016}. 
+Within splicing factor networks FUS also interacts with TDP-43, MATRN3, hnRNP A1, PTBP1 and other SR splicing factors \citep{Lagier-Tourenne2012,Yamaguchi2016,Yang1998,Meissner2003, Kamelgarn2016}. 
 Some of these interactions are RNA-dependent \citep{Kamelgarn2016}.
 The role of FUS in splicing is therefore highly complex and nuanced.
 
@@ -368,19 +369,19 @@ FUS is also present in cytoplasmic SMN complexes which create the spliceosomal s
 % Stress granules
 As with TDP-43, FUS aggregation has been linked to stress granule formation.
 FUS itself is recruited into stress granules \citep{Andersson2008,Yasuda2013}. 
-NLS mutations increase cytoplasmic FUS and increase FUS stress granule recruitment \citep{Dormann2010, Bosco2010}.
-This requires RNA-binding activity of FUS to occur \citep{Daigle2013}	.
+Rare mutations in FUS increase cytoplasmic FUS and increase stress granule recruitment \citep{Dormann2010, Bosco2010}.
+This requires RNA-binding activity of FUS to occur \citep{Daigle2013}.
 FUS aggregates found in ALS/FTD patients also contain stress granule proteins \citep{Dormann2010} suggesting a link between stress granule formation and disease.
 Like TDP-43, FUS can control its own translation by autoregulation.
-This is thought to occur by FUS binding creating an NMD-sensitive exon skipping isoform \citep{Zhou2013}.
+This is thought to occur by FUS binding nearby one its exons, creating an NMD-sensitive exon skipping isoform \citep{Zhou2013}.
 
 
 
 \subsubsection{Roles in disease}
 
-Although causative ALS mutations have been found throughout the FUS protein, mutations associated with the lowest age of onset and shortest disease course are clustered in the proline-tyrosine) nuclear localisation signal (NLS). 
+Although causative ALS mutations have been found throughout the FUS protein, mutations associated with the lowest age of onset and shortest disease course are clustered in the proline-tyrosine nuclear localisation signal (NLS). 
 Nuclear import of FUS is controlled by the nuclear import receptor protein transportin binding to the NLS \citep{Dormann2010}.
-The most aggressive FUS mutations either mutate the key proline residue in the terminal PY motif (P252L; \citep{Chio2009}) or remove the NLS entirely through a frameshift (G466VfsX14; \citep{DeJesus-Hernandez2010}) or a stop codon (R495X; \citep{Bosco2010}). 
+The most aggressive FUS mutations either mutate the key proline residue in the terminal PY motif (P252L; \citealt{Chio2009}) or remove the NLS entirely through a frameshift (G466VfsX14; \citealt{DeJesus-Hernandez2010}) or a stop codon (R495X; \citealt{Bosco2010}). 
 Patients with these NLS ablating mutations tend to die in their early 20s whereas patients with NLS mutations further from the PY sequence have disease onsets resembling sporadic ALS \citep{Shang2016}.
 The fact that NLS removal causes such an aggressive form of the disease suggests that mislocalisation of FUS in the cytoplasm is the key pathogenic event. However, whether this is due to a loss of nuclear FUS or toxic gain of function from the increased cytoplasmic FUS is still unclear.
 Like TDP-43, FUS protein can spontaneously aggregate \textit{in vitro} through its low complexity domain \citep{Murray2017}. 
@@ -388,7 +389,7 @@ NLS mutations do not alter the propensity of FUS to self-aggregate \citep{Sun201
 Instead NLS mutations mislocalise FUS to the cytoplasm, which may encourage aggregation. The interaction between transportin and the FUS NLS has recently been recognised to promote the dissolution of FUS aggregates \citep{Guo2018, Yoshizawa2018}. 
 Reduced nuclear FUS would also impair autoregulation, increasing translation of FUS protein. This would then increase cytoplasmic FUS.
 % animal models
-In the mouse, complete knockout of endogenous FUS is lethal in an inbred C57BL/6 J background  \citep{Hicks2000, Kuroda2000} but survive until adulthood on a mixed background with no apparent motor deficits at 90 weeks of ages \citep{Kino2015}.
+In the mouse, complete knockout of endogenous FUS is lethal in an inbred C57BL/6 J background  \citep{Hicks2000, Kuroda2000} but survive until adulthood on a mixed background with no apparent motor deficits at 90 weeks of age \citep{Kino2015}.
 % overexpression
 Overexpression studies have found a dosage dependence for the expression of human FUS to cause disease symptoms \citep{Verbeeck2012,Mitchell2013, Shiihashi2016}, with neurodegeneration and death only seen when human mutant FUS was highly expressed.
 Overexpression of NLS mutant FUS does not appear to alter the splicing of FUS RNA targets \citep{Shiihashi2016}, despite mutant FUS interacting with the endogenous wildtype FUS \citep{Qiu2014}.

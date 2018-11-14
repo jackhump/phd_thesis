@@ -54,10 +54,10 @@ For this study, three datasets of FUS knockout and FUS nuclear localisation sign
 
 \subsubsection{Bozzoni}
 Capauto and colleagues from the Bozzoni group generated RNA-seq data from purified motor neurons cultured from mouse induced pluripotent stem cells \citep{Capauto2018}. 
-Their knockout uses a gene trap in \textit{Fus} intron 12 first used by Hicks et al \citeyear{Hicks2000}.
+Their knockout uses a gene trap in \textit{Fus} intron 12 first used by Hicks et al (2000).
 This construct leads to a partial reduction of FUS protein levels.
 Their NLS mutation is the P525L point mutation \citep{Chio2009}, which in mice corresponds to P517L.  
-All mice are homozygous for their transgenes. 
+All cells are homozygous for their mutations. 
 The two conditions share a single set of controls, which are motoneurons derived from wildtype stem cells.
 The read depth and length for all the Bozzoni samples is high  and but the sample number is n=3 for each condition, the lowest of the three datasets.
 %The sequencing libraries are total RNA rather than polyA enriched which may impact the between-sample variance and make splicing events harder to interpret.
@@ -70,7 +70,7 @@ Scekic-Zahirovic and colleages from the Dupuis group generated RNA-seq data from
 Their knockout construct uses a gene trap in \textit{Fus} intron 1 (generated in-house) which leads to complete FUS loss.  
 Their NLS mutation introduces a stop codon after exon 14, terminating transcription upstream of the NLS sequence ($\Delta$NLS).  
 This mimics the R495X mutation which removes the entire NLS sequence \citep{Bosco2010}.
-All mice are homozygous for their transgenes. 
+All mice are homozygous for their genetic modifications. 
 The two conditions have their own separate wildtype littermate controls. 
 The depth and read length of the RNA-seq libraries is lower than the other two datasets but this is compensated for by being polyA+ enriched, which will mean a greater proportion of sequencing reads aligning to coding exons.  
 %This will be useful for assessing differential expression but I predict the dataset will not be particularly useful for differential splicing due to the low read depth and read length.
@@ -84,7 +84,8 @@ The third dataset was created for this study by the Fratta group from mouse embr
 The NLS mutation is the $\Delta$14 mutation discussed in the previous chapter. A splice acceptor site mutation in exon 14 site prevents exon inclusion, leading to a downstream frameshift and removal of the NLS. 
 This mutation corresponds to the human G466VfsX14 mutation \citep{DeJesus-Hernandez2010}.
 Each condition, $\Delta$14 and knockout have their own wildtype littermate samples as controls. 
-For both conditions, heterozygous mice with only one mutant allele were also generated and sequenced.
+For both conditions, both heterozygous and homozygous mice generated and sequenced. 
+Heterozygous mice were not used in the joint modelling.
 The RNA-seq data produced has the longest reads at 2 x 150bp as well as high sequencing depth.
 This provides sufficient resolution to quantify differential splicing.\newline
 
@@ -166,8 +167,9 @@ This joint modelling approach boosts statistical power and allows me to demonstr
 	\label{tab:fus_datasets}
 \end{longtable}
 
+This describes the Fratta dataset. The other two datasets are already published.
 All mice used were sacrificed at embryonic day 18.5.
-Mice carrying one or two copies of each the FUS knockout transgene from \citep{Scekic-zahirovic2016} or the FUS $\Delta14$ genotype from \citep{Devoy2017} were compared to their wildtype littermates.
+Mice carrying one or two copies of either the FUS knockout transgene from \citep{Scekic-zahirovic2016} or the FUS $\Delta14$ genotype from \citep{Devoy2017} were compared to their wildtype littermates.
 Total RNA was extracted from mouse spinal cord. cDNA libraries were created using a TruSeq stranded total RNA RiboZero protocol (Illumina). 
 Libraries were sequenced on an Illumina HiSeq to generate paired end 150bp reads. 
 
@@ -272,7 +274,7 @@ FUS iCLIP data from mouse brain \citep{Rogelj2012} was reprocessed by the iCOUNT
 I downloaded the set of FUS iCLIP clusters that passed enrichment against background at FDR < 0.05. 
 Only iCLIP clusters with a minimum of two supporting reads were used. 
 Untranslated region (UTR) and coding exon (CDS) annotation were taken from GENCODE mouse (comprehensive; mouse v12). Any intron-retention, nonsense mediated decay or "cds end nf" transcripts were removed. 
-UTR coordinates were split into 5\' and 3\' UTR based on whether they overlapped an annotated polyadenylation site or signal (GENCODE mouse v18 poladenylation annotation). 
+UTR coordinates were split into 5\'\ and 3\'\ UTR based on whether they overlapped an annotated polyadenylation site or signal (GENCODE mouse v18 poladenylation annotation). 
 3\'\ UTRs were extended by 5kb downstream to capture any unannotated sequence.
 Introns were defined as any gaps in the transcript model between CDS and UTR coordinates.
 Promoter-antisense coordinates were taken by flanking the 5\'UTR sequence by 5kb upstream and inverting the strand.
@@ -512,7 +514,7 @@ Knockout specific genes were involved in extracellular membrane functions, ion c
 \subsection{ Overlapping genes are bound by FUS in introns and 3\'\ UTRs}
 
 Individual nucleotide resolution crosslinking and immunopreciation (iCLIP) is an experimental technique for identifying the RNA targets of RNA-binding proteins. 
-Using iCLIP and other RNA-protein interaction techniques, FUS has been shown to preferentially bind within introns and 3\' untranslated regions (3\'\ UTRs) rather than exons. \citep{Lagier-Tourenne2012-wa, Rogelj2012, Ishigaki2012, Masuda2015, Kapeli2016}. 
+Using iCLIP and other RNA-protein interaction techniques, FUS has been shown to preferentially bind within introns and 3\'\ untranslated regions (3\'\ UTRs) rather than exons. \citep{Lagier-Tourenne2012-wa, Rogelj2012, Ishigaki2012, Masuda2015, Kapeli2016}. 
 FUS binding at the 3\'\ UTR has been shown to influence polyadenylation of certain genes \citep{Masuda2015} but may also have a role in directing mRNA localisation or competing with microRNAs, which in animals predominantly bind 3\'\ UTR sequences to trigger degradation \citep{Lee1993,Carthew2009}.
 A small number of genes have been reported to have FUS binding  sites upstream and antisense of the promoter, which correlated with upregulation of the gene upon FUS knockdown \citep{Ishigaki2012}.
 I used the coordinates of FUS binding sites enriched relative to a background control in a published FUS iCLIP dataset from embryonic day 18 mouse brain \citep{Rogelj2012} to investigate a relationship between specific FUS binding and the direction of gene expression in the different gene sets.
@@ -574,7 +576,7 @@ The single event that did appear to be real was an intron retention event in \te
 
 % types of splicing event - how many are annotated?
 Comparing the different types of splicing event shows a similar distribution between knockout-specific and overlapping splicing events, both of which are dominated by complex splicing events.
-These events are combinations of multiple types, such as a cassette exon accompanied by a retained intron and multiple alternative 3\' and 5\' splice sites, all within the same locus. 
+These events are combinations of multiple types, such as a cassette exon accompanied by a retained intron and multiple alternative 3\'\ and 5\'\ splice sites, all within the same locus. 
 When using tools like SGSeq that can pick up novel splicing events it can be expected that the majority of events are indeed complex. This has been seen with other splicing tools \citep{Vaquero-Garcia2016}.
 An example of a complex event is in \textit{Ybx1}, which comprises a cassette exon within a retained intron  (Fig. \ref{fig:fus_splicing_multi}D).
 The second largest category of event are retained introns.
@@ -583,9 +585,9 @@ The third largest category are the cassette exons, which can either be skipped o
 An example is an annotated cassette exon in the neuronal gene \textit{Nrxn3}, which is included more in FUS knockout and NLS mutation when compared to wildtype (Fig. \ref{fig:fus_splicing_multi}F).
 RNA-seq traces of all events mentioned above are in the appendices.
 % expand on this or not?
-Alternate 5\' and 3\' splice sites can be found in all three sets of genes, with alternate 5\' sites appearing at twice the rate of alternate 3\' splice sites. 
+Alternate 5\'\ and 3\'\ splice sites can be found in all three sets of genes, with alternate 5\'\ sites appearing at twice the rate of alternate 3\'\ splice sites. 
 This discrepancy could be explained by the interaction of FUS with the U1 snRNP \citep{Yu2015a,Yu2015b}.
-Knockdown or NLS mutation of FUS could lead to impaired U1 snRNP binding and hence disrupted 5\' splice site recognition.
+Knockdown or NLS mutation of FUS could lead to impaired U1 snRNP binding and hence disrupted 5\'\ splice site recognition.
 
 
 \begin{figure}[t]
@@ -772,22 +774,23 @@ I did not observe a convincing set of mutation-specific splicing changes which i
 The overlap between knockdown and expression has been seen in cells where overexpression of NLS mutant FUS cannot rescue splicing changes in FUS knockdown cells \citep{Sun2015a}.
 Due to the multiplicity of FUS interactions between multiple splicing factors, disturbance of any or all of these factors could be confounding the splicing changes. 
 For example, the splicing profiles of FUS NLS mutations overlap those from knockdowns of known interactor SMN \citep{Mirra2017}.
-I observed approximately double the number of 5\' splice site changes than 3\' splice site changes. 
-This could be due to the shorter length of the consensus 5\' splice site sequence compared to the 3\' making cryptic splice sites more likely by chance, but it may hint at a consequence of the interaction between FUS and the U1 snRNP.
+I observed approximately double the number of 5\'\ splice site changes than 3\'\ splice site changes. 
+This could be due to the shorter length of the consensus 5\'\ splice site sequence compared to the 3\'\ making cryptic splice sites more likely by chance, but it may hint at a consequence of the interaction between FUS and the U1 snRNP.
 Although the interaction between FUS and the U1 snRNP has been well studied \citep{Nakaya2013,Yu2015a,Yu2015b}, my analysis has uncovered a large array of splicing events to study the role of FUS in splicing.
 
 The dominance of retained introns and complex events (where multiple splice sites are altered simultaneously) points to a more nuanced picture of splicing changes than has previously been investigated in RNA-binding protein biology.
 I concede however that the large number of complex events seen in the joint splicing models is probably a result of the juction-centric method I used, as well as analysing all the data jointly. 
 An isoform-centric approach where reads are assigned to specific transcripts \citep{Trapnell2010,Bray2016} perhaps would more sensitively tease out the different changes that are happening in complex introns.
 
-% SPLICING AND TRANSCRIPTION - REWRITE
 
 Nevertheless, complex events as well as intron retention events are enriched in FUS iCLIP binding and are more likely to affect splicing factors than the cassette exons I observed. 
 This suggests a more subtle role for FUS in splicing than simply altering alternate cassette exons which have been the focus on previous studies on FUS and splicing \citep{Rogelj2012,Lagier-Tourenne2012,Ishigaki2012,Honda2014,Scekic-zahirovic2016}.
+Interestingly, widespread intron retention among splicing factor genes has been seen in human motor neurons derived from induced pluripotent stem cells containing mutations in the ALS gene VCP \citep{Luisier2018}.
+This study measured splicing over several developmental time points and found a developmental delay in splicing.
 FUS can bind the C-terminus of RNA polymerase II \citep{Schwartz2012} and a study on the role of FUS in alternate polyadenylation suggested that FUS binding to pre-mRNA can stall RNA polymerase II \citep{Masuda2015}. 
 Transcriptional speed is known to affect splicing as pausing transcription can allow more time for splicing factors to bind weaker affinity sequences \citep{Kornblihtt2004a}. 
-Splicing events altered when transcriptional elongation is reduced are enriched for RNA binding genes \citep{Ip2011}. 
-This suggests that the intron retention events seen in FUS knockout and mutation, including \textit{Fus} itself may arise from FUS stalling RNA polymerase II.
+Splicing factor genes themselves are particular vulnerable to changes in transcription speed \citep{Ip2011}.
+This suggests that the splicing factor intron retention events seen in FUS knockout and mutation, including \textit{Fus} itself, may arise from FUS interacting with transcription rather than binding and repressing particular splice sites.
 
 The high sequence conservation seen in retained introns suggests a regulatory role for these splicing events, despite the unexpectedly low overlap between splicing changes and differentially expressed genes.
 One example of this is the U1 splicing factor \textit{Snrnp70}, whose highly conserved intron retention transcript has previously been shown to increase in FUS knockdown, which should lead to increased degradation of \textit{Snrnp70} mRNA through nonsense-mediated decay \citep{Nakaya2013}. 
