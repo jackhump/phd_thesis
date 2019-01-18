@@ -104,6 +104,13 @@ This joint modelling approach boosts statistical power and allows me to demonstr
 
 \subsection{RNA sequencing}
 
+This describes the Fratta dataset. The other two datasets are already published.
+All mice used were sacrificed at embryonic day 18.5.
+Mice carrying one or two copies of either the FUS knockout transgene from \citep{Scekic-zahirovic2016} or the FUS $\Delta14$ genotype from \citep{Devoy2017} were compared to their wildtype littermates.
+Total RNA was extracted from mouse spinal cord. cDNA libraries were created using a TruSeq stranded total RNA RiboZero protocol (Illumina). 
+Libraries were sequenced on an Illumina HiSeq to generate paired end 150bp reads. 
+
+
 
 \begin{longtable}[t]{@{}llllll@{}}
 	\begin{minipage}[t]{0.14\columnwidth}\raggedright\strut
@@ -166,12 +173,6 @@ This joint modelling approach boosts statistical power and allows me to demonstr
 	\caption[The three FUS mouse datasets]{\textbf{The three FUS mouse datasets}}
 	\label{tab:fus_datasets}
 \end{longtable}
-
-This describes the Fratta dataset. The other two datasets are already published.
-All mice used were sacrificed at embryonic day 18.5.
-Mice carrying one or two copies of either the FUS knockout transgene from \citep{Scekic-zahirovic2016} or the FUS $\Delta14$ genotype from \citep{Devoy2017} were compared to their wildtype littermates.
-Total RNA was extracted from mouse spinal cord. cDNA libraries were created using a TruSeq stranded total RNA RiboZero protocol (Illumina). 
-Libraries were sequenced on an Illumina HiSeq to generate paired end 150bp reads. 
 
 
 % SEQUENCING STATS
@@ -360,32 +361,6 @@ As most RNA-sequencing datasets comprise small numbers of samples, the number of
 When I analyse each dataset individually, comparing knockout and NLS mutation to their respective controls in each dataset, the Dupuis dataset had the largest number of differentially expressed genes in both conditions (FDR < 0.05), an order of magnitude more than Bozzoni or Fratta (Table \ref{tab:expression_results}). 
 Despite the differences in numbers, in all three datasets the knockout condition produces more differentially expressed genes than NLS mutation, suggesting a larger effect on FUS function.
 
-% TABLE OF GENE EXPRESSION NUMBERS
-\begingroup
-\renewcommand{\arraystretch}{1.5}
-\begin{table}[h!]
-	%\begin{centerline}
-	\begin{tabular}{|r|ccc|ccc|}
-		\hline
-		& Bozzoni & Dupuis & Fratta & Bozzoni & Dupuis & Fratta\\[-0.3cm]
-		& MUT & MUT & MUT & KO & KO & KO\\
-		\hline
-		Individual hits                & 19 & 1552 & 88 & 100 & 2916 & 151 \\
-		Overlapping joint model & 5 & 368 & 57 & 51 & 1007 & 114 \\
-		Unique to dataset          & 14 & 1184 & 31 & 49 & 1909 & 37 \\
-		\hline
-		\textbf{Joint model}       & \multicolumn{3}{c|}{754} & \multicolumn{3}{c|}{2136} \\
-		\hline
-		Overlap (strict)              & \multicolumn{2}{c}{329} & \multicolumn{2}{|c|}{\textbf{425}} & \multicolumn{2}{c|}{1711} \\
-		Overlap (relaxed)           & \multicolumn{2}{c}{186} & \multicolumn{2}{|c|}{\textbf{1318} } & \multicolumn{2}{c|}{961} \\
-		\hline
-	\end{tabular}
-	%\end{centerline}
-	\caption[Results from separate and joint differential expression analysis]{\textbf{Results from separate and joint differential expression analysis}}
-	\label{tab:expression_results}
-\end{table}
-\endgroup
-
 
 % Combining datasets in a joint model increases power, shrinks effect sizes
 I then combined the three datasets together in a joint analysis for the knockout and NLS mutation samples and their respective controls. 
@@ -441,6 +416,32 @@ I next used  a relaxed overlap criteria where a gene overlaps if it reaches FDR 
 This increased the overlap to 1318 genes, reducing the specific genes to 186 in the MUT model, and 961 in KO.
 The majority of genes are now shared between the two models. 
 
+% correction - put table here
+% TABLE OF GENE EXPRESSION NUMBERS
+\begingroup
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[h!]
+	%\begin{centerline}
+	\begin{tabular}{|r|ccc|ccc|}
+		\hline
+		& Bozzoni & Dupuis & Fratta & Bozzoni & Dupuis & Fratta\\[-0.3cm]
+		& MUT & MUT & MUT & KO & KO & KO\\
+		\hline
+		Individual hits                & 19 & 1552 & 88 & 100 & 2916 & 151 \\
+		Overlapping joint model & 5 & 368 & 57 & 51 & 1007 & 114 \\
+		Unique to dataset          & 14 & 1184 & 31 & 49 & 1909 & 37 \\
+		\hline
+		\textbf{Joint model}       & \multicolumn{3}{c|}{754} & \multicolumn{3}{c|}{2136} \\
+		\hline
+		Overlap (strict)              & \multicolumn{2}{c}{329} & \multicolumn{2}{|c|}{\textbf{425}} & \multicolumn{2}{c|}{1711} \\
+		Overlap (relaxed)           & \multicolumn{2}{c}{186} & \multicolumn{2}{|c|}{\textbf{1318} } & \multicolumn{2}{c|}{961} \\
+		\hline
+	\end{tabular}
+	%\end{centerline}
+	\caption[Results from separate and joint differential expression analysis]{\textbf{Results from separate and joint differential expression analysis}}
+	\label{tab:expression_results}
+\end{table}
+\endgroup
 
 % comparing directions in the overlapping genes
 Comparing the log$_2$ fold changes found for the 1318 overlapping genes between FUS KO and FUS MUT showed that only 7 genes are altered in opposing directions (Fig. \ref{fig:fus_expression_multipanel}B) .
@@ -514,7 +515,7 @@ Knockout specific genes were involved in extracellular membrane functions, ion c
 \subsection{ Overlapping genes are bound by FUS in introns and 3\'\ UTRs}
 
 Individual nucleotide resolution crosslinking and immunopreciation (iCLIP) is an experimental technique for identifying the RNA targets of RNA-binding proteins. 
-Using iCLIP and other RNA-protein interaction techniques, FUS has been shown to preferentially bind within introns and 3\'\ untranslated regions (3\'\ UTRs) rather than exons. \citep{Lagier-Tourenne2012-wa, Rogelj2012, Ishigaki2012, Masuda2015, Kapeli2016}. 
+Using iCLIP and other RNA-protein interaction techniques, FUS has been shown to preferentially bind within introns and 3\'\ untranslated regions (3\'\ UTRs) rather than exons. \citep{Lagier-Tourenne2012, Rogelj2012, Ishigaki2012, Masuda2015, Kapeli2016}. 
 FUS binding at the 3\'\ UTR has been shown to influence polyadenylation of certain genes \citep{Masuda2015} but may also have a role in directing mRNA localisation or competing with microRNAs, which in animals predominantly bind 3\'\ UTR sequences to trigger degradation \citep{Lee1993,Carthew2009}.
 A small number of genes have been reported to have FUS binding  sites upstream and antisense of the promoter, which correlated with upregulation of the gene upon FUS knockdown \citep{Ishigaki2012}.
 I used the coordinates of FUS binding sites enriched relative to a background control in a published FUS iCLIP dataset from embryonic day 18 mouse brain \citep{Rogelj2012} to investigate a relationship between specific FUS binding and the direction of gene expression in the different gene sets.
@@ -683,7 +684,7 @@ The joint splicing analyses found 5 intron retention events in FUS itself.
 3 of these are knockout-specific and probably result from increased intronic reads in the partial Bozzoni knockout samples. 
 However, The 2 remaining introns (introns 6 and 7) were also found in the FUS NLS mutants.
 These introns overlap with a large number of FUS iCLIP binding peaks and could be the site of regulation of the \textit{Fus} transcript by the FUS protein.
-Many RNA-binding proteins have the ability to bind their own RNA to control the level of their own translation, a phenomenon known as autoregulation \citep{Rosenfeld2002,Jangi2014a}.
+Many RNA-binding proteins have the ability to bind their own RNA to control the level of their own expression, a phenomenon known as autoregulation \citep{Rosenfeld2002,Jangi2014a}.
 When protein levels are high, protein-RNA binding shifts splicing towards the production of an non-coding isoform.
 This is commonly through exposing transcripts to nonsense-mediated decay (NMD) \citep{McGlincy2008-wh}, by including an exon containing a premature stop codon as in HNRNP L and NOVA \citep{Rossbach2009,Dredge2005}, skipping a frame-preserving exon as in PTBP1 \citep{Wollerton2004}, or splicing within the 3\'\ UTR as in TDP-43 \citep{Ayala2011}. 
 
@@ -826,7 +827,7 @@ It is unclear whether toxicity can be attributed to the 186 mutation-specific ge
 
 The discovery of a novel mechanism for FUS autoregulation is valuable for understanding the role of FUS in disease.
 Autoregulation acts to maintain protein homeostasis but FUS NLS mutations interfere with this.
-When FUS nuclear import is abolished by mutations, there is no way for FUS protein to regulate  its own translation, leading to ever-more cytoplasmic FUS.
+When FUS nuclear import is abolished by mutations, there is no way for FUS protein to regulate  its own expression, leading to ever-more cytoplasmic FUS.
 High concentrations of cytoplasmic FUS increase the likelihood for aggregation which NLS mutant FUS is more prone to do \citep{Bosco2010}. 
 This increased propensity may be due to the recent finding that NLS acts to solubilise FUS aggregates through binding to Transportin \citep{Guo2018,Yoshizawa2018,Hofweber2018}.
 In FUS ALS, patients only have a single copy of NLS mutant FUS. 

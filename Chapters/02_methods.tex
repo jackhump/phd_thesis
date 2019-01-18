@@ -235,18 +235,22 @@ The topology of the graph then determines the type of splicing event.
 These events may be cassette exons, alternate splice sites, intron retention, mutually exclusive exons or alternate starts and ends. 
 This classification greatly aids downstream interpretation as different categories of event may be regulated by different mechanisms.
  Each event is then tested for differences in inclusion/exclusion across conditions. 
- This approach has been implemented in the \textit{SGSeq}, \textit{SUPPA}, \textit{rMATs}, \textit{JUM}, \textit{MAJIQ} and \textit{Whippet} packages \citep{Goldstein2016,Alamancos2015,Vaquero-Garcia2016,Wang2018a,Shen2014, Sterne-Weiler2018a}. 
+ This approach has been implemented in the \textit{SGSeq}, \textit{SUPPA2}, \textit{rMATs}, \textit{JUM}, \textit{MAJIQ} and \textit{Whippet} packages \citep{Goldstein2016,Trincado2018,Vaquero-Garcia2016,Wang2018a,Shen2014, Sterne-Weiler2018a}. 
 SGSeq has the unique ability to find novel events not present in annotation. 
 It discovers and classifies events and then provides counts reads supporting inclusion and exclusion of each event.
 These counts are then fed into the \textit{DEXSeq} framework and a general linear model fitted to test the effect of condition. % do the others? don't think so. 
 \textit{Whippet} combines features of the pseudoaligners with the local event quantifiers. 
 It first builds an index of splicing events from transcript annotation and then aligns reads to the index straight from the FASTQ file. 
 This approach cannot detect novel splicing junctions but can discover novel arrangements of known exons.
-All these packages, while providing a clear output of different splicing events, struggle to determine splicing events such as tandem 3\'\ UTR changes which can only be differentiated by read coverage and not splice junctions.
-There has been no comprehensive comparison of all these methods to assess which performs best on simulated data.
+%All these packages, while providing a clear output of different splicing events, struggle to determine splicing events such as tandem 3\'\ UTR changes which can only be differentiated by read coverage and not splice junctions.
+“All these packages, while providing a clear output of different splicing events, cannot detect other mRNA processing events that only be distinguished by read coverage and not junctions, such as the alternate polyadenylation between two tandem 3\'\ UTRs.  
+% cite comparison papers
+%There has been no comprehensive comparison of all these methods to assess which performs best on simulated data.
+Each of the local splicing quantifiers analyse splicing with different biological and statistical assumptions so it is difficult to directly compare the software on a set of simulated events. 
+Attempts at comparisons have been driven by software authors themselves to demonstrate superiority of one tool over another but have shown that the tools largely agree with each other on the majority of events \citep{Trincado2018, Vaquero-Garcia2018}. 
 
 \subsection{Annotation-free quantifiers}
-The fourth and final class of algorithm don't depend on any transcript annotation at all. The \textit{derFinder} package \citep{Collado-Torres2017} assesses changes in read coverage between samples, which is particularly useful in looking for novel non-coding RNA species or in the aforementioned tandem 3\'\ UTR problem. The \textit{LeafCutter} package \citep{Li2016} looks for differentially used splice junctions independently of annotation and has shown that across a set of tissues around 30\% of the high confidence splice junctions recovered are novel to any annotation database. 
+The fourth and final class of algorithm don't depend on any transcript annotation at all. The \textit{derFinder} package \citep{Collado-Torres2017} assesses changes in read coverage between samples, which is particularly useful in looking for novel non-coding RNA species or in the aforementioned tandem 3\'\ UTR problem. The \textit{LeafCutter} package \citep{Li2018} looks for differentially used splice junctions independently of annotation and has shown that across a set of tissues around 30\% of the high confidence splice junctions recovered are novel to any annotation database. 
 
 % Which tools used in which chapters
 
@@ -259,7 +263,7 @@ Since that project was published there has been a movement in the field towards 
 This is now less of a problem as read lengths of 100bp and greater are now routine.
 
 For the work on TDP-43 mutant mice described in \autoref{chapter:tdp_mice}, I used different splicing methods to match the quality of the data, which was generated over 5 years with different generations of library preparation and sequencing technology. For the oldest data, generated from mouse embryonic fibroblasts and head samples with low read depth and short length, I used the \textit{DEXSeq} package to estimate differential exon usage and \textit{CryptEx} to find novel exons (not included in chapter).
-With the newer data from mouse embryonic spinal cord, sequenced with longer paired-end reads and at higher depth, I wanted to local splicing event quantified to take advantage of the high proportion of splice junction spanning reads. 
+With the newer data from mouse embryonic spinal cord, sequenced with longer paired-end reads and at higher depth, I wanted to use a local splicing event quantifier to take advantage of the high proportion of splice junction spanning reads. 
 I chose the \textit{SGSeq} package as it could quantify splicing events from BAM files and used a graph database approach to find novel splicing events as well as classify annotated splicing events. This provided a much richer dataset to work with than the previous \textit{DEXSeq} method.
 For my work on combining FUS datasets from multiple groups I again used \textit{SGSeq} for splicing analysis as it uses \textit{DEXSeq} for statistical testing of splicing event usage between conditions. The general linear model framework provided by \textit{DEXSeq} allowed me to add dataset-specific covariates and analyse all samples jointly.
 
@@ -283,7 +287,8 @@ Downstream of differential expression and splicing analysis, I have used other s
 
 \subsection{RNA-protein interaction data}
 
-RNA-binding proteins like TDP-43 and FUS bind to specific RNA sequence motifs in sets of target transcripts.
+%RNA-binding proteins like TDP-43 and FUS bind to specific RNA sequence motifs in sets of target transcripts.
+RNA-binding proteins bind to RNA sequence or structural motifs in sets of target transcripts.
 This binding influences the expression and splicing of these transcripts.
 These binding preferences and targets can be observed experimentally using UV crosslinking and immunoprecipitation, or CLIP. 
 This uses a specific wavelength of ultraviolet light to form crosslinks, covalent bonds between amino acids and nucleotides in close proximity \citep{Ule2003}. 
@@ -292,7 +297,8 @@ The overhanging RNA and protein is then digested, leaving only a small polypepti
 The RNA is then reverse-transcribed and sequenced.
 With the advent of next-generation sequencing, this was taken transcriptome-wide with the development of high-throughput CLIP (HITS-CLIP) \citep{Licatalosi2008}.
 However, CLIP does not provide precise information on which nucleotides in the fragment are bound, as the method depends on the reverse transcriptase reading past the crosslink nucleotide.
-As the reverse transcriptase more often than not stalls at the crosslinking position, this can be exploited.
+% correction - frequently
+As the reverse transcriptase frequently stalls at the crosslinking position, this can be exploited.
 By capturing these truncated cDNAs, the position of the UV crosslink can be determined from the nucleotide directly upstream of where the cDNA aligns to the genome.
 This technique, individual nucleotide CLIP or iCLIP, allows for the precise binding sites of a protein to be discovered \citep{Konig2010,Huppertz2014-ip}.
 Once the libraries are sequenced and the reads aligned to the genome, unique cDNAs are found by removing duplicate reads and then counted. 
@@ -316,7 +322,8 @@ As well as constructing RNA maps, I have used iCLIP and eCLIP data to look at CL
 
 CLIP-based methods do not provide an absolute measure of binding affinity between a protein and its target RNAs. 
 The number of unique overlapping cDNA reads at a position is a combination of the binding affinity at that position and the underlying expression of the target.
-It is not possible therefore to distinguish high affinity binding from low affinity binding. 
+%It is not possible therefore to distinguish high affinity binding from low affinity binding. 
+It remains challenging to distinguish high affinity from low affinity binding without the use of indirect methods, such as using RNA-seq to estimate the underlying expression of each target.
 Direct comparisons of cDNA counts between CLIP profiles of the same protein under different conditions are therefore difficult to make.
 In addition, data can only be generated from sites that are both expressed in the cell type tested and can be aligned to the genome. 
 The latter precludes the use of CLIP methods on understanding binding to repetitive regions within specific genes \citep{Chakrabarti2018}.

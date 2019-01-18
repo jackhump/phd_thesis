@@ -158,7 +158,7 @@ Due to their positions within the protein, the two mutations will be henceforth 
 We derived mice from mutant sperm and backcrossed for 10 generations onto a mixed C57BL/6J - DBA/2J background to remove unwanted background mutations.
 RRM2mut is embryonic lethal in the homozygous state but not in heterozygosity, whereas homozygous LCDmut mice are viable and live normal lifespans. 
 The two mutant lines were crossed together to create compound heterozygotes.
-The RRM2mut/LCDmut mice were viable, suggesting the two mutations complement each other.
+The RRM2mut/LCDmut mice were viable, suggesting the two mutations complement each other. As TDP-43 is known to form oligomers \citep{Afroz2017} this may be a case of the two mutant proteins balancing each other when forming heterodimers.
 Close observation of aged LCDmut revealed gradual muscle weakness and a reduction in motor neuron numbers in the spinal cord (data not shown), suggesting that the patient-like M323K mutation indeed causes symptoms of neurodegeneration reminiscent of ALS. 
 Due to the extreme differences in phenotype, particularly the neurodegeneration seen in LCDmut adults, I was curious to explore the effect of the mutations on RNA splicing.
 
@@ -180,6 +180,7 @@ Reverse-Transcriptase Polymerase Chain Reaction (RT-PCR) was performed to amplif
 Analysis of the gel electrophoresis traces shows two primary bands: a larger band corresponding to exon 9 inclusion and a smaller band corresponding to exon 9 skipping. 
 RRM2mut has a clear dose-dependent increase in exon 9 inclusion compared to skipping and thus resembles a loss of TDP-43 splicing function (Fig.  \ref{fig:CFTR}). 
 Conversely, LCDmut has a dose-dependent increase in exon 9 skipping.
+This occured despite no differences in protein levels of the two mutant proteins from wildtype TDP-43 being detected by western blotting (Fig. \ref{fig:autoregulation}).
 This suggests that the pro-skipping action of TDP-43 is increased at the CFTR locus and the LCDmut mutation causes a gain of splicing function.
 
 %% INSERT TDP MEF SCATTERS
@@ -221,8 +222,8 @@ Plotting the direction and \textit{P}-value of all cassette exons found in the t
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=14cm]{Figures/05_tdp_mice/RNAmap_cassettes.png}
-	\caption[RNA maps visualise positional enrichment of iCLIP and sequence motifs]{
-		\textbf{RNA maps visualise positional enrichment of iCLIP and sequence motifs within cassette exon splicing loci.}
+	\caption[RNA maps visualise positional enrichment of iCLIP peaks and sequence motifs]{
+		\textbf{RNA maps visualise positional enrichment of iCLIP peaks and sequence motifs within cassette exon splicing loci.}
 	RNA maps constructed from differentially included (blue) and skipped (red) cassette exons.  
 	\textbf{(A)} TGTG motifs in RRM2mut.
 	\textbf{(B)} TDP-43 iCLIP in RRM2mut.
@@ -271,7 +272,7 @@ A hallmark of TDP-43 depletion is the widespread inclusion of non-conserved cryp
 	\includegraphics[width=12cm]{Figures/05_tdp_mice/long_genes_multi.png}
 	\caption[RRM2mut gene expression has bias for long gene downregulation]{
 		\textbf{RRM2mut gene expression has bias for long gene downregulation, mirroring TDP-43 knockdown data.}
-	\textbf{(A,B)} Mean intron length in kilobases for bins of genes ordered by signed Z-score. TDP-43 antisense olignucleotide (ASO) knockdown data taken from \cite{Polymenidou2011-hs}. \textbf{(C)} The per-nucleotide overlap of iCLIP interaction peaks for each gene is significantly increased in long intron genes downregulated in RRM2mut mice compared to wildtype. \textit{P}-values are from Mann-Whitney-Wilcoxon test.
+	\textbf{(A,B)} Mean intron length in kilobases for bins of genes ordered by signed Z-score. TDP-43 antisense olignucleotide (ASO) knockdown data taken from \cite{Polymenidou2011}. \textbf{(C)} The per-nucleotide overlap of iCLIP interaction peaks for each gene is significantly increased in long intron genes downregulated in RRM2mut mice compared to wildtype. \textit{P}-values are from Mann-Whitney-Wilcoxon test.
 }
 	\label{fig:long_genes}
 \end{figure}
@@ -384,7 +385,8 @@ I compared the distribution of predictions between skiptic exons in downregulate
 	\includegraphics[width=\textwidth]{Figures/05_tdp_mice/autoregulation.png}
 	\caption[LCDmut and TDP-43 autoregulation]{
 		\textbf{LCDmut and TDP-43 autoregulation.}
-	\textbf{(A)} The 3\'\ UTR of \textit{Tardbp}. At least six potential 3\'\ UTR isoforms have been proposed by \citep{Koyama2016}, consisting of 3 different polyadenylation (pA) sites. * indicates that this isoform is predicted to be degraded by nonsense-mediated decay. Stop codons indicated by red bars. 
+	\textbf{(A)} The 3\'\ UTR of \textit{Tardbp}. At least six potential 3\'\ UTR isoforms have been proposed by \citep{Koyama2016}, consisting of 3 different polyadenylation (pA) sites. * indicates that this isoform is predicted to be degraded by nonsense-mediated decay. Stop codons indicated by red bars. Untranslated sequence represented by thinner bars, coding sequence with thicker bars.
+	\textbf{(B)} Sashimi plots show representative RNA-seq read coverage and splice junction counts from RRM2mut and LCDmut mice with their respective controls. TDP-43 iCLIP data from \citep{Rogelj2012} is presented as individual peaks.
 	\textbf{(B)} Expression of all \textit{Tardbp} isoforms (RPKM) increases in LCDmut at two time points.  Embryonic dataset ANOVA, \textit{P}=0.0032, \textit{n}=3; adult dataset ANOVA, \textit{P}=0.0009, \textit{n}=4$-$5; error bars: SD; Bonferroni multiple comparison tests are plotted as \textit{P}-value: *\textit{P} < 0.05; **\textit{P} < 0.01; ***\textit{P} < 0.001
 	\textbf{(C)} Retention of 3\'\ UTR intron 7 increases in LCDmut. Embryonic dataset ANOVA, \textit{P}=0.0113, \textit{n}=3; adult dataset ANOVA, \textit{P} < 0.0001, \textit{n} = 4$-$5; error bars: SEM; Bonferroni multiple comparison tests are plotted as \textit{P}-value: **\textit{P} < 0.01; ***\textit{P} < 0.001.
 	\textbf{(D)} Quantification of TDP-43 protein levels in relation to $\beta$-actin in Western blots. Results are normalised to the mean of wildtype (100\%). Embryonic dataset: ANOVA \textit{P}=0.480, \textit{n}=4; adult dataset: ANOVA \textit{P}=0.491, \textit{n}=3; error bars: SD.
@@ -392,13 +394,13 @@ I compared the distribution of predictions between skiptic exons in downregulate
 	\label{fig:autoregulation}
 \end{figure}
 
-Many RNA-binding proteins have been shown to regulate their own translation, this is termed autoregulation \citep{Lareau2007,Wollerton2004}]. 
-When levels of the protein are high they will bind to their mRNA and shift production to an untranslated isoform, through nonsense-mediated decay or through nuclear retention \citep{McGlincy2008-wh,Boutz2015}.
+Many RNA-binding proteins have been shown to regulate their own expression. This is termed autoregulation \citep{Lareau2007,Wollerton2004}]. 
+When levels of the protein are high they will bind to their mRNA and shift production to an untranslated isoform, through nonsense-mediated decay \citep{Losson1979, McGlincy2008-wh} or through nuclear retention \citep{Boutz2015}.
 The 3\'\ untranslated region (3\'\ UTR) of \textit{Tardbp} is remarkably complex regulatory hub (Fig. \ref{fig:autoregulation}A). 
 There are 3 experimentally validated polyadenylation and cleavage sites, pA1, 2, and 4. 
 There also 2 introns within the 3\'\ UTR (6 and 7; \citep{Ayala2011,Koyama2016}). 
-3\'\ UTR splicing is a mechanism for regulating TDP-43 translation as an intron that follows a stop codon should trigger nonsense-mediated decay. 
-Both spliced isoforms pA$_2$* and pA$_4$* are predicted to undergo nonsense-mediated decay due to the stop codon is further than 50bp from the intron in each.
+3\'\ UTR splicing is a mechanism for regulating TDP-43 translation as an intron that follows a stop codon should trigger nonsense-mediated decay \citep{Losson1979} . 
+Both spliced isoforms pA$_2$* and pA$_4$* are predicted to undergo nonsense-mediated decay due to the stop codon is further than 50bp from the intron in each \citep{Nagy1998}.
 Additionally, the long pA4 site is preferentially retained in the nucleus where it is degraded by the exosomal complex \citep{Ayala2011}.
 Only the pA1 isoform is translated into TARDBP protein \citep{Koyama2016}.
 TDP-43 binds the 3\'\ UTR of its own mRNA overlapping the pA$_1$ site  \citep{Polymenidou2011,Tollervey2011}.
@@ -452,8 +454,10 @@ This suggests that regulation of these exons is not simply bi-directional, with 
 One hypothetical mechanism for the gain of splicing function seen in LCDmut is through an impairment of TDP-43 autoregulation which would increase TDP-43 protein levels.
 The splicing of intron 7 decreases in a dose-dependent manner with LCDmut, suggesting a reduction in the creation of NMD-sensitive 3\'\ UTR isoforms.
 It is curious that this is reflected with a clear increase of \textit{Tardbp} mRNA but not at the protein level.
+This was also seen in mice heterozygous for a TDP-43 null allele \citep{Ricketts2014}.
 This may be due reduced sensitivity of western blotting when compared to RNA-seq, or that the Western blotting was carried out on total cellular protein rather than fractionated by cellular compartment.
-Mice that are heterozygous for a TDP-43 null allele show altered autoregulation without changes in TDP-43 protein levels either \citep{Ricketts2014} so they may well be a more subtle effect on translation than it is currently possible to detect. 
+A recent paper on a similar TDP-43 LCD mutant mouse (Q331K; \cite{White2018}) observed an increase in \textit{Tardbp} mRNA levels which was accompanied by an increase in \textit{nuclear but not cytoplasmic} TDP-43 protein levels.
+Our assay (Fig. \ref{fig:autoregulation}D) looked at total TDP-43 protein levels so this may explain why no difference was seen. 
 
 The most unexpected finding in LCDmut is the discovery of skipped constitutive exons: skiptic exons. 
 Previously TDP-43 had only been studied in the context of alternate cassette exons.
@@ -470,8 +474,11 @@ Experiments to determine the protein-protein "interactome" of TDP-43 have been p
 
 Recently a study investigated a similar model of TDP-43 ALS where the ALS patient mutation Q331K was knocked in to mice \citep{White2018}. 
 They reported a similar gain of splicing function in the homozygous mice, although they looked at a small number of individual splicing events and not transcriptome-wide.
-They also observed an increase in \textit{Tardbp} mRNA levels which was accompanied by an increase in \textit{nuclear but not cytoplasmic} TDP-43 protein levels.
-The assay (Fig. \ref{fig:autoregulation}D) looked at total TDP-43 protein levels so this may explain why no difference was seen. 
+
+%They also observed an increase in \textit{Tardbp} mRNA levels which was accompanied by an increase in \textit{nuclear but not cytoplasmic} TDP-43 protein levels.
+%The assay (Fig. \ref{fig:autoregulation}D) looked at total TDP-43 protein levels so this may explain why no difference was seen. 
+
+%correction - too general
 Together the two studies convincingly show that mutating the low-complexity domain of TDP-43 leads to changes in autoregulation and gain in splicing function.
 It would be interesting to see whether the skiptic exons observed in adult LCDmut spinal cord can be detected in the now published Q331K frontal cortex.
 %Another recent study used a BAC transgenic mouse of either wildtype human TDP-43 or ALS patient mutation M337V \citep{Gordon2018}.
