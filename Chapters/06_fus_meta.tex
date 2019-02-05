@@ -281,18 +281,33 @@ Introns were defined as any gaps in the transcript model between CDS and UTR coo
 Promoter-antisense coordinates were taken by flanking the 5\'UTR sequence by 5kb upstream and inverting the strand.
 Overlaps between iCLIP clusters and genomic features were created for each set of differentially expressed genes, split into upregulated ($log_2$ fold change > 0) or downregulated ($log_2$ fold change < 0). 
 Overlaps were done in a strand-specific manner, with only iCLIP clusters in the same direction being used.
-The difference in proportions of upregulated and downregulated genes for each feature were tested with the $\chi^2$ test of equal proportions.
+
+Whether an iCLIP cluster overlaps a genomic region depends on both the affinity of the chosen protein for RNA sequence of the motif and the abundance of the RNA in the cell. 
+In addition, a longer region would be more likely to overlap an iCLIP cluster by random chance than a shorter region.
+When comparing sets of genomic regions, whether genes or splicing events, this must be taken into account. 
+See appendices for distributions of lengths and expressions between significant and non-significant genes and splicing events.
+
+To test for enrichment of FUS iCLIP clusters in upregulated and downregulated genes, each set of tested genes was compared to a set of null genes with no evidence of differential expression (P > 0.05 in both models). 
+The null set was selected for having both lengths and expression values within the first and third quartile of the test gene set.
+The expression values were calculated by taking the mean number of reads covering each gene in the Fratta wildtype samples, with each sample read count first normalised by the library size factor for each sample calculated by DESEq2.
+
+The proportion of each set of genes overlapping an iCLIP peak was compared to that of the null set with a $\chi^2$ test of equal proportions.
+
+%The difference in proportions of upregulated and downregulated genes for each feature were tested with the $\chi^2$ test of equal proportions.
 
 % functional enrichment tests
 For the splicing events found in the joint models, three enrichment tests were performed for different genomic features. 
 For these tests the coordinates of the entire encompassing intron were used for each splicing variant.
-For a null set of splicing events for comparison, a randomly chosen set of 1000 splicing events of each type were used.
-Proportions of overlap between splicing events and the null expectation were tested using a $\chi^2$ test of equal proportions.
+Each test set of splicing events was compared to a matched set of null splicing events where P > 0.05 in both joint models. 
+The null events were chosen to have length and expression levels within the first and third quartiles of that of the test set. 
+
+Proportions of overlap between splicing events and the null set were tested using a $\chi^2$ test of equal proportions.
+
+
+As a positive control in both analyses, the same overlaps were computed with iCLIP clusters from U2AF65, also from \citep{Rogelj2012}. 
 
 The coordinates of polyadenylation cleavage sites were downloaded from the PolyA Site Atlas \citep{Gruber2016}. 
 The proportions of  splicing events that overlapped a polyadenylation cleavage site were compared to the null.
-
-The proportion of events of each variant type that overlapped at least one iCLIP peak  were compared to the null expectation.
 
 Per nucleotide PhyloP conservation scores \citep{Pollard2010-fj} comparing mouse (mm10) with 60 other vertebrates was downloaded from UCSC. 
 The median PhyloP score was calculated for each splicing variant and compared.
@@ -496,12 +511,10 @@ The upregulation of \textit{Xlr3a} is strongest within the all-male Bozzoni data
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=\textwidth]{Figures/06_fus_meta/expression_curated_go_terms.png}
+	\includegraphics[width=10cm]{Figures/06_fus_meta/expression_curated_go_terms.png}
 	\caption[Overlapping genes are enriched in neuronal and RNA terms]{
 		\textbf{Overlapping genes are enriched in neuronal and RNA terms}.
-		\textbf{(A)} Enriched Gene Ontology terms in the three groups of genes, split by direction.
-		\textbf{(B)} Proportions of each set of genes that have any iCLIP clusters within the entire gene or in any particular gene feature, split by direction. 
-		\textit{P}-values are from $\chi^2$ test of equal proportions. \textit{P}-values presented are those below the Bonferroni threshold.
+		Enriched Gene Ontology terms in the three groups of genes, split by direction.
 	}
 	\label{fig:fus_expression_go}
 \end{figure}
@@ -512,19 +525,45 @@ Knockout-specific and mutation-specific genes were less clearly enriched in spec
 Knockout specific genes were involved in extracellular membrane functions, ion channels and amino acid transport whereas the mutant specific genes showed an enrichment in dopaminergic synapses and RNA metabolism.
 
 
-\subsection{ Overlapping genes are bound by FUS in introns and 3\'\ UTRs}
+\subsection{Downregulated genes are enriched for FUS binding peaks}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{Figures/06_fus_meta/multi_iCLIP_gene_expression.png}
+	\caption[Overlapping genes are enriched in neuronal and RNA terms]{
+		\textbf{Downregulated genes are enriched in FUS iCLIP binding peaks}.
+		Proportions of each set of genes that have any iCLIP clusters within the entire gene or in any particular gene feature, split by direction. 
+		Sets of gene were tested for enrichment for either FUS or U2AF65 iCLIP clusters, compared to sets of null genes with similar length and expression characteristics.
+		\textit{P}-values are from $\chi^2$ test of equal proportions and adjusted for multiple testing with Bonferroni correction.
+	}
+	\label{fig:fus_expression_iclip}
+\end{figure}
+
+
 
 Individual nucleotide resolution crosslinking and immunopreciation (iCLIP) is an experimental technique for identifying the RNA targets of RNA-binding proteins. 
 Using iCLIP and other RNA-protein interaction techniques, FUS has been shown to preferentially bind within introns and 3\'\ untranslated regions (3\'\ UTRs) rather than exons. \citep{Lagier-Tourenne2012, Rogelj2012, Ishigaki2012, Masuda2015, Kapeli2016}. 
 FUS binding at the 3\'\ UTR has been shown to influence polyadenylation of certain genes \citep{Masuda2015} but may also have a role in directing mRNA localisation or competing with microRNAs, which in animals predominantly bind 3\'\ UTR sequences to trigger degradation \citep{Lee1993,Carthew2009}.
 A small number of genes have been reported to have FUS binding  sites upstream and antisense of the promoter, which correlated with upregulation of the gene upon FUS knockdown \citep{Ishigaki2012}.
-I used the coordinates of FUS binding sites enriched relative to a background control in a published FUS iCLIP dataset from embryonic day 18 mouse brain \citep{Rogelj2012} to investigate a relationship between specific FUS binding and the direction of gene expression in the different gene sets.
 
-The iCLIP binding profiles of the three sets of genes are similar with introns and 3`UTR sequences most commonly bound (Fig. \ref{fig:fus_expression_go}B).  
-Comparing the proportion of upregulated and downregulated genes that change only in FUS knockout, there is an enrichment in iCLIP clusters in downregulated genes (\textit{P}=5.3e-4, $\chi^2$ test of equal proportions), an enrichment driven primarily by 3\'\ UTR binding (\textit{P}=7.8e-4). 
-This direction preference is not seen in the mutation-specific or overlapping gene sets.
-Promoter-antisense binding is found in a small number of genes and at a similar proportion between gene set and direction of change.
-As the iCLIP used is from predominantly nuclear wildtype FUS, any potential cytoplasmic interactions between NLS mutant FUS and spliced mRNAs cannot be observed.
+% for corrections - write up new methods and interpretation
+I used the coordinates of FUS binding sites enriched relative to a background control in a published FUS iCLIP dataset from embryonic day 18 mouse brain \citep{Rogelj2012} to investigate a relationship between specific FUS binding and the direction of gene expression in the different gene sets. As a positive control I overlapped the same sets of genes with iCLIP clusters from U2AF65, a protein that interacts with the U2 snRNP at the 3' splice site and should therefore be ubiquitous. 
+
+As previously reported, FUS preferentially binds to introns and 3'UTRs over exons \citep{Rogelj2012,Lagier-Tourenne2012}. 
+Promoter-antisense binding is found in a small number of genes and at a similar proportion. 
+Comparing each set of genes to its length and expression-matched null demonstrates a clear enrichment in FUS iCLIP peaks in downregulated genes in all three categories (Knockout specific DOWN P = 1e-5; Mutation specific DOWN P = 0.02; Overlapping DOWN P = 1.5e-8; Fig. \ref{fig:fus_expression_iclip}).  Splitting these genes into features reveals an enrichment in introns especially (Knockout specific DOWN P = 2.3-e5; Overlapping DOWN P = 5.5e-5). 
+In contrast, the gene level overlaps with U2AF65 iCLIP clusters do not differ between the significant and null sets with the exception of a mild enrichment overlapping exons in the upregulated introns (Knockout specific UP P = 0.0079; Overlapping UP P = 0.00076).
+These data suggest that the downregulated genes are bound by FUS, particularly in introns, and these genes may be vulnerable to nuclear FUS loss.
+
+
+%\textsc{% CORRECTIONS - REWRITE
+%The iCLIP binding profiles of the three sets of genes are similar with introns and 3`UTR sequences most commonly bound (Fig. \ref{fig:fus_expression_iclip}B).  
+%Comparing the proportion of upregulated and downregulated genes that change only in FUS knockout, there is an enrichment in iCLIP clusters in downregulated genes (\textit{P}=5.3e-4, $\chi^2$ test of equal proportions), an enrichment driven primarily by 3\'\ UTR binding (\textit{P}=7.8e-4). 
+%This direction preference is not seen in the mutation-specific or overlapping gene sets.
+%}
+%As the iCLIP used is from predominantly nuclear wildtype FUS, any potential cytoplasmic interactions between NLS mutant FUS and spliced mRNAs cannot be observed.
+
+
 
 % wrap up gene expression?
 
@@ -617,6 +656,8 @@ There are no overlapping splicing events that change in opposing directions betw
 		\textbf{(B)} The proportion of each type of splicing variant in each category that overlaps a polyadenylation cleavage site.
 		\textbf{(C)} The proportion of each type of splicing variant in each cateoory that overlaps a FUS iCLIP peak.
 		\textbf{(D)} The proportion of each type of splicing variant in each category that have a median PhyloP conservation score greater than 0.5.
+		Each set of splicing events was compared to a null set of non-significant splicing events with matched length and wildtype expression. 
+		P-values adjusted for multiple testing with the Bonferroni method.
 	}
 	\label{fig:fus_splicing_functions}
 \end{figure}
@@ -741,6 +782,22 @@ Comparison of the two conditions demonstrates that NLS mutations predominantly a
 This leaves only a small number of NLS mutation-specific gene expression changes and almost no mutation-specific splicing changes other than in FUS itself. 
 By studying the mutation-specific splicing changes in FUS I have discovered a novel intron retention transcript that could explain the mechanism by which FUS regulates its own translation.
 
+% comment on gain of function studies
+The lack of a mutation specific effect in gene expression and splicing appears to contrast with previous work. 
+Studies on wildtype and mutant FUS have found evidence of a specific toxic effect of NLS mutant FUS \citep{Verbeeck2012,Mitchell2013,Shiihashi2016, Scekic-zahirovic2016}.
+Scekic-Zahirovic and colleagues observed motor neuron loss in embryonic mice homozygous for NLS mutations, but not in the embryos homozygous for a FUS knockout allele \citep{Scekic-zahirovic2016}, one of the datasets used in this study.
+Their analysis of gene expression saw separation between the two conditions. 
+My subsequent analysis with joint modelling and relaxed overlap thresholds demonstrates that there is in fact little separation. 
+The specific toxicity of NLS mutant FUS to motor neurons may therefore be due to the other molecular roles of FUS not measured in this study.
+
+
+%  Other studies that look at long term effects are not directly comparable as this study exclusively analyses data from embryonic mice homozygote.
+% other skecic paper?
+
+
+% Other factors could be responsible, including the role of FUS in translation or RNA localisation, which goes beyond the scope of this study.
+
+
 The joint modelling approach has allowed me to combine three different RNA sequencing datasets to produce a consensus set of RNA phenotypes.
 Due to the stochastic nature of transcription and splicing combined with the small sample sizes employed, these datasets are inherently variable.
 By combining repeated observations  under the same genetic conditions we can better discover true FUS-associated changes.
@@ -763,6 +820,7 @@ FUS is known to interact on a protein-protein level with multiple splicing facto
 CLIP experiments show that FUS binds a number of these factors at the RNA level \citep{Nakaya2013}.
 Therefore FUS is part of a complex network of RNA and protein interactions with multiple splicing factors. 
 However, why FUS loss acts to upregulate these factors is yet to be discovered.
+FUS has been shown to act as both a splicing repressor and enhancer depending on its position, particularly at minor/U12 introns \citep{Reber2016}. This phenomenon may explain some of my gene expression changes and is worth investigating further.
 % Xlr genes
 I managed to replicate the finding of upregulation of the X-linked lymphocyte receptor (\textit{Xlr}) cluster of genes, first seen in adult FUS knockout mice \citep{Kino2015}, suggesting that FUS loss causes chronic dysregulation of these genes. 
 As Xlr gene overexpression can alter dendritic spine growth and are regulated by the Cux1/2 transcription factors \citep{Cubelos2010}, the mechanism of how FUS loss leads to their upregulation is intriguing. 
@@ -786,8 +844,11 @@ An isoform-centric approach where reads are assigned to specific transcripts \ci
 
 Nevertheless, complex events as well as intron retention events are enriched in FUS iCLIP binding and are more likely to affect splicing factors than the cassette exons I observed. 
 This suggests a more subtle role for FUS in splicing than simply altering alternate cassette exons which have been the focus on previous studies on FUS and splicing \citep{Rogelj2012,Lagier-Tourenne2012,Ishigaki2012,Honda2014,Scekic-zahirovic2016}.
-Interestingly, widespread intron retention among splicing factor genes has been seen in human motor neurons derived from induced pluripotent stem cells containing mutations in the ALS gene VCP \citep{Luisier2018}.
-This study measured splicing over several developmental time points and found a developmental delay in splicing.
+Interestingly, widespread intron retention among splicing factor genes has been seen in human motor neurons derived from induced pluripotent stem cells containing mutations in the ALS gene \textit{VCP} \citep{Luisier2018}.
+This study observed splicing changes over several developmental time points and found a developmental delay in splicing, particularly in intron retention. 
+These retained introns were enriched in RNA-binding gene ontology terms, similarly to what I have observed.
+I overlapped their set of 143 genes that contain differentially retained introns with the set of 219 genes I found to have either retained introns or complex events shared between FUS knockdown and FUS mutation - the "Overlapping" set. 12 genes were common between the two sets, a small but significant overlap (P = 1e-5, Fisher exact test). Significantly, this included FUS itself. 
+This suggests a wider role for intron retention changes in FUS and other splicing factor intron retention in ALS beyond the study of FUS mutations. 
 FUS can bind the C-terminus of RNA polymerase II \citep{Schwartz2012} and a study on the role of FUS in alternate polyadenylation suggested that FUS binding to pre-mRNA can stall RNA polymerase II \citep{Masuda2015}. 
 Transcriptional speed is known to affect splicing as pausing transcription can allow more time for splicing factors to bind weaker affinity sequences \citep{Kornblihtt2004a}. 
 Splicing factor genes themselves are particular vulnerable to changes in transcription speed \citep{Ip2011}.
@@ -826,9 +887,11 @@ It does not conclusively link any of these alterations to motor neuron toxicity 
 It is unclear whether toxicity can be attributed to the 186 mutation-specific genes due to the sharing of gene ontology categories with the overlapping set (RNA processing and synaptic genes). 
 
 The discovery of a novel mechanism for FUS autoregulation is valuable for understanding the role of FUS in disease.
-Autoregulation acts to maintain protein homeostasis but FUS NLS mutations interfere with this.
-When FUS nuclear import is abolished by mutations, there is no way for FUS protein to regulate  its own expression, leading to ever-more cytoplasmic FUS.
-High concentrations of cytoplasmic FUS increase the likelihood for aggregation which NLS mutant FUS is more prone to do \citep{Bosco2010}. 
+Autoregulation acts to maintain protein homeostasis but FUS mutations can interfere with this.
+When FUS nuclear import is abolished by mutations in the NLS, there is no way for FUS protein to regulate  its own expression, leading to ever-more cytoplasmic FUS.
+ % corrections - Bozzoni 3'UTR mutation
+Increased FUS protein has been seen in ALS patients with a mutation in the FUS 3'UTR, which alters a microRNA binding site \citep{Modigliani2014}, highlighting the relevance of protein homeostasis to disease.
+High concentrations of cytoplasmic FUS protein increase the likelihood for aggregation which NLS mutant FUS is more prone to do \citep{Bosco2010}. 
 This increased propensity may be due to the recent finding that NLS acts to solubilise FUS aggregates through binding to Transportin \citep{Guo2018,Yoshizawa2018,Hofweber2018}.
 In FUS ALS, patients only have a single copy of NLS mutant FUS. 
 Selectively removing the mutant copy, at either a DNA or RNA level, should all but prevent cytoplasmic mislocalisation while maintaining nuclear FUS levels due to the compensatory nature of autoregulation. 

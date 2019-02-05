@@ -203,7 +203,7 @@
 		\textit{MED23} & ENSG00000112282 & E025i1 & chr6  & 131599465 & 131599512 & -     & 0.12  & 0.12  & Cassette & mRNA  & -0.75 & . & 0.108663 & PTC/frame shifted & 3.14  &  10.13 \\ \hline
 		\textit{POLK} & ENSG00000122008 & E019i1 & chr5  & 75580537 & 75580602 & +     & 0.14  & 0.16  & Cassette & mRNA  & -0.74 & . & 0.330324 & benign/frame conserved & 8.55  &  2.26 \\ \hline
 		\textit{TRPM7} & ENSG00000092439 & E027i1 & chr15 & 50588190 & 50588250 & -     & 0.08  & 0.07  & Cassette & mRNA  & -0.35 & . & 0.391366 & benign/frame conserved & 8.27  &  5.73 \\ \hline
-		\textit{TRIM37} & ENSG00000108395 & E029i1 & chr17 & 59076653 & 59076734 & -     & 0.11  & 0.13  & Cassette & mRNA  & -0.33 & . & 0.0130702 & PTC/frame conserved & 8.72  &  3.56 \\ \hline
+		\textit{Tretained intronM37} & ENSG00000108395 & E029i1 & chr17 & 59076653 & 59076734 & -     & 0.11  & 0.13  & Cassette & mRNA  & -0.33 & . & 0.0130702 & PTC/frame conserved & 8.72  &  3.56 \\ \hline
 		\textit{C4orf32} & ENSG00000174749 & E001i1 & chr4  & 112180673 & 112180858 & +     & 0.20  & 0.19  & Cassette & mRNA  & -1.16 & -0.62 & 0.271923 & PTC/frame shifted & 4.80  &  5.88 \\ \hline
 		\textit{ZCCHC6} & ENSG00000083223 & E004i1 & chr9  & 86301739 & 86301828 & -     & 0.06  & 0.06  & Cassette & mRNA  & . & 0.25  & 0.139962 & PTC/frame shifted & -0.63 &  6.03 \\ \hline
 		\textit{ANKRD26} & ENSG00000107890 & E045i1 & chr10 & 27098179 & 27098326 & -     & 0.06  & 0.11  & Cassette & mRNA  & -1.17 & . & 0.103968 & PTC/frame conserved & 9.06  &  8.66 \\ \hline
@@ -539,6 +539,93 @@
 }
 	\label{fig:fus_traces}
 \end{figure}
+
+
+% Gene expression and length distributions
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{Figures/06_fus_meta/appendix_expression_length_comparisons.pdf}
+	\caption[Characteristics of differentially expressed genes]{
+		\textbf{Characteristics of differentially expressed genes} 
+		\textbf{(A)} Sets of non-significant (None) and significant genes grouped by direction of expression. Boxplots show distribution of the $log_10$(length) in base pairs of the major transcript according to Ensembl. 
+		\textbf{(B)} Boxplots show distribution of the average gene expression in normalized read counts from the wildtype Fratta samples. Notches denote the 95\% confidence interval around the median.
+	}
+	\label{fig:fus_dex_length}
+\end{figure}
+
+
+% splicing and length distributions
+
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{Figures/06_fus_meta/splicing_confounding_supplementary.pdf}
+	\caption[Characteristics of differential splicing events]{
+		\textbf{Characteristics of differential splicing events}
+		Splicing events separated by category, with density plots showing the normalized distribution of read depths (upper panels) or event length (lower panels). Separate distributions are plotted for Overlapping events (purple), Knockout-specific events (red) and non-significant events (grey).
+	}
+	\label{fig:fus_dsp_length}
+\end{figure}
+
+% Demonstrate correction
+
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{Figures/06_fus_meta/splicing_iclip_background_set_appendices.png}
+	\caption[Selecting an appropriate background or null set of splicing events]{
+		\textbf{Selecting an appropriate background or null set of splicing events}
+	Four analyses of FUS and U2AF65 iCLIP clusters overlapping sets of significant and null sets of splicing events. 1. Comparison with all non-significant events shows strong enrichment of U2AF65 clusters in the significant splicing events. 2. Null events have matching depth distribution. 3. Null events have matching length distribution. 4. Null events match significant events for both length and depth.
+	}
+	\label{fig:fus_background_selection}
+\end{figure}
+
+\clearpage
+
+% Luisier overlap
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=8cm]{Figures/06_fus_meta/luisier_overlap.png}
+	\caption[ FUS-regulated splicing events overlap with those seen in ALS mutant motor neurons ]{
+		\textbf{FUS-regulated splicing events overlap with those seen in ALS mutant motor neurons}
+		Genes with retained introns found in Luisier \textit{et al} on a study of differentiating human motor neurons comparing the effect of the ALS-associated mutation in VCP, overlapped with genes found to have either retained introns or complex events in both the FUS knockout and FUS mutation joint splicing models.
+		P = 1.5e-5, Fisher's exact test. Background set used: 11,251 genes present in SGSeq splicing analysis.
+	}
+	\label{fig:fus_luisier}
+\end{figure}
+
+
+\begin{table}[!htbp] \centering 
+	\caption[Splicing events that overlap with Luisier et al]{
+		\textbf{Splicing events that overlap with Luisier et al}
+	} 
+\label{append:skiptics} 
+	\begin{tabular}{@{\extracolsep{5pt}} ccccccc} 
+		\\[-1.8ex]\hline 
+		\hline \\[-1.8ex] 
+		gene  &  coords  & event & variant & nearest FUS & median \\
+		name & (mm10) & length/bp & type & iCLIP cluster/kb & phyloP \\ 
+		\hline \\[-1.8ex] 
+		\textit{Atp13a3} & chr16:30357274-30361420 & $4146$ & complex & $0.54$ & $0.234$ \\ 
+		\textit{Ccdc88a} & chr11:29494093-29499335 & $5242$ & complex & $66$ & $0.439$ \\ 
+		\textit{ Cdc16 }& chr8:13767587-13768561 & $974$ & retained intron & $158$ & $0.244$ \\ 
+		\textit{Fbxl5} & chr5:43759825-43760707 & $882$ & retained intron & $646$ & $0.002$ \\ 
+		 \textit{Fus} & chr7:127972770-127974400 & $1630$ & retained intron & $0$ & $1.206$ \\ 
+		\textit{Hnrnpdl} & chr5:100036195-100036481 & $286$ & retained intron & $0.31$ & $0.061$ \\ 
+		\textit{Mfn1} & chr3:32562893-32563012 & $119$ & retained intron & $0$ & $0.255$ \\ 
+		\textit{Ncor1 }& chr11:62401267-62403799 & $2532$ & complex & $2.80$ & $0.878$ \\ 
+		\textit{Papola} & chr12:105829277-105834710 & $5433$ & complex & $7.32$ & $0.234$ \\ 
+		\textit{Rbm6} & chr9:107833507-107838835 & $5328$ & retained intron & $13.8$ & $0.150$ \\ 
+		\textit{Srsf5} & chr12:80947865-80948129 & $264$ & retained intron & $0$ & $1.712$ \\ 
+		 \textit{Tcerg1} & chr18:42550108-42551110 & $1002$ & retained intron & $25.5$ & $0.428$ \\ 
+		\hline \\[-1.8ex] 
+	\end{tabular} 
+\end{table} 
+
 
 
 
